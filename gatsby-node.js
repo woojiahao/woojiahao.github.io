@@ -27,3 +27,42 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     console.log(filePath)
   }
 }
+
+/**
+ * Creates the pages from the respective slugs.
+ */
+exports.createPages = async ({graphql, actions}) => {
+  const {createPage} = actions
+  const result = await graphql(`
+    query {
+      allProjectsJson {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  result.data.allProjectsJson.edges.forEach(({node}) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/project-listing.js`),
+      context: {
+        slug: node.fields.slug
+      }
+    })
+  })
+}
