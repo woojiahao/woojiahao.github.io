@@ -1,11 +1,21 @@
 .home-container {
-  margin: 2rem auto;
-  max-width: 800px;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 700px;
   display: flex;
+  align-items: center;
 }
 
 .main-container {
 
+}
+
+.links {
+  display: flex;
+}
+
+.links p:not(:last-child) {
+  margin-right: 15px;
 }
 
 .contact-container {

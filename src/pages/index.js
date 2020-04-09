@@ -12,7 +12,7 @@ export default () => (
         learning various programming languages to diversify my knowledge such as implementing the BitTorrent protocol
         using Go or learning Gatsby.js to build this site.
       </p>
-      <div>
+      <div className={indexStyles.links}>
         <p>Projects</p>
         <p>Blog</p>
         <p>About Me</p>
