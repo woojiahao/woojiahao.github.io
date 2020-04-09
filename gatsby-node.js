@@ -57,12 +57,20 @@ exports.createPages = async ({graphql, actions}) => {
   `)
 
   result.data.allProjectsJson.edges.forEach(({node}) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/project-listing.js`),
-      context: {
-        slug: node.fields.slug
-      }
-    })
+    generatePage(createPage, node.fields.slug, `project-listing`)
+  })
+
+  result.data.allMarkdownRemark.edges.forEach(({node}) => {
+    generatePage(createPage, node.fields.slug, `blog-post`)
+  })
+}
+
+const generatePage = (createPage, slug, template) => {
+  createPage({
+    path: slug,
+    component: path.resolve(`./src/templates/${template}.js`),
+    context: {
+      slug: slug
+    }
   })
 }

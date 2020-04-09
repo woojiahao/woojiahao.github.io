@@ -1,6 +1,6 @@
-html, body, #___gatsby {
-  overflow-y: auto;
-}
+/*html, body, #___gatsby {*/
+/*  overflow-y: scroll;*/
+/*}*/
 
 .layout {
   margin: 3rem auto;

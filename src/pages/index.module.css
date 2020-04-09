@@ -1,3 +1,7 @@
+html, body, #___gatsby {
+  overflow-y: hidden;
+}
+
 .home-container {
   height: 100vh;
   margin: 0 auto;
