@@ -22,11 +22,11 @@ export default () => (
       </p>
 
       <div className={indexStyles.links}>
-        <strong>Check out my work!</strong>
-        <Link to="/projects">Projects</Link>
+        <strong>Get to know me!</strong>
         <Link to="/blog">Blog</Link>
-        <Link to="/recommendations">Recommendations</Link>
+        <Link to="/projects">Projects</Link>
         <Link to="/about">About Me</Link>
+        <Link to="/recommendations">Recommendations</Link>
       </div>
 
       <div className={indexStyles.contact}>

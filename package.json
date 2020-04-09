@@ -24,6 +24,9 @@
     "react-dom": "^16.13.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "typography-theme-lincoln": "^0.16.19"
+    "typography-theme-kirkham": "^0.16.19",
+    "typography-theme-parnassus": "^0.16.19",
+    "typography-theme-st-annes": "^0.16.19",
+    "typography-theme-sutro": "^0.16.19"
   }
 }
