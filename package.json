@@ -1,0 +1,25 @@
+{
+  "name": "woojiahao.github.io",
+  "version": "1.0.0",
+  "description": "Personal site built using Gatsby.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woojiahao/woojiahao.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woojiahao/woojiahao.github.io/issues"
+  },
+  "homepage": "https://github.com/woojiahao/woojiahao.github.io#readme",
+  "dependencies": {
+    "gatsby": "^2.20.14",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
