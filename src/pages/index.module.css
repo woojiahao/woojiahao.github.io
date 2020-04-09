@@ -4,20 +4,24 @@
   max-width: 700px;
   display: flex;
   align-items: center;
+  justify-items: center;
 }
 
 .main-container {
-
+  margin-right: 30px;
 }
 
 .links {
   display: flex;
 }
 
-.links p:not(:last-child) {
+.contact {
+  display: flex;
+}
+
+.links p:not(:last-child),
+.contact p:not(:last-child),
+strong {
   margin-right: 15px;
 }
 
-.contact-container {
-
-}
