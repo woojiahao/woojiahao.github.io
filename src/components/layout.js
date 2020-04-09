@@ -16,5 +16,8 @@ export default ({children}) => (
       </nav>
     </header>
     {children}
+    <footer>
+      Copyright &copy; 2020. A Programmer's Perspective is built with Gatsby.js.
+    </footer>
   </div>
 )

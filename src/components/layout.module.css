@@ -1,3 +1,7 @@
+html, body, #___gatsby {
+  overflow-y: auto;
+}
+
 .layout {
   margin: 3rem auto;
   max-width: 900px;
