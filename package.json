@@ -19,7 +19,11 @@
   "homepage": "https://github.com/woojiahao/woojiahao.github.io#readme",
   "dependencies": {
     "gatsby": "^2.20.14",
+    "gatsby-plugin-typography": "^2.4.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-lincoln": "^0.16.19"
   }
 }
