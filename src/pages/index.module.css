@@ -19,8 +19,8 @@
   display: flex;
 }
 
-.links p:not(:last-child),
-.contact p:not(:last-child),
+.links a:not(:last-child),
+.contact a:not(:last-child),
 strong {
   margin-right: 15px;
 }

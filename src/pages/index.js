@@ -7,34 +7,33 @@ export default () => (
     <div className={indexStyles.mainContainer}>
       <h1>Hi! 👋 I am Woo Jia Hao!</h1>
       <p>
-        I am a software developer from the tiny red dot - Singapore! I recently graduated from Singapore Polytechnic
-        with a Diploma in Information Technology. I am actively learning and <Link to="/blog">sharing about my
-        journey
-        in programming.</Link> I am currently working on <Link to="/projects"> several projects</Link> and
-        learning
-        various programming languages to diversify my knowledge such as <Link to="/torrent-go">implementing the
-        BitTorrent protocol using Go</Link> or <Link to="woojiahao-github-io">learning Gatsby.js to build this
-        site.</Link>
+        I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I recently
+        graduated from Singapore Polytechnic with a Diploma in Information Technology. I am actively learning and <Link
+        to="/blog">sharing about my journey in programming.</Link> I am currently working on <Link
+        to="/projects"> several projects</Link> and learning various programming languages to diversify my knowledge
+        such as <Link to="/torrent-go">implementing the BitTorrent protocol using Go</Link> or <Link
+        to="woojiahao-github-io">learning Gatsby.js to build this site.</Link>
       </p>
 
       <p>
-        When I am not programming, I am learning about <Link to="/recommendations">various topics</Link> across
-        different domains! I also love to run and exercise.
+        When I am not programming, I am reading about <Link to="/recommendations">various topics</Link> across
+        different domains! I also love to run and exercise. I am also currently learning Japanese and how to play the
+        guitar!
       </p>
 
       <div className={indexStyles.links}>
         <strong>Check out my work!</strong>
-        <p>Projects</p>
-        <p>Blog</p>
-        <p>Recommendations</p>
-        <p>About Me</p>
+        <Link to="/projects">Projects</Link>
+        <Link to="/blog">Blog</Link>
+        <Link to="/recommendations">Recommendations</Link>
+        <Link to="/about">About Me</Link>
       </div>
 
       <div className={indexStyles.contact}>
         <strong>Stalk me!</strong>
-        <p>GitHub</p>
-        <p>Discord</p>
-        <p>LinkedIn</p>
+        <a href="https://github.com/woojiahao">GitHub</a>
+        <a href="https://discord.gg/programming">Discord</a>
+        <a href="https://www.linkedin.com/in/woo-jia-hao-089346155/">LinkedIn</a>
       </div>
     </div>
   </div>
