@@ -19,11 +19,6 @@ module.exports = {
         path: `./src/posts/projects/`
       }
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        path: `./src/posts/blog-posts/`
-      }
-    }
+    `gatsby-transformer-remark`,
   ]
 }
