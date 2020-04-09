@@ -5,7 +5,7 @@ import {Link} from "gatsby"
 export default () => (
   <div className={indexStyles.homeContainer}>
     <div className={indexStyles.mainContainer}>
-      <h1>Hi! 👋 I am Woo Jia Hao!</h1>
+      <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Woo Jia Hao!</h1>
       <p>
         I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I recently
         graduated from Singapore Polytechnic with a Diploma in Information Technology. I am actively learning and <Link
