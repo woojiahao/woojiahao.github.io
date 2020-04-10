@@ -1,0 +1,22 @@
+.blog-card {
+}
+
+.title {
+}
+
+.subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: gray;
+}
+
+.excerpt {
+
+}
+
+

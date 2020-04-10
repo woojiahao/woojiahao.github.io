@@ -1,0 +1,27 @@
+.home-container {
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.main-container {
+  margin-right: 30px;
+}
+
+.links {
+  display: flex;
+}
+
+.contact {
+  display: flex;
+}
+
+.links a:not(:last-child),
+.contact a:not(:last-child),
+strong {
+  margin-right: 15px;
+}
+
