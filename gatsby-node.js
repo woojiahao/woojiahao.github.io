@@ -72,7 +72,7 @@ exports.createPages = async ({graphql, actions}) => {
   const blogPosts = result.data.allMarkdownRemark.edges
   // Generate the paginated blog pages
   const numPages = Math.ceil(blogPosts.length / postsPerPage)
-  for (let pageNumber = 1; pageNumber < numPages; pageNumber++) {
+  for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
     const slug = pageNumber === 1 ? `/blog/` : `/blog/${pageNumber}`
     createPage({
       path: slug,
