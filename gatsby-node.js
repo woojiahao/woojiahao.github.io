@@ -40,40 +40,19 @@ exports.createPages = async ({graphql, actions}) => {
     query {
       allProjectsJson {
         edges {
-          node {
-            fields {
-              slug
-            }
-          }
-          next {
-            fields {
-              slug
-            }
-          }
-          previous {
-            fields {
-              slug
-            }
-          }
+          node { fields { slug } }
+          next { fields { slug } }
+          previous { fields { slug } }
         }
       }
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}, filter: {frontmatter: {published: {eq: true}}}) {
+      allMarkdownRemark(
+        sort: {fields: frontmatter___date, order: ASC}, 
+        filter: {frontmatter: {published: {eq: true}}}
+      ) {
         edges {
-          node {
-            fields {
-              slug
-            }
-          }
-          next {
-            fields {
-              slug
-            }
-          }
-          previous {
-            fields {
-              slug
-            }
-          }
+          node { fields { slug } }
+          next { fields { slug } }
+          previous { fields { slug } }
         }
       }
     }
