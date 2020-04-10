@@ -27,7 +27,6 @@ exports.onCreateNode = ({node, getNode, actions}) => {
       name: `slug`,
       value: filePath
     })
-    console.log(filePath)
   }
 }
 
@@ -45,6 +44,16 @@ exports.createPages = async ({graphql, actions}) => {
               slug
             }
           }
+          next {
+            fields {
+              slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+          }
         }
       }
       allMarkdownRemark {
@@ -54,26 +63,36 @@ exports.createPages = async ({graphql, actions}) => {
               slug
             }
           }
+          next {
+            fields {
+              slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+          }
         }
       }
     }
   `)
 
-  result.data.allProjectsJson.edges.forEach(({node}) => {
-    generatePage(createPage, node.fields.slug, `project-listing`)
+  result.data.allProjectsJson.edges.forEach(({node, next, previous}) => {
+    generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `project-listing`)
   })
 
-  result.data.allMarkdownRemark.edges.forEach(({node}) => {
-    generatePage(createPage, node.fields.slug, `blog-post`)
+  result.data.allMarkdownRemark.edges.forEach(({node, next, previous}) => {
+    generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `blog-post`)
   })
 }
 
-const generatePage = (createPage, slug, template) => {
+const processNodeSlug = (node) => node !== null ? node.fields.slug : null
+
+const generatePage = (createPage, slug, next, prev, template) => {
   createPage({
     path: slug,
     component: path.resolve(`./src/templates/${template}.js`),
-    context: {
-      slug: slug
-    }
+    context: {slug, next, prev}
   })
 }
