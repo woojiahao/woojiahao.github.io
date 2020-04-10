@@ -9,3 +9,4 @@ Personal site built using Gatsby.js
 - [ ] Add dark theme
 - [ ] Add post navigation
 - [ ] Add tag system for blog posts
+- [ ] Add pagination for blog and project list
