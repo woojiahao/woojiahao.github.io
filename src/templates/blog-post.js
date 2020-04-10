@@ -8,8 +8,8 @@ export default ({data, pageContext}) => {
   const post = data.markdownRemark
   const title = getTitle(post.fields.slug, post.frontmatter.title)
 
-  const nextPost = new Post(data.allMarkdownRemark.edges.filter(({node}) => node.fields.slug === pageContext.next)[0].node)
-  const prevPost = new Post(data.allMarkdownRemark.edges.filter(({node}) => node.fields.slug === pageContext.prev)[0].node)
+  const nextPost = new Post(filterNode(data.allMarkdownRemark.edges, pageContext.next))
+  const prevPost = new Post(filterNode(data.allMarkdownRemark.edges, pageContext.prev))
 
   return (
     <Layout>
@@ -28,10 +28,19 @@ export default ({data, pageContext}) => {
 
 class Post {
   constructor(node) {
+    if (!node) {
+      this.published = false
+      return
+    }
     this.slug = node.fields.slug
     this.title = getTitle(this.slug, node.frontmatter.title)
     this.published = node.frontmatter.published
   }
+}
+
+const filterNode = (edges, target) => {
+  const matching = edges.filter(({node}) => node.fields.slug === target)
+  return matching.length !== 0 ? matching[0].node : undefined
 }
 
 export const query = graphql`
