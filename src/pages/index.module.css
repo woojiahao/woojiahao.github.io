@@ -1,5 +1,9 @@
-html, body, #___gatsby {
+body, #___gatsby {
   overflow-y: hidden;
+}
+
+html {
+  overflow-y: auto;
 }
 
 .home-container {
