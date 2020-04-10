@@ -1,7 +1,3 @@
-html, body, #___gatsby {
-  overflow-y: scroll;
-}
-
 .blog-card {
 }
 
@@ -10,16 +6,13 @@ html, body, #___gatsby {
 
 .subtitle {
   display: flex;
-  margin: 0;
   justify-content: space-between;
 }
 
 .subtitle h2 {
   margin-top: 0;
-}
-
-.subtitle .time-to-read::after {
-  content: " minutes";
+  margin-bottom: 15px;
+  color: gray;
 }
 
 .excerpt {
