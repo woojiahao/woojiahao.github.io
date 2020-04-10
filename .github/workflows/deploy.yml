@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: Install dependencies
-        run: npm install -g gatsby-cli && npm install --no-optional
+      - name: Installing Gatsby CLI
+        run: npm install -g gatsby-cli
 
       - name: Setting Git credentials
         run: git config --global user.email "woojiahao1234@gmail.com" && git config --global user.name "woojiahao"
