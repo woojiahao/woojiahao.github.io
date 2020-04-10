@@ -27,8 +27,14 @@ export default ({data, pageContext}) => {
 }
 
 export const query = graphql`
-  query ($slug: String!, $prev: String, $next: String, $limit: Int!, $skip: Int!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+  query (
+    $slug: String!,
+    $prev: String, 
+    $next: String
+   ) {
+    markdownRemark(
+      fields: {slug: {eq: $slug}}
+    ) {
       html
       frontmatter {
         title
@@ -37,9 +43,7 @@ export const query = graphql`
       fields { slug }
     }
     allMarkdownRemark(
-      filter: {fields: {slug: {in: [$next, $prev]}}},
-      limit: $limit,
-      skip: $skip
+      filter: {fields: {slug: {in: [$next, $prev]}}}
     ) {
       edges {
         node {
