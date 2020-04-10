@@ -27,4 +27,4 @@ jobs:
 
       - name: Build the site
         run: gatsby build && npm run deploy
-        env: ${{ GH_TOKEN }}
+        env: ${{ secrets.GH_TOKEN }}
