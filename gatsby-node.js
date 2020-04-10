@@ -18,7 +18,10 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     const filename = parts[parts.length - 2]
     // If the file is a .md file, it's a blog post
     // If the file is a .json file, it's a project listing
-    const filePath = nodeType === `MarkdownRemark` ? `/blog/${filename}/` : `/projects/${filename}/`
+    const parent = nodeType === `MarkdownRemark` ? `blog` : `projects`
+    const filePath = `/${parent}/posts/${filename}`
+
+    // Adds a field to the GraphQL schema with fields { slug }
     createNodeField({
       node,
       name: `slug`,
