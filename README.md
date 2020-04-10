@@ -11,3 +11,4 @@ Personal site built using Gatsby.js
 - [ ] Add tag system for blog posts
 - [ ] Add pagination for blog and project list
 - [ ] Use fragments to organise queries
+- [ ] Render the markdown files of each project in the project listing?
