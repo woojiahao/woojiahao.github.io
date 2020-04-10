@@ -10,6 +10,10 @@ export default ({data}) => {
       {posts.map(({node: post}) => {
         const parts = post.fields.slug
         const title = post.frontmatter.title || parts[parts.length - 2]
+
+        const ttr = post.timeToRead
+        const timeToReadText = post.timeToRead <= 1 ? `${ttr} minute` : `${ttr} minutes`
+
         return (
           <div className={blogStyles.blogCard}>
             <Link to={post.fields.slug}>
@@ -17,7 +21,7 @@ export default ({data}) => {
             </Link>
             <div className={blogStyles.subtitle}>
               <h2>{post.frontmatter.date}</h2>
-              <h2 className={blogStyles.timeToRead}>{post.timeToRead}</h2>
+              <h2 className={blogStyles.timeToRead}>{timeToReadText}</h2>
             </div>
             <p className={blogStyles.excerpt}>{post.excerpt}</p>
           </div>
