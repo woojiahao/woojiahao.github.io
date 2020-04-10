@@ -28,7 +28,6 @@ export const query = graphql`
     allMarkdownRemark(filter: { frontmatter: { published: { eq: true } } }, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          id
           excerpt
           timeToRead
           frontmatter {
