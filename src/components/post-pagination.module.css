@@ -1,0 +1,14 @@
+.paginator {
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.active-page {
+  color: black;
+  font-weight: bold;
+}
+
+.page-number {
+  padding: 5px;
+}

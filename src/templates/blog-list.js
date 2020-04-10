@@ -9,8 +9,6 @@ export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
-      <PostPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages}/>
-
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.frontmatter.title)
 
@@ -30,6 +28,7 @@ export default ({data, pageContext}) => {
           </div>
         )
       })}
+      <PostPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages}/>
     </Layout>
   )
 }
