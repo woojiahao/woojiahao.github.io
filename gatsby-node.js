@@ -35,6 +35,7 @@ exports.onCreateNode = ({node, getNode, actions}) => {
  */
 // TODO Add page published condition checking to JSON files as well
 exports.createPages = async ({graphql, actions}) => {
+  const postsPerPage = 10
   const {createPage} = actions
   const result = await graphql(`
     query {
@@ -59,19 +60,47 @@ exports.createPages = async ({graphql, actions}) => {
   `)
 
   result.data.allProjectsJson.edges.forEach(({node, next, previous}) => {
-    generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `project-listing`)
+    generatePage(
+      createPage,
+      node.fields.slug,
+      processNodeSlug(next),
+      processNodeSlug(previous),
+      `project-listing`
+    )
   })
 
-  // GraphQL returns next as the node after the current and previous as the node before
-  // However, our logical layout is next <-> current <-> previous for posts so we have to sort the
-  // posts by ASC dates so that it will follow this logical layout
-  result.data.allMarkdownRemark.edges.forEach(({node, next, previous}) => {
-    generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `blog-post`)
+  const blogPosts = result.data.allMarkdownRemark.edges
+  // Generate the paginated blog pages
+  const numPages = Math.ceil(blogPosts.length / postsPerPage)
+  for (let pageNumber = 1; pageNumber < numPages; pageNumber++) {
+    const slug = pageNumber === 1 ? `/blog/` : `/blog/${pageNumber}`
+    createPage({
+      path: slug,
+      component: path.resolve(`./src/templates/blog-list.js`),
+      context: {
+        currentPage: pageNumber,
+        numPages,
+        limit: postsPerPage,
+        skip: (pageNumber - 1) * postsPerPage
+      }
+    })
+  }
+
+  // Generate the individual blog posts
+  blogPosts.forEach(({node, next, previous}) => {
+    generatePage(
+      createPage,
+      node.fields.slug,
+      processNodeSlug(next),
+      processNodeSlug(previous),
+      `blog-post`
+    )
   })
 }
 
 const processNodeSlug = node => node !== null ? node.fields.slug : null
 
+// Generates individual posts
 const generatePage = (createPage, slug, next, prev, template) => {
   createPage({
     path: slug,
