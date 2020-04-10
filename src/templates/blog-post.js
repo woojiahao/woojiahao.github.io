@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import {graphql, Link} from "gatsby"
 import {getTitle} from "../utils/general"
 import blogPostStyles from "./blog-post.module.css"
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight, FaHome} from "react-icons/all"
 
 export default ({data, pageContext}) => {
   const post = data.markdownRemark
@@ -18,9 +19,34 @@ export default ({data, pageContext}) => {
         <h4 className={blogPostStyles.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
       </div>
+
       <div className={blogPostStyles.navigation}>
-        {nextPost.published && <p><Link to={nextPost.slug}>Next: {nextPost.title}</Link></p>}
-        {prevPost.published && <p><Link to={prevPost.slug}>Prev: {prevPost.title}</Link></p>}
+        <hr/>
+        <div className={blogPostStyles.buttons}>
+          {nextPost.published ?
+            <p>
+              <Link to={nextPost.slug}>
+                <FaArrowAltCircleLeft style={{"margin-right": `15px`}}/>{nextPost.title}
+              </Link>
+            </p> :
+            <p>
+              <Link to="/blog">
+                <FaHome style={{"margin-right": `15px`}}/> Home</Link>
+            </p>
+          }
+          {prevPost.published ?
+            <p>
+              <Link to={prevPost.slug}>
+                {prevPost.title}<FaArrowAltCircleRight style={{"margin-left": `15px`}}/>
+              </Link>
+            </p> :
+            <p>
+              <Link to="/blog">
+                <FaHome style={{"margin-right": `15px`}}/> Home
+              </Link>
+            </p>
+          }
+        </div>
       </div>
     </Layout>
   )
