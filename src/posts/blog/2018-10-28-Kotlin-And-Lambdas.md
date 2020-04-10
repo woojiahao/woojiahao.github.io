@@ -1,6 +1,7 @@
 ---
 published: true
 title: "Familiarising yourself with lambdas in Kotlin"
+date: "2018-10-28"
 ---
 Kotlin is a language that was built on top of the JVM and what really sets it apart from Java is the emphasis on 
 **functions being a first-class construct**, meaning many fancy things like lambdas are directly available to Kotlin

@@ -1,6 +1,7 @@
 ---
 published: true
 title: Heroku x Docker x Discord bot x Kotlin
+date: "2019-08-31"
 ---
 
 You may be wondering what's up with the over the top, nearly fan-ship name, trust me, I was not on anything when I wrote this.

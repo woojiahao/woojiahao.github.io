@@ -1,6 +1,7 @@
 ---
 published: true
 title: "Writing a wrapper"
+date: "2018-12-16"
 ---
 During my first semester of my second year in Polytechnic, I began writing a simple wrapper for the [Spotify Web API](https://developer.spotify.com/documentation/web-api/quick-start/) as I was interesting in the process of developing a 
 library for other developers to use and this was something that I saw as an opportunity. 

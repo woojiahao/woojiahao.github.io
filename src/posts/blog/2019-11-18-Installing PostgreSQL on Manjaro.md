@@ -1,5 +1,7 @@
 ---
-published: true
+published: false
+title: "Installing PostgreSQL on Manjaro"
+date: "2019-11-18"
 ---
 
 I wanted to write this post to quickly go over the installation steps for getting PostgreSQL installed on a Manjaro installation.

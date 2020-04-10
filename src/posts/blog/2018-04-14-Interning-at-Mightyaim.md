@@ -1,6 +1,7 @@
 ---
 published: true
 title: "Interning at MightyAim - the good, the bad and the ugly"
+date: "2018-04-14"
 ---
 From February 2018 to April 2018, I interned at the accessibility company [MightyAim](http://mightyaim.co/). When I joined, I was assigned to complete the basic Android framework. There was no one on the Android team, so I was left to my own vices to create this framework. 
 

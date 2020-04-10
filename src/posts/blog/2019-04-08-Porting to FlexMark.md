@@ -1,5 +1,7 @@
 ---
 published: true
+title: "Porting to FlexMark"
+date: "2019-04-08"
 ---
 
 kMD2PDF now finally uses [FlexMark](https://github.com/vsch/flexmark-java) as the back end for the markdown to html 

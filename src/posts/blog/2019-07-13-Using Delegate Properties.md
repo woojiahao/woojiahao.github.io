@@ -1,6 +1,7 @@
 ---
 published: true
 title: "Applications of Kotlin's delegate properties"
+date: "2019-07-13"
 ---
 
 ## Announcement time!

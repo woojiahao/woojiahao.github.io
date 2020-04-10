@@ -1,5 +1,7 @@
 ---
 published: true
+title: "Introducing Omnius"
+date: "2019-02-24"
 ---
 
 Every developer will encounter slumps where they have no idea what to do and nothing in their life challenges them

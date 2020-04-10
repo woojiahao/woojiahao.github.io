@@ -1,6 +1,7 @@
 ---
 published: true
 title: "Breaking down KML files"
+date: "2018-06-20"
 ---
 ## Introduction
 During my second year, I took a data science course and in there, we were instructed to take data sets from https://data.gov.sg about housing and provide analysis on the data and present our findings at the end of the assignment. Whilst looking through the data sets, I found that some files were in this mysterious file format: `.kml` and that piqued my interest. So as I did more research, I began to learn more about KML and even took the time out to try to make a [KML to CSV file conversion tool](https://github.com/woojiahao/KMLConversionTool).

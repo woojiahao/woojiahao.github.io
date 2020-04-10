@@ -1,5 +1,6 @@
 ---
 published: false
+title: "Creating Passion (Discord Bot)"
 ---
 Discord bots have become increasingly popular to develop due to the multitude of simple to set up libraries available out there, most notably is [discord.js](https://discord.js.org/#/), a JavaScript library built to make quick and easy discord bots. However, being a Java main, I have decided to undertake this task using the [JDA](https://github.com/DV8FromTheWorld/JDA) library.
 

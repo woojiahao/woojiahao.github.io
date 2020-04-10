@@ -1,5 +1,7 @@
 ---
 published: false
+title: "Experience creating TourPixie"
+date: "2018-04-04"
 ---
 ## What is TourPixie?
 

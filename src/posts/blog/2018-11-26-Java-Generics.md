@@ -1,6 +1,7 @@
 ---
 published: true
 title: "An investigation into generics in Java"
+date: "2018-11-26"
 ---
 Generics was a feature introduced in [Java 5](https://en.wikipedia.org/wiki/Generics_in_Java) and it has changed how 
 Java developers write code.
