@@ -10,3 +10,4 @@ Personal site built using Gatsby.js
 - [ ] Add post navigation
 - [ ] Add tag system for blog posts
 - [ ] Add pagination for blog and project list
+- [ ] Use fragments to organise queries
