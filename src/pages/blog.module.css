@@ -1,0 +1,29 @@
+html, body, #___gatsby {
+  overflow-y: scroll;
+}
+
+.blog-card {
+}
+
+.title {
+}
+
+.subtitle {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.subtitle h2 {
+  margin-top: 0;
+}
+
+.subtitle .time-to-read::after {
+  content: " minutes";
+}
+
+.excerpt {
+
+}
+
+
