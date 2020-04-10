@@ -8,3 +8,4 @@ Personal site built using Gatsby.js
 - [ ] Add "Back" button when in post
 - [ ] Add dark theme
 - [ ] Add post navigation
+- [ ] Add tag system for blog posts
