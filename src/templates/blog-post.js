@@ -23,6 +23,17 @@ export default ({data, pageContext}) => {
       <div className={blogPostStyles.navigation}>
         <hr/>
         <div className={blogPostStyles.buttons}>
+          {nextPost.published ?
+            <p>
+              <Link to={nextPost.slug}>
+                <FaArrowAltCircleLeft style={{marginRight: `15px`}}/>{nextPost.title}
+              </Link>
+            </p> :
+            <p>
+              <Link to="/blog">
+                <FaHome style={{marginRight: `15px`}}/> Home</Link>
+            </p>
+          }
           {prevPost.published ?
             <p>
               <Link to={prevPost.slug}>
@@ -33,17 +44,6 @@ export default ({data, pageContext}) => {
               <Link to="/blog">
                 <FaHome style={{marginRight: `15px`}}/> Home
               </Link>
-            </p>
-          }
-          {nextPost.published ?
-            <p>
-              <Link to={nextPost.slug}>
-                <FaArrowAltCircleLeft style={{marginRight: `15px`}}/>{nextPost.title}
-              </Link>
-            </p> :
-            <p>
-              <Link to="/blog">
-                <FaHome style={{marginRight: `15px`}}/> Home</Link>
             </p>
           }
         </div>

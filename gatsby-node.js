@@ -57,7 +57,7 @@ exports.createPages = async ({graphql, actions}) => {
           }
         }
       }
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {published: {eq: true}}}) {
+      allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}, filter: {frontmatter: {published: {eq: true}}}) {
         edges {
           node {
             fields {
@@ -83,8 +83,10 @@ exports.createPages = async ({graphql, actions}) => {
     generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `project-listing`)
   })
 
-  const blogPosts = result.data.allMarkdownRemark.edges
-  blogPosts.forEach(({node, next, previous}) => {
+  // GraphQL returns next as the node after the current and previous as the node before
+  // However, our logical layout is next <-> current <-> previous for posts so we have to sort the
+  // posts by ASC dates so that it will follow this logical layout
+  result.data.allMarkdownRemark.edges.forEach(({node, next, previous}) => {
     generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `blog-post`)
   })
 }
