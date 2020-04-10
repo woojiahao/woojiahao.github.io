@@ -2,14 +2,14 @@ import React from "react"
 import Layout from "../components/layout"
 import {graphql, Link} from "gatsby"
 import blogStyles from "./blog.module.css"
+import {getTitle} from "../utils/general"
 
 export default ({data}) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
       {posts.map(({node: post}) => {
-        const parts = post.fields.slug
-        const title = post.frontmatter.title || parts[parts.length - 2]
+        const title = getTitle(post.fields.slug, post.frontmatter.title)
 
         const ttr = post.timeToRead
         const timeToReadText = post.timeToRead <= 1 ? `${ttr} minute` : `${ttr} minutes`
