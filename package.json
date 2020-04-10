@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/woojiahao/woojiahao.github.io.git"
+    "deploy": "gatsby build && gh-pages -d public -r https://$GH_TOKEN@github.com/woojiahao/woojiahao.github.io.git"
   },
   "repository": {
     "type": "git",
