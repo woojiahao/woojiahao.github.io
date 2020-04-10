@@ -33,6 +33,7 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 /**
  * Creates the pages from the respective slugs.
  */
+// TODO Add page published condition checking to JSON files as well
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
   const result = await graphql(`
@@ -56,7 +57,7 @@ exports.createPages = async ({graphql, actions}) => {
           }
         }
       }
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {published: {eq: true}}}) {
         edges {
           node {
             fields {
@@ -82,12 +83,13 @@ exports.createPages = async ({graphql, actions}) => {
     generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `project-listing`)
   })
 
-  result.data.allMarkdownRemark.edges.forEach(({node, next, previous}) => {
+  const blogPosts = result.data.allMarkdownRemark.edges
+  blogPosts.forEach(({node, next, previous}) => {
     generatePage(createPage, node.fields.slug, processNodeSlug(next), processNodeSlug(previous), `blog-post`)
   })
 }
 
-const processNodeSlug = (node) => node !== null ? node.fields.slug : null
+const processNodeSlug = node => node !== null ? node.fields.slug : null
 
 const generatePage = (createPage, slug, next, prev, template) => {
   createPage({
