@@ -12,17 +12,18 @@
   margin: 0;
 }
 
-.language {
+.language,
+.status {
+  border-radius: 3px;
   padding: 5px;
+}
+
+.language {
   background-color: rgba(181, 144, 202, 0.4);
 }
 
 span.language {
   margin-right: 15px;
-}
-
-.status {
-  padding: 5px;
 }
 
 .description {
