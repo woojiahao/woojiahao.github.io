@@ -1,6 +1,8 @@
 const path = require(`path`)
 const {createFilePath} = require(`gatsby-source-filesystem`)
 
+const postsPerPage = 10
+
 /**
  * Creates a slug for either .md or .json files.
  * .md => Blog post
@@ -35,11 +37,13 @@ exports.onCreateNode = ({node, getNode, actions}) => {
  */
 // TODO Add page published condition checking to JSON files as well
 exports.createPages = async ({graphql, actions}) => {
-  const postsPerPage = 10
   const {createPage} = actions
   const result = await graphql(`
     query {
-      allProjectsJson {
+      allProjectsJson(
+        sort: {fields: duration___start, order: ASC},
+        filter: {published: {eq: true}}
+      ) {
         edges {
           node { fields { slug } }
           next { fields { slug } }
@@ -59,24 +63,20 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
-  result.data.allProjectsJson.edges.forEach(({node, next, previous}) => {
-    generatePage(
-      createPage,
-      node.fields.slug,
-      processNodeSlug(next),
-      processNodeSlug(previous),
-      `project-listing`
-    )
-  })
+  const projectListings = result.data.allProjectsJson.edges
+  generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
 
   const blogPosts = result.data.allMarkdownRemark.edges
-  // Generate the paginated blog pages
-  const numPages = Math.ceil(blogPosts.length / postsPerPage)
+  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
+}
+
+const generatePages = (edges, listTemplate, postTemplate, category, createPage) => {
+  const numPages = Math.ceil(edges.length / postsPerPage)
   for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
-    const slug = pageNumber === 1 ? `/blog/` : `/blog/${pageNumber}`
+    const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/blog-list.js`),
+      component: path.resolve(`./src/templates/${listTemplate}.js`),
       context: {
         currentPage: pageNumber,
         numPages,
@@ -86,25 +86,18 @@ exports.createPages = async ({graphql, actions}) => {
     })
   }
 
-  // Generate the individual blog posts
-  blogPosts.forEach(({node, next, previous}) => {
-    generatePage(
-      createPage,
-      node.fields.slug,
-      processNodeSlug(next),
-      processNodeSlug(previous),
-      `blog-post`
-    )
+  edges.forEach(({node, next, previous}) => {
+    const slug = node.fields.slug
+    createPage({
+      path: slug,
+      component: path.resolve(`./src/templates/${postTemplate}.js`),
+      context: {
+        slug,
+        next: processNodeSlug(next),
+        prev: processNodeSlug(previous)
+      }
+    })
   })
 }
 
 const processNodeSlug = node => node !== null ? node.fields.slug : null
-
-// Generates individual posts
-const generatePage = (createPage, slug, next, prev, template) => {
-  createPage({
-    path: slug,
-    component: path.resolve(`./src/templates/${template}.js`),
-    context: {slug, next, prev}
-  })
-}
