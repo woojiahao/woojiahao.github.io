@@ -12,7 +12,7 @@
   margin-bottom: 15px;
 }
 
-.project-title h3 {
+.project-title h2 {
   margin: 0;
 }
 
@@ -21,8 +21,14 @@
   background-color: rgba(181, 144, 202, 0.4);
 }
 
-.status {
-  padding: 5px;
-  margin-left: 15px;
+span.language {
+  margin-right: 15px;
 }
 
+.status {
+  padding: 5px;
+}
+
+.description {
+  margin-bottom: 15px;
+}

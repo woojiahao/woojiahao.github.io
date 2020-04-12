@@ -33,7 +33,7 @@ export default ({data, pageContext}) => {
           <div>
             <div className={projectStyles.projectTitle}>
               <Link to={post.fields.slug}>
-                <h3>{title}</h3>
+                <h2>{title}</h2>
               </Link>
               <div>
                 {post.technologies.languages.map(l => <span className={projectStyles.language}>{l}</span>)}
@@ -41,7 +41,7 @@ export default ({data, pageContext}) => {
               </div>
             </div>
 
-            <p>{post.description}</p>
+            <p className={projectStyles.description}>{post.description}</p>
           </div>
         )
       })}
