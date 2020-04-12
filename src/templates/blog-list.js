@@ -9,6 +9,7 @@ export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
+      <h1>Blog Posts Page {pageContext.currentPage}/{pageContext.numPages}</h1>
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.frontmatter.title)
 
