@@ -1,7 +1,7 @@
 import {getTitle} from "../utils/general"
 
 export default class Post {
-  constructor(edges, target) {
+  constructor(edges, target, type) {
     const matching = edges.filter(({node}) => node.fields.slug === target)
     const node = matching.length !== 0 ? matching[0].node : undefined
 
@@ -10,7 +10,21 @@ export default class Post {
       return
     }
     this.slug = node.fields.slug
-    this.title = getTitle(this.slug, node.frontmatter.title)
-    this.published = node.frontmatter.published
+
+    let attributes
+
+    switch (type) {
+      case "Project":
+        attributes = node
+        break
+      case "Post":
+        attributes = node.frontmatter
+        break
+      default:
+        throw "Invalid node type"
+    }
+
+    this.title = getTitle(this.slug, attributes.title)
+    this.published = attributes.published
   }
 }

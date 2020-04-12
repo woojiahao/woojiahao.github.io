@@ -11,8 +11,10 @@ export default ({data, pageContext}) => {
   const title = getTitle(post.fields.slug, post.frontmatter.title)
   const edges = data.allMarkdownRemark.edges
 
-  const nextPost = new Post(edges, pageContext.next)
-  const prevPost = new Post(edges, pageContext.prev)
+  const type = "Post"
+
+  const nextPost = new Post(edges, pageContext.next, type)
+  const prevPost = new Post(edges, pageContext.prev, type)
 
   return (
     <Layout hidePagination title={title}>
