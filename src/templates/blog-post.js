@@ -12,7 +12,6 @@ export default ({data, pageContext}) => {
   const edges = data.allMarkdownRemark.edges
 
   const type = "Post"
-
   const nextPost = new Post(edges, pageContext.next, type)
   const prevPost = new Post(edges, pageContext.prev, type)
 
@@ -22,7 +21,7 @@ export default ({data, pageContext}) => {
         <h4 className={blogPostStyles.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
       </div>
-      <PostNavigation nextPost={nextPost} prevPost={prevPost}/>
+      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog"/>
     </Layout>
   )
 }

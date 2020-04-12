@@ -11,7 +11,6 @@ export default ({data, pageContext}) => {
   const edges = data.allProjectsJson.edges
 
   const type = "Project"
-
   const nextPost = new Post(edges, pageContext.next, type)
   const prevPost = new Post(edges, pageContext.prev, type)
 
@@ -19,7 +18,7 @@ export default ({data, pageContext}) => {
     <Layout title={title} hidePagination>
       <div>
       </div>
-      <PostNavigation nextPost={nextPost} prevPost={prevPost}/>
+      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/projects"/>
     </Layout>
   )
 }

@@ -6,6 +6,7 @@ import postNavigationStyles from "./post-navigation.module.css"
 export default props => {
   const nextPost = props.nextPost
   const prevPost = props.prevPost
+  const home = props.home
 
   return (
     <div className={postNavigationStyles.navigation}>
@@ -18,7 +19,7 @@ export default props => {
             </Link>
           </p> :
           <p>
-            <Link to="/blog">
+            <Link to={home}>
               <FaHome style={{marginRight: `15px`}}/> Home</Link>
           </p>
         }
@@ -29,7 +30,7 @@ export default props => {
             </Link>
           </p> :
           <p>
-            <Link to="/blog">
+            <Link to={home}>
               <FaHome style={{marginRight: `15px`}}/> Home
             </Link>
           </p>
