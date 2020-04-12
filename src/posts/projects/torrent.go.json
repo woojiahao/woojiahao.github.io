@@ -10,11 +10,7 @@
   "lessons": [
     "Using Go to implement network protocols"
   ],
-  "images": [
-    "/torrent.go/sample1.jpg",
-    "/torrent.go/sample2.jpg",
-    "/torrent.go/sample3.jpg"
-  ],
+  "images": "torrent.go",
   "links": {
     "repository": "https://github.com/woojiahao/torrent.go"
   },

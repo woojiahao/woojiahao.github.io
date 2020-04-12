@@ -15,8 +15,7 @@
     "Using Gin + Go to create an API",
     "Using the go-git library to pull Git repository information"
   ],
-  "images": [
-  ],
+  "images": "govid-19",
   "links": {
     "repository": "https://github.com/woojiahao/govid-19",
     "site": "https://govid-19.herokuapp.com"

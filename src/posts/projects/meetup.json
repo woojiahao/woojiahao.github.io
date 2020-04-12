@@ -13,8 +13,7 @@
   "lessons": [
     "Using KUtils to build a Discord bot"
   ],
-  "images": [
-  ],
+  "images": "meetup",
   "links": {
     "repository": "https://github.com/woojiahao/meetup"
   },

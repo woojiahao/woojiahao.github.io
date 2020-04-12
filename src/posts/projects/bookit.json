@@ -13,8 +13,7 @@
   "description": "Book price aggregation app. Uses Google Books API, New York Times API, and GoodReads API.",
   "lessons": [
   ],
-  "images": [
-  ],
+  "images": "bookit",
   "links": {
     "repository": "https://woojiahao.github.com/bookit"
   },

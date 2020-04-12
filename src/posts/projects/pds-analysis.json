@@ -18,8 +18,7 @@
   "description": "Analysis of population trends in Singapore with data provided by https://data.gov.sg",
   "lessons": [
   ],
-  "images": [
-  ],
+  "images": "pds-analysis",
   "links": {
     "repository": "https://woojiahao.github.com/pds-analysis"
   },

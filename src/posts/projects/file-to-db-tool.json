@@ -17,8 +17,7 @@
   "description": "Simple desktop utility for converting CSV files to database tables. Supports PostgreSQL and MySQL.",
   "lessons": [
   ],
-  "images": [
-  ],
+  "images": "file-to-db-tool",
   "links": {
     "repository": "https://woojiahao.github.com/file-to-db-tool"
   },

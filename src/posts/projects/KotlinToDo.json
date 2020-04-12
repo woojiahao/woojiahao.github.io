@@ -13,10 +13,7 @@
   "description": "To-do application built with Kotlin and Android to teach the basics of Kotlin and Android development for a workshop.",
   "lessons": [
   ],
-  "images": [
-    "/KotlinToDo/preview_1.jpg",
-    "/KotlinToDo/preview_2.jpg"
-  ],
+  "images": "KotlinToDo",
   "links": {
     "repository": "https://github.com/woojiahao/KotlinToDo",
     "documentation": "https://woojiahao.github.io/KotlinToDo"
