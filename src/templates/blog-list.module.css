@@ -7,7 +7,8 @@
 .blog-card {
 }
 
-.title {
+.blog-title {
+  margin: 0 0 15px;
 }
 
 .subtitle {
@@ -15,7 +16,7 @@
   justify-content: space-between;
 }
 
-.subtitle h2 {
+.subtitle h3 {
   margin-top: 0;
   margin-bottom: 15px;
   color: gray;

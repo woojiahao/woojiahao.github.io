@@ -24,11 +24,11 @@ export default ({data, pageContext}) => {
         return (
           <div className={blogStyles.blogCard}>
             <Link to={post.fields.slug}>
-              <h1 className={blogStyles.title}>{title}</h1>
+              <h2 className={blogStyles.blogTitle}>{title}</h2>
             </Link>
             <div className={blogStyles.subtitle}>
-              <h2>{post.frontmatter.date}</h2>
-              <h2 className={blogStyles.timeToRead}>{timeToReadText}</h2>
+              <h3>{post.frontmatter.date}</h3>
+              <h3 className={blogStyles.timeToRead}>{timeToReadText}</h3>
             </div>
             <p className={blogStyles.excerpt}>{post.excerpt}</p>
           </div>
