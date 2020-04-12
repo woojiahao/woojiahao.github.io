@@ -4,14 +4,11 @@ import {graphql, Link} from "gatsby"
 import blogStyles from "./blog-list.module.css"
 import {getTitle} from "../utils/general"
 import PostPagination from "../components/post-pagination"
-import PageTitle from "../components/page-title"
 
 export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
   return (
-    <Layout>
-      <PageTitle currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="Blog Posts"/>
-
+    <Layout currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="Blog Posts">
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.frontmatter.title)
 

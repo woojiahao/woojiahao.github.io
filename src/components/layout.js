@@ -1,9 +1,9 @@
 import React from "react"
-import layoutStyles from "./layout.module.css"
+import style from "./layout.module.css"
 import {Link} from "gatsby"
 
-export default ({children}) => (
-  <div className={layoutStyles.layout}>
+export default props => (
+  <div className={style.layout}>
     <header>
       <Link to="/">
         <h3>A Programmer's Perspective</h3>
@@ -15,9 +15,17 @@ export default ({children}) => (
         <Link to="/recommendations">Recommendations</Link>
       </nav>
     </header>
-    {children}
+
+    <div className={style.title}>
+      <h1>{props.title}</h1>
+      {!props.hidePagination && <h3>Page {props.currentPage}/{props.numPages}</h3>}
+    </div>
+
+    {props.children}
+
     <footer>
-      Copyright &copy; 2020. A Programmer's Perspective is built with Gatsby.js.
+      Copyright &copy; 2020. A Programmer's Perspective is built with Gatsby.js. The repository can be found <a
+      href="https://github.com/woojiahao/woojiahao.github.io.development">here.</a>
     </footer>
   </div>
 )

@@ -4,13 +4,11 @@ import {graphql, Link} from "gatsby"
 import projectStyles from "./project-list.module.css"
 import {getTitle} from "../utils/general"
 import PostPagination from "../components/post-pagination"
-import PageTitle from "../components/page-title"
 
 export default ({data, pageContext}) => {
   const posts = data.allProjectsJson.edges
   return (
-    <Layout>
-      <PageTitle currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="My Projects"/>
+    <Layout currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="My Projects">
 
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.title)
