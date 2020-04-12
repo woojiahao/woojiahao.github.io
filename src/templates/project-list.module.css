@@ -1,0 +1,28 @@
+.general-title, .project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.general-title h3 {
+  font-weight: normal;
+}
+
+.project-title {
+  margin-bottom: 15px;
+}
+
+.project-title h3 {
+  margin: 0;
+}
+
+.language {
+  padding: 5px;
+  background-color: rgba(181, 144, 202, 0.4);
+}
+
+.status {
+  padding: 5px;
+  margin-left: 15px;
+}
+
