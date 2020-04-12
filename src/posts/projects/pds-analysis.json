@@ -1,0 +1,25 @@
+{
+  "title": "Population Analysis",
+  "technologies": {
+    "languages": [
+      "Python"
+    ],
+    "technologies": [
+      "Flask",
+      "SQLAlchemy",
+      "gunicorn",
+      "numpy",
+      "Matplotlib",
+      "Pandas",
+      "PyGal"
+    ]
+  },
+  "description": "Analysis of population trends in Singapore with data provided by https://data.gov.sg",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://woojiahao.github.com/pds-analysis"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Taiga",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ]
+  },
+  "description": "Discord administration bot",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/Taiga",
+    "documentation": "https://woojiahao.github.io/Taiga"
+  }
+}

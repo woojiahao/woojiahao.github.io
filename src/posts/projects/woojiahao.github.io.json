@@ -1,0 +1,19 @@
+{
+  "title": "woojiahao.github.io",
+  "technologies": {
+    "languages": [
+      "Javascript"
+    ],
+    "technologies": [
+      "Gatsby.js"
+    ]
+  },
+  "description": "Personal portfolio site built with Gatsby.js.",
+  "lessons": [
+    "something"
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/woojiahao.github.io.development",
+    "site": "https://woojiahao.github.io"
+  }
+}

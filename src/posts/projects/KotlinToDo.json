@@ -1,0 +1,21 @@
+{
+  "title": "KotlinToDo",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ],
+    "technologies": [
+      "Android",
+      "Firebase"
+    ]
+  },
+  "description": "To-do application built with Kotlin and Android to teach the basics of Kotlin and Android development for a workshop.",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/KotlinToDo",
+    "documentation": "https://woojiahao.github.io/KotlinToDo"
+  }
+}

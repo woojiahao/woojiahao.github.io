@@ -1,0 +1,25 @@
+{
+  "title": "Omnius",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ],
+    "technologies": [
+      "TornadoFX"
+    ]
+  },
+  "description": "Markdown text editor written to learn more about the MVC architecture and TornadoFX.",
+  "features": [
+    "Simple UI"
+  ],
+  "lessons": [
+    "MVC architecture for desktop applications",
+    "Implementing the observer pattern",
+    "Building desktop applications using TornadoFX"
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://github.com/omnius-project/Omnius"
+  }
+}

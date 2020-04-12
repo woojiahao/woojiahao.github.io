@@ -1,0 +1,20 @@
+{
+  "title": "kMD2PDF",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ],
+    "technologies": [
+      "FlexMark",
+      "Flying Saucer"
+    ]
+  },
+  "description": "Simple and customisable markdown to PDF document conversion library.",
+  "lessons": [
+    "something"
+  ],
+  "links": {
+    "repository": "https://github.com/omnius-project/kMD2PDF",
+    "documentation": "https://omnius-project.github.io/kMD2PDF/#/"
+  }
+}

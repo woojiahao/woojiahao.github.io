@@ -1,0 +1,24 @@
+{
+  "title": "file-to-db-tool",
+  "technologies": {
+    "languages": [
+      "Python"
+    ],
+    "technologies": [
+      "pandas",
+      "sqlalchemy",
+      "tkinter",
+      "psycopg2",
+      "pymysql",
+      "sqlalchemy_utils"
+    ]
+  },
+  "description": "Simple desktop utility for converting CSV files to database tables. Supports PostgreSQL and MySQL.",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://woojiahao.github.com/file-to-db-tool"
+  }
+}

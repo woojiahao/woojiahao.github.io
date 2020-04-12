@@ -1,0 +1,20 @@
+{
+  "title": "BookIt!",
+  "technologies": {
+    "languages": [
+      "Java"
+    ],
+    "technologies": [
+      "Android",
+      "Firebase"
+    ]
+  },
+  "description": "Book price aggregation app. Uses Google Books API, New York Times API, and GoodReads API.",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://woojiahao.github.com/bookit"
+  }
+}

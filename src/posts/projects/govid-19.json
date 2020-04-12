@@ -1,0 +1,23 @@
+{
+  "title": "govid-19",
+  "technologies": {
+    "languages": [
+      "Go"
+    ],
+    "technologies": [
+      "Gin",
+      "go-git"
+    ]
+  },
+  "description": "API for serving COVID-19 statistics",
+  "lessons": [
+    "Using Gin + Go to create an API",
+    "Using the go-git library to pull Git repository information"
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/govid-19",
+    "site": "https://govid-19.herokuapp.com"
+  }
+}

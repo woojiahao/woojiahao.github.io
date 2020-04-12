@@ -1,0 +1,21 @@
+{
+  "title": "java-spotify-wrapper",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ],
+    "technologies": [
+      "GSON",
+      "OkHttp",
+      "khttp"
+    ]
+  },
+  "description": "Wrapper for the Spotify web API written in Kotlin targeted towards Java systems.",
+  "lessons": [
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://woojiahao.github.com/java-spotify-wrapper"
+  }
+}

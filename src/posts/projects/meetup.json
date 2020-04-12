@@ -1,0 +1,20 @@
+{
+  "title": "Meetup",
+  "technologies": {
+    "languages": [
+      "Kotlin"
+    ],
+    "technologies": [
+      "KUtils"
+    ]
+  },
+  "description": "Discord bot that displays daily programming events happening in Singapore",
+  "lessons": [
+    "Using KUtils to build a Discord bot"
+  ],
+  "images": [
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/meetup"
+  }
+}

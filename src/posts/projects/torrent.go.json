@@ -14,7 +14,7 @@
     "/torrent.go/sample2.jpg",
     "/torrent.go/sample3.jpg"
   ],
-  "duration": {
-    "start": "2020-03-31"
+  "links": {
+    "repository": "https://github.com/woojiahao/torrent.go"
   }
 }
