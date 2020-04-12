@@ -34,6 +34,10 @@ export default props => {
       }
     })
 
+  if (images.length === 0) {
+    return (<div/>)
+  }
+
   const length = images.length - 1
   const handleNext = () => index === length ? setIndex(0) : setIndex(index + 1)
   const handlePrevious = () => index === 0 ? setIndex(length) : setIndex(index - 1)
