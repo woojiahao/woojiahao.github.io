@@ -4,6 +4,6 @@ import style from "./page-title.module.css"
 export default props => (
   <div className={style.title}>
     <h1>{props.title}</h1>
-    <h3>Page {props.currentPage}/{props.numPages}</h3>
+    {!props.hidePagination && <h3>Page {props.currentPage}/{props.numPages}</h3>}
   </div>
 )
