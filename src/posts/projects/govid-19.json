@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "govid-19",
   "technologies": {
     "languages": [
@@ -19,5 +20,9 @@
   "links": {
     "repository": "https://github.com/woojiahao/govid-19",
     "site": "https://govid-19.herokuapp.com"
+  },
+  "status": "In Progress",
+  "duration": {
+    "start": "2020-03-01"
   }
 }

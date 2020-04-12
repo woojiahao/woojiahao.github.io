@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "Taiga",
   "technologies": {
     "languages": [
@@ -13,5 +14,10 @@
   "links": {
     "repository": "https://github.com/woojiahao/Taiga",
     "documentation": "https://woojiahao.github.io/Taiga"
+  },
+  "status": "Completed",
+  "duration": {
+    "start": "2018-08-01",
+    "end": "2019-02-01"
   }
 }

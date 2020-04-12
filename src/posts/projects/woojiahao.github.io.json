@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "woojiahao.github.io",
   "technologies": {
     "languages": [
@@ -15,5 +16,9 @@
   "links": {
     "repository": "https://github.com/woojiahao/woojiahao.github.io.development",
     "site": "https://woojiahao.github.io"
+  },
+  "status": "In Progress",
+  "duration": {
+    "start": "2020-04-01"
   }
 }

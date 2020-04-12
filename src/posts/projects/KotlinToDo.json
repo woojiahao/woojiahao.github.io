@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "KotlinToDo",
   "technologies": {
     "languages": [
@@ -17,5 +18,10 @@
   "links": {
     "repository": "https://github.com/woojiahao/KotlinToDo",
     "documentation": "https://woojiahao.github.io/KotlinToDo"
+  },
+  "status": "Completed",
+  "duration": {
+    "start": "2018-09-01",
+    "end": "2018-10-01"
   }
 }

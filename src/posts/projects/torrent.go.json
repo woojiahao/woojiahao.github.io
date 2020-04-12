@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "torrent.go",
   "technologies": {
     "languages": [
@@ -16,5 +17,9 @@
   ],
   "links": {
     "repository": "https://github.com/woojiahao/torrent.go"
+  },
+  "status": "In Progress",
+  "duration": {
+    "start": "2020-03-01"
   }
 }

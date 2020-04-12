@@ -1,4 +1,5 @@
 {
+  "published": true,
   "title": "file-to-db-tool",
   "technologies": {
     "languages": [
@@ -20,5 +21,10 @@
   ],
   "links": {
     "repository": "https://woojiahao.github.com/file-to-db-tool"
+  },
+  "status": "Completed",
+  "duration": {
+    "start": "2018-07-01",
+    "end": "2019-02-01"
   }
 }
