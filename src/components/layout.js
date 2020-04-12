@@ -1,6 +1,7 @@
 import React from "react"
 import style from "./layout.module.css"
 import {Link} from "gatsby"
+import {rhythm} from "../utils/typography"
 
 export default props => (
   <div className={style.layout}>
@@ -21,7 +22,9 @@ export default props => (
       {!props.hidePagination && <h3>Page {props.currentPage}/{props.numPages}</h3>}
     </div>
 
-    {props.children}
+    <div style={{marginBottom: rhythm(1)}}>
+      {props.children}
+    </div>
 
     <footer>
       Copyright &copy; 2020. A Programmer's Perspective is built with Gatsby.js. The repository can be found <a
