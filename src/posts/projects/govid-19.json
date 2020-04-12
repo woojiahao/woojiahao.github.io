@@ -5,7 +5,7 @@
     "languages": [
       "Go"
     ],
-    "technologies": [
+    "libraries": [
       "Gin",
       "go-git"
     ]
