@@ -1,8 +1,10 @@
 import {graphql, useStaticQuery} from "gatsby"
-import React from "react"
+import Img from "gatsby-image"
+import React, {useState} from "react"
 
 export default props => {
-  const folder = props.folder
+  const [index, setIndex] = useState(0)
+
   const {allFile} = useStaticQuery(
     graphql`
       query {
@@ -10,7 +12,11 @@ export default props => {
           edges { 
             node { 
               relativeDirectory
-              childImageSharp { fluid { src } }
+              childImageSharp { 
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                } 
+              }
             }
           }
         }
@@ -18,45 +24,30 @@ export default props => {
     `
   )
 
-  console.log(allFile)
-
   const images = allFile
     .edges
+    .filter(({node}) => node.relativeDirectory.includes(props.folder))
     .map(({node}) => {
       return {
-        dir: node.relativeDirectory,
-        src: node.childImageSharp.fluid.src
+        id: node.id,
+        fluid: node.childImageSharp.fluid
       }
     })
-    .filter(({dir}) => dir.includes(folder))
-    .map(({src}) => src)
+
+  const length = images.length - 1
+  const handleNext = () => index === length ? setIndex(0) : setIndex(index + 1)
+  const handlePrevious = () => index === 0 ? setIndex(length) : setIndex(index - 1)
+  const currentImage = images[index]
 
   return (
-    images.map(src => <img src={src} alt="Hi"/>)
+    <div>
+      <div>
+        <Img fluid={currentImage.fluid} key={currentImage.id}/>
+      </div>
+      <div>
+        <button onClick={() => handlePrevious()}>Previous</button>
+        <button onClick={() => handleNext()}>Next</button>
+      </div>
+    </div>
   )
 }
-
-
-// const {edges: images} = useStaticQuery(
-//   graphql`
-//       query {
-//         allFile(filter: {relativeDirectory: {in: "posts/image/"}}) {
-//           edges {
-//             node {
-//               relativeDirectory
-//               childImageSharp { fluid { src } }
-//             }
-//           }
-//         }
-//       }
-//     `
-// )
-//
-// const previews = images
-//   .map(({node}) => {
-//     return {
-//       dir: node.relativeDirectory,
-//       src: node.childImageSharp.fluid.src
-//     }
-//   })
-//   .filter(({dir}) => dir.contains(project.images))
