@@ -23,6 +23,8 @@ export default ({data, pageContext}) => {
           case "Archived":
             statusColor = "dcedc1"
             break
+          default:
+            throw new Error("Invalid status")
         }
 
         return (

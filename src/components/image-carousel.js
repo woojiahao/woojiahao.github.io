@@ -1,6 +1,8 @@
 import {graphql, useStaticQuery} from "gatsby"
 import Img from "gatsby-image"
 import React, {useState} from "react"
+import style from "./image-carousel.module.css"
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/all"
 
 export default props => {
   const [index, setIndex] = useState(0)
@@ -13,9 +15,12 @@ export default props => {
             node { 
               relativeDirectory
               childImageSharp { 
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fixed(height: 500, quality: 100) {
+                  ...GatsbyImageSharpFixed_withWebp_tracedSVG
                 } 
+                fluid(quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
               }
             }
           }
@@ -24,18 +29,21 @@ export default props => {
     `
   )
 
+  console.log(allFile)
+
   const images = allFile
     .edges
     .filter(({node}) => node.relativeDirectory.includes(props.folder))
     .map(({node}) => {
       return {
         id: node.id,
+        fixed: node.childImageSharp.fixed,
         fluid: node.childImageSharp.fluid
       }
     })
 
-  if (images.length === 0) {
-    return (<div/>)
+  if (images.length < 1) {
+    return <div/>
   }
 
   const length = images.length - 1
@@ -44,13 +52,23 @@ export default props => {
   const currentImage = images[index]
 
   return (
-    <div>
-      <div>
-        <Img fluid={currentImage.fluid} key={currentImage.id}/>
+    <div className={style.carouselContainer}>
+      <div className={style.carousel}>
+        <div className={style.backgroundImage}>
+          <Img fluid={currentImage.fluid} id={currentImage.id}/>
+        </div>
+        <div className={style.foregroundImage}>
+          <Img fixed={currentImage.fixed} id={currentImage.id}/>
+        </div>
       </div>
-      <div>
-        <button onClick={() => handlePrevious()}>Previous</button>
-        <button onClick={() => handleNext()}>Next</button>
+
+      <div className={style.navigation}>
+        <div onClick={() => handlePrevious()}>
+          <FaArrowAltCircleLeft size="2em"/>
+        </div>
+        <div onClick={() => handleNext()}>
+          <FaArrowAltCircleRight size="2em"/>
+        </div>
       </div>
     </div>
   )

@@ -11,13 +11,18 @@ we do not have the file in the `master` branch.
 Splitting the repositories allow the primary page to store the contents of the `gatsby build` without halting the 
 development of the pages.
 
+## Vertically aligning images in the slideshow preview to the top
+
+Followed this guide [here](https://css-tricks.com/crop-top/), specifically, approach 2.
+
 ## TODO
 
 - [X] Display navigation bar at the bottom of each post
 - [ ] Add "Back" button when in post
 - [ ] Add dark theme
-- [ ] Add post navigation
+- [X] Add post navigation
 - [ ] Add tag system for blog posts
-- [ ] Add pagination for blog and project list
+- [X] Add pagination for blog and project list
 - [ ] Use fragments to organise queries
 - [ ] Render the markdown files of each project in the project listing?
+- [ ] Use multiple filesystem configuration

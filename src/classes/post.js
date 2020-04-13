@@ -21,7 +21,7 @@ export default class Post {
         attributes = node.frontmatter
         break
       default:
-        throw "Invalid node type"
+        throw new Error("Invalid node type")
     }
 
     this.title = getTitle(this.slug, attributes.title)

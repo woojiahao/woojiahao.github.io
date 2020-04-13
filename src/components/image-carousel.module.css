@@ -1,0 +1,43 @@
+.carousel-container {
+  position: relative;
+  box-shadow: #eee 5px 5px 8px;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+}
+
+.background-image {
+  position: absolute;
+  max-height: 500px;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  filter: blur(5px);
+}
+
+.foreground-image {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+}
+
+.navigation div:hover {
+  cursor: pointer;
+}
+
+.navigation div:first-child {
+  margin-left: 15px;
+}
+
+.navigation div:last-child {
+  margin-right: 15px;
+}
