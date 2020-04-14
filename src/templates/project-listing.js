@@ -36,10 +36,14 @@ export default ({data, pageContext}) => {
             <h2>Description</h2>
             <p>{project.description}</p>
 
-            <h2>Lessons</h2>
-            <ul>
-              {project.lessons.map(l => <li>{l}</li>)}
-            </ul>
+            {project.features &&
+            <div>
+              <h2>Features</h2>
+              <ul>
+                {project.features.map(l => <li>{l}</li>)}
+              </ul>
+            </div>
+            }
           </div>
 
           <div className={style.sidebar}>
@@ -90,7 +94,7 @@ export const query = graphql`
     ) {
       title
       images
-      lessons
+      features
       description
       status
       duration {
