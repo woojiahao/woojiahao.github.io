@@ -26,3 +26,4 @@ Followed this guide [here](https://css-tricks.com/crop-top/), specifically, appr
 - [ ] Use fragments to organise queries
 - [ ] Render the markdown files of each project in the project listing?
 - [ ] Use multiple filesystem configuration
+- [ ] Properly configure each component to receive the right prop types
