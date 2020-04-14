@@ -10,7 +10,7 @@ export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="Blog Posts">
-      
+
       <SEO title="Blog"/>
 
       {posts.map(({node: post}) => {

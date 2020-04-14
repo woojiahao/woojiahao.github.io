@@ -28,7 +28,7 @@ export default ({data, pageContext}) => {
   const site = links.site
 
   return (
-    <Layout title={title} hidePagination>
+    <Layout pageTitle={title} tabTitle={title}>
       <div className={style.listing}>
         {project.images && <ImageCarousel folder={project.images}/>}
 
