@@ -7,15 +7,20 @@
     ],
     "libraries": [
       "Android",
-      "Firebase"
+      "Firebase",
+      "Tesseract OCR"
     ]
   },
   "description": "Book price aggregation app. Uses Google Books API, New York Times API, and GoodReads API.",
-  "lessons": [
+  "features": [
+    "On-demand book price aggregation",
+    "Easy to use UI",
+    "OCR to scan book titles on the fly",
+    "Bookmark favourite books"
   ],
   "images": "bookit",
   "links": {
-    "repository": "https://woojiahao.github.com/bookit"
+    "repository": "https://github.com/woojiahao/bookit"
   },
   "status": "Completed",
   "duration": {
