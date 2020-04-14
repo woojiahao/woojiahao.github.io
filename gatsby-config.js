@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `A Programmer's Perspective`,
+    siteUrl: `https://woojiahao.github.io/`,
+    description: `Trekking down the path of programming!`
+  },
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
