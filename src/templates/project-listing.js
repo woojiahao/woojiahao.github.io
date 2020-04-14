@@ -6,6 +6,7 @@ import style from "./project-listing.module.css"
 import ImageCarousel from "../components/image-carousel"
 import BigButton from "../components/big-button"
 import PostNavigation from "../components/post-navigation"
+import {graphql} from "gatsby"
 
 export default ({data, pageContext}) => {
   const project = data.projectsJson
@@ -82,7 +83,6 @@ export default ({data, pageContext}) => {
   )
 }
 
-// TODO Add more fields in the future like end and libraries
 export const query = graphql`
   query (
     $slug: String!,
