@@ -2,27 +2,17 @@
 
 Personal site built using Gatsby.js
 
-## Why split up the repositories?
+## Installation
 
-When using the `gh-pages` package, the contents of the `master` branch will be wiped when we are publishing the 
-web page. This means that whenever a change is to be merged into the `master` branch, it is impossible to do so since
-we do not have the file in the `master` branch.
+Install `gatsby-cli` and all other npm dependencies.
 
-Splitting the repositories allow the primary page to store the contents of the `gatsby build` without halting the 
-development of the pages.
+```bash
+$ npm i -g gatsby-cli
+$ npm i
+```
 
-## Vertically aligning images in the slideshow preview to the top
+Serve the site locally at `localhost:8000`.
 
-Followed this guide [here](https://css-tricks.com/crop-top/), specifically, approach 2.
-
-## TODO
-
-- [X] Display navigation bar at the bottom of each post
-- [ ] Add "Back" button when in post
-- [ ] Add dark theme
-- [X] Add post navigation
-- [ ] Add tag system for blog posts
-- [X] Add pagination for blog and project list
-- [ ] Use fragments to organise queries
-- [ ] Render the markdown files of each project in the project listing?
-- [ ] Use multiple filesystem configuration
+```bash
+$ gatsby develop
+```

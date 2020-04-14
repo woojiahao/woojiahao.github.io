@@ -1,9 +1,11 @@
 import React from "react"
 import indexStyles from "./index.module.css"
 import {Link} from "gatsby"
+import SEO from "../components/SEO"
 
 export default () => (
   <div className={indexStyles.homeContainer}>
+    <SEO title="Home"/>
     <div className={indexStyles.mainContainer}>
       <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Woo Jia Hao!</h1>
       <p>
@@ -11,8 +13,8 @@ export default () => (
         graduated from Singapore Polytechnic with a Diploma in Information Technology. I am actively learning and <Link
         to="/blog">sharing about my journey in programming.</Link> I am currently working on <Link
         to="/projects"> several projects</Link> and learning various programming languages to diversify my knowledge
-        such as <Link to="/torrent-go">implementing the BitTorrent protocol using Go</Link> or <Link
-        to="woojiahao-github-io">learning Gatsby.js to build this site.</Link>
+        such as <Link to="/projects/posts/torrent.go">implementing the BitTorrent protocol using Go</Link> or <Link
+        to="/projects/posts/woojiahao.github.io">learning Gatsby.js to build this site.</Link>
       </p>
 
       <p>

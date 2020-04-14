@@ -2,7 +2,7 @@ import {graphql, useStaticQuery} from "gatsby"
 import Img from "gatsby-image"
 import React, {useState} from "react"
 import style from "./image-carousel.module.css"
-import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/all"
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/all"
 
 export default props => {
   const [index, setIndex] = useState(0)
@@ -62,14 +62,18 @@ export default props => {
         </div>
       </div>
 
-      <div className={style.navigation}>
-        <div onClick={() => handlePrevious()}>
-          <FaArrowAltCircleLeft size="2em"/>
-        </div>
-        <div onClick={() => handleNext()}>
-          <FaArrowAltCircleRight size="2em"/>
+      {images.length > 1 &&
+      <div className={style.navigationContainer}>
+        <div className={style.navigation}>
+          <div onClick={() => handlePrevious()}>
+            <IoIosArrowBack size="2em"/>
+          </div>
+          <div onClick={() => handleNext()}>
+            <IoIosArrowForward size="2em"/>
+          </div>
         </div>
       </div>
+      }
     </div>
   )
 }

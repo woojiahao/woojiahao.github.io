@@ -22,22 +22,27 @@
   justify-content: center;
 }
 
-.navigation {
+.navigation-container {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  top: 50%;
+}
+
+.navigation div {
+  padding: 15px;
 }
 
 .navigation div:hover {
   cursor: pointer;
-}
-
-.navigation div:first-child {
-  margin-left: 15px;
-}
-
-.navigation div:last-child {
-  margin-right: 15px;
 }

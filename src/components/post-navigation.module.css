@@ -6,8 +6,6 @@
 .navigation .buttons p {
   display: flex;
   max-width: 450px;
-  padding: 8px 15px;
-  background-color: rgba(211, 211, 211, 0.7);
   border-radius: 5px;
   margin-bottom: 0;
 }

@@ -7,8 +7,10 @@ import PostPagination from "../components/post-pagination"
 
 export default ({data, pageContext}) => {
   const posts = data.allProjectsJson.edges
+  const {currentPage, numPages} = pageContext
+
   return (
-    <Layout currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="My Projects">
+    <Layout pagination={{currentPage, numPages}} pageTitle="My Projects" tabTitle="Projects">
 
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.title)

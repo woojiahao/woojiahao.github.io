@@ -1,7 +1,15 @@
 module.exports = {
+  siteMetadata: {
+    title: `A Programmer's Perspective`,
+    siteUrl: `https://woojiahao.github.io`,
+    image: `/images/icon.png`,
+    description: `The personal portfolio of Woo Jia Hao! Trekking down the path of programming and discussing my encounters with the unknown!`,
+    repositoryUrl: `https://github.com/woojiahao.github.io`
+  },
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -43,6 +51,16 @@ module.exports = {
             }
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `A Programmer's Perspective`,
+        short_name: `A Programmer's Perspective`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: `static/images/icon.png`
       }
     }
   ]
