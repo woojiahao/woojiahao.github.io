@@ -4,20 +4,20 @@ import * as PropTypes from "prop-types"
 import {Helmet} from "react-helmet"
 import React from "react"
 
-const SEO = ({title, description}) => {
+const SEO = ({title}) => {
   const {pathname} = useLocation()
   const {site} = useStaticQuery(query)
 
   const {
     defaultTitle,
-    defaultDescription,
+    description,
     siteUrl,
     image
   } = site.siteMetadata
 
   const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
+    title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+    description: description,
     image: `${siteUrl}${image}`,
     url: `${siteUrl}${pathname}`
   }
@@ -38,17 +38,11 @@ const SEO = ({title, description}) => {
 export default SEO
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool
+  title: PropTypes.string
 }
 
 SEO.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false
+  title: null
 }
 
 const query = graphql`
@@ -56,7 +50,7 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-        defaultDescription: description
+        description
         siteUrl
         image
       }
