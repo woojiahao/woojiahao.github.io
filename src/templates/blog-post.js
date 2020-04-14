@@ -16,7 +16,7 @@ export default ({data, pageContext}) => {
   const prevPost = new Post(edges, pageContext.prev, type)
 
   return (
-    <Layout hidePagination title={title}>
+    <Layout pageTitle={title} tabTitle={title}>
       <div>
         <h4 className={blogPostStyles.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>

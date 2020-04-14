@@ -4,7 +4,6 @@ import {graphql, Link} from "gatsby"
 import blogStyles from "./blog-list.module.css"
 import {getTitle} from "../utils/general"
 import PostPagination from "../components/post-pagination"
-import SEO from "../components/SEO"
 
 export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
