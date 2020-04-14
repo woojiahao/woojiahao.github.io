@@ -8,10 +8,12 @@ import SEO from "../components/SEO"
 
 export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
+  const {
+    currentPage,
+    numPages
+  } = pageContext
   return (
-    <Layout currentPage={pageContext.currentPage} numPages={pageContext.numPages} title="Blog Posts">
-
-      <SEO title="Blog"/>
+    <Layout pagination={{currentPage, numPages}} pageTitle="Blog Posts" tabTitle="Blog">
 
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.frontmatter.title)
