@@ -18,12 +18,28 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     const defaultFilePath = createFilePath({node, getNode, basePath: `pages`})
     const parts = defaultFilePath.split("/")
     const filename = parts[parts.length - 2]
-    // If the file is a .md file, it's a blog post
-    // If the file is a .json file, it's a project listing
-    const parent = nodeType === `MarkdownRemark` ? `blog` : `projects`
-    const filePath = `/${parent}/posts/${filename}`
+    let filePath
 
-    // Adds a field to the GraphQL schema with fields { slug }
+    switch (nodeType) {
+      case `MarkdownRemark`:
+        switch (filename) {
+          case `about`:
+            filePath = `/about`
+            break
+          case `recommendations`:
+            filePath = `/recommendations`
+            break
+          default:
+            filePath = `/blog/posts/${filename}`
+        }
+        break
+      case `ProjectsJson`:
+        filePath = `/projects/posts/${filename}`
+        break
+      default:
+        throw new Error(`Invalid node type found`)
+    }
+
     createNodeField({
       node,
       name: `slug`,
@@ -35,7 +51,6 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 /**
  * Creates the pages from the respective slugs.
  */
-// TODO Add page published condition checking to JSON files as well
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
   const result = await graphql(`
@@ -55,7 +70,10 @@ exports.createPages = async ({graphql, actions}) => {
         filter: {frontmatter: {published: {eq: true}}}
       ) {
         edges {
-          node { fields { slug } }
+          node { 
+            frontmatter { type }
+            fields { slug } 
+          }
           next { fields { slug } }
           previous { fields { slug } }
         }
@@ -63,11 +81,21 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
+  const markdownFiles = result.data.allMarkdownRemark.edges
+  const aboutPage = markdownFiles.filter(({node}) => node.frontmatter.type === `About`)[0].node
+  createPage({
+    path: aboutPage.fields.slug,
+    component: path.resolve(`./src/templates/about.js`),
+    context: {
+      slug: aboutPage.fields.slug
+    }
+  })
+
+  const blogPosts = markdownFiles.filter(({node}) => [`About`, `Recommendations`].indexOf(node.frontmatter.type) < 0)
+  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
+
   const projectListings = result.data.allProjectsJson.edges
   generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
-
-  const blogPosts = result.data.allMarkdownRemark.edges
-  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
 }
 
 const generatePages = (edges, listTemplate, postTemplate, category, createPage) => {
