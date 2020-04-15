@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-recommendations-js","path":"/recommendations/","result":{"pageContext":{}}}
+{"componentChunkName":"component---src-templates-general-post-js","path":"/recommendations","result":{"data":{"markdownRemark":{"html":"<h2>Books</h2>\n<h2>Videos</h2>\n<h2>Podcasts</h2>\n<h2>Cool tech!</h2>"}},"pageContext":{"slug":"/recommendations","title":"My Recommendations"}}}

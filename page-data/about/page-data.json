@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-about-js","path":"/about/","result":{"pageContext":{}}}
+{"componentChunkName":"component---src-templates-general-post-js","path":"/about","result":{"data":{"markdownRemark":{"html":"<h2>Hello world</h2>\n<p>Something new</p>"}},"pageContext":{"slug":"/about","title":"About Me"}}}
