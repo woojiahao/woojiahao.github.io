@@ -53,37 +53,11 @@ exports.onCreateNode = ({node, getNode, actions}) => {
  */
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
-  const result = await graphql(`
-    query {
-      allProjectsJson(
-        sort: {fields: duration___start, order: ASC},
-        filter: {published: {eq: true}}
-      ) {
-        edges {
-          node { fields { slug } }
-          next { fields { slug } }
-          previous { fields { slug } }
-        }
-      }
-      allMarkdownRemark(
-        sort: {fields: frontmatter___date, order: ASC}, 
-        filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
-      ) {
-        edges {
-          node { fields { slug } }
-          next { fields { slug } }
-          previous { fields { slug } }
-        }
-      }
-    }
-  `)
+  await generatePosts(createPage, graphql)
+  await generateGeneralPosts(createPage, graphql)
+}
 
-  const blogPosts = result.data.allMarkdownRemark.edges
-  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
-
-  const projectListings = result.data.allProjectsJson.edges
-  generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
-
+const generateGeneralPosts = async (createPage, graphql) => {
   const {data} = await graphql(`
     query {
       allMarkdownRemark(
@@ -119,6 +93,39 @@ exports.createPages = async ({graphql, actions}) => {
       title: `My Recommendations`
     }
   })
+}
+
+const generatePosts = async (createPage, graphql) =>  {
+  const {data} = await graphql(`
+    query {
+      allProjectsJson(
+        sort: {fields: duration___start, order: ASC},
+        filter: {published: {eq: true}}
+      ) {
+        edges {
+          node { fields { slug } }
+          next { fields { slug } }
+          previous { fields { slug } }
+        }
+      }
+      allMarkdownRemark(
+        sort: {fields: frontmatter___date, order: ASC}, 
+        filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
+      ) {
+        edges {
+          node { fields { slug } }
+          next { fields { slug } }
+          previous { fields { slug } }
+        }
+      }
+    }
+  `)
+
+  const blogPosts = data.allMarkdownRemark.edges
+  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
+
+  const projectListings = data.allProjectsJson.edges
+  generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
 }
 
 const generatePages = (edges, listTemplate, postTemplate, category, createPage) => {
