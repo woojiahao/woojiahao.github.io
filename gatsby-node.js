@@ -67,13 +67,10 @@ exports.createPages = async ({graphql, actions}) => {
       }
       allMarkdownRemark(
         sort: {fields: frontmatter___date, order: ASC}, 
-        filter: {frontmatter: {published: {eq: true}}}
+        filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
       ) {
         edges {
-          node { 
-            frontmatter { type }
-            fields { slug } 
-          }
+          node { fields { slug } }
           next { fields { slug } }
           previous { fields { slug } }
         }
@@ -81,21 +78,47 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
-  const markdownFiles = result.data.allMarkdownRemark.edges
-  const aboutPage = markdownFiles.filter(({node}) => node.frontmatter.type === `About`)[0].node
-  createPage({
-    path: aboutPage.fields.slug,
-    component: path.resolve(`./src/templates/about.js`),
-    context: {
-      slug: aboutPage.fields.slug
-    }
-  })
-
-  const blogPosts = markdownFiles.filter(({node}) => [`About`, `Recommendations`].indexOf(node.frontmatter.type) < 0)
+  const blogPosts = result.data.allMarkdownRemark.edges
   generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
 
   const projectListings = result.data.allProjectsJson.edges
   generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
+
+  const {data} = await graphql(`
+    query {
+      allMarkdownRemark(
+        filter: {frontmatter: {type: {ne: null}}}
+      ) {
+        edges {
+          node {
+            frontmatter { type }
+            fields { slug }
+          }
+        }
+      }
+    }
+  `)
+
+  const generalPosts = data.allMarkdownRemark.edges
+
+  const aboutPage = generalPosts.filter(({node}) => node.frontmatter.type === `About`)[0].node
+  createPage({
+    path: aboutPage.fields.slug,
+    component: path.resolve(`./src/templates/general-post.js`),
+    context: {
+      slug: aboutPage.fields.slug,
+      title: `About Me`
+    }
+  })
+  const recommendationPage = generalPosts.filter(({node}) => node.frontmatter.type === `Recommendations`)[0].node
+  createPage({
+    path: recommendationPage.fields.slug,
+    component: path.resolve(`./src/templates/general-post.js`),
+    context: {
+      slug: recommendationPage.fields.slug,
+      title: `My Recommendations`
+    }
+  })
 }
 
 const generatePages = (edges, listTemplate, postTemplate, category, createPage) => {

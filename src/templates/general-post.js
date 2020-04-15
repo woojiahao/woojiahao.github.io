@@ -2,8 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import {graphql} from "gatsby"
 
-export default ({data}) => (
-  <Layout pageTitle="About Me">
+export default ({data, pageContext}) => (
+  <Layout pageTitle={pageContext.title}>
     <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
   </Layout>
 )
