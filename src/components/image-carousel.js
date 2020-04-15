@@ -10,7 +10,7 @@ export default props => {
   const {allFile} = useStaticQuery(
     graphql`
       query {
-        allFile(filter: {relativeDirectory: {regex: "posts/image/"}}) {
+        allFile(filter: {relativeDirectory: {regex: "/posts/projects/images/"}}) {
           edges { 
             node { 
               relativeDirectory

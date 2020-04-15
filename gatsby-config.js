@@ -24,12 +24,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/posts/images/blog/`
-      }
-    },
-    {
       resolve: `gatsby-transformer-json`,
       options: {
         path: `./src/posts/projects/`
@@ -49,7 +43,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 900
+            }
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
