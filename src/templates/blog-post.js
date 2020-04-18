@@ -15,8 +15,11 @@ export default ({data, pageContext}) => {
   const nextPost = new Post(edges, pageContext.next, type)
   const prevPost = new Post(edges, pageContext.prev, type)
 
+  const description = post.frontmatter.description || title
+  const descriptionFormat = `${post.frontmatter.date} - ${title} - ${description}`
+
   return (
-    <Layout pageTitle={title} tabTitle={title}>
+    <Layout pageTitle={title} tabTitle={title} description={descriptionFormat}>
       <div>
         <h4 className={blogPostStyles.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
@@ -39,6 +42,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
+        description
       }
       fields { slug }
     }

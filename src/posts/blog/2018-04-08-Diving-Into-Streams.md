@@ -2,6 +2,7 @@
 published: true
 title: "Diving into (Java) streams"
 date: "2018-04-08"
+description: "A practical guide to streams in Java"
 ---
 ## What are streams?
 Streams was introduced in Java 1.8 and it had completely changed how we write code. The majority of what I will be discussing will be what I have learnt from watching [this talk](https://www.youtube.com/watch?v=1OpAgZvYXLQ&t=6985s) by Venkat Subramaniam. His talk was what had originally got me into using streams and the concept of lambdas.

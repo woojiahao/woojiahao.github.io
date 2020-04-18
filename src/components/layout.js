@@ -3,10 +3,9 @@ import style from "./layout.module.css"
 import {graphql, Link, useStaticQuery} from "gatsby"
 import {rhythm} from "../utils/typography"
 import SEO from "./SEO"
-import {IoIosArrowBack, IoIosArrowForward} from "react-icons/all"
 import * as PropTypes from "prop-types"
 
-const Layout = ({tabTitle, pageTitle, pagination, tags, home, children}) => {
+const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, description}) => {
   const {site} = useStaticQuery(graphql`
     query {
       site {
@@ -25,7 +24,7 @@ const Layout = ({tabTitle, pageTitle, pagination, tags, home, children}) => {
 
   return (
     <div className={style.layout}>
-      <SEO title={tabTitle}/>
+      <SEO title={tabTitle} description={description}/>
 
       <header>
         <Link to="/">
@@ -68,6 +67,7 @@ Layout.propTypes = {
   pagination: PropTypes.object,
   tags: PropTypes.array,
   home: PropTypes.string,
+  description: PropTypes.string.isRequired
 }
 
 Layout.defaultProps = {
@@ -75,5 +75,6 @@ Layout.defaultProps = {
   pageTitle: null,
   pagination: null,
   tags: [],
-  home: null
+  home: null,
+  description: null
 }

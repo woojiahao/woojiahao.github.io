@@ -2,6 +2,7 @@
 published: true
 title: "Lessons on software release"
 date: "2019-04-03"
+description: "Lessons about software development and release from developing kMD2PDF - a markdown to PDF file converter"
 ---
 
 Oh boy, I screwed up bad, like *really* badly. Ok ok, let's go back and see where it all began. I've learnt countless

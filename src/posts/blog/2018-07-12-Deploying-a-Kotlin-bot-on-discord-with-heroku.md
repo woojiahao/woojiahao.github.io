@@ -2,6 +2,7 @@
 published: true
 title: "Deploying Discord bots written in Kotlin on Heroku"
 date: "2018-07-12"
+description: "A guide to deploying JVM-based Discord bots on Heroku for free"
 ---
 ## Why this post?
 Whilst there are tutorials for Java apps to be hosted on Heroku, I couldn't find one specifically for hosting a discord bot written in Java/Kotlin, so this will be used to supplement that gap.
