@@ -2,6 +2,7 @@
 published: true
 title: Lessons from Meetup (and Docker)
 date: "2019-09-06"
+descriptions: "Lessons learnt while building Meetup - a Discord bot for displaying local events"
 ---
 
 Recently, I got into Docker and used [Meetup](https://github.com/woojiahao/meetup) as a testing grounds for improving my knowledge on Docker. Meetup is a Discord bot written with Kotlin that provides updates on programming events happening in Singapore. The idea was first proposed by a member of the SG Computer Science server.

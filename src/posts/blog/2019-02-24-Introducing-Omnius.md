@@ -2,6 +2,7 @@
 published: true
 title: "Introducing Omnius"
 date: "2019-02-24"
+description: "Introducing Omnius - a markdown editor built with Kotlin and TornadoFX"
 ---
 
 Every developer will encounter slumps where they have no idea what to do and nothing in their life challenges them
