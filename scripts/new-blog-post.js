@@ -46,7 +46,7 @@ const generateFileContents = title => {
 }
 
 const createPost = title => {
-  fs.writeFile(generateFilename(title), generateFileContents(title), err => {
+  fs.appendFile(generateFilename(title), generateFileContents(title), err => {
     if (err) throw err
     console.log('Created post!')
     rl.close()
