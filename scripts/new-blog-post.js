@@ -5,7 +5,7 @@ class PostDate {
   constructor() {
     const currentDate = new Date()
     this.day = currentDate.getDate().toString().padStart(2, '0')
-    this.month = currentDate.getMonth().toString().padStart(2, '0')
+    this.month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
     this.year = currentDate.getFullYear().toString()
   }
 
