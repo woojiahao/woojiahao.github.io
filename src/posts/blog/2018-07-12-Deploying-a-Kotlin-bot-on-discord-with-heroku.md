@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: "Deploying Discord bots written in Kotlin on Heroku"
 date: "2018-07-12"
 description: "A guide to deploying JVM-based Discord bots on Heroku for free"
