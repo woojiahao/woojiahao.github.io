@@ -5,7 +5,7 @@ class PostDate {
   constructor() {
     const currentDate = new Date()
     this.day = currentDate.getDate().toString().padStart(2, '0')
-    this.month = currentDate.getMonth().toString().padStart(2, '0')
+    this.month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
     this.year = currentDate.getFullYear().toString()
   }
 
@@ -46,7 +46,7 @@ const generateFileContents = title => {
 }
 
 const createPost = title => {
-  fs.writeFile(generateFilename(title), generateFileContents(title), err => {
+  fs.appendFile(generateFilename(title), generateFileContents(title), err => {
     if (err) throw err
     console.log('Created post!')
     rl.close()
