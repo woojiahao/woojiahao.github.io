@@ -1,3 +1,7 @@
+require(`dotenv`).config()
+
+const googleAnalyticsTrackingID = process.env.GOOGLE_ANALYTICS
+
 module.exports = {
   siteMetadata: {
     title: `A Programmer's Perspective`,
@@ -11,6 +15,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: googleAnalyticsTrackingID,
+      }
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
