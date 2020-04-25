@@ -1,6 +1,7 @@
 require(`dotenv`).config()
 
 const googleAnalyticsTrackingID = process.env.GOOGLE_ANALYTICS
+console.log(googleAnalyticsTrackingID.length)
 
 module.exports = {
   siteMetadata: {
