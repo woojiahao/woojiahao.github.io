@@ -1,7 +1,6 @@
 require(`dotenv`).config()
 
 const googleAnalyticsTrackingID = process.env.GOOGLE_ANALYTICS
-console.log(googleAnalyticsTrackingID.length)
 
 module.exports = {
   siteMetadata: {
@@ -19,7 +18,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
+        head: true,
         trackingId: googleAnalyticsTrackingID,
+        anonymize: true
       }
     },
     {
