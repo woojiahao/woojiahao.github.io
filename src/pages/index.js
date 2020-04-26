@@ -25,17 +25,21 @@ export default () => (
 
       <div className={indexStyles.links}>
         <strong>Get to know me!</strong>
-        <Link to="/blog">Blog</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/about">About Me</Link>
-        <Link to="/recommendations">Recommendations</Link>
+        <div>
+          <Link to="/blog">Blog</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/about">About Me</Link>
+          <Link to="/recommendations">Recommendations</Link>
+        </div>
       </div>
 
       <div className={indexStyles.contact}>
         <strong>Stalk me!</strong>
-        <a href="https://github.com/woojiahao">GitHub</a>
-        <a href="https://discord.gg/programming">Discord</a>
-        <a href="https://www.linkedin.com/in/woo-jia-hao-089346155/">LinkedIn</a>
+        <div>
+          <a href="https://github.com/woojiahao">GitHub</a>
+          <a href="https://discord.gg/programming">Discord</a>
+          <a href="https://www.linkedin.com/in/woo-jia-hao-089346155/">LinkedIn</a>
+        </div>
       </div>
     </div>
   </div>
