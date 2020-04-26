@@ -22,10 +22,6 @@
   margin-right: 15px;
 }
 
-@media screen and (max-width: 1024px) {
-
-}
-
 @media screen and (max-width: 768px) {
   .home-container {
     max-width: 500px;
