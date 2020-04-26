@@ -26,6 +26,7 @@ Due to the use of CSS Modules, the media breakpoints have to be distributed acro
 - `layout.module.css` - Layout of every other page within the website
 - `project-list.module.css` - Layout of the projects list
 - `image-carousel.module.css` - Image carousel 
+- `post-navigation.module.css` - Post navigation
 
 Breakpoints go from:
 

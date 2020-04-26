@@ -15,3 +15,18 @@
   align-items: center;
   color: black;
 }
+
+@media screen and (max-width: 768px) {
+  .navigation .buttons {
+    flex-direction: column;
+  }
+
+  .navigation .buttons p:first-child {
+    margin-bottom: 15px;
+    align-self: flex-start;
+  }
+
+  .navigation .buttons p:last-child {
+    align-self: flex-end;
+  }
+}
