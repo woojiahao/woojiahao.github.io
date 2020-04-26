@@ -11,17 +11,43 @@
   margin-right: 30px;
 }
 
-.links {
-  display: flex;
-}
-
-.contact {
+.links, .contact {
   display: flex;
 }
 
 .links a:not(:last-child),
 .contact a:not(:last-child),
-strong {
+.links strong,
+.contact strong {
   margin-right: 15px;
 }
 
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .home-container {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .home-container {
+    max-width: 300px;
+  }
+
+  .links, .contact {
+    flex-direction: column;
+  }
+
+  .links {
+    margin-bottom: 15px;
+  }
+}
