@@ -16,3 +16,19 @@ Serve the site locally at `localhost:8000`.
 ```bash
 $ gatsby develop
 ```
+
+## Media breakpoints
+
+Due to the use of CSS Modules, the media breakpoints have to be distributed across three different files:
+
+- `index.module.css` - Layout of the homepage
+- `global.css` - All content font sizes
+- `layout.module.css` - Layout of every other page within the website
+- `project-list.module.css` - Layout of the projects list
+- `image-carousel.module.css` - Image carousel 
+
+Breakpoints go from:
+
+```
+420px -> 512px -> 768px -> 1024px
+```

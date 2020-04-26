@@ -46,3 +46,23 @@
 .navigation div:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .carousel-container,
+  .background-image,
+  .foreground-image,
+  .foreground-image img {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  @media screen and (max-width: 768px) {
+    .carousel-container,
+    .background-image,
+    .foreground-image,
+    .foreground-image img {
+      max-height: 200px;
+    }
+  }
+}
