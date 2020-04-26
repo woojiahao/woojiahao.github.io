@@ -25,6 +25,7 @@ Due to the use of CSS Modules, the media breakpoints have to be distributed acro
 - `global.css` - All content font sizes
 - `layout.module.css` - Layout of every other page within the website
 - `project-list.module.css` - Layout of the projects list
+- `image-carousel.module.css` - Image carousel 
 
 Breakpoints go from:
 
