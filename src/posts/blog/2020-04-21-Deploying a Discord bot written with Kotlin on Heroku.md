@@ -43,8 +43,8 @@ According to the [Heroku documentation on dynos](https://www.heroku.com/dynos), 
 The build commands we supply correspond to the build commands we use to run our bots locally.
 
 As Heroku uses the project files to determine the type of tools we are using, we do not need to specify the 
- instructions to create the executable. In our case, since we are using Heroku, it can intelligently detect the 
- `pom.xml` file and create the `.jar` accordingly. This leaves us with only the run commands to include in our Procfile.
+ instructions to create the executable. In our case, since we are using Maven, it can intelligently detect the 
+ `pom.xml` file and create the `.jar` accordingly. This leaves us with only the run commands to include in our `Procfile`.
 
 Finally, to tighten security, we will store all bot tokens in Heroku's 
  [config vars.](https://devcenter.heroku.com/articles/config-vars) From a code perspective, these config vars are simply
