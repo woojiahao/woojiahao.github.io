@@ -27,3 +27,9 @@
 .main-content {
   flex-basis: 60%;
 }
+
+@media screen and (max-width: 512px) {
+  .content {
+    flex-direction: column;
+  }
+}
