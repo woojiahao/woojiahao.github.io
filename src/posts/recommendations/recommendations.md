@@ -104,7 +104,9 @@ it has made me realise how much we neglect our own health - physically and menta
 
 ### Get a Taste of Lambdas and Get Addicted to Streams
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1OpAgZvYXLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/1OpAgZvYXLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Venkat Subramaniam - man, he is such inspiration to me as a developer. This talk was my first formal introduction to the 
 idea of lambdas in general. It took me several replays of the video to properly grok the concepts touted in the video 
@@ -117,7 +119,9 @@ the design of lambdas and how they can be utilised to improve code footprint.
 
 ### Why Go is Successful
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k9Zbuuo51go" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/k9Zbuuo51go" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 At the beginning of my Go journey, I was taken aback by the number of "missing" features the language had compared to 
 the languages I used (I came from a JVM background, using Java and Kotlin heavily). Things like a lack of generics 
