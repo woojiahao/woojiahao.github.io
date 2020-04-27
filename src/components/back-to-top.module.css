@@ -1,0 +1,16 @@
+.arrow {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  border-radius: 3px;
+  padding: 5px 15px 15px 5px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: collapse;
+}
