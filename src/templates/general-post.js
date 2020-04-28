@@ -4,7 +4,7 @@ import {graphql} from "gatsby"
 
 export default ({data, pageContext}) => (
   <div>
-    <Layout pageTitle={pageContext.title} backToTop toc={data.markdownRemark.tableOfContents}>
+    <Layout pageTitle={pageContext.title} tabTitle={pageContext.title} backToTop>
       <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
     </Layout>
   </div>
@@ -12,9 +12,6 @@ export default ({data, pageContext}) => (
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) { 
-      html
-      tableOfContents
-    }
+    markdownRemark(fields: {slug: {eq: $slug}}) { html }
   }
 `
