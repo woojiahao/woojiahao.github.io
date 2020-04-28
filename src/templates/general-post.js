@@ -3,9 +3,11 @@ import Layout from "../components/layout"
 import {graphql} from "gatsby"
 
 export default ({data, pageContext}) => (
-  <Layout pageTitle={pageContext.title}>
-    <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-  </Layout>
+  <div>
+    <Layout pageTitle={pageContext.title} tabTitle={pageContext.title} backToTop>
+      <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+    </Layout>
+  </div>
 )
 
 export const query = graphql`
