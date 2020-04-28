@@ -19,7 +19,7 @@ export default ({data, pageContext}) => {
   const descriptionFormat = `${post.frontmatter.date} - ${title} - ${description}`
 
   return (
-    <Layout pageTitle={title} tabTitle={title} description={descriptionFormat}>
+    <Layout pageTitle={title} tabTitle={title} description={descriptionFormat} backToTop>
       <div>
         <h4 className={blogPostStyles.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
