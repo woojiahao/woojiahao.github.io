@@ -14,3 +14,9 @@
 .hidden {
   visibility: collapse;
 }
+
+@media screen and (max-width: 768px) {
+  .arrow {
+    visibility: collapse;
+  }
+}

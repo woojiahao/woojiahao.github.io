@@ -3,15 +3,17 @@ import {AiOutlineArrowUp} from "react-icons/all"
 import style from "./back-to-top.module.css"
 
 const BackToTop = () => {
-  window.addEventListener('scroll', () => {
-    const arrow = document.querySelector(`div.${style.arrow}`)
-    if (arrow) {
-      window.scrollY ? arrow.classList.remove(style.hidden) : arrow.classList.add(style.hidden)
-    }
-  })
+  if (typeof window !== `undefined`) {
+    window.addEventListener('scroll', () => {
+      const arrow = document.querySelector(`div.${style.arrow}`)
+      if (arrow) {
+        window.scrollY ? arrow.classList.remove(style.hidden) : arrow.classList.add(style.hidden)
+      }
+    })
+  }
 
   const onClick = () => {
-    document.body.scrollTop  = 0
+    document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
   }
 
