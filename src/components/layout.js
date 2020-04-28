@@ -6,7 +6,7 @@ import SEO from "./SEO"
 import * as PropTypes from "prop-types"
 import BackToTop from "./back-to-top"
 
-const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, description, backToTop, toc}) => {
+const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, description, backToTop}) => {
   const {site} = useStaticQuery(graphql`
     query {
       site {
@@ -72,9 +72,8 @@ Layout.propTypes = {
   pagination: PropTypes.object,
   tags: PropTypes.array,
   home: PropTypes.string,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   backToTop: PropTypes.bool,
-  toc: PropTypes.string
 }
 
 Layout.defaultProps = {
@@ -85,5 +84,4 @@ Layout.defaultProps = {
   home: null,
   description: null,
   backToTop: false,
-  toc: null
 }
