@@ -32,12 +32,6 @@
   .home-container {
     max-width: 400px;
   }
-}
-
-@media screen and (max-width: 420px) {
-  .home-container {
-    max-width: 300px;
-  }
 
   .links, .contact {
     flex-direction: column;
@@ -45,5 +39,11 @@
 
   .links {
     margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .home-container {
+    max-width: 300px;
   }
 }

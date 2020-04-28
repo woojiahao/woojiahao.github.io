@@ -13,7 +13,7 @@ const BackToTop = () => {
   }
 
   const onClick = () => {
-    document.body.scrollTop  = 0
+    document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
   }
 
