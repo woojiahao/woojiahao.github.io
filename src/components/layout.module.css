@@ -29,10 +29,6 @@ header nav a:not(:last-child) {
   align-items: center;
 }
 
-.hidden {
-
-}
-
 @media screen and (max-width: 1024px) {
   .layout {
     max-width: 700px;
