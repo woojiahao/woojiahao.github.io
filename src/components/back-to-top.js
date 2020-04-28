@@ -8,11 +8,13 @@ const BackToTop = () => {
     window.scrollY ? arrow.classList.remove(style.hidden) : arrow.classList.add(style.hidden)
   })
 
-  const classList = [style.hidden, style.arrow]
+  const onClick = () => {
+    document.body.scrollTop  = 0
+    document.documentElement.scrollTop = 0
+  }
 
   return (
-
-    <div className={classList.join(` `)}>
+    <div className={[style.hidden, style.arrow].join(` `)} onClick={() => onClick()}>
       <AiOutlineArrowUp size="1.75em"/>
     </div>
   )
