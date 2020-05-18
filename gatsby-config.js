@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: `https://woojiahao.github.io`,
     image: `/images/icon.png`,
     description: `The personal portfolio of Woo Jia Hao! Trekking down the path of programming and discussing my encounters with the unknown!`,
-    repositoryUrl: `https://github.com/woojiahao.github.io`
+    repositoryUrl: `https://github.com/woojiahao/woojiahao.github.io`
   },
   plugins: [
     `gatsby-transformer-sharp`,
