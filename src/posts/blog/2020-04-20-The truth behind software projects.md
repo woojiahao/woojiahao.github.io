@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: "The truth behind software projects"
 date: "2020-04-20"
 description: "How I pick software projects and why I believe failed/incomplete projects are the best kind of projects"
@@ -34,7 +34,8 @@ good for us? Or is it slowly destroying our motivation and sucking our weekends 
 In this post, I would like to explore this aspect of the industry and talk about my experiences working on side 
 projects and share some of my personal opinions on it. Now note, I do not claim to be a programming genius nor do I 
 assume that my word is gospel. I am merely sharing my observations and experiences as a developer who was mostly 
-self-taught.
+self-taught. More importantly, this post is my way of performing introspection on my past five years as a developer and
+how much I have grown since then.
 
 ## Separating the truth from fiction
 
@@ -114,7 +115,3 @@ before? If you fail to demonstrate the most fundamental skill a developer should
 flourish in an environment. While side projects *can* build problem-solving abilities, some may only venture within the
 range of their comfort zone to try new side projects. In some cases, this could mean never trying any problem that is
 hard as they do not believe that they possess the capacity to solve this on their own.
-
-## Personal regrets
-
-## Moving forward
