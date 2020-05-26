@@ -3,9 +3,11 @@ type: "About"
 published: true
 ---
 
-I am a software developer from Singapore. I recently graduated from Singapore Polytechnic with a Diploma in Information 
-Technology. I am avid learner and love problem-solving. I seize every opportunity to hone my knowledge and seek to be
-a better version of myself everyday.
+Hi! I am a software developer from Singapore. I recently graduated from Singapore Polytechnic with a Diploma in 
+Information Technology. I am avid learner and love problem-solving. I seize every opportunity to hone my knowledge and 
+seek to be a better version of myself everyday. My love for learning has been the primary motivating factor for me to
+learn programming as it is such a vast field. It has also cultivated my passion for teaching and helping others with
+programming.
 
 I started A Programmer's Perspective as a way for me to share about my journey into the belly of the beast 
 (programming). A blog allowed me to combine my love for story-telling with my love for teaching and programming - 
@@ -92,5 +94,7 @@ videos [here!](/recommendations)
 ## Hobbies
 
 When I'm not programming, I enjoy running or hanging out with friends. I love reading and have been using my phone as an
-e-book reader to consume various technical books on subjects spanning from CS to Math to Physics. 
-
+e-book reader to consume various technical books on subjects spanning from CS to Math to Physics. I also spend my time 
+on Discord as a moderator for the largest programming server on the platform where I socialise with my friends there (we 
+generally goof off and have fun), discuss my project ideas with others, help beginners with programming problems, and 
+handle any situations that may crop up among members.
