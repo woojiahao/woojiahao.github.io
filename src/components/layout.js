@@ -5,6 +5,7 @@ import {rhythm} from "../utils/typography"
 import SEO from "./SEO"
 import * as PropTypes from "prop-types"
 import BackToTop from "./back-to-top"
+import ThemeToggle from "./theme-toggle"
 
 const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, description, backToTop}) => {
   const {site} = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, descript
   return (
     <div>
       <div className={style.layout}>
+        <ThemeToggle style={{position: `absolute`, right: 0, top: 0, margin: `15px`}}/>
         <SEO title={tabTitle} description={description}/>
 
         <header>
