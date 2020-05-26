@@ -66,10 +66,10 @@ export default props => {
       <div className={style.navigationContainer}>
         <div className={style.navigation}>
           <div onClick={() => handlePrevious()}>
-            <IoIosArrowBack size="2em"/>
+            <IoIosArrowBack size="2em" style={{color: `#000`}}/>
           </div>
           <div onClick={() => handleNext()}>
-            <IoIosArrowForward size="2em"/>
+            <IoIosArrowForward size="2em" style={{color: `#000`}}/>
           </div>
         </div>
       </div>

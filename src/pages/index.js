@@ -2,11 +2,13 @@ import React from "react"
 import indexStyles from "./index.module.css"
 import {Link} from "gatsby"
 import SEO from "../components/SEO"
+import ThemeToggle from "../components/theme-toggle"
 
 export default () => (
   <div className={indexStyles.homeContainer}>
     <SEO title="Home"/>
     <div className={indexStyles.mainContainer}>
+      <ThemeToggle/>
       <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Woo Jia Hao!</h1>
       <p>
         I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I recently

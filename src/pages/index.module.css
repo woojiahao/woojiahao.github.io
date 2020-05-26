@@ -9,6 +9,7 @@
 
 .main-container {
   margin-right: 30px;
+  /*background-color: var(--bg);*/
 }
 
 .links, .contact {

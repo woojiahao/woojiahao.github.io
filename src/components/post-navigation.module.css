@@ -13,7 +13,7 @@
 .navigation .buttons p a {
   display: flex;
   align-items: center;
-  color: black;
+  color: var(--textTitle);
 }
 
 @media screen and (max-width: 768px) {

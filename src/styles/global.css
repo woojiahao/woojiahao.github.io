@@ -12,6 +12,24 @@ html {
   overflow-y: auto;
 }
 
+body {
+  --bg: #fff;
+  --textNormal: hsla(0, 0%, 0%, 0.8);
+  --textTitle: hsla(0, 0%, 0%, 0.8);
+  --hr: hsla(0, 0%, 0%, 0.2);
+  --shadow: #eee 5px 5px 8px;
+
+  background-color: var(--bg);
+}
+
+body.dark {
+  --bg: #000;
+  --textNormal: rgba(255, 255, 255, 0.8);
+  --textTitle: #fff;
+  --hr: hsla(0, 0%, 100%, 0.2);
+  --shadow: none;
+}
+
 .video-container {
   position: relative;
   width: 100%;

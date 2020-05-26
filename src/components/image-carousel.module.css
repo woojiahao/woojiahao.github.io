@@ -1,6 +1,6 @@
 .carousel-container {
   position: relative;
-  box-shadow: #eee 5px 5px 8px;
+  box-shadow: var(--shadow);
   margin-bottom: 30px;
 }
 

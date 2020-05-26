@@ -11,6 +11,7 @@ module.exports = {
     repositoryUrl: `https://github.com/woojiahao/woojiahao.github.io`
   },
   plugins: [
+    `gatsby-plugin-dark-mode`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
