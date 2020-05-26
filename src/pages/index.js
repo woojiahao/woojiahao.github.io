@@ -19,8 +19,10 @@ export default () => (
 
       <p>
         When I am not programming, I am reading about <Link to="/recommendations">various topics</Link> across
-        different domains! I also love to run and exercise. I am also currently learning Japanese and how to play the
-        guitar!
+        different domains! I also love to run and exercise. I am currently learning psychology on <a
+        href="https://www.coursera.org/learn/introduction-psychology">
+        Coursera</a> and dabbling with 3D modelling using Blender! You can check out what else I am currently
+        learning <Link to="/about#currently-im-learning-">here!</Link>
       </p>
 
       <div className={indexStyles.links}>
@@ -39,7 +41,7 @@ export default () => (
           <a href="https://github.com/woojiahao">GitHub</a>
           <a href="https://discord.gg/programming">Discord</a>
           <a href="https://www.linkedin.com/in/woo-jia-hao-089346155/">LinkedIn</a>
-          <a href="https://twitter.com/devchill1">Twitter</a>
+          <a href="https://twitter.com/woojiahao_">Twitter</a>
         </div>
       </div>
     </div>
