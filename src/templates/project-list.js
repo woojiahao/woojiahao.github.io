@@ -37,7 +37,8 @@ export default ({data, pageContext}) => {
               </Link>
               <div>
                 {post.technologies.languages.map(l => <span className={projectStyles.language}>{l}</span>)}
-                <span style={{backgroundColor: `#${statusColor}`}} className={projectStyles.status}>{post.status}</span>
+                <span style={{backgroundColor: `#${statusColor}`, color: `rgba(0, 0, 0, 0.8)`}}
+                     className={projectStyles.status}>{post.status}</span>
               </div>
             </div>
 
