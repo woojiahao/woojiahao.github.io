@@ -29,8 +29,6 @@ export default props => {
     `
   )
 
-  console.log(allFile)
-
   const images = allFile
     .edges
     .filter(({node}) => node.relativeDirectory.includes(props.folder))
