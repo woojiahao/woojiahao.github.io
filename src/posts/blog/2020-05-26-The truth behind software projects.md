@@ -132,6 +132,11 @@ measurements of success. In the end, what you work on should matter to you. You 
 I am not discouraging that, but you must bear in mind that at the end of the day, the one who benefits most from it 
 should be you.
 
+I think we have to look at each project objectively. "Have I learnt something about myself, this technology, or 
+programming in general?" If yes, then I believe that you have already benefited greatly from it. Whether or not the 
+project is "failed" or "incomplete", as long as you have learnt something along the way, I do not believe that you 
+should belittle that effort.
+
 So go out and build something that inspires you! Work on the project that gets you excited. Explore technologies that 
 you are interested in. Don't worry so much about the perceived value of the project you are embarking on. This is YOUR
 journey, so enjoy it to the fullest! 
