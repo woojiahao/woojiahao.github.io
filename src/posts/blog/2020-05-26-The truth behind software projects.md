@@ -1,7 +1,7 @@
 ---
-published: false
+published: true
 title: "The truth behind software projects"
-date: "2020-04-20"
+date: "2020-05-26"
 description: "How I pick software projects and why I believe failed/incomplete projects are the best kind of projects"
 ---
 
@@ -26,7 +26,7 @@ yourself. If you cannot finish a mere side project, are you even that worthy of 
 find another side project to occupy your time. One that makes your heart race every commit. And the cycle continues.
 
 What I had just shared is - what I believe - a common narrative many developers experience. In programming, we are 
-often bombarded with the idea that side projects are a necessary staple of a developer - that one must have a GitHub
+often bombarded with the idea that side projects are a necessary staple of a developer - that one must have a Github
 page filled to the brim with open-source contributions and personal projects to be considered a good developer. But is
 it really necessary? Or are we - as a collective - creating unecessary barriers for ourselves. Is this mindset really
 good for us? Or is it slowly destroying our motivation and sucking our weekends dry?
@@ -40,37 +40,27 @@ how much I have grown since then.
 ## Separating the truth from fiction
 
 As easy as it is to denounce the notion of side projects as a parasite to one's sanity. There are many truths and value 
-that can be derived from making side projets. So I would first like to explain why I believe side projects are a useful
-tool for developers.
-
-### Fun!
+that can be derived from making side projets. So, I would first like to explain why I believe side projects are a 
+useful tool for developers.
 
 It is hard to deny that side projects can be incredibly fun to work on. When you find a project idea that you believe
 in, its siren's call is hard to resist. You'll find yourself spending hours on end on it. Your weekends can be 
 engulfed by the pile of features you have planned for. 
 
 When someone stars our repository. When Google Analytics reports a new user. When someone makes a pull request. When we
-get a new issue. It is an undeniable truth that seeing people use what we have built is incredibly rewarding and often
-times, that drives us to want to work on it more. We now have an audience of users that we cannot disappoint.
+get a new issue. It is an undeniable fact that seeing people use what we have built is incredibly rewarding and often
+times, that drives us to want to work on it more; we now have an audience of users that we cannot disappoint.
 
 Of course, many of us embark on side projects for the intrinsic rewards it presents to us. This fun is usually 
 derived from the prospect of learning something new. Learning how a network protocol works. Learning how a language is 
 used. Learning a new framework. These are all carrots-on-sticks for developers. Naturally curious, we all look for 
-mental stimulation and seek the next idea we can get our fingers on.
+mental stimulation and seek the next idea we can get our fingers on. Side projects serve as a great way to explore
+different technologies and collaborate with others.
 
-### Informative!
-
-Side projects are a treasure trove of information for us. If we used the same technology stack, we would die of 
-boredom. We are already subjected to the mundane everyday routines. Instead, side projects offer an outlet for us to 
-explore new technologies and collaborate with others.
-
-### Great milestone checks!
-
-Side projects are a terrific way to check up on how far we have progressed. Often times, it is hard for us to draw a 
-distinction between a beginner and intermediate developer. Rather, we compare our progress from project to project to 
-understand how far we have come. Looking at poorly written, unoptimised code after gathering several months (or even
-years) of experience is a good pat on the back for us. Affirming our progress and proving that our efforts were not in
-vain.
+Side projects also offer a way for us, as developers, to view how much progress we have made. Remember that simple chat
+application you made when you were 16? Now look at you creating web applications from scratch or learning a whole 
+network protocol on your own. These side projects document your journey as a developer and it is refreshing to look 
+back and see how much you have grown through these projects.
 
 ## A case against side projects
 
@@ -88,30 +78,60 @@ unable to see a project through. It has caused the idea of side projects to tran
 exploration to one of a "do-or-die" nature. Worse still, those who do not devote time to side projects may feel as 
 though they are losing out against others and in turn develop an obsession with trying to "catch up" to them. This also
 devalues the efforts of those who try at the beginning. I believe that this boils down to the fundamental behavior of 
-humans - competition. We will use any - and every - metric we can get our hands on to compare ourselves against one 
-another. This is similar to my belief and dislike against those who often aim to micro-optimise their daily lives. I am
-one of those who were also obsessed with ensuring that my every waking moment was meticulously planned to ensure that
-my productivity remained at its peak. This was born out of fear that the rapid advancements of this field would 
-eventually overtake me and leave me in the lurch.
+humans: competition. We will use any - and every - metric we can get our hands on to compare ourselves against one 
+another. This is also why I do not agree with those who try to micro-optimise their daily lives - trying to squeeze 
+every second that passes to achieve optimal productivity. I was one of those who were also obsessed with ensuring that 
+my every waking moment was meticulously planned to ensure that my productivity remained at its peak. This was born out 
+of fear that the rapid advancements of this field would eventually overwhelm me and leave me in the lurch. However, the
+reality is, as much as it is important to be driven, we must recognise that there is more to life than an eternal grind
+to be productive. It is important that we look at the time we are spending on side projects objectively and questioning
+whether we are neglecting other aspects of our life in pursuit of this "grind".
 
 This can lead to people developing an unhealthy obsession with creating side projects and working on that "hustle". 
-While many feel incredibly motivated at the beginning, those who fail to properly pace themselves will end up burnt out
-and this can lead to a vicious cycle pushing themselves too hard only to feel exhausted, give up, and feel guilty about
-giving up - spurring them on to try even harder. Burn out - in tech - is one of the worst things that could happen to a
-developer in my honest opinion. When one's livelihood depends on their ability to produce good code under a time 
-crunch, a general sense of demotivation can lead one to become careless; introducing bugs into their system. It also
-diminishes one's interest in the field and in the worst case, can drive them away from the field entirely.
+While many feel incredibly motivated at the beginning, those who fail to properly pace themselves will end up burnt 
+out. This can lead to a vicious cycle where they push themselves too hard only to feel exhausted, give up, and feel 
+guilty about giving up - spurring them on to try even harder. Burn out - in tech - is one of the worst things that 
+could happen to a developer in my honest opinion. When one's livelihood depends on their ability to produce good code 
+under a time crunch, a general sense of demotivation can lead one to become careless; introducing bugs into their 
+system. It also diminishes one's interest in the field and in the worst case, can drive them away from the field 
+entirely.
 
 There are those who also pursue the idea of side projects with the incorrect mindset. Often when I speak to beginners,
 they often state that they feel this obligation to start a side project because they have noticed that others are doing
-so. Some start this side project with the goal to become the number one starred repository on GitHub. Some dive into
+so. Some start this side project with the goal to become the number one starred repository on Github. Some dive into
 one because they think that the only way to improve as a developer is to work on side projects. Some also get swept up
 with the common myth that "side projects == necessity to work in a company" and end up pursuing this belief.
 
 However, what many of these individuals fail to realise is that side projects are not the only measure of a developer's
 worth. As alluring of an idea it is that a company will hire you if you have a portfolio the length of a PhD graduate,
 companies are often looking to hire those who demonstrate problem-solving abilities. So what if you have made 20 APIs
-before? If you fail to demonstrate the most fundamental skill a developer should possess, you will not be able to 
-flourish in an environment. While side projects *can* build problem-solving abilities, some may only venture within the
-range of their comfort zone to try new side projects. In some cases, this could mean never trying any problem that is
-hard as they do not believe that they possess the capacity to solve this on their own.
+before? If you fail to demonstrate the most fundamental skill a developer should possess, you won't be able to think 
+critically to solve new problems. While side projects *can* build problem-solving abilities, some may only venture 
+within the range of their comfort zone to try new side projects. In some cases, this could mean never trying any 
+"hard problems" as they do not believe that they possess the capacity to solve them on their own.
+
+It is this over-emphasis on side projects that has placed so much unnecessary pressure on new developers. I have met 
+many developers who have been wrapped in this worry that if they don't start building a spectacular portfolio right 
+when they start, they will end up becoming a terrible developer. It is sad to see that they place this burden on 
+themsevles when learning to program should be a fun and enjoyable thing.
+
+## So what now?
+
+In summary, I believe that side projects are not inherently evil. It is the warped perception of them that our industry
+has created that has de-valued the true essence of them.
+
+I have been on both ends of the "side project cycle" before. I have been the naive developer who thought having 
+hundreds of followers on Github or thousands of stars on my projects mattered and I have also been burnt out, swamped 
+with school work, and dissatisfied with my perceived notion of productivity. 
+
+As with anything in life, the key is balance. Understanding that side projects are not - in any way - sole markers of a
+developer's abilities is important. Having a large following on Github does not mean you are a terrific programmer and
+vice versa. Learning to appreciate the learning process, rather than working on something for the potential rewards, is
+an important aspect of life and moreso in this culture where developers often try to one-up one another with false 
+measurements of success. In the end, what you work on should matter to you. You can build something to benefit others,
+I am not discouraging that, but you must bear in mind that at the end of the day, the one who benefits most from it 
+should be you.
+
+So go out and build something that inspires you! Work on the project that gets you excited. Explore technologies that 
+you are interested in. Don't worry so much about the perceived value of the project you are embarking on. This is YOUR
+journey, so enjoy it to the fullest! 
