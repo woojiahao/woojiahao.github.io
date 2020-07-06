@@ -10,7 +10,7 @@
       "go-git"
     ]
   },
-  "description": "API for serving COVID-19 statistics",
+  "description": "API for serving COVID-19 statistics built using Go + Gin. The API uses the open-source COVID-19 statistics dataset from https://github.com/CSSEGISandData/COVID-19",
   "lessons": [
     "Using Gin + Go to create an API",
     "Using the go-git library to pull Git repository information"

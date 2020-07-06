@@ -9,7 +9,7 @@
       "Gatsby.js"
     ]
   },
-  "description": "Personal portfolio site built with Gatsby.js.",
+  "description": "Personal portfolio site built with Gatsby.js. All the content is stored as files so that the key changes made to the web pages would only involve styling, making the site portable and easy to use.",
   "lessons": [
     "something"
   ],
