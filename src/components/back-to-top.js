@@ -18,7 +18,7 @@ const BackToTop = () => {
   }
 
   return (
-    <div className={[style.hidden, style.arrow].join(` `)} onClick={() => onClick()}>
+    <div className={[style.hidden, style.arrow].join(` `)} onClick={onClick}>
       <AiOutlineArrowUp size="1.75em"/>
     </div>
   )
