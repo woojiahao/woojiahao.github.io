@@ -6,7 +6,7 @@
       "Go"
     ]
   },
-  "description": "Implementation of the BitTorrent protocol in Golang",
+  "description": "Implementation of the BitTorrent protocol in Golang. Everything used in this project has been built from scratch to properly learn how to use the features of Golang. This project currently only supports single-file torrents.",
   "lessons": [
     "Using Go to implement network protocols"
   ],
