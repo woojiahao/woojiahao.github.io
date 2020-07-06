@@ -1,0 +1,22 @@
+{
+  "published": true,
+  "title": "git-guide",
+  "technologies": {
+    "languages": [
+      "Markdown"
+    ]
+  },
+  "description": "An introduction to the Git version control system. This guide aims to bridge the gap between knowing basic Git commands and properly understanding how they work!",
+  "lessons": [
+    "Creating easy to understand and concise explanations for concepts",
+    "Designing practicals for students to carry out in an easy manner"
+  ],
+  "links": {
+    "repository": "https://github.com/woojiahao/git-guide",
+    "site": "https://woojiahao.github.io/git-guide"
+  },
+  "status": "In Progress",
+  "duration": {
+    "start": "2020-06-28"
+  }
+}
