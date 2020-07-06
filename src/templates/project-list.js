@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import {graphql, Link} from "gatsby"
 import projectStyles from "./project-list.module.css"
 import {getTitle} from "../utils/general"
-import PostPagination from "../components/post-pagination"
+import PostListPagination from "../components/post-list-pagination"
 
 export default ({data, pageContext}) => {
   const posts = data.allProjectsJson.edges
@@ -46,7 +46,7 @@ export default ({data, pageContext}) => {
           </div>
         )
       })}
-      <PostPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} redirect="projects"/>
+      <PostListPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} redirect="projects"/>
     </Layout>
   )
 }
