@@ -4,6 +4,9 @@ import theme from "typography-theme-st-annes"
 theme.baseFontSize = '18px'
 
 theme.overrideThemeStyles = () => ({
+  'a': {
+    color: `#fb251b`
+  },
   'a:hover': {
     color: `var(--textTitle)`
   },
@@ -13,7 +16,7 @@ theme.overrideThemeStyles = () => ({
   'h1, h2, h3, h4, h5, h6, svg': {
     color: `var(--textTitle)`
   },
-  'p, label, strong, em, ul, li, span, footer, p a': {
+  'p, label, strong, em, ul, li, span, footer': {
     color: `var(--textNormal)`
   },
   'hr': {
