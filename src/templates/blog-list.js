@@ -33,7 +33,7 @@ export default ({data, pageContext}) => {
           </div>
         )
       })}
-      <PostPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages}/>
+      <PostPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} redirect="blog"/>
     </Layout>
   )
 }
