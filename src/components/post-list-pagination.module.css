@@ -5,10 +5,23 @@
 }
 
 .active-page {
-  color: var(--textTitle);
-  font-weight: bold;
+  background-color: #F5F5F5;
+}
+
+.paginator div {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-number {
-  padding: 5px;
+  display: inline-flex;
+  padding: 3px 10px;
+  border: #e0e0e0 1px solid;
+}
+
+.page-number:hover {
+  background-color: #FAFAFA;
 }
