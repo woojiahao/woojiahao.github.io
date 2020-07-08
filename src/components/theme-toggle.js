@@ -20,7 +20,7 @@ const ThemeToggle = ({style: styles}) => {
             checked={theme === 'dark'}
             hidden
           />{' '}
-          {t ? <BsMoon size="1.25em" className={style.themeToggle}/> : <BsSun size="1.25em" className={style.themeToggle}/>}
+          {t ? <BsSun size="1.25em" className={style.themeToggle}/> : <BsMoon size="1.25em" className={style.themeToggle}/>}
         </label>
       )
     }}
