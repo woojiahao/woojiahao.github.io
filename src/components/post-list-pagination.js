@@ -1,17 +1,18 @@
 import React from "react"
-import styles from "./post-list-pagination.module.css"
+import style from "./post-list-pagination.module.css"
 import {Link} from "gatsby"
 import PropTypes from "prop-types"
 
 const PostListPagination = ({numPages, currentPage, redirect}) => {
   const pages = [...Array(numPages).keys()].map(i => i + 1)
+  const links = pages.map(page => page === 1 ? `/${redirect}/` : `/${redirect}/${page}`)
   return (
-    <div className={styles.paginator}>
+    <div className={style.paginator}>
       <div>
         {pages.map(n => {
-          const activeStyle = n === currentPage ? styles.activePage : null
-          const classes = [activeStyle, styles.pageNumber].join(" ")
-          const redirectPage = n === 1 ? `/${redirect}/` : `/${redirect}/${n}`
+          const activeStyle = n === currentPage ? style.activePage : null
+          const classes = [activeStyle, style.pageNumber].join(" ")
+          const redirectPage = links[n - 1]
           return (
             <Link to={redirectPage} className={classes}>{n}</Link>
           )
