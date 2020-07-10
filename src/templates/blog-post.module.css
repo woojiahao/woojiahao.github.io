@@ -2,3 +2,23 @@
   margin-top: 0;
   color: gray;
 }
+
+.tags h4 {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tags h4 svg {
+  margin-right: 15px;
+}
+
+.tags span {
+  padding: 5px 10px;
+  background-color: #E0F2F1;
+  color: #424242;
+  border-radius: 5px;
+}
+
+.tags span:not(:first-child) {
+  margin-right: 10px;
+}

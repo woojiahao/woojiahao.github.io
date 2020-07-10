@@ -1,3 +1,7 @@
+.navigation hr {
+  margin-top: 15px
+}
+
 .navigation .buttons {
   display: flex;
   justify-content: space-between;
