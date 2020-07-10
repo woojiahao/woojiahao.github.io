@@ -3,6 +3,13 @@ published: true
 title: "Deploying discord bots written in Kotlin to Heroku"
 date: 2020-04-21
 description: "A (revised) guide to deploying JVM-based Discord bots on Heroku"
+tags:
+    - Kotlin
+    - Heroku
+    - Discord bot
+    - deployment
+    - tutorial
+    - guide
 ---
 
 Over my time in TPH, I have noticed that a common woe aspiring bot developers have is that they are unable to host
