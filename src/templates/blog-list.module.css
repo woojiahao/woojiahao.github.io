@@ -35,10 +35,13 @@
   display: flex;
   padding: 5px 10px;
   background-color: #E0F2F1;
-  color: #424242;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+}
+
+.tags div span {
+  color: #424242;
 }
 
 .tags div svg {
