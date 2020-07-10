@@ -19,16 +19,18 @@ export default ({data, pageContext}) => {
   const description = post.frontmatter.description || title
   const descriptionFormat = `${post.frontmatter.date} - ${title} - ${description}`
 
+  const tags = post.frontmatter.tags
+
   return (
-    <Layout pageTitle={title} tabTitle={title} description={descriptionFormat} backToTop>
+    <Layout pageTitle={title} tabTitle={title} description={descriptionFormat} tags={tags} backToTop>
       <div>
         <h4 className={style.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
       </div>
-      {post.frontmatter.tags && post.frontmatter.tags.length > 0 &&
+      {tags && tags.length > 0 &&
       <div className={style.tags}>
         <h4 className={style.subtitle}><AiFillTag style={{color: `gray`}}/>Tags:</h4>
-        {post.frontmatter.tags.map(t => <span>{t}</span>)}
+        {tags.map(t => <span>{t}</span>)}
       </div>
       }
       <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog"/>

@@ -28,7 +28,7 @@ const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, descript
     <div>
       <div className={style.layout}>
         <ThemeToggle style={{position: `absolute`, right: 0, top: 0, margin: `15px`}}/>
-        <SEO title={tabTitle} description={description}/>
+        <SEO title={tabTitle} description={description} tags={tags}/>
 
         <header>
           <Link to="/">
