@@ -26,4 +26,26 @@
 
 }
 
+.tags {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tags div {
+  display: flex;
+  padding: 5px 10px;
+  background-color: #E0F2F1;
+  color: #424242;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tags div svg {
+  margin-right: 5px;
+}
+
+.tags div:not(:first-child) {
+  margin-left: 10px;
+}
 

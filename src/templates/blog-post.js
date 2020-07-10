@@ -25,7 +25,7 @@ export default ({data, pageContext}) => {
         <h4 className={style.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{__html: post.html}}/>
       </div>
-      {post.frontmatter.tags && post.frontmatter.tags.length !== 0 &&
+      {post.frontmatter.tags && post.frontmatter.tags.length > 0 &&
       <div className={style.tags}>
         <h4 className={style.subtitle}><AiFillTag style={{color: `gray`}}/>Tags:</h4>
         {post.frontmatter.tags.map(t => <span>{t}</span>)}
