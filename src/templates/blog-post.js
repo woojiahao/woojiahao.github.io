@@ -30,7 +30,9 @@ export default ({data, pageContext}) => {
       {tags && tags.length > 0 &&
       <div className={style.tags}>
         <h4 className={style.subtitle}><AiFillTag style={{color: `gray`}}/>Tags:</h4>
-        {tags.map(t => <span>{t}</span>)}
+        <div className={style.tagsContainer}>
+          {tags.map(t => <span>{t}</span>)}
+        </div>
       </div>
       }
       <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog"/>

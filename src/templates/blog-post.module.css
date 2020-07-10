@@ -5,6 +5,7 @@
 
 .tags h4 {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
@@ -12,13 +13,19 @@
   margin-right: 15px;
 }
 
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tags span {
   padding: 5px 10px;
   background-color: #E0F2F1;
   color: #424242;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.tags span:not(:first-child) {
+.tags span:not(:last-child) {
   margin-right: 10px;
 }
