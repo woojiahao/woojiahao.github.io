@@ -2,6 +2,13 @@
 published: true
 title: "Concluding the National Data Science Challenge 2019"
 date: "2019-03-31"
+tags:
+    - reflection
+    - competition
+    - data science
+    - Shopee
+    - Python
+    - Singapore Polytechnic
 ---
 
 Recently, I participated in the [National Data Science Challenge](https://careers.shopee.sg/ndsc/) organized by Shopee!

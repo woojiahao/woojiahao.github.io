@@ -2,6 +2,11 @@
 published: true
 title: "Attending Women in Data Science event"
 date: "2018-04-11"
+tags:
+    - event
+    - data science
+    - SUTD
+    - Women in Data Science
 ---
 I participated in the [Women in Data Science](http://www.widsconference.org/) conference hosted in Singapore at the Singapore University of Technology and Design. 	
 

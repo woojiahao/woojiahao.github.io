@@ -3,6 +3,12 @@ published: true
 title: "Applications of Kotlin's delegate properties"
 date: "2019-07-13"
 description: "Exploring delegate properties while trying to improve the usability of kMD2PDF - a simple markdown to PDF converter"
+tags:
+    - Kotlin
+    - tutorial
+    - guide
+    - delegates
+    - kMD2PDF
 ---
 
 ## Announcement time!

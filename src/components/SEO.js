@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types"
 import {Helmet} from "react-helmet"
 import React from "react"
 
-const SEO = ({title, description}) => {
+const SEO = ({title, tags, description}) => {
   const {pathname} = useLocation()
   const {site} = useStaticQuery(query)
 
@@ -26,6 +26,7 @@ const SEO = ({title, description}) => {
     <Helmet title={seo.title}>
       <meta name="description" content={seo.description}/>
       <meta name="image" content={seo.image}/>
+      {tags.length > 0 && <meta property="keywords" content={tags.join(", ")}/> }
 
       {seo.url && <meta property="og:url" content={seo.url}/>}
       {seo.title && <meta property="og:title" content={seo.title}/>}
@@ -39,11 +40,13 @@ export default SEO
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
+  tags: PropTypes.array,
   description: PropTypes.string
 }
 
 SEO.defaultProps = {
   title: null,
+  tags: [],
   description: null
 }
 

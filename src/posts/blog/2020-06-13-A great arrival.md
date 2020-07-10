@@ -3,6 +3,11 @@ published: true
 title: "A great arrival!"
 date: "2020-06-13"
 description: "My new monitor has arrived! Yay!"
+tags:
+    - monitor
+    - misc
+    - sharing
+    - fun
 ---
 
 It has arrived! (Cue the "Circle of Life") My monitor has arrived! In all of its 23.8 inch glory! I am so excited 

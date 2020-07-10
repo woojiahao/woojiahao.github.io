@@ -3,6 +3,9 @@ published: true
 title: "The truth behind software projects"
 date: "2020-05-26"
 description: "How I pick software projects and why I believe failed/incomplete projects are the best kind of projects"
+tags:
+    - reflection
+    - sharing
 ---
 
 It's 3am. You are one commit away from launching your first release of your latest idea. It's an AI system to help 
