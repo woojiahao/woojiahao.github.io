@@ -30,7 +30,6 @@
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.2.2",
     "gatsby-plugin-sharp": "^2.5.4",
-    "gatsby-plugin-typography": "^2.4.1",
     "gatsby-remark-autolink-headers": "^2.2.4",
     "gatsby-remark-images": "^3.2.2",
     "gatsby-remark-prismjs": "^3.4.1",
@@ -44,12 +43,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "react-icons": "^3.9.0",
-    "react-typography": "^0.16.19",
-    "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19",
-    "typography-theme-parnassus": "^0.16.19",
-    "typography-theme-st-annes": "^0.16.19",
-    "typography-theme-sutro": "^0.16.19"
+    "react-icons": "^3.9.0"
   }
 }
