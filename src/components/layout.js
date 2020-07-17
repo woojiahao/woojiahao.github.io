@@ -1,7 +1,6 @@
 import React from "react"
 import style from "./layout.module.css"
 import {graphql, Link, useStaticQuery} from "gatsby"
-import {rhythm} from "../utils/typography"
 import SEO from "./SEO"
 import * as PropTypes from "prop-types"
 import BackToTop from "./back-to-top"
@@ -45,13 +44,13 @@ const Layout = ({tabTitle, pageTitle, pagination, tags, home, children, descript
         <div className={style.title}>
           <h1>{pageTitle}</h1>
           {pagination &&
-          <p style={{marginTop: rhythm(2)}}>
+          <p style={{marginTop: `2em`}}>
             Page {pagination.currentPage}/{pagination.numPages}
           </p>
           }
         </div>
 
-        <div style={{marginBottom: rhythm(1)}}>
+        <div style={{marginBottom: `1em`}}>
           {children}
         </div>
 

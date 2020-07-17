@@ -5,7 +5,7 @@
 }
 
 .active-page {
-  background-color: var(--paginationActiveBackground);
+  background-color: var(--pagination-active-background);
 }
 
 .paginator div {
@@ -23,5 +23,5 @@
 }
 
 .page-number:hover {
-  background-color: var(--paginationBackground);
+  background-color: var(--pagination-background);
 }

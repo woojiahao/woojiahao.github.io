@@ -10,7 +10,7 @@ export default ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
   const {currentPage, numPages} = pageContext
   return (
-    <Layout pagination={{currentPage, numPages}} pageTitle="Blog Posts" tabTitle="Blog">
+    <Layout pagination={{currentPage, numPages}} pageTitle="My Blog" tabTitle="Blog">
       {posts.map(({node: post}) => {
         const title = getTitle(post.fields.slug, post.frontmatter.title)
         const tags = post.frontmatter.tags
