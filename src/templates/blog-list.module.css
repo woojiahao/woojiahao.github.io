@@ -4,11 +4,13 @@
   align-items: center;
 }
 
-.blog-card {
+.blog-card a h2 {
+  margin: 0;
+  padding: 0;
 }
 
-.blog-title {
-  margin: 0 0 15px;
+.blog-card a {
+  text-decoration: none;
 }
 
 .subtitle {
@@ -17,9 +19,9 @@
 }
 
 .subtitle h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: gray;
+  margin: 1em 0;
+  color: var(--gray);
+  padding: 0;
 }
 
 .excerpt {

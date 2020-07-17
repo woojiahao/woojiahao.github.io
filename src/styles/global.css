@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Rubik&family=Open+Sans');
 
 * {
   margin: 0;
@@ -8,25 +8,12 @@
 h1, h2, h3, h4, h5, h6 {
   position: relative;
   font-family: var(--heading-font);
-  padding: 1em 0;
+  margin: 1em 0;
+  font-weight: bold;
 }
 
-h1::before, h2::before, h3::before {
-  position: absolute;
-  direction: rtl;
-  left: -5%;
-}
-
-h1::before {
-  content: "#";
-}
-
-h2::before {
-  content: "##";
-}
-
-h3::before {
-  content: "###";
+.anchor.before {
+  fill: var(--fg-color);
 }
 
 body, #___gatsby {
@@ -38,19 +25,18 @@ html {
 }
 
 body {
-  --link-color: #83bcff;
+  --link-color: #FF5964;
   --bg-color: #fdfffc;
   --fg-color: #2b2d42;
   --base-unit: 16px;
   --dark-text: #141414;
-  --heading-font: "Montserrat", sans-serif;
-  --body-font: "Rubik", Avenir, Helvetica, Arial, sans-serif;
-  --gray: #BDBDBD;
-
-  --hr: hsla(0, 0%, 0%, 0.2);
+  --heading-font: "Lato", "Open Sans", "Montserrat", sans-serif;
+  --body-font: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
+  --gray: #616161;
   --shadow: #eee 5px 5px 8px;
-  --paginationBackground: #FAFAFA;
-  --paginationActiveBackground: #F5F5F5;
+  --pagination-background: #FAFAFA;
+  --pagination-active-background: #F5F5F5;
+  --blur: 5px;
 
   background-color: var(--bg-color);
   color: var(--fg-color);
@@ -58,15 +44,19 @@ body {
   font-family: var(--body-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition: background-color .5s;
 }
 
 body.dark {
+  --link-color: #83bcff;
   --bg-color: #2b2d42;
   --fg-color: #fdfffc;
-  --hr: hsla(0, 0%, 100%, 0.2);
+  --gray: #BDBDBD;
   --shadow: none;
-  --paginationBackground: #212121;
-  --paginationActiveBackground: #424242;
+  --pagination-background: #212121;
+  --pagination-active-background: #424242;
+  --blur: 0px;
 }
 
 p {
@@ -75,25 +65,51 @@ p {
 }
 
 a {
-  position: relative;
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+p a, li a {
   background: linear-gradient(to bottom, var(--link-color) 0%, var(--link-color) 100%) repeat-x 0 100%;
   background-size: 4px 2px;
-  text-decoration: none;
-  color: var(--link-color);
   transition: all .3s;
 }
 
-a:hover {
+p a:hover, li a:hover {
   background-size: 4px 50px;
   color: var(--fg-color);
 }
 
-ol, ul {
-  list-style-position: inside;
+ul, ol {
+  margin-bottom: 2em;
 }
 
 ol li:not(:last-child), ul li:not(:last-child) {
   margin-bottom: 0.5em;
+}
+
+blockquote {
+  position: relative;
+  display: block;
+  color: var(--gray);
+  margin-bottom: 2em;
+  padding: 0.5em 0;
+}
+
+blockquote p:last-child {
+  padding: 0;
+  margin: 0;
+}
+
+blockquote::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: -5%;
+  width: 10px;
+  background-color: var(--link-color);
 }
 
 .video-container {
@@ -115,23 +131,34 @@ ol li:not(:last-child), ul li:not(:last-child) {
 code[class*="language-"],
 pre[class*="language-"] {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
 }
 
 @media screen and (max-width: 1024px) {
-  html {
-    font-size: 16px;
+  body {
+    --base-unit: 15px;
+  }
+
+  p {
+    line-height: 22px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  html {
-    font-size: 14px;
+  body {
+    --base-unit: 14px;
+  }
+
+  p {
+    line-height: 20px;
   }
 }
 
 @media screen and (max-width: 512px) {
-  html {
-    font-size: 13px;
+  body {
+    --base-unit: 13px;
+  }
+
+  p {
+    line-height: 18px;
   }
 }

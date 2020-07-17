@@ -1,6 +1,6 @@
 .subtitle {
   margin-top: 0;
-  color: gray;
+  color: var(--gray);
 }
 
 .tags h4 {
@@ -20,8 +20,8 @@
 
 .tags span {
   padding: 5px 10px;
-  background-color: #E0F2F1;
-  color: #424242;
+  background-color: #5bc0be;
+  color: var(--fg-color);
   border-radius: 5px;
   margin-bottom: 10px;
 }

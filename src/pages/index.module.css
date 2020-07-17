@@ -15,6 +15,10 @@
   display: flex;
 }
 
+.links {
+  margin-bottom: 15px;
+}
+
 .links a:not(:last-child),
 .contact a:not(:last-child),
 .links strong,

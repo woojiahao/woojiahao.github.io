@@ -12,6 +12,8 @@ header {
 
 header h3 {
   margin: 0;
+  padding: 0;
+  color: var(--fg-color);
 }
 
 header nav {
