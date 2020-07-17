@@ -29,7 +29,6 @@ export default ({data, pageContext}) => {
       </div>
       {tags && tags.length > 0 &&
       <div className={style.tags}>
-        <h4 className={style.subtitle}><AiFillTag style={{color: `gray`}}/>Tags:</h4>
         <div className={style.tagsContainer}>
           {tags.map(t => <span>{t}</span>)}
         </div>
