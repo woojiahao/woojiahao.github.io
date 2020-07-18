@@ -147,6 +147,15 @@ pre[class*="language-"] {
   p {
     line-height: 20px;
   }
+
+  blockquote {
+    width: 90%;
+    margin: 0 auto 2em;
+  }
+
+  blockquote::before {
+    width: 5px;
+  }
 }
 
 @media screen and (max-width: 512px) {
