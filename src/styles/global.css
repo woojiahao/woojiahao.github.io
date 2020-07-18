@@ -16,12 +16,8 @@ h1, h2, h3, h4, h5, h6 {
   fill: var(--fg-color);
 }
 
-body, #___gatsby {
-  overflow-y: hidden;
-}
-
-html {
-  overflow-y: auto;
+body, html, #___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
 }
 
 body {
@@ -150,6 +146,15 @@ pre[class*="language-"] {
 
   p {
     line-height: 20px;
+  }
+
+  blockquote {
+    width: 90%;
+    margin: 0 auto 2em;
+  }
+
+  blockquote::before {
+    width: 5px;
   }
 }
 

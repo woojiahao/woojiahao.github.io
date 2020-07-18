@@ -6,9 +6,9 @@ import ThemeToggle from "../components/theme-toggle"
 
 export default () => (
   <div className={indexStyles.homeContainer}>
+    <ThemeToggle style={{position: `absolute`, right: 0, top: 0, margin: `15px`}}/>
     <SEO title="Home"/>
     <div className={indexStyles.mainContainer}>
-      <ThemeToggle style={{position: `absolute`, right: 0, top: 0, margin: `15px`}}/>
       <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Woo Jia Hao!</h1>
       <p>
         I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I recently
