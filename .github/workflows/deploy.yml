@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: Installing Gatsby
-        run: npm i --save gatsby 
+        run: npm i --no-optional
 
       - name: Deploy the site
         run: npm run deploy
