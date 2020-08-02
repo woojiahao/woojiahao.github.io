@@ -16,8 +16,9 @@ export default () => (
         and <Link
         to="/blog">sharing about my journey in programming.</Link> I am currently working on <Link
         to="/projects"> several projects</Link> and learning various programming languages to diversify my knowledge
-        such as <Link to="/projects/posts/torrent.go">implementing the BitTorrent protocol using Go</Link> or <Link
-        to="/projects/posts/woojiahao.github.io">learning Gatsby.js to build this site.</Link>
+        such as <a href="https://woojiahao.github.io/git-guide">creating a guide for Git</a> or <Link to="/projects/posts/torrent.go">
+        implementing the BitTorrent protocol in Go.</Link> I am currently having an internship at DSO National 
+        Laboratories where I research about Natural Language Processing!
       </p>
 
       <p>
