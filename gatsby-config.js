@@ -38,12 +38,13 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `IBM Plex Mono`
-          }
+          `Source Code Pro`,
+          `Lato`,
+          `Rubik`,
+          `Open Sans`
         ]
       }
     },

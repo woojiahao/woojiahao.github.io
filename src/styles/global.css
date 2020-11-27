@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Rubik&family=Open+Sans');
-
 * {
   margin: 0;
   padding: 0;
@@ -126,7 +124,7 @@ blockquote::before {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 @media screen and (max-width: 1024px) {
