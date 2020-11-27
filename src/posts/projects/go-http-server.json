@@ -1,0 +1,25 @@
+{
+  "published": true,
+  "title": "go-http-server",
+  "technologies": {
+    "languages": [
+      "Go"
+    ],
+    "libraries": [
+      "cli"
+    ]
+  },
+  "description": "HTTP server written from scratch using Go!",
+  "lessons": [
+    "Learnt how the HTTP protocol works on a fundamental level",
+    "Learnt how to properly use Goroutines and to manage network sockets"
+  ],
+  "links": {
+    "repository": "https://woojiahao.github.com/go-http-server"
+  },
+  "status": "Completed",
+  "duration": {
+    "start": "2018-10-01",
+    "end": "2018-11-01"
+  }
+}
