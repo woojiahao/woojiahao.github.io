@@ -11,22 +11,24 @@ export default () => (
     <div className={indexStyles.mainContainer}>
       <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Woo Jia Hao!</h1>
       <p>
-        I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I recently
-        graduated from Singapore Polytechnic with a Diploma in Information Technology. I am actively learning
-        and <Link
-        to="/blog">sharing about my journey in programming.</Link> I am currently working on <Link
-        to="/projects"> several projects</Link> and learning various programming languages to diversify my knowledge
-        such as <a href="https://woojiahao.github.io/git-guide">creating a guide for Git</a> or <Link to="/projects/posts/torrent.go">
-        implementing the BitTorrent protocol in Go.</Link> I am currently having an internship at DSO National 
-        Laboratories where I research about Natural Language Processing!
+        I go by the moniker of Chill online. I am a software developer from the tiny red dot - Singapore! I 
+        graduated from Singapore Polytechnic with a Diploma in Information Technology. I love learning and <Link
+        to="/blog">sharing about my journey in programming.</Link> I will be pursuing a degree in Computer Science at 
+        the National University of Singapore after I complete my national service! 
       </p>
 
       <p>
-        When I am not programming, I am reading about <Link to="/recommendations">various topics</Link> across
-        different domains! I also love to run and exercise. I am currently learning psychology on <a
-        href="https://www.coursera.org/learn/introduction-psychology">
-        Coursera</a> and dabbling with 3D modelling using Blender! You can check out what else I am currently
-        learning <Link to="/about#currently-im-learning-">here!</Link>
+        I am currently working on <Link
+        to="/projects"> several projects</Link> and learning various programming languages to diversify my knowledge
+        such as <a href="https://woojiahao.github.io/git-guide">creating a guide for Git</a> or <Link to="/projects/posts/torrent.go">
+        creating a HTTP server from scratch in Go.</Link> I am also learning Elixir to dip my toes in functional programming! 
+        I was also a research intern at DSO National Laboratories, performing research in natural language processing!
+      </p>
+
+      <p>
+        When I am not programming, I enjoy learning about <Link to="/recommendations">various topics</Link> across
+        different domains! I also love to run and exercise. I am currently learning more about psychology and sociology!
+        You can find what else I am learning <Link to="https://woojiahao.github.io/about#currently-im-learning-">here!</Link>
       </p>
 
       <div className={indexStyles.links}>

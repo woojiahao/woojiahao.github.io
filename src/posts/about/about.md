@@ -3,10 +3,13 @@ type: "About"
 published: true
 ---
 
-Hi! I am a software developer from Singapore. I recently graduated from Singapore Polytechnic with a Diploma in 
-Information Technology. I am avid learner and love problem-solving. I seize every opportunity to hone my knowledge and 
-seek to be a better version of myself everyday. My love for learning has been the primary motivating factor for me to
-learn programming as it is such a vast field. It has also cultivated my passion for teaching and helping others with
+Hi! I am a software developer from Singapore. I graduated from Singapore Polytechnic with a Diploma in 
+Information Technology and will be pursuing a degree in Computer Science at National University of Singapore after I 
+complete my national service. 
+
+I am avid learner and love problem-solving. I seize every opportunity to hone my knowledge 
+and seek to be a better version of myself everyday. My love for learning has been the primary motivating factor for me 
+to learn programming as it is such a vast field. It has also cultivated my passion for teaching and helping others with
 programming.
 
 I started A Programmer's Perspective as a way for me to share about my journey into the belly of the beast 
@@ -61,6 +64,9 @@ I recently started using Go, such as making a [BitTorrent protocol implementatio
 
 Some of my notable projects are:
 
+1. [**go-http-server**](/projects/posts/go-http-server) - HTTP server written from scratch in Go
+2. [**Git Guide**](/projects/posts/git-guide) - Introduction to the Git version control system for Singapore Polytechnic
+   Software Engineering Practices module
 1. [**torrent.go**](/projects/posts/torrent.go) - BitTorrent protocol implementation
 2. [**govid-19**](/projects/posts/govid-19) - COVID-19 statistics API
 3. [**kMD2PDF**](/projects/posts/kMD2PDF) - Markdown to PDF file conversion library written in Kotlin
@@ -73,17 +79,28 @@ A comprehensive list of all my projects can be found [here.](/projects)
 These are a list of the various topics that I'm learning at the moment. Check out my recommendations for books and 
 videos [here!](/recommendations)
 
-1. **Introduction to Psychology** 
-    
-   Making use of the COVID-19 period, I have decided to embark on a journey to learn about psychology. I have always 
-   been keen on learning about psychology and the course on Coursera seemed like the perfect gateway for me! 
-   
-   I am also using this opportunity to learn how university classes are organised and to get familiar with the rigour 
-   of it.
-   
-   The course can be found [here.](https://www.coursera.org/learn/introduction-psychology)
-   
-2. **Structure and Interpretation of Computer Programs**
+1. **Psychology** 
+
+    I had thoroughly enjoyed learning about psychology through the "Introduction to Psychology" course on Coursera. So,
+    I want to explore the field even more and to see if I would like to study it in depth in university as well! As
+    such, I have decided to pick up a textbook on psychology, namely, the one available on OpenStax!
+
+    The textbook can be found [here.](https://openstax.org/details/books/psychology)
+
+2. **Elixir & Functional programming**
+
+    Functional programming has always been an object of fascination for me (pun not intended). When programming in
+    Kotlin, I have always tried to imitate basic functional programming concepts like creating pure functions and making
+    full use of the "functions as first-class citizens" concept. However, I have never stepped out of this bubble and
+    explored the other aspects of functional programming.
+
+    Elixir is my jump into this rabbit hole. It was a language that was raved about in TPH and so I wanted to check out
+    what the "fuss" was all about. I plan to learn Elixir and functional programming by exploring open source projects
+    as I cannot really think of practical applications myself.
+
+    The tutorial I am following can be found [here.](https://elixir-lang.org/getting-started/introduction.html)
+
+3. **Structure and Interpretation of Computer Programs**
    
    I have always been put off by this book due to its high level of technicality but now, I wanted to try something new 
    and so I decided to pick it up and give it a read. Currently, I'm enjoying it and really starting to put together the
