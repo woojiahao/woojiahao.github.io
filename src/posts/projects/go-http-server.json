@@ -15,11 +15,11 @@
     "Learnt how to properly use Goroutines and to manage network sockets"
   ],
   "links": {
-    "repository": "https://woojiahao.github.com/go-http-server"
+    "repository": "https://github.com/woojiahao/go-http-server"
   },
   "status": "Completed",
   "duration": {
-    "start": "2018-10-01",
-    "end": "2018-11-01"
+    "start": "2020-09-03",
+    "end": "2020-09-28"
   }
 }
