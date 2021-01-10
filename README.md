@@ -33,3 +33,7 @@ Breakpoints go from:
 ```
 420px -> 512px -> 768px -> 1024px
 ```
+
+## TODO
+
+- [ ] Add hot air balloon that ascends as page is scrolled
