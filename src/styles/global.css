@@ -124,7 +124,7 @@ blockquote::before {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: "Source Code Pro", monospace;
+  font-family: "IBM Plex Mono", "Source Code Pro", monospace;
 }
 
 @media screen and (max-width: 1024px) {
