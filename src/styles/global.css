@@ -87,8 +87,9 @@ blockquote {
   position: relative;
   display: block;
   color: var(--gray);
-  margin-bottom: 2em;
-  padding: 0.5em 0;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
 }
 
 blockquote p:last-child {
@@ -104,6 +105,10 @@ blockquote::before {
   left: -5%;
   width: 10px;
   background-color: var(--link-color);
+}
+
+blockquote p {
+  line-height: 2rem;
 }
 
 .video-container {
