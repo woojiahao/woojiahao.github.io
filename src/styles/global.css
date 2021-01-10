@@ -127,6 +127,11 @@ pre[class*="language-"] {
   font-family: "IBM Plex Mono", "Source Code Pro", monospace;
 }
 
+hr {
+  color: var(--fg-color);
+  margin: 15px 0;
+}
+
 @media screen and (max-width: 1024px) {
   body {
     --base-unit: 15px;
