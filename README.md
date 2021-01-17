@@ -33,3 +33,8 @@ Breakpoints go from:
 ```
 420px -> 512px -> 768px -> 1024px
 ```
+
+## TODO
+
+- [ ] Add hot air balloon that ascends as page is scrolled
+- [ ] Wikipedia definition reference balloon on-hover (when a referenced text links to Wikipedia, use the API to get the definition, and display that on the site directly) - retrieve this data before the site is built and store them in the GraphQL

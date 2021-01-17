@@ -44,7 +44,8 @@ module.exports = {
           `Source Code Pro`,
           `Lato`,
           `Rubik`,
-          `Open Sans`
+          `Open Sans`,
+          `IBM Plex Mono`
         ]
       }
     },
