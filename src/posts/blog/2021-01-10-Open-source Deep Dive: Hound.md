@@ -283,8 +283,6 @@ def handle_info({:DOWN, ref, _, _, _}, state) do
 end
 ```
 
-More information on `[ETS](https://erlang.org/doc/man/ets.html)` and `[GenServer](https://hexdocs.pm/elixir/GenServer.html)`.
-
 ### Configurations
 
 Configurations are managed using Elixir's `Config` API which uses keyword parameter lists to manage configurations.
@@ -397,6 +395,8 @@ If you are interested in the topics discussed in this post, here are some additi
 10. [ExUnit](https://hexdocs.pm/ex_unit/ExUnit.html)
 11. [Application conventions in Elixir](https://elixir-lang.org/getting-started/mix-otp/supervisor-and-application.html)
 12. [Process monitoring](https://hexdocs.pm/elixir/Process.html#monitor/1)
+13. [ETS](https://erlang.org/doc/man/ets.html)
+14. [GenServer](https://hexdocs.pm/elixir/GenServer.html)
 
 > **NOTE:** I do not condone the use of browser automation or torrenting for illegal purposes. Any links or discussions about the mentioned subjects are purely for educational purposes and should remain as that.
 
