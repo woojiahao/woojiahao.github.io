@@ -44,10 +44,11 @@ export default () => (
       <div className={indexStyles.contact}>
         <strong>Stalk me!</strong>
         <div>
-          <a href="https://github.com/woojiahao">GitHub</a>
-          <a href="https://discord.gg/programming">Discord</a>
-          <a href="https://www.linkedin.com/in/jia-hao-woo-089346155/">LinkedIn</a>
-          <a href="https://twitter.com/woojiahao_">Twitter</a>
+          <a target="_blank" href="https://github.com/woojiahao">GitHub</a>
+          <a target="_blank" href="https://discord.gg/programming">Discord</a>
+          <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/">LinkedIn</a>
+          <a target="_blank" href="https://twitter.com/woojiahao_">Twitter</a>
+          <a target="_blank" href="mailto: woojiahao1234@gmail.com">Email</a>
         </div>
       </div>
     </div>
