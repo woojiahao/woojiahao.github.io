@@ -11,6 +11,8 @@ tags:
     - converter
     - software engineering
     - kMD2PDF
+redirect_from: 
+  - /blog/posts/2019-04-03-Lessons on software release/
 ---
 
 Oh boy, I screwed up bad, like *really* badly. Ok ok, let's go back and see where it all began. I've learnt countless

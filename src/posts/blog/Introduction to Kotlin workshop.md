@@ -9,6 +9,8 @@ tags:
     - Android development
     - Singapore Polytechnic
     - event
+redirect_from:
+    - /blog/posts/2018-10-06-Introduction-to-Kotlin-workshop/
 ---
 During the school holidays, I was fortunate to be able to work with a lecturer from my school to hold a workshop 
 teaching Kotlin using Android development as a tool. This was an incredibly interesting and refreshing experience, 

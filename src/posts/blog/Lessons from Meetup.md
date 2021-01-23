@@ -11,6 +11,8 @@ tags:
     - Heroku
     - API
     - Discord bot
+redirect_from:
+    - /blog/posts/2019-09-06-Lessons from Meetup/
 ---
 
 Recently, I got into Docker and used [Meetup](https://github.com/woojiahao/meetup) as a testing grounds for improving my knowledge on Docker. Meetup is a Discord bot written with Kotlin that provides updates on programming events happening in Singapore. The idea was first proposed by a member of the SG Computer Science server.

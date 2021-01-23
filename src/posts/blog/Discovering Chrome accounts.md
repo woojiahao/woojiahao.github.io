@@ -6,6 +6,8 @@ date: "2020-07-22"
 tags:
     - sharing
     - misc
+redirect_from:
+    - /blog/posts/2020-07-22-Discovering Chrome accounts/
 ---
 
 I am writing a really short blog post to share about my most recent discovery - Chrome user accounts! I never really

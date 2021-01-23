@@ -8,6 +8,8 @@ tags:
     - misc
     - sharing
     - fun
+redirect_from:
+    - /blog/posts/2020-06-13-A great arrival/
 ---
 
 It has arrived! (Cue the "Circle of Life") My monitor has arrived! In all of its 23.8 inch glory! I am so excited 

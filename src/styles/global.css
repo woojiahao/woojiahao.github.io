@@ -133,8 +133,10 @@ pre[class*="language-"] {
 }
 
 hr {
-  color: var(--fg-color);
-  margin: 15px 0;
+  margin: 2em auto;
+  border: none;
+  border-top: 3px dotted var(--fg-color);
+  width: 15%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -162,7 +164,8 @@ hr {
   }
 
   blockquote::before {
-    width: 5px;
+    /* width: 5px; */
+    width: 0;
   }
 }
 

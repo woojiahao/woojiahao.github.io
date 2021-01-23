@@ -4,11 +4,13 @@ title: "Writing a wrapper"
 date: "2018-12-16"
 description: "Creating an API wrapper for the Spotify Web API"
 tags:
-    - wrapper
-    - API
-    - Kotlin
-    - Spotify Web API
-    - Java
+  - wrapper
+  - API
+  - Kotlin
+  - Spotify Web API
+  - Java
+redirect_from:
+  - /blog/posts/2018-12-16-Writing-a-wrapper/
 ---
 During my first semester of my second year in Polytechnic, I began writing a simple wrapper for the [Spotify Web API](https://developer.spotify.com/documentation/web-api/quick-start/) as I was interesting in the process of developing a 
 library for other developers to use and this was something that I saw as an opportunity. 

@@ -8,6 +8,8 @@ tags:
   - sharing
   - Elixir
   - Advent of Code 2020
+redirect_from:
+  - /blog/posts/2020-12-29-Elixir has opened my eyes/
 ---
 
 Functional programming (FP) is a mythical beast to the fledging developer. It can seem daunting to approach the idea of designing systems with the idea of pure functions in mind and rightfully so. I was the same a couple of years back - right when I was starting to get into computer science. Coming from object-oriented programming (OOP), FP was like trying to fit a square peg into a round hole for me. My first exposure to FP was through streams in Java 8. Then, I moved onto Kotlin and Javascript which had better "built-in" support for FP-like syntax by focusing on developing a language that has first-class functions. Finally, I approached the beast: Elixir! 

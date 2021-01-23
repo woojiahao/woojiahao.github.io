@@ -31,6 +31,59 @@ header nav a:not(:last-child) {
   align-items: center;
 }
 
+footer {
+  padding-bottom: 3em;
+}
+
+footer > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-description {
+  flex-basis: 1;
+  min-width: 30%;
+}
+
+.site-description p {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links {
+  width: 100%;
+  flex-basis: 1;
+  display: flex;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.social-media {
+  flex-basis: 1;
+  min-width: 50%;
+}
+
+.social-media svg {
+  margin-right: 5px;
+}
+
+.page-navigation {
+  flex-basis: 1;
+  min-width: 50%;
+}
+
+.social-media a, .page-navigation a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
 @media screen and (max-width: 1024px) {
   .layout {
     max-width: 700px;
@@ -46,6 +99,14 @@ header nav a:not(:last-child) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  footer > div {
+    flex-direction: column;
+  }
+
+  footer div {
+    margin-bottom: 20px;
   }
 
   header nav {

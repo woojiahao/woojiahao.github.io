@@ -7,6 +7,8 @@ tags:
     - reflection
     - sharing
     - motivation
+redirect_from:
+    - /blog/posts/2020-07-15-The yellow brick road of life/
 ---
 
 I have the tendency to worry about the future... **a lot.** Sometimes, I stagnate for a period of time worrying about

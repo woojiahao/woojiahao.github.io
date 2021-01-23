@@ -1,13 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
-import {graphql} from "gatsby"
-import {getTitle} from "../utils/general"
+import { graphql } from "gatsby"
+import { getTitle } from "../utils/general"
 import style from "./blog-post.module.css"
 import PostNavigation from "../components/post-navigation"
 import Post from "../classes/post"
-import {AiFillTag} from "react-icons/all"
 
-export default ({data, pageContext}) => {
+export default ({ data, pageContext }) => {
   const post = data.markdownRemark
   const title = getTitle(post.fields.slug, post.frontmatter.title)
   const edges = data.allMarkdownRemark.edges
@@ -25,16 +24,9 @@ export default ({data, pageContext}) => {
     <Layout pageTitle={title} tabTitle={title} description={descriptionFormat} tags={tags} backToTop>
       <div>
         <h4 className={style.subtitle}>Published on: {post.frontmatter.date}</h4>
-        <div dangerouslySetInnerHTML={{__html: post.html}}/>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
-      {tags && tags.length > 0 &&
-      <div className={style.tags}>
-        <div className={style.tagsContainer}>
-          {tags.map(t => <span>{t}</span>)}
-        </div>
-      </div>
-      }
-      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog"/>
+      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog" />
     </Layout>
   )
 }

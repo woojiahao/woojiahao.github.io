@@ -6,6 +6,8 @@ description: "How I pick software projects and why I believe failed/incomplete p
 tags:
     - reflection
     - sharing
+redirect_from:
+    - /blog/posts/2020-05-26-The truth behind software projects/
 ---
 
 It's 3am. You are one commit away from launching your first release of your latest idea. It's an AI system to help 
