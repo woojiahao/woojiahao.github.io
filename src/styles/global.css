@@ -164,7 +164,8 @@ hr {
   }
 
   blockquote::before {
-    width: 5px;
+    /* width: 5px; */
+    width: 0;
   }
 }
 
