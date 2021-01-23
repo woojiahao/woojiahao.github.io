@@ -88,7 +88,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
                 <p className={style.footerTitle}>Connect with me!</p>
                 <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /> woojiahao</a>
                 <a target="_blank" href="https://discord.gg/programming"><SiDiscord /> Chill#4048</a>
-                <a target="_blank" href="https://www.linkedin.com/in/woo-jia-hao-089346155/"><AiFillLinkedin /> Woo Jia Hao</a>
+                <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin /> Woo Jia Hao</a>
                 <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /> @woojiahao_</a>
               </div>
             </div>
