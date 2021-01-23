@@ -166,7 +166,6 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     })
 
     if (category === "blog") {
-      console.log(node)
       customRedirectFrom(node, createRedirect, createPage)
     }
   })
