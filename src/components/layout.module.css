@@ -41,22 +41,6 @@ footer > div {
   width: 100%;
 }
 
-.footer-title {
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 15px;
-}
-
-.social-media {
-  flex-basis: 1;
-  min-width: 30%;
-}
-
-.social-media svg {
-  margin-right: 5px;
-}
-
 .site-description {
   flex-basis: 1;
   min-width: 30%;
@@ -67,9 +51,31 @@ footer > div {
   padding: 0;
 }
 
+.footer-links {
+  width: 100%;
+  flex-basis: 1;
+  display: flex;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.social-media {
+  flex-basis: 1;
+  min-width: 50%;
+}
+
+.social-media svg {
+  margin-right: 5px;
+}
+
 .page-navigation {
   flex-basis: 1;
-  min-width: 30%;
+  min-width: 50%;
 }
 
 .social-media a, .page-navigation a {
@@ -93,6 +99,17 @@ footer > div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  footer > div {
+    flex-direction: column;
+  }
+
+  footer div {
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
   }
 
   header nav {

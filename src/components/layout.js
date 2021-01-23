@@ -52,7 +52,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
           }
         </div>
 
-        <div style={{ marginBottom: `1em` }}>
+        <div style={{ marginBottom: `2em` }}>
           {children}
         </div>
 
@@ -74,21 +74,23 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
               </p>
             </div>
 
-            <div className={style.pageNavigation}>
-              <p className={style.footerTitle}>Navigation</p>
-              <Link to="/">Home</Link>
-              <Link to="/blog">Blog</Link>
-              <Link to="/projects">Projects</Link>
-              <Link to="/about">About Me</Link>
-              <Link to="/recommendations">Recommendations</Link>
-            </div>
+            <div className={style.footerLinks}>
+              <div className={style.pageNavigation}>
+                <p className={style.footerTitle}>Navigation</p>
+                <Link to="/">Home</Link>
+                <Link to="/blog">Blog</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/about">About Me</Link>
+                <Link to="/recommendations">Recommendations</Link>
+              </div>
 
-            <div className={style.socialMedia}>
-              <p className={style.footerTitle}>Connect with me!</p>
-              <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub/> woojiahao</a>
-              <a target="_blank" href="https://discord.gg/programming"><SiDiscord /> Chill#4048</a>
-              <a target="_blank" href="https://www.linkedin.com/in/woo-jia-hao-089346155/"><AiFillLinkedin /> Woo Jia Hao</a>
-              <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /> @woojiahao_</a>
+              <div className={style.socialMedia}>
+                <p className={style.footerTitle}>Connect with me!</p>
+                <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /> woojiahao</a>
+                <a target="_blank" href="https://discord.gg/programming"><SiDiscord /> Chill#4048</a>
+                <a target="_blank" href="https://www.linkedin.com/in/woo-jia-hao-089346155/"><AiFillLinkedin /> Woo Jia Hao</a>
+                <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /> @woojiahao_</a>
+              </div>
             </div>
           </div>
         </footer>
