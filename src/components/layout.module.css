@@ -118,11 +118,17 @@ footer > div {
 
 @media screen and (max-width: 512px) {
   .layout {
-    max-width: 400px;
+    max-width: 420px;
   }
 }
 
 @media screen and (max-width: 420px) {
+  .layout {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 380px) {
   .layout {
     max-width: 300px;
   }
