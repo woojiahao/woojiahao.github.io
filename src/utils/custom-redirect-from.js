@@ -20,7 +20,7 @@ function customRedirectFrom(post, createRedirect, createPage) {
     })
 
     createPage({
-      path: redirect.to,
+      path: redirect.from,
       component: redirectPageTemplate,
       context: {
         redirect: redirect.to
