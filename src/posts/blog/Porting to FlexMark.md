@@ -4,13 +4,16 @@ title: "Porting to FlexMark"
 date: "2019-04-08"
 description: "Adopting FlexMark into kMD2PDF - a markdown to PDF converter"
 tags:
-    - reflection
-    - migration
-    - Kotlin
-    - markdown
-    - PDF
-    - kMD2PDF
-    - unit testing
+  - reflection
+  - migration
+  - Kotlin
+  - markdown
+  - PDF
+  - kMD2PDF
+  - unit testing
+
+redirect_from:
+  - /blog/posts/2019-04-08-Porting to FlexMark/
 ---
 
 kMD2PDF now finally uses [FlexMark](https://github.com/vsch/flexmark-java) as the back end for the markdown to html 

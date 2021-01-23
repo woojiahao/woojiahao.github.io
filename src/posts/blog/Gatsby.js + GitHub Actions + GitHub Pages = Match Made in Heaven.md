@@ -12,6 +12,8 @@ tags:
     - continuous deployment
     - Javscript
     - GitHub
+redirect_from:
+  - /blog/posts/2020-04-14-Gatsby.js + GitHub Actions + GitHub Pages = Match Made in Heaven/
 ---
 
 After a long hiatus induced by the demons that was school, I have finally defeated the final boss and graduated! 

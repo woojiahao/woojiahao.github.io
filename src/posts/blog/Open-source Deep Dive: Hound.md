@@ -3,15 +3,17 @@ published: true
 date: "2021-01-17"
 title: "Open-source Deep Dive: Hound"
 tags:
-
-- Open-source Deep Dive
-- Elixir
-- Hound
-- Browser automation testing
-- Selenium
-- PhantomJS
+  - Open-source Deep Dive
+  - Elixir
+  - Hound
+  - Browser automation testing
+  - Selenium
+  - PhantomJS
 
 description: "In this installment of Open-source Deep Dive, I wander into the jaws of Hound - a browser automation and integration testing library written in Elixir. I explore the underlying concept of browser automation and explain how browser automation can be achieved. I also look at the ways in which Hound leverages existing browser automation technologies to build a seamless experience for developers to build integration tests for the web and how they use fundamental concepts in Elixir, like processes and GenServer to build a powerful library. Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
+
+redirect_from:
+  - "/blog/posts/2021-01-10-Open-source Deep Dive: Hound/"
 ---
 
 ## What is Hound?

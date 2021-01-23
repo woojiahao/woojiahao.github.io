@@ -10,6 +10,8 @@ tags:
     - deployment
     - tutorial
     - guide
+redirect_from:
+    - /blog/posts/2020-04-21-Deploying a Discord bot written with Kotlin on Heroku/
 ---
 
 Over my time in TPH, I have noticed that a common woe aspiring bot developers have is that they are unable to host

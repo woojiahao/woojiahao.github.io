@@ -6,6 +6,8 @@ tags:
     - Kotlin
     - lambda
     - functional programming
+redirect_from:
+  - /blog/posts/2018-10-28-Kotlin-And-Lambdas/
 ---
 Kotlin is a language that was built on top of the JVM and what really sets it apart from Java is the emphasis on 
 **functions being a first-class construct**, meaning many fancy things like lambdas are directly available to Kotlin

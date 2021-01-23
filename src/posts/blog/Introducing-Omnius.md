@@ -11,6 +11,8 @@ tags:
     - markdown
     - editor
     - MVC
+redirect_from:
+    - /blog/posts/2019-02-24-Introducing-Omnius/
 ---
 
 Every developer will encounter slumps where they have no idea what to do and nothing in their life challenges them

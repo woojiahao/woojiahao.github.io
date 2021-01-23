@@ -9,6 +9,8 @@ tags:
     - Shopee
     - Python
     - Singapore Polytechnic
+redirect_from:
+    - /blog/posts/2019-03-31-National Data Science Challenge 2019/
 ---
 
 Recently, I participated in the [National Data Science Challenge](https://careers.shopee.sg/ndsc/) organized by Shopee!

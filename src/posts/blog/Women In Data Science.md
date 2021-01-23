@@ -7,6 +7,8 @@ tags:
     - data science
     - SUTD
     - Women in Data Science
+redirect_from:
+    - /blog/posts/2018-04-11-Women-In-Data-Science/
 ---
 I participated in the [Women in Data Science](http://www.widsconference.org/) conference hosted in Singapore at the Singapore University of Technology and Design. 	
 

@@ -11,6 +11,8 @@ tags:
     - Discord bot
     - Docker
     - deployment
+redirect_from:
+  - /blog/posts/2019-08-31-Heroku x Docker x Discord bot x Kotlin/
 ---
 
 You may be wondering what's up with the over the top, nearly fan-ship name, trust me, I was not on anything when I wrote this.

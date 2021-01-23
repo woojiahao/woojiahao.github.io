@@ -9,6 +9,8 @@ tags:
     - guide
     - delegates
     - kMD2PDF
+redirect_from:
+  - /blog/posts/2019-07-13-Using Delegate Properties/
 ---
 
 ## Announcement time!
