@@ -1,5 +1,7 @@
 const path = require(`path`)
-const {createFilePath} = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
+const customRedirectFrom = require(`./src/utils/custom-redirect-from`)
+const stripTitle = require(`./src/utils/strip-title`)
 
 const postsPerPage = 10
 
@@ -11,11 +13,11 @@ const postsPerPage = 10
  * We have to generate and take the last segment of the default file path as we need to create custom slugs
  * for each post to be under the specified file folders.
  */
-exports.onCreateNode = ({node, getNode, actions}) => {
-  const {createNodeField} = actions
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
   const nodeType = node.internal.type
   if ([`MarkdownRemark`, `ProjectsJson`].indexOf(nodeType) >= 0) {
-    const defaultFilePath = createFilePath({node, getNode, basePath: `pages`})
+    const defaultFilePath = createFilePath({ node, getNode, basePath: `pages` })
     const parts = defaultFilePath.split("/")
     const filename = parts[parts.length - 2]
     let filePath
@@ -30,7 +32,7 @@ exports.onCreateNode = ({node, getNode, actions}) => {
             filePath = `/recommendations`
             break
           default:
-            filePath = `/blog/posts/${filename}`
+            filePath = `/blog/posts/${stripTitle(filename)}`
         }
         break
       case `ProjectsJson`:
@@ -39,6 +41,8 @@ exports.onCreateNode = ({node, getNode, actions}) => {
       default:
         throw new Error(`Invalid node type found`)
     }
+
+    console.log(filePath)
 
     createNodeField({
       node,
@@ -51,14 +55,15 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 /**
  * Creates the pages from the respective slugs.
  */
-exports.createPages = async ({graphql, actions}) => {
-  const {createPage} = actions
-  await generatePosts(createPage, graphql)
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions
+  await generatePosts(createPage, createRedirect, graphql)
   await generateGeneralPosts(createPage, graphql)
 }
 
+// Generates pages like about and recommendations
 const generateGeneralPosts = async (createPage, graphql) => {
-  const {data} = await graphql(`
+  const { data } = await graphql(`
     query {
       allMarkdownRemark(
         filter: {frontmatter: {type: {ne: null}}}
@@ -75,7 +80,7 @@ const generateGeneralPosts = async (createPage, graphql) => {
 
   const generalPosts = data.allMarkdownRemark.edges
 
-  const aboutPage = generalPosts.filter(({node}) => node.frontmatter.type === `About`)[0].node
+  const aboutPage = generalPosts.filter(({ node }) => node.frontmatter.type === `About`)[0].node
   createPage({
     path: aboutPage.fields.slug,
     component: path.resolve(`./src/templates/general-post.js`),
@@ -84,7 +89,7 @@ const generateGeneralPosts = async (createPage, graphql) => {
       title: `About Me`
     }
   })
-  const recommendationPage = generalPosts.filter(({node}) => node.frontmatter.type === `Recommendations`)[0].node
+  const recommendationPage = generalPosts.filter(({ node }) => node.frontmatter.type === `Recommendations`)[0].node
   createPage({
     path: recommendationPage.fields.slug,
     component: path.resolve(`./src/templates/general-post.js`),
@@ -95,8 +100,9 @@ const generateGeneralPosts = async (createPage, graphql) => {
   })
 }
 
-const generatePosts = async (createPage, graphql) =>  {
-  const {data} = await graphql(`
+// Generates blog posts and project listings
+const generatePosts = async (createPage, createRedirect, graphql) => {
+  const { data } = await graphql(`
     query {
       allProjectsJson(
         sort: {fields: duration___start, order: ASC},
@@ -113,7 +119,10 @@ const generatePosts = async (createPage, graphql) =>  {
         filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
       ) {
         edges {
-          node { fields { slug } }
+          node { 
+            fields { slug } 
+            frontmatter { redirect_from }
+          }
           next { fields { slug } }
           previous { fields { slug } }
         }
@@ -122,13 +131,13 @@ const generatePosts = async (createPage, graphql) =>  {
   `)
 
   const blogPosts = data.allMarkdownRemark.edges
-  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage)
+  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage, createRedirect)
 
   const projectListings = data.allProjectsJson.edges
-  generatePages(projectListings, "project-list", "project-listing", "projects", createPage)
+  generatePages(projectListings, "project-list", "project-listing", "projects", createPage, createRedirect)
 }
 
-const generatePages = (edges, listTemplate, postTemplate, category, createPage) => {
+const generatePages = (edges, listTemplate, postTemplate, category, createPage, createRedirect) => {
   const numPages = Math.ceil(edges.length / postsPerPage)
   for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
     const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
@@ -144,7 +153,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage) 
     })
   }
 
-  edges.forEach(({node, next, previous}) => {
+  edges.forEach(({ node, next, previous }) => {
     const slug = node.fields.slug
     createPage({
       path: slug,
@@ -155,6 +164,11 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage) 
         prev: processNodeSlug(previous)
       }
     })
+
+    if (category === "blog") {
+      console.log(node)
+      customRedirectFrom(node, createRedirect, createPage)
+    }
   })
 }
 
