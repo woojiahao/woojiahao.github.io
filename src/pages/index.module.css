@@ -1,29 +1,158 @@
 .home-container {
   height: 100%;
-  margin: 0 auto;
-  max-width: 700px;
-  display: flex;
-  align-items: center;
-  justify-items: center;
+  margin: 3em auto;
+  max-width: 1024px;
 }
 
 .main-container {
-  margin-right: 30px;
-}
-
-.links, .contact {
   display: flex;
+  justify-content: space-between;
 }
 
-.links {
-  margin-bottom: 15px;
+.main-container .left {
+  flex-basis: 1;
+  width: 24%;
+  text-align: right;
 }
 
-.links a:not(:last-child),
-.contact a:not(:last-child),
-.links strong,
-.contact strong {
-  margin-right: 15px;
+
+.main-container .left img {
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.main-container .left .name h1,
+.main-container .left .name h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container .left .name h1 {
+  font-weight: normal;
+}
+
+.main-container .left .name h2 {
+  color: var(--gray);
+}
+
+.main-container .left .links {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.main-container .left .links a {
+  display: block;
+}
+
+.main-container .left .links a:not(:last-child) {
+  margin-bottom: 0.3em;
+}
+
+.main-container .left .contact a {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  font-weight: normal;
+}
+
+.main-container .left .contact a:not(:last-child) {
+  margin-bottom: 0.3em;
+}
+
+.main-container .left .links strong,
+.main-container .left .contact strong {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.main-container .left .contact svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 0.5em;
+}
+
+.main-container .right h1 {
+  margin-top: 0;
+}
+
+.main-container .right {
+  flex-basis: 2;
+  width: 72%;
+}
+
+.main-container .right .recent h1 {
+  color: var(--fg-color);
+}
+
+.main-container .right .recent .subtitle {
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.main-container .right .recent h2 {
+  color: var(--gray);
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.main-container .right .recent .view-all {
+  display: block;
+  margin-bottom: 1.2em;
+}
+
+@media screen and (max-width: 1024px) {
+  .home-container {
+    max-width: 950px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .home-container {
+    max-width: 768px;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-container .left,
+  .main-container .right {
+    width: 100%;
+  }
+
+  .main-container .left {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .main-container .left .contact a span {
+    display: none;
+  }
+
+  .main-container .left img {
+    width: 20%;
+    height: 20%;
+  }
+
+  .main-container .left .links a,
+  .main-container .left .contact a {
+    display: inline-block;
+  }
+
+  .main-container .left .links a:not(:last-child) {
+    margin-right: 1em;
+  }
+
+  .main-container .left .contact svg {
+    width: 3em;
+    height: 3em;
+    margin: 0;
+    margin-right: 0.5em;
+  }
 }
 
 @media screen and (max-width: 768px) {

@@ -38,5 +38,6 @@ Breakpoints go from:
 
 - [ ] Add hot air balloon that ascends as page is scrolled
 - [ ] Wikipedia definition reference balloon on-hover (when a referenced text links to Wikipedia, use the API to get the definition, and display that on the site directly) - retrieve this data before the site is built and store them in the GraphQL
-- [ ] Hash URLs to minimise footprint or do something about the long URLs
+- [X] Hash URLs to minimise footprint or do something about the long URLs
 - [ ] Render GitHub gists
+- [ ] Blog post thumbnails using Japanese art
