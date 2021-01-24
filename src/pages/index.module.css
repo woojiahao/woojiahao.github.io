@@ -116,7 +116,7 @@
   }
 
   .main-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .main-container .left,
@@ -125,13 +125,17 @@
   }
 
   .main-container .left {
-    text-align: left;
+    text-align: center;
+    margin-bottom: 2em;
   }
 
-  .main-container .left .name,
-  .main-container .left img,
   .main-container .left .contact a span {
     display: none;
+  }
+
+  .main-container .left img {
+    width: 20%;
+    height: 20%;
   }
 
   .main-container .left .links a,
