@@ -26,8 +26,8 @@ body {
   --dark-text: #141414;
   --heading-font: "Lato", "Open Sans", "Montserrat", sans-serif;
   --body-font: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
-  --gray: #616161;
-  --shadow: #eee 5px 5px 8px;
+  --gray: #90A4AE;
+  --shadow: #D7D7D7 5px 5px 10px;
   --pagination-background: #FAFAFA;
   --pagination-active-background: #F5F5F5;
   --blur: 5px;
@@ -46,8 +46,8 @@ body.dark {
   --link-color: #83bcff;
   --bg-color: #2b2d42;
   --fg-color: #fdfffc;
-  --gray: #BDBDBD;
-  --shadow: none;
+  --gray: #90A4AE;
+  --shadow: #000 5px 5px 10px;
   --pagination-background: #212121;
   --pagination-active-background: #424242;
   --blur: 0px;
@@ -128,7 +128,7 @@ pre[class*="language-"] {
 hr {
   margin: 2em auto;
   border: none;
-  border-top: 3px dotted var(--fg-color);
+  border-top: 3px dotted var(--gray);
   width: 15%;
 }
 
