@@ -31,10 +31,6 @@ header nav a:not(:last-child) {
   align-items: center;
 }
 
-footer {
-  padding-bottom: 3em;
-}
-
 footer > div {
   display: flex;
   justify-content: space-between;
@@ -64,23 +60,27 @@ footer > div {
   margin-bottom: 15px;
 }
 
+.social-media a, .page-navigation a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.page-navigation,
 .social-media {
   flex-basis: 1;
   min-width: 50%;
 }
 
+.social-media a {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
 .social-media svg {
   margin-right: 5px;
-}
-
-.page-navigation {
-  flex-basis: 1;
-  min-width: 50%;
-}
-
-.social-media a, .page-navigation a {
-  display: block;
-  margin-bottom: 5px;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 
