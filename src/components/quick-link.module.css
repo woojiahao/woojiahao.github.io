@@ -1,0 +1,23 @@
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.link h1 {
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.link p {
+  color: var(--gray);
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.link svg {
+  width: 2em;
+  height: 2em;
+}

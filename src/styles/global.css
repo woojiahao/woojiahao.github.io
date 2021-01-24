@@ -14,17 +14,13 @@ h1, h2, h3, h4, h5, h6 {
   fill: var(--fg-color);
 }
 
-body, html, #___gatsby, #gatsby-focus-wrapper {
-  height: 100%;
-}
-
 body {
   --link-color: #FF5964;
   --bg-color: #fdfffc;
   --fg-color: #2b2d42;
   --base-unit: 16px;
   --dark-text: #141414;
-  --heading-font: "Lato", "Open Sans", "Montserrat", sans-serif;
+  --heading-font: "Open Sans", "Open Sans", "Montserrat", sans-serif;
   --body-font: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
   --gray: #90A4AE;
   --shadow: #D7D7D7 5px 5px 10px;
@@ -55,7 +51,7 @@ body.dark {
 
 p {
   line-height: 25px;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 a {
