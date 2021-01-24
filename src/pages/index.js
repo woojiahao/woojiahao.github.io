@@ -23,29 +23,31 @@ const Home = ({ data }) => {
         <aside className={style.left}>
           <img src={profilePicture} alt="Profile picture" />
 
-          <div className={style.name}>
-            <h1>Woo Jia Hao</h1>
-            <h2>Singapore</h2>
-          </div>
-
-          <div className={style.links}>
-            <strong>Get around!</strong>
-            <div>
-              <Link to="/blog">Blog</Link>
-              <Link to="/projects">Projects</Link>
-              <Link to="/about">About Me</Link>
-              <Link to="/recommendations">Recommendations</Link>
+          <div>
+            <div className={style.name}>
+              <h1>Woo Jia Hao</h1>
+              <h2>Singapore</h2>
             </div>
-          </div>
 
-          <div className={style.contact}>
-            <strong>Find me!</strong>
-            <div>
-              <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub />woojiahao </a>
-              <a target="_blank" href="https://discord.gg/programming"><SiDiscord />@Chill#4048 </a>
-              <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin />Woo Jia Hao </a>
-              <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare />@woojiahao_ </a>
-              <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail />woojiahao1234@gmail.com </a>
+            <div className={style.links}>
+              <strong>Get around!</strong>
+              <div>
+                <Link to="/blog">Blog</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/about">About Me</Link>
+                <Link to="/recommendations">Recommendations</Link>
+              </div>
+            </div>
+
+            <div className={style.contact}>
+              <strong>Find me!</strong>
+              <div>
+                <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /><span>woojiahao</span></a>
+                <a target="_blank" href="https://discord.gg/programming"><SiDiscord /><span>@Chill#4048</span></a>
+                <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin /><span>Woo Jia Hao</span></a>
+                <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /><span>@woojiahao_</span></a>
+                <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail /><span>woojiahao1234@gmail.com</span></a>
+              </div>
             </div>
           </div>
         </aside>
@@ -67,7 +69,7 @@ const Home = ({ data }) => {
 
             <p>
               I enjoy acquiring knowledge about domains outside of computer science. I am currently brushing up on my
-              chemistry, learning history and sociology, and studying psychology! 
+              chemistry, learning history and sociology, and studying psychology!
               Find out what I am learning <Link to="/about#currently-im-learning-">here!</Link> Outside of all of that,
               I like exercising and hanging out with my friends!
           </p>

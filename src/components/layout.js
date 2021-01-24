@@ -7,7 +7,7 @@ import BackToTop from "./back-to-top"
 import ThemeToggle from "./theme-toggle"
 import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
 import { SiDiscord } from "react-icons/si"
-import {MdEmail} from "react-icons/md"
+import { MdEmail } from "react-icons/md"
 
 const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
   const { site } = useStaticQuery(graphql`
@@ -68,7 +68,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
                 Trekking down the path of programming and discussing my encounters with the unknown!
               </p>
 
-              <br/>
+              <br />
 
               <p>
                 Copyright &copy; 2020-2021. Code <a href={repositoryUrl}>here.</a>
@@ -91,7 +91,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
                 <a target="_blank" href="https://discord.gg/programming"><SiDiscord />@Chill#4048</a>
                 <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin />Woo Jia Hao</a>
                 <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare />@woojiahao_</a>
-                <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail/>woojiahao1234@gmail.com</a>
+                <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail />woojiahao1234@gmail.com</a>
               </div>
             </div>
           </div>
