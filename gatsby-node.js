@@ -84,15 +84,6 @@ const generateGeneralPosts = async (createPage, graphql) => {
       title: `About Me`
     }
   })
-  const recommendationPage = generalPosts.filter(({ node }) => node.frontmatter.type === `Recommendations`)[0].node
-  createPage({
-    path: recommendationPage.fields.slug,
-    component: path.resolve(`./src/templates/general-post.js`),
-    context: {
-      slug: recommendationPage.fields.slug,
-      title: `My Recommendations`
-    }
-  })
 }
 
 // Generates blog posts and project listings
