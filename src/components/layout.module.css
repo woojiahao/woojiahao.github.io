@@ -71,10 +71,14 @@ footer > div {
   min-width: 50%;
 }
 
+.page-navigation a,
+.social-media a {
+  font-weight: normal;
+}
+
 .social-media a {
   display: flex;
   align-items: center;
-  font-weight: normal;
 }
 
 .social-media svg {

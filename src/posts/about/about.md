@@ -3,11 +3,10 @@ type: "About"
 published: true
 ---
 
-Hi! I am a software developer from Singapore. I graduated from Singapore Polytechnic with a Diploma in 
-Information Technology and will be pursuing a degree in Computer Science at National University of Singapore after I 
-complete my national service. 
+Hi! I am Jia Hao and I am a software developer from Singapore. I graduated from Singapore Polytechnic with a Diploma in 
+Information Technology. 
 
-I am avid learner and love problem-solving. I seize every opportunity to hone my knowledge 
+I am avid learner who loves solving complex and interesting problems. I seize every opportunity to hone my knowledge 
 and seek to be a better version of myself everyday. My love for learning has been the primary motivating factor for me 
 to learn programming as it is such a vast field. It has also cultivated my passion for teaching and helping others with
 programming.
@@ -20,15 +19,20 @@ killing three birds with one site!
 
 ### Working experience
 
-- Android developer @ [MightyAim](https://www.mightyaim.co/) - Feb 2018 to May 2018
-  
-  During my time at MightyAim, I was posted as the sole Android developer in the team - tasked with creating an Android 
-  framework for other developers to supercharge their applications to become accessible to the visually impaired. I set
-  the foundations for the direction of the framework - for both Android and iOS and built the core codebase that would
-  serve as the base for expansions. I picked up skills such as Android development and UI design as well as learning to
-  interact with clients and pitching my ideas to the team.
+- **Research Intern** - Stance detection @ [DSO National Laboratories](https://www.dso.org.sg/) - Jul 2020 to Sep 2020
 
-- Intern - SOI Re-platform @ [DBS Singapore](https://www.dbs.com.sg/index/default.page) - Apr 2019 to Aug 2019
+  Working with my supervisors - Hai Leong and Serena - I investigated ways of building a brand new NLP algorithm for 
+  stance detection that improves on existing models presented in the [SemEval 2016 Task 6.](http://alt.qcri.org/semeval2016/task6/)
+
+  I learnt to read technical papers, gained a strong foundation in machine learning algorithms (specifically NLP ones),
+  and was able to apply my software engineering knowledge by building and maintaining a codebase that was easy-to-use
+  and well-documented for future researchers.
+
+  I was able to benchmark baselines for model performance using alternative modes of looking at the problem set and 
+  started modifying existing machine learning algorithm codebases to suit the requirements of the newly proposed stance
+  detection algorithm!
+
+- **UAT team coordinator/Intern** - SOI Re-platform @ [DBS Singapore](https://www.dbs.com.sg/index/default.page) - Apr 2019 to Aug 2019
 
   I wore many hats during my internship at DBS Singapore - serving as a UAT team coordinator, automating workflows, 
   performing data mining & analysis, creating and managing quality management checks, and administering the project 
@@ -41,14 +45,26 @@ killing three birds with one site!
   involves changes to the entire bank's infrastructure. Being a part of such a big project has been an honour and I 
   enjoyed every second of it.
 
+- **Lead Android developer** @ [MightyAim](https://www.mightyaim.co/) - Feb 2018 to May 2018
+  
+  During my time at MightyAim, I was posted as the sole Android developer in the team - tasked with creating an Android 
+  framework for other developers to supercharge their applications to become accessible to the visually impaired. I set
+  the foundations for the direction of the framework - for both Android and iOS and built the core codebase that would
+  serve as the base for expansions. I picked up skills such as Android development and UI design as well as learning to
+  interact with clients and pitching my ideas to the team.
+
 ### Programming languages
 
-I am most proficient in Kotlin, Javascript, and SQL. 
+I am most proficient in Elixir, Go, Kotlin, Javascript, and SQL. 
 
 I have experience in other languages like C#, Java, and Python.
 
 I recently started using Go, such as making a [BitTorrent protocol implementation](/projects/posts/torrent.go) and 
 [COVID-19 statistic API.](/projects/posts/govid-19)
+
+I have also started working with Elixir (with the aim of adopting a functional programming problem solving mindset)
+by working on [Advent of Code 2020](https://github.com/woojiahao/advent-of-code-2020) and kickstarting a new blog
+series - Open-source Deep Dive - by inspecting [Hound.](/blog/posts/open-source-deep-dive-hound)
 
 ### Technologies
 

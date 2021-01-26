@@ -44,6 +44,7 @@
 
 .main-container .left .links a {
   display: block;
+  font-weight: normal;
 }
 
 .main-container .left .links a:not(:last-child) {
@@ -97,6 +98,11 @@
   color: var(--gray);
   margin: 0;
   margin-bottom: 0.3em;
+  font-weight: normal;
+}
+
+.main-container .right .recent .recent-box:not(:last-child) {
+  margin-bottom: 2.5em;
 }
 
 .main-container .right .recent .view-all {

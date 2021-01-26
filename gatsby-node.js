@@ -28,9 +28,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
           case `about`:
             filePath = `/about`
             break
-          case `recommendations`:
-            filePath = `/recommendations`
-            break
           default:
             filePath = `/blog/posts/${stripTitle(filename)}`
         }
@@ -41,8 +38,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       default:
         throw new Error(`Invalid node type found`)
     }
-
-    console.log(filePath)
 
     createNodeField({
       node,
@@ -61,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await generateGeneralPosts(createPage, graphql)
 }
 
-// Generates pages like about and recommendations
+// Generates pages like about
 const generateGeneralPosts = async (createPage, graphql) => {
   const { data } = await graphql(`
     query {
@@ -87,15 +82,6 @@ const generateGeneralPosts = async (createPage, graphql) => {
     context: {
       slug: aboutPage.fields.slug,
       title: `About Me`
-    }
-  })
-  const recommendationPage = generalPosts.filter(({ node }) => node.frontmatter.type === `Recommendations`)[0].node
-  createPage({
-    path: recommendationPage.fields.slug,
-    component: path.resolve(`./src/templates/general-post.js`),
-    context: {
-      slug: recommendationPage.fields.slug,
-      title: `My Recommendations`
     }
   })
 }
