@@ -28,9 +28,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
           case `about`:
             filePath = `/about`
             break
-          case `recommendations`:
-            filePath = `/recommendations`
-            break
           default:
             filePath = `/blog/posts/${stripTitle(filename)}`
         }
@@ -41,8 +38,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       default:
         throw new Error(`Invalid node type found`)
     }
-
-    console.log(filePath)
 
     createNodeField({
       node,
@@ -61,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await generateGeneralPosts(createPage, graphql)
 }
 
-// Generates pages like about and recommendations
+// Generates pages like about
 const generateGeneralPosts = async (createPage, graphql) => {
   const { data } = await graphql(`
     query {
