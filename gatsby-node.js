@@ -20,6 +20,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const defaultFilePath = createFilePath({ node, getNode, basePath: `pages` })
     const parts = defaultFilePath.split("/")
     const filename = parts[parts.length - 2]
+
+    const title = stripTitle(filename)
+    if (title.startsWith("_")) return
+
     let filePath
 
     switch (nodeType) {
@@ -29,7 +33,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
             filePath = `/about`
             break
           default:
-            filePath = `/blog/posts/${stripTitle(filename)}`
+            filePath = `/blog/posts/${title}`
         }
         break
       case `ProjectsJson`:
