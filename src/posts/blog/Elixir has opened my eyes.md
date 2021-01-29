@@ -1,7 +1,7 @@
 ---
-title: Elixir has opened my eyes...
 published: true
-description: How Elixir and functional programming has changed the way I look at problems
+title: "Elixir has opened my eyes..."
+description: "How Elixir and functional programming has changed the way I look at problems"
 date: "2020-12-29"
 tags: 
   - reflection
