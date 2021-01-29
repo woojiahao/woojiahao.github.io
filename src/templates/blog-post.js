@@ -50,7 +50,7 @@ export const query = graphql`
       fields { slug }
     }
     allMarkdownRemark(
-      filter: {fields: {slug: {in: [$next, $prev]}}}
+      filter: {fields: {slug: {in: [$next, $prev]}}, frontmatter: {published: {eq: true}}}
     ) {
       edges {
         node {
