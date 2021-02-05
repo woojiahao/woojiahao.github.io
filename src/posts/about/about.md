@@ -20,80 +20,30 @@ killing three birds with one site!
 ### Working experience
 
 - **Research Intern** - Stance detection @ [DSO National Laboratories](https://www.dso.org.sg/) - Jul 2020 to Sep 2020
-
-  Working with my supervisors - Hai Leong and Serena - I investigated ways of building a brand new NLP algorithm for 
-  stance detection that improves on existing models presented in the [SemEval 2016 Task 6.](http://alt.qcri.org/semeval2016/task6/)
-
-  I learnt to read technical papers, gained a strong foundation in machine learning algorithms (specifically NLP ones),
-  and was able to apply my software engineering knowledge by building and maintaining a codebase that was easy-to-use
-  and well-documented for future researchers.
-
-  I was able to benchmark baselines for model performance using alternative modes of looking at the problem set and 
-  started modifying existing machine learning algorithm codebases to suit the requirements of the newly proposed stance
-  detection algorithm!
-
 - **UAT team coordinator/Intern** - SOI Re-platform @ [DBS Singapore](https://www.dbs.com.sg/index/default.page) - Apr 2019 to Aug 2019
+- **Lead Android developer** - SenseView Framework @ [MightyAim](https://www.mightyaim.co/) - Feb 2018 to May 2018
 
-  I wore many hats during my internship at DBS Singapore - serving as a UAT team coordinator, automating workflows, 
-  performing data mining & analysis, creating and managing quality management checks, and administering the project 
-  JIRA board. 
-  
-  Throughout my time at DBS, I have interacted with many stakeholders across 96 teams (just in Singapore) and built 
-  connections with countless members of various teams. I have developed my soft skills significantly during this period 
-  and have become proficient at communicating my ideas and understanding technical and business needs from each team. I 
-  have also learnt a great deal about Linux commands, TIBCO designer, and monolith infrastructure as the project 
-  involves changes to the entire bank's infrastructure. Being a part of such a big project has been an honour and I 
-  enjoyed every second of it.
+### Tools
 
-- **Lead Android developer** @ [MightyAim](https://www.mightyaim.co/) - Feb 2018 to May 2018
-  
-  During my time at MightyAim, I was posted as the sole Android developer in the team - tasked with creating an Android 
-  framework for other developers to supercharge their applications to become accessible to the visually impaired. I set
-  the foundations for the direction of the framework - for both Android and iOS and built the core codebase that would
-  serve as the base for expansions. I picked up skills such as Android development and UI design as well as learning to
-  interact with clients and pitching my ideas to the team.
-
-### Programming languages
-
-I am most proficient in Elixir, Go, Kotlin, Javascript, and SQL. 
-
-I have experience in other languages like C#, Java, and Python.
-
-I recently started using Go, such as making a [BitTorrent protocol implementation](/projects/posts/torrent.go) and 
-[COVID-19 statistic API.](/projects/posts/govid-19)
-
-I have also started working with Elixir (with the aim of adopting a functional programming problem solving mindset)
-by working on [Advent of Code 2020](https://github.com/woojiahao/advent-of-code-2020) and kickstarting a new blog
-series - Open-source Deep Dive - by inspecting [Hound.](/blog/posts/open-source-deep-dive-hound)
-
-### Technologies
-
-- Linux
-- Heroku
-- Docker
-- Git
-- Gatsby.js
-- Vue
-- Spring Boot
+- **Programming languages** - Elixir, Go, Kotlin, Javascript, SQL (Postgres), C#, Java, Python
+- **Technologies** - Linux, Heroku, Docker, Git, Gatsby.js, Vue, Spring Boot
 
 ## Projects
 
-Some of my notable projects are:
-
-1. [**go-http-server**](/projects/posts/go-http-server) - HTTP server written from scratch in Go
-2. [**Git Guide**](/projects/posts/git-guide) - Introduction to the Git version control system for Singapore Polytechnic
+- [**go-http-server**](/projects/posts/go-http-server) - HTTP server written from scratch in Go
+- [**Git Guide**](/projects/posts/git-guide) - Introduction to the Git version control system for Singapore Polytechnic
    Software Engineering Practices module
-1. [**torrent.go**](/projects/posts/torrent.go) - BitTorrent protocol implementation
-2. [**govid-19**](/projects/posts/govid-19) - COVID-19 statistics API
-3. [**kMD2PDF**](/projects/posts/kMD2PDF) - Markdown to PDF file conversion library written in Kotlin
-4. [**Taiga**](/projects/posts/Taiga) - Discord administration bot written in Kotlin
+- [**torrent.go**](/projects/posts/torrent.go) - BitTorrent protocol implementation
+- [**govid-19**](/projects/posts/govid-19) - COVID-19 statistics API
+- [**kMD2PDF**](/projects/posts/kMD2PDF) - Markdown to PDF file conversion library written in Kotlin
+- [**Taiga**](/projects/posts/Taiga) - Discord administration bot written in Kotlin
 
 A comprehensive list of all my projects can be found [here.](/projects)
 
 ## Currently, I'm learning ...
 
 These are a list of the various topics that I'm learning at the moment. Check out my recommendations for books and 
-videos [here!](/recommendations)
+videos [here!](https://www.notion.so/woojiahao/48b21a97d71c4cd2bc9a9051bd7423a3?v=e2c493015ceb47cfa275a03f20895cb1)
 
 1. **Psychology** 
 
