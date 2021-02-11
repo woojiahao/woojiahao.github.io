@@ -16,7 +16,7 @@ const Home = ({ data }) => {
 
   return (
     <div className={style.homeContainer}>
-      <ThemeToggle style={{ position: `absolute`, right: 0, top: 0, margin: `15px` }} />
+      <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
       <div className={style.mainContainer}>
