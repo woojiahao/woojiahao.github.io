@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { getTitle } from "../utils/general"
 import style from "./blog-post.module.css"
-import PostNavigation from "../components/post-navigation"
+import PostNavigation from "../components/PostNavigation/PostNavigation"
 import Post from "../classes/post"
 
 export default ({ data, pageContext }) => {

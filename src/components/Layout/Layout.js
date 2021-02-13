@@ -5,7 +5,7 @@ import SEO from "../SEO"
 import * as PropTypes from "prop-types"
 import BackToTop from "../BackToTop/BackToTop"
 import ThemeToggle from "../ThemeToggle/ThemeToggle"
-import Footer from "../footer"
+import Footer from "./Footer"
 
 const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
   const { site } = useStaticQuery(graphql`
