@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
-import {getTitle} from "../utils/general"
-import Post from "../classes/post"
-import style from "./project-listing.module.css"
-import ImageCarousel from "../components/ImageCarousel/ImageCarousel"
-import BigButton from "../components/BigButton"
-import PostNavigation from "../components/PostNavigation/PostNavigation"
+import Layout from "../../components/Layout/Layout"
+import {getTitle} from "../../utils/general"
+import Post from "../../classes/post"
+import style from "./ProjectListing.module.css"
+import ImageCarousel from "../../components/ImageCarousel/ImageCarousel"
+import BigButton from "../../components/BigButton"
+import PostNavigation from "../../components/PostNavigation/PostNavigation"
 import {graphql} from "gatsby"
 
 export default ({data, pageContext}) => {
