@@ -1,10 +1,9 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
-import style from "./blog-list.module.css"
-import { getTitle } from "../utils/general"
-import PostListPagination from "../components/post-list-pagination"
-import { AiFillTag } from "react-icons/all"
+import style from "./BlogList.module.css"
+import { getTitle } from "../../utils/general"
+import PostListPagination from "../../components/PostListPagination/PostListPagination"
 
 export default ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges

@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "gatsby"
 import {FiHome, IoIosArrowBack, IoIosArrowForward} from "react-icons/all"
-import style from "./post-navigation.module.css"
+import style from "./PostNavigation.module.css"
 
 const PostNavigation = ({nextPost, prevPost, home}) => (
   <div className={style.navigation}>

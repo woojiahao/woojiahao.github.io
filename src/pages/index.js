@@ -2,13 +2,13 @@ import React from "react"
 import style from "./index.module.css"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
-import ThemeToggle from "../components/theme-toggle"
+import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
 import { graphql } from "gatsby"
 import profilePicture from "./assets/profile_picture.png"
 import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
 import { SiDiscord } from "react-icons/si"
 import { MdEmail } from "react-icons/md"
-import QuickLink from "../components/quick-link"
+import QuickLink from "../components/QuickLink/QuickLink"
 
 const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
@@ -16,7 +16,7 @@ const Home = ({ data }) => {
 
   return (
     <div className={style.homeContainer}>
-      <ThemeToggle style={{ position: `absolute`, right: 0, top: 0, margin: `15px` }} />
+      <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
       <div className={style.mainContainer}>

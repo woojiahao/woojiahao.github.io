@@ -1,7 +1,7 @@
 import {graphql, useStaticQuery} from "gatsby"
 import Img from "gatsby-image"
 import React, {useState} from "react"
-import style from "./image-carousel.module.css"
+import style from "./ImageCarousel.module.css"
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/all"
 
 export default props => {

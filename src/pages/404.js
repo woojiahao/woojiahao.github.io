@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout/Layout"
 
 export default () => (
   <Layout tabTitle="Not found" pageTitle="Page not found">

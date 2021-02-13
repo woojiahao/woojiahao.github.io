@@ -82,7 +82,7 @@ const generateGeneralPosts = async (createPage, graphql) => {
   const aboutPage = generalPosts.filter(({ node }) => node.frontmatter.type === `About`)[0].node
   createPage({
     path: aboutPage.fields.slug,
-    component: path.resolve(`./src/templates/general-post.js`),
+    component: path.resolve(`./src/templates/GeneralPost.js`),
     context: {
       slug: aboutPage.fields.slug,
       title: `About Me`
@@ -121,10 +121,10 @@ const generatePosts = async (createPage, createRedirect, graphql) => {
   `)
 
   const blogPosts = data.allMarkdownRemark.edges
-  generatePages(blogPosts, "blog-list", "blog-post", "blog", createPage, createRedirect)
+  generatePages(blogPosts, "BlogList", "BlogPost", "blog", createPage, createRedirect)
 
   const projectListings = data.allProjectsJson.edges
-  generatePages(projectListings, "project-list", "project-listing", "projects", createPage, createRedirect)
+  generatePages(projectListings, "ProjectList", "ProjectListing", "projects", createPage, createRedirect)
 }
 
 const generatePages = (edges, listTemplate, postTemplate, category, createPage, createRedirect) => {
@@ -133,7 +133,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${listTemplate}.js`),
+      component: path.resolve(`./src/templates/${listTemplate}/${listTemplate}.js`),
       context: {
         currentPage: pageNumber,
         numPages,
@@ -147,7 +147,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = node.fields.slug
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${postTemplate}.js`),
+      component: path.resolve(`./src/templates/${postTemplate}/${postTemplate}.js`),
       context: {
         slug,
         next: processNodeSlug(next),
