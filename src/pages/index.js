@@ -8,7 +8,7 @@ import profilePicture from "./assets/profile_picture.png"
 import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
 import { SiDiscord } from "react-icons/si"
 import { MdEmail } from "react-icons/md"
-import QuickLink from "../components/quick-link"
+import QuickLink from "../components/QuickLink/QuickLink"
 
 const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node

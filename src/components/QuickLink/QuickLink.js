@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./quick-link.module.css"
+import style from "./QuickLink.module.css"
 import { IoIosArrowForward } from "react-icons/all"
 
 const QuickLink = ({ title, description, link }) => {
