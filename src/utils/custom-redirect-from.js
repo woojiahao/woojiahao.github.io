@@ -1,7 +1,7 @@
 const path = require('path')
 
 function customRedirectFrom(post, createRedirect, createPage) {
-  const redirectPageTemplate = path.resolve('./src/templates/redirect-page.js')
+  const redirectPageTemplate = path.resolve('./src/templates/RedirectPage.js')
 
   const redirects = []
   if (post.frontmatter.redirect_from) {
