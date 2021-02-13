@@ -4,7 +4,7 @@ import {getTitle} from "../utils/general"
 import Post from "../classes/post"
 import style from "./project-listing.module.css"
 import ImageCarousel from "../components/ImageCarousel/ImageCarousel"
-import BigButton from "../components/big-button"
+import BigButton from "../components/BigButton"
 import PostNavigation from "../components/PostNavigation/PostNavigation"
 import {graphql} from "gatsby"
 
