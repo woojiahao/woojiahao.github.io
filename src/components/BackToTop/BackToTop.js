@@ -1,6 +1,6 @@
 import React from "react"
 import {AiOutlineArrowUp} from "react-icons/all"
-import style from "./back-to-top.module.css"
+import style from "./BackToTop.module.css"
 
 const BackToTop = () => {
   if (typeof window !== `undefined`) {

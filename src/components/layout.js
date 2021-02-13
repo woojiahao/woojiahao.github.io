@@ -3,7 +3,7 @@ import style from "./layout.module.css"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import SEO from "./SEO"
 import * as PropTypes from "prop-types"
-import BackToTop from "./back-to-top"
+import BackToTop from "./BackToTop/BackToTop"
 import ThemeToggle from "./theme-toggle"
 import Footer from "./footer"
 
