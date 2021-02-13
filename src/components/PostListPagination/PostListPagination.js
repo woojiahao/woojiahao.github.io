@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./post-list-pagination.module.css"
+import style from "./PostListPagination.module.css"
 import {Link} from "gatsby"
 import PropTypes from "prop-types"
 
