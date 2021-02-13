@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "../../components/Layout/Layout"
 import { graphql } from "gatsby"
-import { getTitle } from "../utils/general"
-import style from "./blog-post.module.css"
-import PostNavigation from "../components/PostNavigation/PostNavigation"
-import Post from "../classes/post"
+import { getTitle } from "../../utils/general"
+import style from "./BlogPost.module.css"
+import PostNavigation from "../../components/PostNavigation/PostNavigation"
+import Post from "../../classes/post"
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark
