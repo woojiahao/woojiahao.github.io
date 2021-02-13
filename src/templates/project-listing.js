@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout/Layout"
 import {getTitle} from "../utils/general"
 import Post from "../classes/post"
 import style from "./project-listing.module.css"

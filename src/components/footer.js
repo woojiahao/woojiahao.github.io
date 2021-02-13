@@ -1,6 +1,6 @@
 import React from "react"
 import * as PropTypes from "prop-types"
-import style from "./layout.module.css"
+import style from "../components/Layout/Layout.module.css"
 import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
 import { Link } from "gatsby"
 import { SiDiscord } from "react-icons/si"

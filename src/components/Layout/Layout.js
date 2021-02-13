@@ -1,11 +1,11 @@
 import React from "react"
-import style from "./layout.module.css"
+import style from "./Layout.module.css"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import SEO from "./SEO"
+import SEO from "../SEO"
 import * as PropTypes from "prop-types"
-import BackToTop from "./BackToTop/BackToTop"
-import ThemeToggle from "./ThemeToggle/ThemeToggle"
-import Footer from "./footer"
+import BackToTop from "../BackToTop/BackToTop"
+import ThemeToggle from "../ThemeToggle/ThemeToggle"
+import Footer from "../footer"
 
 const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
   const { site } = useStaticQuery(graphql`
