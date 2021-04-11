@@ -1,7 +1,4 @@
-# Draft @Apr 8, 2021
-
 ---
-
 published: true
 date: "2021-04-17"
 title: "Open-source Deep Dive: Broadway"
@@ -23,62 +20,64 @@ description: "In this installment of Open-source Deep Dive, Broadway takes cente
 
 # **Act 1, Scene 1**
 
-*You have just received your latest feature to work on and it is to integrate a message queue holding transaction information with a live dashboard. Your boss developed an obsession with Elixir recently and is now pushing for every project to use it. Gasp.*
+*You have just received your latest feature to work on and it is to build a system that receives transaction information from a message queue, maps the customer code in this transaction information to the customer's information, and stores this collective information in a separate database to be queried for customer transaction analysis. Your boss has developed an obsession with Elixir recently and is now pushing for every project to use it. Gasp.*
 
 You start researching for libraries that can do exactly that and stumble upon [Broadway](https://github.com/dashbitco/broadway).
 
 > ...build **[concurrent]** and **[multi-stage]** **[data ingestion]** and **[data processing] [pipelines]**...
 
-Oh boy... that — that is a mouthful... Let's break it down shall we?
+Oh boy... that — that is a mouthful... Let's break it down, shall we?
 
-1. **concurrent** - simultaneous
-2. **multi-stage** - successive operating stages
+1. **concurrent** - having two or more computations in progress at the same time; *in progress* meaning that they do not have to be executed at the same time (definition [here](https://www.oreilly.com/library/view/the-art-of/9780596802424/))
+2. **multi-stage** - successive operating stages (definition [here](https://www.merriam-webster.com/dictionary/multistage))
 3. **data ingestion** - process of moving data from one source to a destination for further storage and analysis (definition [here](https://www.alooma.com/blog/what-is-data-ingestion#:~:text=Data%20ingestion%20is%20a%20process,%2C%20CSVs%2C%20or%20from%20streams.))
-4. **data processing** - conversion of data into usable and desirable form (definition [here](https://planningtank.com/computer-applications/data-processing#:~:text=Data%20processing%20is%20the%20conversion,devices%2C%20and%20thus%20done%20automatically.))
+4. **data processing** - conversion of data into a usable and desirable form (definition [here](https://planningtank.com/computer-applications/data-processing#:~:text=Data%20processing%20is%20the%20conversion,devices%2C%20and%20thus%20done%20automatically.))
 5. **pipelines** - series of data processing elements (definition [here](https://en.wikipedia.org/wiki/Pipeline_(computing)#:~:text=In%20computing%2C%20a%20pipeline%2C%20also,or%20in%20time%2Dsliced%20fashion.))
 
-Putting it all together, we can say that Broadway...
+In essence, Broadway builds systems that behave like factory assembly lines. Raw materials (data) is fed into the assembly line (Broadway pipeline) which is then pieced together to create the end product or other components used in the final product. The factory has multiple identical assembly lines running so raw material can be fed into any of these lines to be worked on.
 
-> ...allows the development of systems that receive information from data sources and process this information for further use. The data processing can be performed simultaneously.
+For your use case, the flow of data will look something like this:
 
-In essence, Broadway builds systems that behave like factory assembly lines. Raw materials (data) is fed into the assembly line (Broadway pipeline) which is then pieced together to create the end product.
+![Sample scenario flowchart](./images/open-source-deep-dive/broadway/pipeline.jpg)
 
-For your use case, Broadway will sit between your message queue and live dashboard — serving as the glue that binds the two. So, how exactly does Broadway work?
+So how does Broadway achieve all of this?
 
 # Lights! Camera! Action!
 
 Before understanding the internals of Broadway, we should establish some basic knowledge of the technologies we will be using so that we won't be headless chickens running into this.
 
-Broadway — and our feature — revolve around the following two concepts:
+Broadway revolve around the following concepts:
 
 1. message queues
 2. concurrency in Elixir
 
 ## What are message queues?
 
+**Note!** While Broadway can integrate with many types of data sources, the core examples given in the project focus on message queues as the primary data source.
+
 > Message queues are like containers that hold sequences of work objects — called messages — that are to be consumed and processed. It aids with building asynchronous modular and concurrent systems.
 
 Messages are created and delivered to these queues by **producers** and taken from these queues for processing by **consumers.** These messages can vary from something as simple as plain information to more complex structures like requests or — in our case — transaction information.
 
-![Basic architecture of a message queue](./images/open-source-deep-dive/broadway/message_queue.png)
+![Message queue architecturel](./images/open-source-deep-dive/broadway/message_queue.png)
 
-Message queues are especially powerful for decentralising the communication mechanism of large systems. Rather than having the producers and consumers communicate with one another directly, they use message queues as a medium to exchange events which allows for systems to be more easily scaled and distributed.
+Message queues are useful for **decentralising the communication mechanism of large systems** by acting as a medium for exchanging events between systems which allows for systems to be easily scaled and distributed.
 
-This is a very reduced explanation of what a message queue is and what it is capable of. For more information about message queues, the [Amazon documentation](https://aws.amazon.com/message-queue/) and this [blog post](https://www.cloudamqp.com/blog/what-is-message-queuing.html#:~:text=A%20message%20queue%20is%20a,some%20headers%20at%20the%20top.) by CloudAMQP are good places to start. 
+This is a reduced explanation of what a message queue is and what it is capable of. For more information about message queues, the [Amazon documentation](https://aws.amazon.com/message-queue/) and this [blog post](https://www.cloudamqp.com/blog/what-is-message-queuing.html#:~:text=A%20message%20queue%20is%20a,some%20headers%20at%20the%20top.) by CloudAMQP are good places to start. 
 
 ## Concurrency in Elixir
 
-Broadway relies heavily on concurrency in Elixir. The topology (architecture) of a pipeline is built on top of processes and many of the features are achieved using the robust concurrency model Elixir boasts. So what exactly is the concurrency model in Elixir?
+Broadway relies heavily on concurrency in Elixir. The topology (architecture) of a pipeline is built on top of processes and many of the features are achieved using the robust concurrency model of Elixir. So what exactly is the concurrency model in Elixir?
 
-Elixir employs the **actor concurrency model**. In this model, actors are defined as **self-isolated units of processing**. In Elixir, these actors are called **processes** and they are managed by the [Erlang VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)#:~:text=BEAM%20is%20the%20virtual%20machine,beam%20file%20extension.). Elixir code is run in each process and a default/main process being akin to that of the [main thread](https://cocoacasts.com/swift-and-cocoa-fundamentals-what-is-the-main-thread) in other concurrency models.
+Elixir employs the **actor concurrency model**. In this model, actors are defined as **self-isolated units of processing**. In Elixir, these actors are called **processes** and they are managed by the [Erlang VM](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)#:~:text=BEAM%20is%20the%20virtual%20machine,beam%20file%20extension.). Elixir code is run in each process and a default/main process is akin to that of the [main thread](https://cocoacasts.com/swift-and-cocoa-fundamentals-what-is-the-main-thread) in other concurrency models.
 
-Each process communicates via **asynchronous message passing**. Think of a process as a mailbox of sorts; it has a "bin" to receive incoming messages and it possess an "address" for other processes to identify to send messages to.
+Each process communicates via **asynchronous message passing**. Think of a process as a mailbox of sorts; it has a "bin" to receive incoming messages and it possess an "address" for other processes to identify it by.
 
-![Actor concurrency model](./images/open-source-deep-dive/broadway/actor_concurrency_model.png)
+![Actor concurrency model visualisation](./images/open-source-deep-dive/broadway/actor_concurrency_model.png:)
 
-The unique aspect of this model is the lack of shared mutable state that other concurrency models rely on. Rather, state is exclusive to each process. 
+The unique aspect of this model is the **lack of shared mutable state** that other concurrency models rely on. Rather, state is exclusive to each process. 
 
-In order for the state of a process to be altered, the owner process must make the alteration either on request by other processes or internally due to certain changes.
+In order for the state of a process to be altered, the owner process must make the alteration either on request or internally due to certain changes.
 
 The topic of concurrency in Elixir is vast and Elixir provides many other features surrounding its concurrency model such as [GenServer](https://elixir-lang.org/getting-started/mix-otp/genserver.html). This section is a short preview of what the actor concurrency model and concurrency in Elixir is all about. For more information, you can refer to this [thesis paper](https://berb.github.io/diploma-thesis/original/054_actors.html) and the [Wikipedia article](https://en.wikipedia.org/wiki/Actor_model#:~:text=The%20actor%20model%20in%20computer,universal%20primitive%20of%20concurrent%20computation.&text=Actors%20may%20modify%20their%20own,for%20lock%2Dbased%20synchronization).) talking about the actor concurrency model and the official [documentation](https://elixir-lang.org/getting-started/processes.html) and this [tutorial](https://serokell.io/blog/elixir-otp-guide) on OTP in Elixir for more examples of concurrency in Elixir.
 
@@ -86,9 +85,9 @@ The topic of concurrency in Elixir is vast and Elixir provides many other featur
 
 Using the actor concurrency model as a foundation, another concurrency pattern can be modelled in Elixir — the producer/consumer model. 
 
-This model aims to allow for decoupled data production and consumption by setting up two separate processes for handling each task — effectively creating a logical separation of concerns.
+This model aims to allow for decoupled data production and consumption by setting up two separate processes to handle each task — effectively creating a logical separation of concerns.
 
-However, the producer/consumer model faces a critical issue — what happens if the producer generates an obscene amount of messages for the consumer? The logical answer is that the consumer will be overwhelmed and will eventually fail trying to keep up with processing that many messages. This is where [back pressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7) comes into play.
+However, the producer/consumer model faces a critical issue — what happens if the producer generates excessive messages for the consumer? The consumer will be overwhelmed and will eventually fail trying to keep up with processing that many messages. This is where [back pressure](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7) comes into play.
 
 > Back pressure is a control mechanism for how much a producer should emit based on consumer demand, consumer message buffering, or limited sampling
 
@@ -100,15 +99,15 @@ Seeing the value of having a standard implementation for the producer/consumer m
 
 > GenStage is a specification for exchanging events between producers and consumers with back pressure between Elixir processes
 
-Producers emit events to consumers for processing. The events emitted are not limited in structure so they can be complex structures that contain as much (or as little) information for the consumer to use.
+Producers **emit events** to consumers for **processing**. The events can be of any structure.
 
-The control mechanism used is a demand system. Consumers inform producers of how many events they can handle (demand) and the producer emits no more than the demanded amount. This ensures that the consumers are capable of handling the events emitted.
+The control mechanism used is a demand system. Consumers inform producers of how many events they can handle (demand) and producers emits no more than the demanded amount. This ensures that the consumers are capable of handling the events emitted.
 
-Producer-consumers perform both the work of both producers and consumers (as their name implies). They are used to perform transformations on raw events emitted by the producer before they reach the consumer.
+Producer-consumers behave like both producers and consumers. They are used to perform transformations on events emitted by the producer before they are emitted to the consumer.
 
 Similar to [GenServer](https://hexdocs.pm/elixir/GenServer.html), stages in GenStage exchange events through [callbacks](https://hexdocs.pm/gen_stage/GenStage.html#module-callbacks).
 
-When a demand is handled  — by emitting events and the demanding consumer has handled the events emitted — another demand is made, ensuring that the consumer rarely encounters periods where no demand is made. The only lulls in a GenStage pipeline would occur when the producer does not have enough events to emit.
+When a demand is handled  — i.e. producer emits events and demanding consumer handles these events — another demand is made, creating a cycle where both stages are always working.
 
 GenStage is a powerful tool in an Elixir developer's arsenal. More information can be found in the [official announcement](https://elixir-lang.org/blog/2016/07/14/announcing-genstage/) where a little bit of history of how GenStage came to be was discussed and in a talk by [José Valim](https://youtu.be/XPlXNUXmcgE) — creator of Elixir.
 
@@ -116,41 +115,37 @@ With a better grasp of the overarching concepts used in Broadway, we can finally
 
 # Pipeline architecture
 
-Before understanding how Broadway works in the background, we need to understand the architecture of a pipeline.
+![Pipeline architecture](./images/open-source-deep-dive/broadway/architecture.jpg)
 
-![Broadway pipeline architecture](./images/open-source-deep-dive/broadway/architecture.jpg)
+It is at this juncture where it would be important to clarify the term "producer". In both message queues and GenStage, a producer is a creator of messages or events. However, in Broadway, a producer is both a consumer of messages and an emitter of events.
 
-Each component and their functionality will be explored later on.
+![Terminology clarification for Broadway producer](./images/open-source-deep-dive/broadway/terminology.jpg)
 
-It is at this juncture where it would be important to clarify the term "producer". In both message queues and GenStage, a producer is a creator of messages or events. However, in Broadway, while a producer does emit events for processors, it is also a consumer of messages from the message queue. Basically, it's living a double life.
-
-![Broadway producer is an intersection of a message queue consumer and GenStage producer](./images/open-source-deep-dive/broadway/terminology.jpg)
-
-There are many terms used in Broadway that overlap with the prior knowledge established, so for the rest of the article, the following terminology will be used to reference specific aspects of the project:
+For the rest of the article, the following definitions for the following terminology will be used:
 
 1. **producer** — producer of events in Broadway
-2. **message** — message in a message queue
+2. **message** — message in a message queue or any other data source
 3. **event** — GenStage events
 
 When messages are consumed by the producer, they will be transformed into events with a fixed structure defined by Broadway. 
 
 Each component is a separate process and they are dynamically generated as different topologies (architectures) can be designed. The order of initialisation for a typical pipeline looks something like this:
 
-![Order of initialisation of Broadway pipeline](./images/open-source-deep-dive/broadway/order_of_initialisation.jpg)
+![Order of initialisation](./images/open-source-deep-dive/broadway/order_of_initialisation.jpg)
 
-The producers and processors are both created using interesting convention that is worth exploring right now. Other components like batchers and rate limiter will be discussed later on as they tie into broader features that Broadway has.
+The producers and processors are both created using interesting conventions that is will be explored now. Other components will be discussed later on as they tie into other features Broadway has.
 
 ## How it's made: Producers
 
 Producers are built using a pattern similar to the [strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) but modified to integrate with the concurrency system in Elixir.
 
-As we may be working with different data sources, different producers are required. They will be responsible for setting up connections with the data source and receiving events from the data source. Due to this dynamic requirement, the producer process is broken up into two modules — one defined by the `ProducerStage` and the other a dynamically loaded module given during configuration.
+Different data sources require different methods of establishing connections and receiving messages. Thus, we break up the producer process into two modules — `ProducerStage` defines the behavior for enforcing the rate limit while a dynamically loaded module defines the behavior for establishing a connection to the data source and receiving messages.
 
-Similar to the strategy pattern, `ProducerStage` assumes that the dynamically loaded module contains specific functions that are used to perform operations. In this case, it assumes that the module contains the typical GenStage callbacks like `handle_call` and `handle_demand`. These callbacks are used for features like rate limiting.
+`ProducerStage` assumes that the dynamically loaded module contains the typical GenStage callbacks like `handle_call` and `handle_demand` and uses them for things like rate limiting.
 
-The `ProducerStage` behaves as the context while the module behaves as the strategy. The module adopts the `Producer` module — which defines two callbacks for managing the overall producer life-cycle.
+The `ProducerStage` behaves as the context while the dynamic module behaves as the strategy. The dynamic module adopts the `Producer` module — which defines two callbacks for managing the overall producer life-cycle.
 
-To load the module dynamically, the module name is passed to `ProducerStage` when a new process is spawned of it. As we want to keep the producer as a single process, we will call the `init` function of the module directly when initialising the `ProducerStage`. This way, the module will initialise under the newly spawned process rather than spawning an entirely new process. This is a product of the way processes are initialised in GenStage.
+To load the module dynamically, the module name is passed to `ProducerStage` as an argument. To keep the producer as a single process, we call the `init` function of the module directly when initialising the `ProducerStage`. This way, the module will initialise under the newly spawned process rather than spawning an entirely new process.
 
 ```elixir
 @impl true
@@ -174,21 +169,40 @@ end
 
 When `start_link` is called, a new process is spawned first before the `init` function is called under the new process.
 
-The reason for doing so is because certain message queue providers like [RabbitMQ](https://github.com/dashbitco/broadway_rabbitmq) actually implement active listeners for messages published to the message queue so the current process that creates this active listener will become the consumer of the events. If we had spawned a separate process for this, we would have to manage two separate processes just to receive the messages and to handle rate limiting.
-
-Each piece has an explicit designation — `ProducerStage` defines the behavior for controlling the rate limiting of the producer while the module defines behavior for establishing a connection to the data source and handling messages from the data source.
+This is done as certain message queue providers like [RabbitMQ](https://github.com/dashbitco/broadway_rabbitmq) attach active listeners to the calling process so spawning a separate process for this would mean having to manage two separate processes for a producer.
 
 ## How it's made: Processors
 
 Processors are created using a concept similar to [inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) in object-oriented programming. This idea comes from the need to standardise the subscription logic of producer-consumers and consumers.
 
-When a processor is started using `start_link`, a process of the `Subscriber` module is started instead with the current processor module passed as an argument to `Subscriber`.
+When a processor is started using `start_link`, a process of the `Subscriber` module is started with the current processor module passed as a argument. 
+
+```elixir
+def start_link(args, stage_options) do
+  Broadway.Topology.Subscriber.start_link(
+    __MODULE__,
+    args[:producers],
+    args,
+    Keyword.take(args[:processor_config], [:min_demand, :max_demand]),
+    stage_options
+  )
+end
+```
+
+The current module is initialised in the `Subscriber` process through `init`.
+
+```elixir
+@impl true
+def init({module, names, options, subscription_options}) do
+  {type, state, init_options} = module.init(options)
+	
+	# ...
+end
+```
 
 Other producer-consumers and consumers like batcher and batch processors also use this pattern to create their respective GenStage stages. 
 
-Similar to applying inheritance, a separation of concern is achieved using this pattern. The processor is responsible for any... processing. The subscriber is responsible for the subscription logic of these stages. The pattern of initialisation is similar to that of the producers — i.e. using `init` instead of `start_link` to initialise the module within the newly spawned process so that two modules are "fit" into one.
-
-Processors rely on the `handle_message` callback to process any incoming events from the producers. Messages that are successfully handled will either be acknowledged (to signify the end of a message being processed through the pipeline) or passed further down the pipeline to a batcher for further processing. Messages that fail to be handled will be handled separately.
+A separation of concern is achieved using this pattern. The processor is responsible for event handling while the subscriber handles the subscription logic.
 
 # What's the scoop?
 
@@ -202,73 +216,73 @@ Rate limiting is applied across producers within a single pipeline to control th
 
 This is especially useful when the hardware of the machine running the pipeline is not able to keep up with processing large numbers of events demanded at a time — possibly due to a poorly configured pipeline.
 
-Rate limiting is not a feature enabled by default. In fact, some producers do not even leverage the rate limiting feature of Broadway. For instance, the [RabbitMQ producer](https://github.com/dashbitco/broadway/blob/master/lib/broadway/topology/producer_stage.ex) creates an active listener of messages which means that the moment messages are published to the message queue, the producer will consume them immediately and emit them as events. 
+Some producers do not leverage the rate limiting feature of Broadway. For instance, the [RabbitMQ producer](https://github.com/dashbitco/broadway/blob/master/lib/broadway/topology/producer_stage.ex) creates an active listener, which means that messages are not inhibited by the rate limiter. Instead, they are emitted as events the moment they are published to the message queue (unless [otherwise configured](https://hexdocs.pm/broadway_rabbitmq/BroadwayRabbitMQ.Producer.html#module-back-pressure-and-prefetch_count)).
 
-But for the producers that *do* leverage the rate limiting feature of Broadway — such as the [Amazon SQS producer](https://github.com/dashbitco/broadway_sqs/blob/master/lib/broadway_sqs/producer.ex) — rate limiting is handled in two scenarios:
+But for the producers that *do* leverage the rate limiting — such as the [Amazon SQS producer](https://github.com/dashbitco/broadway_sqs/blob/master/lib/broadway_sqs/producer.ex) — rate limiting is applied in two instances:
 
 1. When consumers make demands to the producer-consumer or producer
 
-    If the producer can still emit events, any demand made by the consumer will be handled by the producer. However, we take into account the threshold set by the rate limit. If there are too many events to emit (exceeding the limit), the excess messages are stored in a message buffer that will have to be cleared later on.
+    If the producer can still emit events, any demand made by the consumer will be handled by the producer. We take into account the rate limit threshold. If there are too many events to emit, the excess messages are stored in a message buffer that will have to be cleared later on.
 
-    Each message that can be emitted will be transformed into the standard event structure that Broadway uses to exchange events.
+    Each message that can be emitted will be transformed into the standard event structure that Broadway uses.
 
     If the producer can no longer emit messages, any demand made is stored in a demand buffer that is cleared later on.
 
 2. When the rate limit is being reset after the given interval
 
-    After the given intervals, the rate limit threshold of the producers can be reset. However, we may have accumulated demands and messages in their respective buffers. Before we reset the threshold, we will find that it may not have been reached every time. Thus, we can use this remaining threshold to clear any lingering demands and messages stored in their respective buffers.
+    After the given interval, the rate limit threshold can be reset. However, we may have accumulated demands and messages in their respective buffers. We may find that the threshold has not been met before we reset it. Thus, we can use this remaining threshold to clear any lingering demands and messages stored in their respective buffers.
 
     Once we have cleared as many messages as our remaining threshold allows, we will reset the threshold and schedule for another reset. These resets are scheduled at fixed intervals.
 
-The rate limiting threshold is maintained as an [atomic](https://erlang.org/doc/man/atomics.html) (discussed later on). This atomic array is generated by the `RateLimiter` process started as the first process in the order of initialisation. This module handles all behavior surrounding querying and working with the rate limit threshold. `ProducerStage` handles the actual logic of managing the demands of consumers. 
+The rate limiting threshold is maintained as an [atomic](https://erlang.org/doc/man/atomics.html) (discussed later on). This atomic array is generated by the `RateLimiter` process. This module handles all behavior surrounding working with the rate limit threshold. `ProducerStage` handles the actual logic of managing the demands of consumers. 
 
 When the producer cannot emit any more events, i.e. the threshold has been reached, an internal state is set to `:closed` to avoid future demands from being handled.
 
 ## Batching
 
-Batching groups events based on given properties into batches and sends them to designated "sub-pipelines" or batch processors to handle these batches separately. For instance, we might design a pipeline that stores events with even numbers in an S3 bucket while events with odd numbers are stored on Google Drive. Each batch is handled differently and Broadway supports this.
+Batching groups events based on given properties and sends them to designated "sub-pipelines" or batch processors to be handled. For instance, we might design a pipeline that stores events with even numbers in an S3 bucket and ones with odd numbers on Google Drive.
 
-The `Batcher` process is assigned unique names to identify them and any events that are emitted from the producer must be tagged to a batcher by default. Failure to do so will result in a runtime error.
+The `Batcher` process is assigned unique names for identification and events that are emitted from the producer must be tagged to a batcher. Failure to do so will result in a runtime error. This only applies if batching is enabled.
 
-In order for the producer to send the appropriate events to the respective batcher, a `PartitionDispatcher` is used. Essentially, it defines the behavior of how events are emitted to consumers. A `PartitionDispatcher` dispatches events to certain consumers based on a given criteria (defined as a [hash function](https://en.wikipedia.org/wiki/Hash_function)). In this case, we have the hash function setup to be the name of the batcher from the given event. This means that when we assign a batcher to the event, it **will** be dispatched to only that consumer. More information about dispatchers in GenStage can be found in the [official documentation](https://hexdocs.pm/gen_stage/GenStage.Dispatcher.html#summary).
+In order for the producer to send the appropriate events to the respective batcher, a `PartitionDispatcher` is used. Essentially, it defines the behavior of how events are emitted to consumers. A `PartitionDispatcher` dispatches events to certain consumers based on a given criteria (defined as a [hash function](https://en.wikipedia.org/wiki/Hash_function)). In this case, the hash function is the name of the batcher from the given event. This means that when we assign a batcher to the event, it **will** be dispatched to only that consumer. More information about dispatchers in GenStage can be found in the [official documentation](https://hexdocs.pm/gen_stage/GenStage.Dispatcher.html#summary).
 
-Even within the batcher, further grouping can be made of the events — this time, based on a batch key assigned by the developer. This may be used to ensure that certain events are batched together and emitted to be processed together. Internally, the batcher will accumulate events before emitting them all at once as a single batch. However, as it cannot just sit around accumulating events only, a batch is emitted at regular intervals regardless of how many events are stored in it.
+Even within the batcher, further grouping can be made based on a batch key assigned to the event. This may be used to ensure that certain events are processed together. Internally, the batcher will accumulate events before emitting them. However, as it cannot sit around accumulating events forever, a batch is emitted at regular intervals regardless of how many events are stored in it.
 
-The `BatchProcessor` process demands and handles a single batch at a time. It is similar to a regular processor, except it works on a batch of events. The `handle_batch` callback is used here.
+The `BatchProcessor` process handles a single batch at a time. It is similar to a regular processor, except it works on a batch of events. The `handle_batch` callback is used here.
 
 ## Telemetry
 
-Telemetry is used in Broadway to benchmark certain operations that occur such as the duration that a `handle_message` callback takes
+Telemetry is used in Broadway to benchmark certain operations that occur such as the duration that a `handle_message` callback takes.
 
-Broadway relies on the `telemetry` [library](https://hexdocs.pm/telemetry/). Within the code, events are emitted when these operations are started/stopped and key measurements such as duration are tracked. If the designer of the pipeline wishes to view these key measurements, they can create handlers that will respond to the emission of events and perform certain actions.
+Broadway relies on the `telemetry` [library](https://hexdocs.pm/telemetry/). Within the code, events are emitted when these operations occur and key measurements such as duration are tracked. Handlers/listeners of these events can be setup to respond to these events.
 
 Telemetry is not an Elixir-only feature. It is commonly used to perform application monitoring. [OpenTelemetry](https://opentelemetry.io/) is a really interesting framework that offers powerful application monitoring through telemetry.
 
 ## Built-in testing
 
-To test the pipeline, we should focus on ensuring that the data processing aspect of the pipeline works as intended. However, as we rely on external services for data to be sent into the pipeline, it would be hard to coordinate a test suite to publish messages to the data source for our pipeline to process as we may not be able to replicate the data source or publish data to the data source at will due to access limitations. Thus, Broadway has designed a testing utility that allows us to test the pipeline's data processing capacity without relying on the data source.
+To test the pipeline, we should focus on ensuring that the data processing aspect of the pipeline works as intended. However, as we rely on external services for input, it would be hard to coordinate a test suite to work with a live data source as we may not be able to replicate the data source or publish data to the data source at will due to access limitations. Thus, Broadway has designed a testing utility that allows us to test the pipeline's data processing capacity without relying on the data source.
 
-To solve this problem, Broadway provides a placeholder producer module that we will initialise in `ProducerStage`. This producer — as the name suggests — is a placeholder for an actual producer module. It does not rely on any data sources. Instead, events are emitted directly into the pipeline and we test whether the pipeline is working as it should.
+Broadway provides a placeholder producer module. This producer does not rely on any data sources. Instead, messages are emitted directly into the pipeline.
 
 The producer module should be tested separately if there is core behavior that cannot be tested along with the pipeline.
 
-This form of unit testing ensures that we reduce potential points of failure in our test suite.
+This form of unit testing ensures that we reduce potential points of failure in our test suite if any of the mentioned problems with using the original data source should surface.
 
 ## Graceful shutdowns
 
 Broadway boasts about having [graceful shutdowns](https://hexdocs.pm/broadway/architecture.html#graceful-shutdowns). This is a rather interesting concept to explore as it relies heavily on the concurrency system of Elixir.
 
-Essentially, the pipeline can only exist in two states — when the pipeline is working as expected and when ALL components are shutting down at once. There is no point in time where a single component will shutdown on its own. This is because of the way that the supervisor of each component declares restart strategies for each of their children to ensure that if a child process encounters any errors, it will be restarted without a hitch. This way, the only time where our components can shut down is when we shut down our main process or pipeline supervisor process. This is where a graceful shutdown comes into play. When either process is terminated, we want to properly handle all remaining events in the pipeline before shutting off every component.
+Essentially, the pipeline can only exist in two states — when all components are online and when all components are shutting down. There is no point in time where a single component will shutdown on its own without being restarted. This is because of the way that the supervisor of each component declares restart strategies ensuring that should a child process encounters any errors, it will be restarted without a hitch. This way, the only time where our components can shut down is when we shut down our main process or pipeline supervisor process. When either process is terminated, we want to properly handle all remaining events in the pipeline before shutting off every component.
 
-This is achieved with a mix of concurrency features. But before we can explain how it works, a simple introduction of exit signals and process termination should be explored.
+This is achieved through a mix of concurrency features. But before we can explain how it works, a simple introduction of exit signals and process termination is due.
 
 ### Exit signals and process termination
 
-Processes can be [linked](https://hexdocs.pm/elixir/Process.html#link/1) to one another. When either process receives an exit signal — which can occur when the process is terminated forcibly or when it receives an exit signal propagated from its parent — it will propagate the exit signal to the linked process and exit that process as well.
+Processes can be [linked](https://hexdocs.pm/elixir/Process.html#link/1) to one another. When either process receives an exit signal — which can occur when the process is terminated forcibly or when it receives an exit signal propagated from its parent — it will propagate the exit signal to the linked process and that process will terminate as well.
 
 ![Process linking](./images/open-source-deep-dive/broadway/linking.jpg)
 
-However, these exit signals can be [trapped](https://crypt.codemancers.com/posts/2016-01-24-understanding-exit-signals-in-erlang-slash-elixir/) instead. When this occurs, rather than terminating the process that receives the propagated exit signal, the exit signal is sent as a message, allowing the receiving process to handle the exit differently.
+However, these exit signals can be [trapped](https://crypt.codemancers.com/posts/2016-01-24-understanding-exit-signals-in-erlang-slash-elixir/) instead. When this occurs, rather than terminating the process that receives the propagated exit signal, the exit signal is sent as a message, allowing the receiving process to handle the exit as though it was just another message.
 
 ```elixir
 def handle_info({:EXIT, from, reason}, state) do
@@ -278,13 +292,13 @@ end
 
 When a process is terminated, an optional `terminate/2` [callback](https://hexdocs.pm/elixir/GenServer.html#c:terminate/2) can be declared to perform any cleanup before the process is actually terminated. This is useful if we have any lingering operations that should be completed before we terminate the process.
 
-[Supervisors](https://hexdocs.pm/elixir/Supervisor.html) can start a list of child processes and is responsible for managing the restart strategy of each child. This can be done by linking the child process to the supervisor process. The interaction between a supervisor and `terminate` is rather interesting. When a child is terminated, it is restarted accordingly. When a supervisor terminates, all of its children will also be terminated. If a child process traps exits, the `terminate` callback is called. If not, it will simply not receive any "notifications" and terminate immediately. More information about how supervisor interact with shutdowns can be found in the official [documentation](https://hexdocs.pm/elixir/Supervisor.html#module-start-and-shutdown).
+[Supervisors](https://hexdocs.pm/elixir/Supervisor.html) can start a list of child processes and is responsible for managing the restart strategy of each child. The interaction between a supervisor and `terminate` is rather interesting. When a child is terminated, it is restarted accordingly. When a supervisor terminates, all of its children will also be terminated. If a child process traps exits, the `terminate` callback is called. If not, it will simply terminate immediately without calling the callback. More information about how supervisor interact with shutdowns can be found in the official [documentation](https://hexdocs.pm/elixir/Supervisor.html#module-start-and-shutdown).
 
 ### Back to our regularly scheduled deep dive...
 
-With the basic idea of exit trapping and process termination down, we can actually very easily understand how graceful shutdowns in Broadway works. 
+With a basic understanding of exit trapping and process termination, we can actually understand how graceful shutdowns in Broadway works. 
 
-When the main process or the pipeline supervisor process is terminated, the main process — which traps exit signals — will invoke its `terminate` callback which will trap the exit signal of the `Terminator` process and terminate our pipeline supervisor. As this `Terminator` process is a child of the pipeline supervisor, it will receive the notification that its supervisor is terminating and invoke its implementation of `terminate`.
+When the main process or the pipeline supervisor process is terminated, the main process — which traps exit signals — will invoke its `terminate` callback which will trap the exit signal of the `Terminator` process and terminate our pipeline supervisor. As this `Terminator` process is a child of the pipeline supervisor, it will invoke its implementation of `terminate`.
 
 ```elixir
 @impl true
@@ -301,7 +315,7 @@ def terminate(reason, %{name: name, supervisor_pid: supervisor_pid, terminator: 
 end
 ```
 
-Other indirect child processes (i.e. they fall under supervisors which are children of the pipeline supervisor) such as the producers will also invoke their `terminate` callback to handle behavior like disconnecting from the data source.
+The exit signal propagates to the other components through their supervisors terminating and they will also invoke their `terminate` callback if they trap exits such as disconnecting from the data source.
 
 The `Terminator` process is responsible for ensuring that all events still within the pipeline is processed before terminating the pipeline entirely.
 
@@ -335,7 +349,7 @@ def terminate(_, state) do
 end
 ```
 
-Interestingly, as the producer may be waiting to drain events, we may not want to cancel all of its consumers immediately. Thus, we rely on `GenStage#async_info` to [queue](https://hexdocs.pm/gen_stage/GenStage.html#async_info/2) the message to cancel all consumers at the end of the GenStage message queue — effectively only reaching our "mailbox" when all events have been emitted to consumers for processing. This is also done when our pipeline has batching as our processor will now be a producer-consumer and as such, will have to wait till the batchers have received all lingering events for batching before terminating.
+Interestingly, as the producer may be waiting to drain events, we may not want to cancel all of its consumers immediately. Thus, we rely on `GenStage#async_info` to [queue](https://hexdocs.pm/gen_stage/GenStage.html#async_info/2) the message to cancel all consumers at the end of the GenStage message queue — effectively waiting for all other events to be processed before cancelling all consumers. If batching is enabled, the processors will also wait for the batches to be processed before cancelling all consumers.
 
 ```elixir
 @spec drain(GenServer.server()) :: :ok
@@ -386,7 +400,9 @@ There are three interesting bits of code in the `__using__` macro:
 
 2. `bind_quoted`
 
-    Used to create bindings within the quote. When a binding is created, the value is automatically [unquoted](https://elixir-lang.org/getting-started/meta/quote-and-unquote.html#unquoting) (which includes evaluation) and the value cannot be unquoted again. This is especially used when we do not want to re-evaluate the value multiple times. More information quoting and unquoting in Elixir can be found in the [official tutorial](https://elixir-lang.org/getting-started/meta/quote-and-unquote.html) and a simplified explanation and example of binding can be found [here](https://elixirschool.com/en/lessons/advanced/metaprogramming/#binding).
+    Used to create bindings within the quote. When a binding is created, the value is automatically [unquoted](https://elixir-lang.org/getting-started/meta/quote-and-unquote.html#unquoting) (which includes evaluation) and the value cannot be unquoted again. This is especially used when we do not want to re-evaluate the value multiple times. 
+
+    More information quoting and unquoting in Elixir can be found in the [official tutorial](https://elixir-lang.org/getting-started/meta/quote-and-unquote.html) and a simplified explanation and example of binding can be found [here](https://elixirschool.com/en/lessons/advanced/metaprogramming/#binding).
 
 3. `@behaviour`
 
@@ -438,7 +454,7 @@ if Code.ensure_loaded?(producer_mod) and
 
 ## Dynamic process naming
 
-As the pipeline can comprise of any number of components, Broadway supports dynamically generated processes. These dynamically generated processes are assigned names that follow a fixed convention — comprising of the name of the pipeline, the process type, and the index of the component among the other components.
+As the pipeline can comprise of any number of components, Broadway supports dynamically generated processes. These dynamically generated processes are assigned names that follow a fixed convention — comprising of the name of the pipeline, the process type, and the index of the component among the other components of the same type.
 
 ```elixir
 defp process_name(prefix, type, index) do
@@ -531,27 +547,9 @@ A set of definitions for the available options are created first and these can b
 
 If the options are invalid, an error is returned, otherwise an `:ok` status along with the options are returned. The returned options have default values filled in.
 
-```elixir
-definition = [
-  connections: [
-    type: :non_neg_integer,
-    default: 5
-  ],
-  url: [
-    type: :string,
-    required: true
-  ]
-]
-
-options = [url: "https://example.com"]
-
-NimbleOptions.validate(options, definition)
-#=> {:ok, [url: "https://example.com", connections: 5]}
-```
-
 ## Default values in dictionaries
 
-Broadway has an interesting way of fanning out default values for the options keyword list. In the options keyword list, a "parent" value for `:partition_by`, `:hibernate_after`, and `:spawn_opt` are provided.
+Broadway has an interesting way of fanning out default values for the options keyword list. In the options keyword list, a "parent" value for `:partition_by`, `:hibernate_after`, and `:spawn_opt` is provided.
 
 ```elixir
 options = [
@@ -563,7 +561,7 @@ options = [
 ]
 ```
 
-The parent value will be used for producers, processors, and batchers if no explicit child value is provided. Otherwise, we might want to fan out a parent value to only two of the three child values while maintaining the original child value.
+The parent value will be used for producers, processors, and batchers if no explicit child value is provided. Alternatively, we might want to fan out a parent value to only two of the three unset child values while maintaining the original child value.
 
 This is done by [merging](https://hexdocs.pm/elixir/Keyword.html#merge/2) the child options into the parent options. Thus, if the child does not define a value for the option, the parent value is inherited.
 
