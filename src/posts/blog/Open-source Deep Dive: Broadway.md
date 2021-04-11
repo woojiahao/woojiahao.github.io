@@ -59,7 +59,7 @@ Broadway revolve around the following concepts:
 
 Messages are created and delivered to these queues by **producers** and taken from these queues for processing by **consumers.** These messages can vary from something as simple as plain information to more complex structures like requests or — in our case — transaction information.
 
-![Message queue architecturel](./images/open-source-deep-dive/broadway/message_queue.png)
+![Message queue architecture](./images/open-source-deep-dive/broadway/message_queue.png)
 
 Message queues are useful for **decentralising the communication mechanism of large systems** by acting as a medium for exchanging events between systems which allows for systems to be easily scaled and distributed.
 
@@ -73,7 +73,7 @@ Elixir employs the **actor concurrency model**. In this model, actors are define
 
 Each process communicates via **asynchronous message passing**. Think of a process as a mailbox of sorts; it has a "bin" to receive incoming messages and it possess an "address" for other processes to identify it by.
 
-![Actor concurrency model visualisation](./images/open-source-deep-dive/broadway/actor_concurrency_model.png:)
+![Actor concurrency model visualisation](./images/open-source-deep-dive/broadway/actor_concurrency_model.png)
 
 The unique aspect of this model is the **lack of shared mutable state** that other concurrency models rely on. Rather, state is exclusive to each process. 
 
