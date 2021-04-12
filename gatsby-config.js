@@ -42,10 +42,7 @@ module.exports = {
       options: {
         fonts: [
           `Source Code Pro`,
-          `Lato`,
-          `Rubik`,
           `Open Sans`,
-          `IBM Plex Mono`
         ]
       }
     },

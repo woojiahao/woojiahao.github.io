@@ -114,8 +114,8 @@ This recursive function is able to halt (or encounter a stop case) because patte
 You can also use pattern matching to detect when a function parameter (destructured) does not match a given format:
 
 ```elixir
-def foo(_), do: :error
 def foo([name, age]), do: "#{name}, #{age}"
+def foo(_), do: :error
 ```
 
 Pretty cool innit? The official Elixir documentation talks about pattern matching in much greater detail but I wanted to highlight the applications of pattern matching that I found interesting.

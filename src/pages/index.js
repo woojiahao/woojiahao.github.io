@@ -116,7 +116,7 @@ const Home = ({ data }) => {
 export const query = graphql`
   query HomeQuery {
     allMarkdownRemark(
-      sort: {fields: frontmatter___date, order: DESC}, 
+      sort: {fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC]}, 
       limit: 1, 
       filter: {frontmatter: {published: {eq: true}}, fields: {slug: {nin: ["/about", "/recommendations"]}}}
     ) {

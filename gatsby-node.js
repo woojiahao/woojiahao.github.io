@@ -105,7 +105,7 @@ const generatePosts = async (createPage, createRedirect, graphql) => {
         }
       }
       allMarkdownRemark(
-        sort: {fields: frontmatter___date, order: ASC}, 
+        sort: {fields: [frontmatter___date, frontmatter___title], order: [ASC, ASC]}, 
         filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
       ) {
         edges {

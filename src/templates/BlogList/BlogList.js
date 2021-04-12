@@ -38,7 +38,7 @@ export const query = graphql`
   query ($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
       filter: { frontmatter: { published: { eq: true }, type: { eq: null } } },
-      sort: { fields: [frontmatter___date], order: DESC },
+      sort: { fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC] },
       limit: $limit,
       skip: $skip
     ) {
