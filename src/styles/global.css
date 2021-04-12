@@ -118,7 +118,12 @@ blockquote p {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: "IBM Plex Mono", "Source Code Pro", monospace;
+  font-family: "Source Code Pro", monospace;
+}
+
+:not(pre) > code[class*="language-"] {
+  background: none;
+  color: var(--fg-color);
 }
 
 hr {
