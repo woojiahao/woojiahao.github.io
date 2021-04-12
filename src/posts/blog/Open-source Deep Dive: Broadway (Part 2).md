@@ -1,6 +1,6 @@
 ---
 published: true
-date: "2021-04-17"
+date: "2021-04-12"
 title: "Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway"
 tags:
 - Open-source Deep Dive
@@ -15,7 +15,7 @@ tags:
 - open-source
 - open-source project
 
-description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir and demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the second part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
+description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir & demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the second part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
 ---
 
 This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the implementation of various features of Broadway.
