@@ -12,8 +12,10 @@ tags:
 - concurrency
 - actor concurrency model
 - producer/consumer model
+- open-source
+- open-source project
 
-description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir and demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
+description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir and demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the first part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
 ---
 
 This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the implementation of various features of Broadway.
@@ -90,7 +92,7 @@ The unique aspect of this model is the **lack of shared mutable state** that oth
 
 In order for the state of a process to be altered, the owner process must make the alteration either on request or internally due to certain changes.
 
-The topic of concurrency in Elixir is vast and Elixir provides many other features surrounding its concurrency model such as [GenServer](https://elixir-lang.org/getting-started/mix-otp/genserver.html). This section is a short preview of what the actor concurrency model and concurrency in Elixir is all about. For more information, you can refer to this [thesis paper](https://berb.github.io/diploma-thesis/original/054_actors.html) and the [Wikipedia article](https://en.wikipedia.org/wiki/Actor_model#:~:text=The%20actor%20model%20in%20computer,universal%20primitive%20of%20concurrent%20computation.&text=Actors%20may%20modify%20their%20own,for%20lock%2Dbased%20synchronization).) talking about the actor concurrency model and the official [documentation](https://elixir-lang.org/getting-started/processes.html) and this [tutorial](https://serokell.io/blog/elixir-otp-guide) on OTP in Elixir for more examples of concurrency in Elixir.
+The topic of concurrency in Elixir is vast and Elixir provides many other features surrounding its concurrency model such as [GenServer](https://elixir-lang.org/getting-started/mix-otp/genserver.html). This section is a short preview of what the actor concurrency model and concurrency in Elixir is all about. For more information, you can refer to this [thesis paper](https://berb.github.io/diploma-thesis/original/054_actors.html) and the [Wikipedia article](https://en.wikipedia.org/wiki/Actor_model#:~:text=The%20actor%20model%20in%20computer,universal%20primitive%20of%20concurrent%20computation.&text=Actors%20may%20modify%20their%20own,for%20lock%2Dbased%20synchronization) talking about the actor concurrency model and the official [documentation](https://elixir-lang.org/getting-started/processes.html) and this [tutorial](https://serokell.io/blog/elixir-otp-guide) on OTP in Elixir for more examples of concurrency in Elixir.
 
 ## Cue the producer/consumer model
 
@@ -102,7 +104,7 @@ However, the producer/consumer model faces a critical issue — what happens if 
 
 > Back pressure is a control mechanism for how much a producer should emit based on consumer demand, consumer message buffering, or limited sampling
 
-Back pressure avoids the problem of overloading the consumer with messages by applying one of the three methods mentioned above (more information in the link [here](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7)).
+Back pressure avoids the problem of overloading the consumer with messages by applying one of or a combination of the three methods mentioned above (more information in the link [here](https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7)).
 
 ## The next frontier (of concurrency): GenStage
 
@@ -118,7 +120,7 @@ Producer-consumers behave like both producers and consumers. They are used to pe
 
 Similar to [GenServer](https://hexdocs.pm/elixir/GenServer.html), stages in GenStage exchange events through [callbacks](https://hexdocs.pm/gen_stage/GenStage.html#module-callbacks).
 
-When a demand is handled  — i.e. producer emits events and demanding consumer handles these events — another demand is made, creating a cycle where both stages are always working.
+When a demand is handled  — i.e. producer emits events and demanding consumer handles these events — another demand is made, creating a cycle where both stages are always working - ideally.
 
 GenStage is a powerful tool in an Elixir developer's arsenal. More information can be found in the [official announcement](https://elixir-lang.org/blog/2016/07/14/announcing-genstage/) where a little bit of history of how GenStage came to be was discussed and in a talk by [José Valim](https://youtu.be/XPlXNUXmcgE) — creator of Elixir.
 
@@ -156,7 +158,7 @@ Different data sources require different methods of establishing connections and
 
 The `ProducerStage` behaves as the context while the dynamic module behaves as the strategy. The dynamic module adopts the `Producer` module — which defines two callbacks for managing the overall producer life-cycle.
 
-To load the module dynamically, the module name is passed to `ProducerStage` as an argument. To keep the producer as a single process, we call the `init` function of the module directly when initialising the `ProducerStage`. This way, the module will initialise under the newly spawned process rather than spawning an entirely new process.
+To load the module dynamically, the module name is passed to `ProducerStage` as an argument. To keep the producer as a single process, we call the `init` function of the module directly when initialising the `ProducerStage`. This way, the module will initialise under the newly spawned process for `ProducerStage` rather than spawning an entirely new process.
 
 ```elixir
 @impl true
@@ -214,3 +216,13 @@ end
 Other producer-consumers and consumers like batcher and batch processors also use this pattern to create their respective GenStage stages. 
 
 A separation of concern is achieved using this pattern. The processor is responsible for event handling while the subscriber handles the subscription logic.
+
+---
+
+That's a basic rundown of the concepts underpinning Broadway. While it may not be a complete and intensive explanation of everything, hopefully it is able to provide some clarity. In the next part, we will be exploring how features in Broadway have been implemented! 
+
+Hop on over to the second part [here!](open-source-deep-dive-broadway-part-2)
+
+---
+
+Open-source Deep Dive is a series where I pick apart open-source projects to explain the underlying concepts that power these projects and share my findings about the project!
