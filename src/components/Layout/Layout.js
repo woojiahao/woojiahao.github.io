@@ -38,7 +38,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
             <Link to="/blog">Blog</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/about">About Me</Link>
-            <Link to="/recommendations">Recommendations</Link>
+            <a href="https://www.notion.so/woojiahao/48b21a97d71c4cd2bc9a9051bd7423a3?v=e2c493015ceb47cfa275a03f20895cb1">Recommendations</a>
           </nav>
         </header>
 
@@ -55,7 +55,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
           {children}
         </div>
 
-        <Footer repositoryUrl={repositoryUrl}/>
+        <Footer repositoryUrl={repositoryUrl} />
       </div>
 
       { backToTop && <BackToTop />}
