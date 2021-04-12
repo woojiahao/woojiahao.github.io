@@ -12,8 +12,10 @@ tags:
 - concurrency
 - actor concurrency model
 - producer/consumer model
+- open-source
+- open-source project
 
-description: "In this installment of Open-source Deep Dive, Broadway takes center stage! I uncover the mystery of message queues and concurrency in Elixir and demystify the intricate design behind the pipelines that Broadway creates. I also inspect how certain key features of Broadway work like rate limiting and batching! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
+description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir and demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the second part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership."
 ---
 
 This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the implementation of various features of Broadway.
@@ -23,11 +25,11 @@ This is the second part of the deep dive and the following topics will be covere
 1. Rate limiting
 2. Batching messages
 3. Telemetry
-4. Creating a built-in testing suite for pipelines
+4. Creating a built-in testing support for pipelines
 5. Achieving graceful shutdowns
 6. Other interesting bits of code
 
-If you want to better understand Broadway from a bird's eye view or need a refresher on the concepts behind Broadway (like message queues and concurrency in Elixir), you can find the first part [here!](open-source-deep-dive-broadway-part-1)
+If you want a refresher on the concepts behind Broadway (like message queues and concurrency in Elixir) or to better understand Broadway's pipeline architecture from a bird's eye view, you can find the first part [here!](open-source-deep-dive-broadway-part-1)
 
 # What's the scoop?
 
@@ -41,7 +43,7 @@ Rate limiting is applied across producers within a single pipeline to control th
 
 This is especially useful when the hardware of the machine running the pipeline is not able to keep up with processing large numbers of events demanded at a time — possibly due to a poorly configured pipeline.
 
-Some producers do not leverage the rate limiting feature of Broadway. For instance, the [RabbitMQ producer](https://github.com/dashbitco/broadway/blob/master/lib/broadway/topology/producer_stage.ex) creates an active listener, which means that messages are not inhibited by the rate limiter. Instead, they are emitted as events the moment they are published to the message queue (unless [otherwise configured](https://hexdocs.pm/broadway_rabbitmq/BroadwayRabbitMQ.Producer.html#module-back-pressure-and-prefetch_count)).
+Some producers do not leverage the rate limiting feature of Broadway. For instance, the [RabbitMQ producer](https://github.com/dashbitco/broadway/blob/master/lib/broadway/topology/producer_stage.ex) creates an active listener, which means that event emission is not inhibited by the rate limiter. Instead, events are emitted the moment messages are published to the message queue (unless [otherwise configured](https://hexdocs.pm/broadway_rabbitmq/BroadwayRabbitMQ.Producer.html#module-back-pressure-and-prefetch_count)).
 
 But for the producers that *do* leverage the rate limiting — such as the [Amazon SQS producer](https://github.com/dashbitco/broadway_sqs/blob/master/lib/broadway_sqs/producer.ex) — rate limiting is applied in two instances:
 
@@ -69,7 +71,7 @@ Batching groups events based on given properties and sends them to designated "s
 
 The `Batcher` process is assigned unique names for identification and events that are emitted from the producer must be tagged to a batcher. Failure to do so will result in a runtime error. This only applies if batching is enabled.
 
-In order for the producer to send the appropriate events to the respective batcher, a `PartitionDispatcher` is used. Essentially, it defines the behavior of how events are emitted to consumers. A `PartitionDispatcher` dispatches events to certain consumers based on a given criteria (defined as a [hash function](https://en.wikipedia.org/wiki/Hash_function)). In this case, the hash function is the name of the batcher from the given event. This means that when we assign a batcher to the event, it **will** be dispatched to only that consumer. More information about dispatchers in GenStage can be found in the [official documentation](https://hexdocs.pm/gen_stage/GenStage.Dispatcher.html#summary).
+In order for the producer to send the appropriate events to the respective batcher, a `PartitionDispatcher` is used. Essentially, it defines the behavior of how events are emitted to consumers. A `PartitionDispatcher` dispatches events to certain consumers based on a given criteria (defined as a [hash function](https://en.wikipedia.org/wiki/Hash_function)). In this case, the criterion is the name of the batcher from the given event. This means that when we assign a batcher to the event, it **will** be dispatched to only that batcher. More information about dispatchers in GenStage can be found in the [official documentation](https://hexdocs.pm/gen_stage/GenStage.Dispatcher.html#summary).
 
 Even within the batcher, further grouping can be made based on a batch key assigned to the event. This may be used to ensure that certain events are processed together. Internally, the batcher will accumulate events before emitting them. However, as it cannot sit around accumulating events forever, a batch is emitted at regular intervals regardless of how many events are stored in it.
 
@@ -91,7 +93,7 @@ Broadway provides a placeholder producer module. This producer does not rely on 
 
 The producer module should be tested separately if there is core behavior that cannot be tested along with the pipeline.
 
-This form of unit testing ensures that we reduce potential points of failure in our test suite if any of the mentioned problems with using the original data source should surface.
+This form of unit testing ensures that we reduce potential points of failure in our test suite if any of the aforementioned problems with using the original data source should surface.
 
 ## Graceful shutdowns
 
@@ -123,7 +125,7 @@ When a process is terminated, an optional `terminate/2` [callback](https://hexdo
 
 With a basic understanding of exit trapping and process termination, we can actually understand how graceful shutdowns in Broadway works. 
 
-When the main process or the pipeline supervisor process is terminated, the main process — which traps exit signals — will invoke its `terminate` callback which will trap the exit signal of the `Terminator` process and terminate our pipeline supervisor. As this `Terminator` process is a child of the pipeline supervisor, it will invoke its implementation of `terminate`.
+When the main process or the pipeline supervisor process is terminated, the main process — which traps exit signals — will invoke its `terminate` callback which will inform the `Terminator` process to begin trapping exits and terminate our pipeline supervisor. As this `Terminator` process is a child of the pipeline supervisor, it will invoke its implementation of `terminate`.
 
 ```elixir
 @impl true
@@ -140,14 +142,14 @@ def terminate(reason, %{name: name, supervisor_pid: supervisor_pid, terminator: 
 end
 ```
 
-The exit signal propagates to the other components through their supervisors terminating and they will also invoke their `terminate` callback if they trap exits such as disconnecting from the data source.
+The exit signal propagates to the other components through their supervisors terminating and they will also invoke their `terminate` callback if they trap exits such as producers disconnecting from the data source.
 
-The `Terminator` process is responsible for ensuring that all events still within the pipeline is processed before terminating the pipeline entirely.
+The `Terminator` process is responsible for ensuring that all events still within the pipeline are processed before terminating the pipeline entirely.
 
 It does so in three phases:
 
 1. Notify that the processors do not resubscribe to producers through a state flag
-2. Drain the producers of any events remaining
+2. Drain the producers of any events remaining by emitting the events through the pipeline
 3. Wait for the batch processors (which will be the very last component in the pipeline) to terminate before terminating the supervisor
 
 ```elixir
@@ -386,7 +388,7 @@ options = [
 ]
 ```
 
-The parent value will be used for producers, processors, and batchers if no explicit child value is provided. Alternatively, we might want to fan out a parent value to only two of the three unset child values while maintaining the original child value.
+The parent value will be used for producers, processors, and batchers if no explicit child value is provided. Alternatively, we might want to fan out a parent value to only two of the three unset child values while maintaining the original child value of the third.
 
 This is done by [merging](https://hexdocs.pm/elixir/Keyword.html#merge/2) the child options into the parent options. Thus, if the child does not define a value for the option, the parent value is inherited.
 
@@ -413,9 +415,11 @@ end
 
 To conclude, Broadway is a powerful library for building data processing pipelines. These pipelines are built on top of the robust concurrency system that Elixir boasts.
 
-If any topic discussed in this post has intrigued you, you can find the following additional readings:
+Broadway is a very versatile library and the documentation contains detailed guides about using it with various data sources. Check out the [Github repository](https://github.com/dashbitco/broadway) and [documentation!](https://hexdocs.pm/broadway/Broadway.html#content)
 
-- [ ]  Add additional readings
+---
+
+If you want to get a basic understanding of the underlying concepts of Broadway or better visualise the architecture of a pipeline in Broadway, check out the first part [here!](open-source-deep-dive-broadway-part-1)
 
 ---
 
