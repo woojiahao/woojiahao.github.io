@@ -366,6 +366,13 @@ Besides the basic data structures like lists and dictionaries, Elixir and Erlang
 
     A better alternative might have been to use an [Agent](https://hexdocs.pm/elixir/Agent.html) or ETS instead.
 
+    **Edit!** I clarified with the team about their decision to use process dictionaries over ETS, this was their response:
+
+    > The correct solution here would be to simply use a map. But because this is very intensive code, we need a mutable option, and the process dictionary is the most efficient one. ETS would be slow as data has to be copied in and out of ETS.
+    > This is one of the very cases where using the pdict for performance is justified. :)
+
+    So, the reason why they decided to use a process dictionary over ETS is due to the performance requirement of batching! Very interesting!
+
 ## Options validation
 
 Dashbit — the team behind Broadway — developed an options validation library called [NimbleOptions](https://github.com/dashbitco/nimble_options) that aims to be a small library for validating and documenting high-level options.
