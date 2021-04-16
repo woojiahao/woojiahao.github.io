@@ -1,9 +1,9 @@
 import React from "react"
-import style from "./PostListPagination.module.css"
-import {Link} from "gatsby"
+import * as style from "./PostListPagination.module.css"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
-const PostListPagination = ({numPages, currentPage, redirect}) => {
+const PostListPagination = ({ numPages, currentPage, redirect }) => {
   const pages = [...Array(numPages).keys()].map(i => i + 1)
   const links = pages.map(page => page === 1 ? `/${redirect}/` : `/${redirect}/${page}`)
   return (

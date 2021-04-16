@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
-import style from "./BlogList.module.css"
+import * as style from "./BlogList.module.css"
 import { getTitle } from "../../utils/general"
 import PostListPagination from "../../components/PostListPagination/PostListPagination"
 

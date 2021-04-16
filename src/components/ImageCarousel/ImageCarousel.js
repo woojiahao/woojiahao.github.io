@@ -1,13 +1,13 @@
-import {graphql, useStaticQuery} from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React, {useState} from "react"
-import style from "./ImageCarousel.module.css"
-import {IoIosArrowBack, IoIosArrowForward} from "react-icons/all"
+import React, { useState } from "react"
+import * as style from "./ImageCarousel.module.css"
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/all"
 
-export default props => {
+const ImageCarousel = props => {
   const [index, setIndex] = useState(0)
 
-  const {allFile} = useStaticQuery(
+  const { allFile } = useStaticQuery(
     graphql`
       query {
         allFile(filter: {relativeDirectory: {regex: "/posts/projects/images/"}}) {
@@ -31,8 +31,8 @@ export default props => {
 
   const images = allFile
     .edges
-    .filter(({node}) => node.relativeDirectory.includes(props.folder))
-    .map(({node}) => {
+    .filter(({ node }) => node.relativeDirectory.includes(props.folder))
+    .map(({ node }) => {
       return {
         id: node.id,
         fixed: node.childImageSharp.fixed,
@@ -41,7 +41,7 @@ export default props => {
     })
 
   if (images.length < 1) {
-    return <div/>
+    return <div />
   }
 
   const length = images.length - 1
@@ -53,25 +53,27 @@ export default props => {
     <div className={style.carouselContainer}>
       <div className={style.carousel}>
         <div className={style.backgroundImage}>
-          <Img fluid={currentImage.fluid} id={currentImage.id}/>
+          <Img fluid={currentImage.fluid} id={currentImage.id} />
         </div>
         <div className={style.foregroundImage}>
-          <Img fixed={currentImage.fixed} id={currentImage.id}/>
+          <Img fixed={currentImage.fixed} id={currentImage.id} />
         </div>
       </div>
 
       {images.length > 1 &&
-      <div className={style.navigationContainer}>
-        <div className={style.navigation}>
-          <div onClick={() => handlePrevious()}>
-            <IoIosArrowBack size="2em" style={{color: `#000`}}/>
-          </div>
-          <div onClick={() => handleNext()}>
-            <IoIosArrowForward size="2em" style={{color: `#000`}}/>
+        <div className={style.navigationContainer}>
+          <div className={style.navigation}>
+            <div onClick={() => handlePrevious()}>
+              <IoIosArrowBack size="2em" style={{ color: `#000` }} />
+            </div>
+            <div onClick={() => handleNext()}>
+              <IoIosArrowForward size="2em" style={{ color: `#000` }} />
+            </div>
           </div>
         </div>
-      </div>
       }
     </div>
   )
 }
+
+export default ImageCarousel

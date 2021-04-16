@@ -1,18 +1,18 @@
 import React from "react"
 import Layout from "../../components/Layout/Layout"
-import {graphql, Link} from "gatsby"
-import projectStyles from "./ProjectList.module.css"
-import {getTitle} from "../../utils/general"
+import { graphql, Link } from "gatsby"
+import * as style from "./ProjectList.module.css"
+import { getTitle } from "../../utils/general"
 import PostListPagination from "../../components/PostListPagination/PostListPagination"
 
-export default ({data, pageContext}) => {
+export default ({ data, pageContext }) => {
   const posts = data.allProjectsJson.edges
-  const {currentPage, numPages} = pageContext
+  const { currentPage, numPages } = pageContext
 
   return (
-    <Layout pagination={{currentPage, numPages}} pageTitle="My Projects" tabTitle="Projects">
+    <Layout pagination={{ currentPage, numPages }} pageTitle="My Projects" tabTitle="Projects">
 
-      {posts.map(({node: post}) => {
+      {posts.map(({ node: post }) => {
         const title = getTitle(post.fields.slug, post.title)
         let statusColor = "#ffaaa5"
         switch (post.status) {
@@ -31,22 +31,22 @@ export default ({data, pageContext}) => {
 
         return (
           <div>
-            <div className={projectStyles.projectTitle}>
+            <div className={style.projectTitle}>
               <Link to={post.fields.slug}>
                 <h2>{title}</h2>
               </Link>
               <div>
-                {post.technologies.languages.map(l => <span className={projectStyles.language}>{l}</span>)}
-                <span style={{backgroundColor: `#${statusColor}`, color: `rgba(0, 0, 0, 0.8)`}}
-                     className={projectStyles.status}>{post.status}</span>
+                {post.technologies.languages.map(l => <span className={style.language}>{l}</span>)}
+                <span style={{ backgroundColor: `#${statusColor}`, color: `rgba(0, 0, 0, 0.8)` }}
+                  className={style.status}>{post.status}</span>
               </div>
             </div>
 
-            <p className={projectStyles.description}>{post.description}</p>
+            <p className={style.description}>{post.description}</p>
           </div>
         )
       })}
-      <PostListPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} redirect="projects"/>
+      <PostListPagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} redirect="projects" />
     </Layout>
   )
 }

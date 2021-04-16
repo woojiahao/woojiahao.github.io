@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./Layout.module.css"
+import * as style from "./Layout.module.css"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import SEO from "../SEO"
 import * as PropTypes from "prop-types"

@@ -16,12 +16,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        head: true,
-        trackingId: googleAnalyticsTrackingID,
-        anonymize: true
+        trackingIds: [
+          googleAnalyticsTrackingID
+        ],
+        gtagConfig: {
+          anonymize_ip: true
+        },
+        pluginConfig: {
+          head: false
+        }
       }
     },
     {
@@ -75,6 +82,63 @@ module.exports = {
         start_url: `/`,
         display: `standalone`,
         icon: `static/images/icon.png`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              // Filter about me markdown post
+              return allMarkdownRemark.edges.map(post => {
+                const meta = post.node
+                const postUrl = site.siteMetadata.siteUrl + meta.fields.slug
+                return Object.assign({}, meta.frontmatter, {
+                  description: meta.frontmatter.description,
+                  date: meta.frontmatter.date,
+                  url: postUrl,
+                  guid: postUrl,
+                  custom_elements: [{ "content:encoded": meta.html }]
+                })
+              })
+            },
+            query: `
+              {                  
+                allMarkdownRemark(
+                  filter: { frontmatter: { published: { eq: true }, type: { eq: null } } },
+                  sort: { fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC] },
+                ) {
+                  edges {
+                    node {
+                      frontmatter {
+                        description
+                        title
+                        date
+                      }
+                      html
+                      fields { slug }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "A Programmer's Perspective RSS Feed"
+          },
+        ]
       }
     }
   ]
