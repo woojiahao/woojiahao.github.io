@@ -1,6 +1,6 @@
 import React from "react"
 
-export default props => <a href={props.to} style={{
+const BigButton = props => <a href={props.to} style={{
   display: `inline-block`,
   padding: `10px`,
   color: props.fg,
@@ -12,3 +12,4 @@ export default props => <a href={props.to} style={{
   borderRadius: `5px`
 }}>{props.children}</a>
 
+export default BigButton

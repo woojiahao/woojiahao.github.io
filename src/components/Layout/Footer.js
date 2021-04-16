@@ -1,7 +1,7 @@
 import React from "react"
 import * as PropTypes from "prop-types"
 import * as style from "./Layout.module.css"
-import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
+import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
 import { Link } from "gatsby"
 import { SiDiscord } from "react-icons/si"
 import { MdEmail } from "react-icons/md"
@@ -42,6 +42,7 @@ const Footer = ({ repositoryUrl }) => {
           <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin />Woo Jia Hao</a>
           <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare />@woojiahao_</a>
           <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail />woojiahao1234@gmail.com</a>
+          <Link to="/rss.xml"><FaRssSquare /><span>Blog RSS feed</span></Link>
         </div>
       </div>
     </div>

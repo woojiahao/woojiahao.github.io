@@ -5,6 +5,7 @@ import { getTitle } from "../../utils/general"
 import * as style from "./BlogPost.module.css"
 import PostNavigation from "../../components/PostNavigation/PostNavigation"
 import Post from "../../classes/post"
+import { Link } from "gatsby"
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -26,6 +27,10 @@ export default ({ data, pageContext }) => {
         <h4 className={style.subtitle}>Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
+      <p>
+        <hr />
+        <Link to="/rss.xml">Subscribe</Link> to the blog's RSS feed to get updates of the latest blog posts!
+      </p>
       <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/blog" />
     </Layout>
   )

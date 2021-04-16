@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import * as style from "./ImageCarousel.module.css"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/all"
 
-export default props => {
+const ImageCarousel = props => {
   const [index, setIndex] = useState(0)
 
   const { allFile } = useStaticQuery(
@@ -75,3 +75,5 @@ export default props => {
     </div>
   )
 }
+
+export default ImageCarousel

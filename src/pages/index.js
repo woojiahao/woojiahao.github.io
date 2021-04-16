@@ -5,7 +5,7 @@ import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
 import { graphql } from "gatsby"
 import profilePicture from "./assets/profile_picture.png"
-import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare } from "react-icons/all"
+import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
 import { SiDiscord } from "react-icons/si"
 import { MdEmail } from "react-icons/md"
 import QuickLink from "../components/QuickLink/QuickLink"
@@ -47,6 +47,7 @@ const Home = ({ data }) => {
                 <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin /><span>Woo Jia Hao</span></a>
                 <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /><span>@woojiahao_</span></a>
                 <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail /><span>woojiahao1234@gmail.com</span></a>
+                <Link to="/rss.xml"><FaRssSquare /><span>Blog RSS feed</span></Link>
               </div>
             </div>
           </div>
