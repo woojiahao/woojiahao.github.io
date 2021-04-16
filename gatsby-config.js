@@ -103,8 +103,7 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               // Filter about me markdown post
-              const blogPosts = allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.type !== null)
-              return blogPosts.map(post => {
+              return allMarkdownRemark.edges.map(post => {
                 const meta = post.node
                 const postUrl = site.siteMetadata.siteUrl + meta.fields.slug
                 return Object.assign({}, meta.frontmatter, {
@@ -119,7 +118,8 @@ module.exports = {
             query: `
               {                  
                 allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: { frontmatter: { published: { eq: true }, type: { eq: null } } },
+                  sort: { fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC] },
                 ) {
                   edges {
                     node {
