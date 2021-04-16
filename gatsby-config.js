@@ -83,6 +83,63 @@ module.exports = {
         display: `standalone`,
         icon: `static/images/icon.png`
       }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              // Filter about me markdown post
+              const blogPosts = allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.type !== null)
+              return blogPosts.map(post => {
+                const meta = post.node
+                const postUrl = site.siteMetadata.siteUrl + meta.fields.slug
+                return Object.assign({}, meta.frontmatter, {
+                  description: meta.frontmatter.description,
+                  date: meta.frontmatter.date,
+                  url: postUrl,
+                  guid: postUrl,
+                  custom_elements: [{ "content:encoded": meta.html }]
+                })
+              })
+            },
+            query: `
+              {                  
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      frontmatter {
+                        description
+                        title
+                        date
+                      }
+                      html
+                      fields { slug }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "A Programmer's Perspective RSS Feed"
+          },
+        ]
+      }
     }
   ]
 }
