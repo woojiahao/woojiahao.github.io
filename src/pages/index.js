@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./index.module.css"
+import * as style from "./index.module.css"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"

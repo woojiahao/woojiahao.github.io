@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { getTitle } from "../../utils/general"
-import style from "./BlogPost.module.css"
+import * as style from "./BlogPost.module.css"
 import PostNavigation from "../../components/PostNavigation/PostNavigation"
 import Post from "../../classes/post"
 

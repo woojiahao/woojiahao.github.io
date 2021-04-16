@@ -1,6 +1,6 @@
 import React from "react"
-import {AiOutlineArrowUp} from "react-icons/all"
-import style from "./BackToTop.module.css"
+import { AiOutlineArrowUp } from "react-icons/all"
+import * as style from "./BackToTop.module.css"
 
 const BackToTop = () => {
   if (typeof window !== `undefined`) {
@@ -19,7 +19,7 @@ const BackToTop = () => {
 
   return (
     <div className={[style.hidden, style.arrow].join(` `)} onClick={onClick}>
-      <AiOutlineArrowUp size="1.75em"/>
+      <AiOutlineArrowUp size="1.75em" />
     </div>
   )
 }

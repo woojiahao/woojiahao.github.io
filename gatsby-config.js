@@ -16,12 +16,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        head: true,
-        trackingId: googleAnalyticsTrackingID,
-        anonymize: true
+        trackingIds: [
+          googleAnalyticsTrackingID
+        ],
+        gtagConfig: {
+          anonymize_ip: true
+        },
+        pluginConfig: {
+          head: false
+        }
       }
     },
     {

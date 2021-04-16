@@ -1,14 +1,14 @@
 import React from "react"
 import Layout from "../../components/Layout/Layout"
-import {getTitle} from "../../utils/general"
+import { getTitle } from "../../utils/general"
 import Post from "../../classes/post"
-import style from "./ProjectListing.module.css"
+import * as style from "./ProjectListing.module.css"
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel"
 import BigButton from "../../components/BigButton"
 import PostNavigation from "../../components/PostNavigation/PostNavigation"
-import {graphql} from "gatsby"
+import { graphql } from "gatsby"
 
-export default ({data, pageContext}) => {
+export default ({ data, pageContext }) => {
   const project = data.projectsJson
   const title = getTitle(project.fields.slug, project.title)
   const languages = project.technologies.languages
@@ -30,7 +30,7 @@ export default ({data, pageContext}) => {
   return (
     <Layout pageTitle={title} tabTitle={title} description={`${title} - ${project.description}`}>
       <div className={style.listing}>
-        {project.images && <ImageCarousel folder={project.images}/>}
+        {project.images && <ImageCarousel folder={project.images} />}
 
         <div className={style.content}>
           <div className={style.mainContent}>
@@ -38,12 +38,12 @@ export default ({data, pageContext}) => {
             <p>{project.description}</p>
 
             {project.features &&
-            <div>
-              <h2>Features</h2>
-              <ul>
-                {project.features.map(l => <li>{l}</li>)}
-              </ul>
-            </div>
+              <div>
+                <h2>Features</h2>
+                <ul>
+                  {project.features.map(l => <li>{l}</li>)}
+                </ul>
+              </div>
             }
           </div>
 
@@ -51,21 +51,21 @@ export default ({data, pageContext}) => {
             <h2>Technologies</h2>
 
             {languages &&
-            <div>
-              <h3>{languageLabel}</h3>
-              <ul>
-                {languages.map(l => <li>{l}</li>)}
-              </ul>
-            </div>
+              <div>
+                <h3>{languageLabel}</h3>
+                <ul>
+                  {languages.map(l => <li>{l}</li>)}
+                </ul>
+              </div>
             }
 
             {libraries &&
-            <div>
-              <h3>{libraryLabel}</h3>
-              <ul>
-                {libraries.map(l => <li>{l}</li>)}
-              </ul>
-            </div>
+              <div>
+                <h3>{libraryLabel}</h3>
+                <ul>
+                  {libraries.map(l => <li>{l}</li>)}
+                </ul>
+              </div>
             }
 
             <div className={style.links}>
@@ -78,7 +78,7 @@ export default ({data, pageContext}) => {
         </div>
       </div>
 
-      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/projects"/>
+      <PostNavigation nextPost={nextPost} prevPost={prevPost} home="/projects" />
     </Layout>
   )
 }
