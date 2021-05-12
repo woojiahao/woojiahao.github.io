@@ -40,7 +40,7 @@
     "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^3.3.0",
     "gh-pages": "^2.2.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.10",
     "prismjs": "^1.23.0",
     "prop-types": "latest",
     "react": "^16.14.0",
