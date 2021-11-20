@@ -43,7 +43,7 @@ const Home = ({ data }) => {
               <strong>Find me!</strong>
               <div>
                 <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /><span>woojiahao</span></a>
-                <a target="_blank" href="https://discord.gg/programming"><SiDiscord /><span>@Chill#4048</span></a>
+                <a target="_blank" href="https://discord.gg/sgexams"><SiDiscord /><span>@Chill#4048</span></a>
                 <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin /><span>Woo Jia Hao</span></a>
                 <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /><span>@woojiahao_</span></a>
                 <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail /><span>woojiahao1234@gmail.com</span></a>
