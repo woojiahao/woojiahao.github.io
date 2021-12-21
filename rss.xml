@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[A Programmer's Perspective RSS Feed]]></title><description><![CDATA[The personal portfolio of Woo Jia Hao! Trekking down the path of programming and discussing my encounters with the unknown!]]></description><link>https://woojiahao.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Nov 2021 08:23:15 GMT</lastBuildDate><item><title><![CDATA[Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway]]></title><description><![CDATA[In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir & demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the second part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership.]]></description><link>https://woojiahao.github.io/blog/posts/open-source-deep-dive-broadway-part-2</link><guid isPermaLink="false">https://woojiahao.github.io/blog/posts/open-source-deep-dive-broadway-part-2</guid><pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the implementation of various features of Broadway.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[A Programmer's Perspective RSS Feed]]></title><description><![CDATA[The personal portfolio of Woo Jia Hao! Trekking down the path of programming and discussing my encounters with the unknown!]]></description><link>https://woojiahao.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 21 Dec 2021 04:46:03 GMT</lastBuildDate><item><title><![CDATA[Web Development is Frustrating]]></title><description><![CDATA[Working on Apollo has made me realize that web development and the general Javascript ecosystem is frustrating to work with. This is a rant on trying to understand the multitude of configurations and setup required to create a web development project in 2021.]]></description><link>https://woojiahao.github.io/blog/posts/web-development-is-frustrating</link><guid isPermaLink="false">https://woojiahao.github.io/blog/posts/web-development-is-frustrating</guid><pubDate>Tue, 21 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have been working with Electron for the past two months or so -- buildilng
+&lt;a href=&quot;https://github.com/woojiahao/apollo&quot;&gt;Apollo&lt;/a&gt; (open-source RSS aggregator). And working with Electron meant I had to
+work with the Javascript ecosystem.&lt;/p&gt;
+&lt;p&gt;And boy is the Javascript ecosystem a confusing beast. From trying to bundle Electron via Webpack, to installing React,
+to getting hot reloading to work, everything has been a hassle.&lt;/p&gt;
+&lt;p&gt;To give even more context, lately, I had finalized the majority of the core functionality of Apollo -- which included
+things like adding a new feed, and bookmarking feeds. I wanted to polish the application and so I started to modifying
+the styles of the React components. However, as I hadn&apos;t setup Electron to allow for hot reloading of the
+&lt;a href=&quot;https://www.electronjs.org/docs/latest/tutorial/process-model&quot;&gt;renderer&lt;/a&gt;, it was taking minutes to build and render
+the changes. This was not very economical as I could be changing a single text color and have to wait minutes to view
+the changes.&lt;/p&gt;
+&lt;p&gt;So, I did what any sensible developer would do and look for ways to hot reload an Electron app. I stumbled upon
+&lt;code class=&quot;language-text&quot;&gt;electron-reloader&lt;/code&gt; and tried it out. No dice. Apparently, it did not work really well with Webpack + React.&lt;/p&gt;
+&lt;p&gt;So, I tried the next best thing, using a pre-packed Webpack plugin for &lt;code class=&quot;language-text&quot;&gt;electron-reloader&lt;/code&gt;. Again, no dice. The changes
+simply were not rendering.&lt;/p&gt;
+&lt;p&gt;Exasperated, I decided re-writing my Webpack to use &lt;code class=&quot;language-text&quot;&gt;electron-webpack&lt;/code&gt; as it had promised hot reloading out-of-the-box.
+But this time, I could not get my existing Webpack configurations to work. &lt;code class=&quot;language-text&quot;&gt;electron-webpack&lt;/code&gt; was simply too abstract
+for my liking.&lt;/p&gt;
+&lt;p&gt;The same happened with &lt;code class=&quot;language-text&quot;&gt;electron-forge&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Frustrated with the lack of flexibility and documentation for both &lt;code class=&quot;language-text&quot;&gt;electron-webpack&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;electron-forge&lt;/code&gt;, I decided to
+roll my own &quot;minimal&quot; Electron setup.&lt;/p&gt;
+&lt;p&gt;I decided to hardcode the tech stack to be Typescript, React, Tailwind.CSS, and TypeORM. This was the stack that was
+already working for me with Apollo and I did not want to rewrite Apollo.&lt;/p&gt;
+&lt;p&gt;So, I started reading the documentation and looking at various posts about setting up these tools. I cannot express just
+how many times I would follow a guide to the tee and have some random error message appear because the tutorial was like
+three months old.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;THREE MONTHS&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Only in Javascript will you get breaking changes by following a three-month old article...&lt;/p&gt;
+&lt;p&gt;I was pulling my hair at the multitude of errors with just setting up Webpack to work with every single technology. The
+implementation of Apollo was never a trouble, but the setup was the one giving me the most amount of problems...&lt;/p&gt;
+&lt;p&gt;Finally, after nearly eight hours of repeated trial and error and constant Google-fu, I finally got the minimal setup
+working.&lt;/p&gt;
+&lt;p&gt;I think this experience really speaks to the almost tragic state of Javascript. Everything is moving so quickly that
+three-month old articles can go obsolete. Tools are so abstracted that it&apos;s almost impossible to make flexible decisions
+without needing to pull everything apart. There are so many tools that perform the same operation but differ ever so
+slightly that using one over the other would cause red errors to fill your screen. And yet, we are recommending web
+development as a &quot;beginner&quot; domain. Sure, having opinionated tooling can make it easy to start out with -- but staying
+within the confines and diction of each opinion can become stifling and frustrating.&lt;/p&gt;
+&lt;p&gt;Sure this whole process has been eye-opening and has taught me a lot about Webpack and Babel. But maybe it&apos;s just me, but
+I think that development should be less about confusing setup about standards and more on actually developing a product
+that matters. I just feel that time could have been better invested elsewhere if the ecosystem and tooling was a lot more
+cohesive and complete.&lt;/p&gt;
+&lt;p&gt;I know my new &quot;minimal&quot; Electron setup is contributing to the problem, but for me, working with the tools at the most
+fundamental level -- away from the abstracted nonsense -- is the easiest way for me to get something working.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/standards.png&quot; alt=&quot;Standards&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In case you are interested, my &quot;minimal&quot; Electron setup can be found &lt;a href=&quot;https://github.com/woojiahao/minimal-electron&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway]]></title><description><![CDATA[In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the mystery of message queues and concurrency in Elixir & demystify the intricate design behind the pipelines that Broadway creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the second part of this two-part article! Note that this post is purely for educational purposes, the information gathered from here should only be used in the context of integration testing for websites that are directly under your ownership.]]></description><link>https://woojiahao.github.io/blog/posts/open-source-deep-dive-broadway-part-2</link><guid isPermaLink="false">https://woojiahao.github.io/blog/posts/open-source-deep-dive-broadway-part-2</guid><pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the implementation of various features of Broadway.&lt;/p&gt;
 &lt;p&gt;This is the second part of the deep dive and the following topics will be covered:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Rate limiting&lt;/li&gt;
