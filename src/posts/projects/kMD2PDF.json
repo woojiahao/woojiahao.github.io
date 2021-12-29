@@ -11,9 +11,6 @@
     ]
   },
   "description": "Simple and customisable markdown to PDF document conversion library.",
-  "lessons": [
-    "something"
-  ],
   "images": "kMD2PDF",
   "links": {
     "repository": "https://github.com/omnius-project/kMD2PDF",

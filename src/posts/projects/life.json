@@ -1,0 +1,21 @@
+{
+  "published": true,
+  "title": "life",
+  "technologies": {
+    "languages": [
+      "Elixir"
+    ],
+    "libraries": [
+      "Scenic"
+    ]
+  },
+  "description": "Conway's Game of Life visualizer tool built with Elixir and Scenic",
+  "links": {
+    "repository": "https://github.com/woojiahao/life"
+  },
+  "status": "Completed",
+  "duration": {
+    "start": "2021-12-27",
+    "end": "2021-12-29"
+  }
+}
