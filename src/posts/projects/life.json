@@ -10,7 +10,6 @@
     ]
   },
   "description": "Conway's Game of Life visualizer tool built with Elixir and Scenic",
-  "images": "life",
   "links": {
     "repository": "https://github.com/woojiahao/life"
   },
