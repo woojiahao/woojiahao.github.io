@@ -1,0 +1,130 @@
+@tailwind base;
+
+@layer base {
+  * {
+    @apply m-0 p-0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold font-sans mb-1 relative;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased transition-colors duration-500;
+  }
+
+  p {
+    @apply leading-7 mb-6;
+  }
+
+  a {
+    @apply text-link font-bold no-underline;
+  }
+
+  ul, ol {
+    @apply mb-8 ml-5p;
+
+    li:not(:last-child) {
+      @apply mb-2;
+    }
+  }
+
+  p a, li a {
+    @apply bg-link-gradient bg-link-minimized-size transition-all duration-300;
+  }
+
+  p a:hover, li a:hover {
+    @apply bg-link-maximized-size text-text;
+  }
+
+  blockquote {
+    @apply relative block text-gray mb-8 py-2 pl-5p text-2xl border-l-4 border-solid border-link;
+
+    /* p {
+      @apply leading-8;
+    }
+
+    p:last-child {
+      @apply m-0 p-0;
+    } */
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    @apply font-mono;
+  }
+
+  :not(pre) > code[class*="language-"] {
+    @apply bg-none text-text;
+  }
+
+  hr {
+    @apply my-8 border-none border-t-4 border-dotted border-gray w-15p;
+  }
+}
+
+@tailwind components;
+
+@layer components {
+  .anchor.before {
+    @apply fill-text;
+  }
+}
+
+@tailwind utilities;
+
+body.light {
+  --link-color: #FF5964;
+  --bg-color: #fdfffc;
+  --fg-color: #2b2d42;
+  --shadow: #D7D7D7 5px 5px 10px;
+  --pagination-background: #FAFAFA;
+  --pagination-active-background: #F5F5F5;
+  --blur: 5px;
+  --base-unit: 16px;
+}
+
+body.dark {
+  --link-color: #83bcff;
+  --bg-color: #2b2d42;
+  --fg-color: #fdfffc;
+  --shadow: #000 5px 5px 10px;
+  --pagination-background: #212121;
+  --pagination-active-background: #424242;
+  --blur: 0px;
+}
+
+/* @media screen(lg) {
+  body {
+    --base-unit: 15px;
+  }
+
+  p {
+    line-height: 22px;
+  }
+}
+
+@media screen(md) {
+  body {
+    --base-unit: 14px;
+  }
+
+  p {
+    line-height: 20px;
+  }
+
+  blockquote {
+    width: 90%;
+    margin: 0 auto 2em;
+  }
+}
+
+@media screen(sm) {
+  body {
+    --base-unit: 13px;
+  }
+
+  p {
+    line-height: 18px;
+  }
+} */

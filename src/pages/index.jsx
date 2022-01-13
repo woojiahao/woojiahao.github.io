@@ -1,14 +1,13 @@
+import { graphql, Link } from "gatsby"
 import React from "react"
-import * as style from "./index.module.css"
-import { Link } from "gatsby"
+import { AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
+import { MdEmail } from "react-icons/md"
+import { SiDiscord } from "react-icons/si"
+import QuickLink from "../components/QuickLink/QuickLink"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
-import { graphql } from "gatsby"
 import profilePicture from "./assets/profile_picture.png"
-import { AiFillLinkedin, AiFillGithub, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
-import { SiDiscord } from "react-icons/si"
-import { MdEmail } from "react-icons/md"
-import QuickLink from "../components/QuickLink/QuickLink"
+import * as style from "./index.module.css"
 
 const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
@@ -59,11 +58,11 @@ const Home = ({ data }) => {
             <p>
               I am a software developer from the tiny red dot - Singapore! I go by the moniker of Chill online.
               I graduated from Singapore Polytechnic with a Diploma in Information Technology!
-          </p>
+            </p>
 
             <p>
               I have performed natural language processing research <Link to="/about"> @ DSO National Laboratories,</Link> managed
-            UAT across 90+ teams <Link to="/about"> @ DBS Bank,</Link> and pioneered a usability framework <Link to="/about">@ MightyAim!</Link>
+              UAT across 90+ teams <Link to="/about"> @ DBS Bank,</Link> and pioneered a usability framework <Link to="/about">@ MightyAim!</Link>
             </p>
 
             <p>
@@ -71,7 +70,7 @@ const Home = ({ data }) => {
               chemistry, learning history and sociology, and studying psychology!
               Find out what I am learning <Link to="/about#currently-im-learning-">here!</Link> Outside of all of that,
               I like exercising and hanging out with my friends!
-          </p>
+            </p>
           </div>
 
           <div className={style.recent}>
@@ -117,8 +116,8 @@ const Home = ({ data }) => {
 export const query = graphql`
   query HomeQuery {
     allMarkdownRemark(
-      sort: {fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC]}, 
-      limit: 1, 
+      sort: {fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC]},
+      limit: 1,
       filter: {frontmatter: {published: {eq: true}}, fields: {slug: {nin: ["/about", "/recommendations"]}}}
     ) {
       edges {
@@ -134,7 +133,7 @@ export const query = graphql`
       }
     }
     allProjectsJson(
-      limit: 1, 
+      limit: 1,
       sort: {fields: duration___start, order: DESC}
     ) {
       edges {

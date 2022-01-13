@@ -42,6 +42,7 @@
     "gatsby-transformer-sharp": "^4.5.0",
     "gh-pages": "^2.2.0",
     "postcss": "^8.4.5",
+    "postcss-nested": "^5.0.6",
     "prismjs": "^1.23.0",
     "prop-types": "latest",
     "react": "^16.14.0",
