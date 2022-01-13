@@ -25,7 +25,7 @@ Due to the use of CSS Modules, the media breakpoints have to be distributed acro
 - `global.css` - All content font sizes
 - `layout.module.css` - Layout of every other page within the website
 - `project-list.module.css` - Layout of the projects list
-- `ImageCarousel.module.css` - Image carousel 
+- `ImageCarousel.module.css` - Image carousel
 - `post-navigation.module.css` - Post navigation
 
 Breakpoints go from:
@@ -41,3 +41,11 @@ Breakpoints go from:
 - [X] Hash URLs to minimise footprint or do something about the long URLs
 - [ ] Render GitHub gists
 - [ ] Blog post thumbnails using Japanese art
+
+## Technologies
+
+### Tailwind
+
+Uses PostCSS as a CSS parser to parse `main.css` with the custom styles from Tailwind to create the styles.
+
+`extends` will not completely replace all classes in Tailwind while defining the values under `theme` directly will remove all existing classes.

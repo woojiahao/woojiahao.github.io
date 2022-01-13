@@ -2,10 +2,6 @@ module.exports = {
   content: ['./gatsby-browser.js'],
   darkMode: 'class',
   theme: {
-    screens: {
-      'xsm': '420px',
-      'sm': '512px',
-    },
     colors: {
       'link': 'var(--link-color)',
       'bg': 'var(--bg-color)',
@@ -20,10 +16,6 @@ module.exports = {
       sans: ['Open Sans', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       mono: ['Source Code Pro', 'monospace']
     },
-    fontSize: {
-      base: 'var(--base-unit)',
-      '2xl': '2rem'
-    },
     backgroundSize: {
       'link-minimized-size': '4px 2px',
       'link-maximized-size': '4px 50px'
@@ -37,7 +29,14 @@ module.exports = {
       },
       width: {
         '15p': '15%'
-      }
+      },
+      screens: {
+        'xsm': '420px',
+        'sm': '512px',
+      },
+      fontSize: {
+        base: 'var(--base-unit)',
+      },
     },
   },
   plugins: [],

@@ -40,13 +40,13 @@
   blockquote {
     @apply relative block text-gray mb-8 py-2 pl-5p text-2xl border-l-4 border-solid border-link;
 
-    /* p {
+    p {
       @apply leading-8;
     }
 
     p:last-child {
       @apply m-0 p-0;
-    } */
+    }
   }
 
   code[class*="language-"],
@@ -94,7 +94,7 @@ body.dark {
   --blur: 0px;
 }
 
-/* @media screen(lg) {
+@media screen(lg) {
   body {
     --base-unit: 15px;
   }
@@ -127,4 +127,4 @@ body.dark {
   p {
     line-height: 18px;
   }
-} */
+}
