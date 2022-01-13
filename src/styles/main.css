@@ -1,3 +1,5 @@
+@import "./container.css";
+
 @tailwind base;
 
 @layer base {
@@ -6,23 +8,31 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold font-sans mb-4 relative leading-7;
+    @apply font-bold font-sans mb-8 relative leading-7;
   }
 
   h1 {
-    @apply text-4xl;
+    @apply text-h1;
   }
 
   h2 {
-    @apply text-3xl;
+    @apply text-h2;
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-h3;
   }
 
   h4 {
-    @apply text-xl;
+    @apply text-h4;
+  }
+
+  h5 {
+    @apply text-h5;
+  }
+
+  h6 {
+    @apply text-h6;
   }
 
   body {
@@ -79,6 +89,7 @@
   }
 }
 
+
 @tailwind components;
 
 @layer components {
@@ -86,6 +97,7 @@
     @apply fill-text;
   }
 }
+
 
 @tailwind utilities;
 
@@ -110,7 +122,42 @@ body.dark {
   --blur: 0px;
 }
 
-@media screen(sm) {
+@media screen and (max-width: 1024px) {
+  body {
+    --base-unit: 15px;
+  }
+
+  p {
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    --base-unit: 14px;
+  }
+
+  p {
+    line-height: 20px;
+  }
+
+  blockquote {
+    width: 90%;
+    margin: 0 auto 2em;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  body {
+    --base-unit: 13px;
+  }
+
+  p {
+    line-height: 18px;
+  }
+}
+
+/* @media screen(sm) {
   body {
     --base-unit: 13px;
   }
@@ -149,4 +196,4 @@ body.dark {
   body {
     --base-unit: 16px;
   }
-}
+} */

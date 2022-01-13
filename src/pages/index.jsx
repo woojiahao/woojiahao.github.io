@@ -7,28 +7,27 @@ import QuickLink from "../components/QuickLink/QuickLink"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
 import profilePicture from "./assets/profile_picture.png"
-import * as style from "./index.module.css"
 
 const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
   const latestProject = data.allProjectsJson.edges[0].node
 
   return (
-    <div className={style.homeContainer}>
+    <div className="h-full my-12 mx-auto max-w-screen-lg">
       <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
-      <div className={style.mainContainer}>
-        <aside className={style.left}>
-          <img src={profilePicture} alt="Profile picture" />
+      <div className="flex justify-between">
+        <aside className="basis-left w-24p text-right">
+          <img src={profilePicture} alt="Profile picture" className="rounded-profile mb-4 w-full" />
 
           <div>
-            <div className={style.name}>
-              <h1>Woo Jia Hao</h1>
-              <h2>Singapore</h2>
+            <div>
+              <h1 className="font-normal m-0 p-0 text-fixed">Woo Jia Hao</h1>
+              <h2 className="text-gray m-0 p-0 text-fixed">Singapore</h2>
             </div>
 
-            <div className={style.links}>
+            <div className="links my-4">
               <strong>Get around!</strong>
               <div>
                 <Link to="/blog">Blog</Link>
@@ -38,7 +37,7 @@ const Home = ({ data }) => {
               </div>
             </div>
 
-            <div className={style.contact}>
+            <div className="contact">
               <strong>Find me!</strong>
               <div>
                 <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /><span>woojiahao</span></a>
@@ -52,9 +51,9 @@ const Home = ({ data }) => {
           </div>
         </aside>
 
-        <main className={style.right}>
-          <div className={style.about}>
-            <h1>Hi!<span role="img" aria-label="wave"> 👋 </span>I am Jia Hao!</h1>
+        <main className="basis-right w-72p">
+          <div>
+            <h1 className="mt-0">Hi!<span role="img" aria-label="wave"> 👋 </span>I am Jia Hao!</h1>
             <p>
               I am a software developer from the tiny red dot - Singapore! I go by the moniker of Chill online.
               I graduated from Singapore Polytechnic with a Diploma in Information Technology!
@@ -73,28 +72,30 @@ const Home = ({ data }) => {
             </p>
           </div>
 
-          <div className={style.recent}>
-            <h1 className={style.subtitle}>I love...</h1>
+          {/* TODO: Create component for this? */}
+          <div>
+            <h1 className="text-text font-normal m-0 mb-2">I love...</h1>
 
-            <div className={style.recentBox}>
+            <div className="recent-box">
+              {/* TODO: Increase bottom margin of h2 */}
               <h2>Sharing about programming:</h2>
               <QuickLink
                 title={latestBlogPost.frontmatter.title}
                 description={latestBlogPost.frontmatter.date}
                 link={latestBlogPost.fields.slug} />
-              <Link to="/blog" className={style.viewAll}>View other posts</Link>
+              <Link to="/blog" className="view-all">View other posts</Link>
             </div>
 
-            <div className={style.recentBox}>
+            <div className="recent-box">
               <h2>Building projects:</h2>
               <QuickLink
                 title={latestProject.title}
                 description={latestProject.description}
                 link={latestProject.fields.slug} />
-              <Link to="/projects" className={style.viewAll}>View other projects</Link>
+              <Link to="/projects" className="view-all">View other projects</Link>
             </div>
 
-            <div className={style.recentBox}>
+            <div className="recent-box">
               <h2>Teaching:</h2>
               <QuickLink
                 title="Git Guide"
@@ -108,8 +109,8 @@ const Home = ({ data }) => {
 
           </div>
         </main>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

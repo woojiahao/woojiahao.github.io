@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./gatsby-browser.js'],
+  content: ['./gatsby-browser.js', './src/**/*.{js,jsx}'],
   darkMode: 'class',
   theme: {
     colors: {
@@ -28,15 +28,32 @@ module.exports = {
         '5p': '5%'
       },
       width: {
-        '15p': '15%'
+        '15p': '15%',
+        '24p': '24%',
+        '72p': '72%'
       },
       screens: {
         'xsm': '420px',
         'sm': '512px',
+        'home-950': '950px'
       },
       fontSize: {
         base: 'var(--base-unit)',
+        h1: '2rem',
+        h2: '1.5rem',
+        h3: '1.17rem',
+        h4: '1rem',
+        h5: '0.83rem',
+        h6: '0.75rem',
+        fixed: '24px'
       },
+      borderRadius: {
+        profile: '10px'
+      },
+      flexBasis: {
+        left: '1',
+        right: '2'
+      }
     },
   },
   plugins: [],
