@@ -33,7 +33,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
           <Link to="/">
             <h3 className="m-0 p-0 text-text">{siteTitle}</h3>
           </Link>
-          <nav className="self-end justify-self-end md:self-center md:justify-self-center mt-4">
+          <nav className="self-end justify-self-end md:self-center md:justify-self-center">
             <Link to="/blog">Blog</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/about">About Me</Link>

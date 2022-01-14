@@ -9,7 +9,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold font-sans mb-8 relative leading-7;
+    @apply font-bold font-sans my-8 relative leading-8;
   }
 
   h1 {

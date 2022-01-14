@@ -33,7 +33,7 @@ const Footer = ({ repositoryUrl }) => {
       </div>
 
       <div className="w-full basis-left flex md:mb-5">
-        <div className="basis-1 min-w-50p md:mb-5">
+        <div className="page-navigation basis-1 min-w-50p md:mb-5">
           <p className="font-bold m-0 p-0 mb-4">Navigation</p>
           <Link to="/">Home</Link>
           <Link to="/blog">Blog</Link>
@@ -43,13 +43,13 @@ const Footer = ({ repositoryUrl }) => {
         </div>
 
         <div className="basis-1 min-w-50p md:mb-5">
-          <p className="font-bold m-0 p-0 mb-4">Connect with me!</p>
-          <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
-          <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
-          <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
-          <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
-          <ContactLink link="mailto: woojiahao1234@gmail.com" icon={<MdEmail className={contactIconClasses} />}>woojiahao1234@gmail.com</ContactLink>
-          <ContactLink link="/rss.xml" icon={<FaRssSquare className={contactIconClasses} />}>Blog RSS Feed</ContactLink>
+          <p className="social-media font-bold m-0 p-0 mb-4">Connect with me!</p>
+          <ContactLink align="left" link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
+          <ContactLink align="left" link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
+          <ContactLink align="left" link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
+          <ContactLink align="left" link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
+          <ContactLink align="left" link="mailto: woojiahao1234@gmail.com" icon={<MdEmail className={contactIconClasses} />}>woojiahao1234@gmail.com</ContactLink>
+          <ContactLink align="left" link="/rss.xml" icon={<FaRssSquare className={contactIconClasses} />}>Blog RSS Feed</ContactLink>
         </div>
       </div>
     </div>

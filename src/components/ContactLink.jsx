@@ -1,11 +1,21 @@
 import React from "react"
 
-const ContactLink = ({ link, icon, children }) => {
+// TODO: Use Typescript to enforce align as left | right only
+const ContactLink = ({ link, icon, children, align }) => {
+  const linkClasses = [
+    'flex',
+    'items-end',
+    'font-normal',
+    'mb-1',
+    'last:mb-0',
+    'lg:inline-block',
+    'lg:last:mr-4',
+    'gap-2',
+    align === 'left' ? 'flex-row' : 'flex-row-reverse'
+  ].join(' ')
+
   return (
-    <a
-      target="_blank"
-      href={link}
-      className="flex items-end flex-row-reverse font-normal mb-1 last:mb-0 lg:inline-block lg:last:mr-4 gap-2">
+    <a target="_blank" href={link} className={linkClasses}>
       {icon}<span className="lg:hidden">{children}</span>
     </a>
   )
