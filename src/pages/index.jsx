@@ -3,6 +3,7 @@ import React from "react"
 import { AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
 import { MdEmail } from "react-icons/md"
 import { SiDiscord } from "react-icons/si"
+import ContactLink from "../components/ContactLink"
 import QuickLink from "../components/QuickLink/QuickLink"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
@@ -29,9 +30,9 @@ const Home = ({ data }) => {
       <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
-      <div className="flex justify-between">
-        <aside className="basis-left w-24p text-right">
-          <img src={profilePicture} alt="Profile picture" className="rounded-profile mb-4 w-full" />
+      <div className="flex justify-between lg:flex-col">
+        <aside className="basis-left w-24p text-right lg:w-full lg:text-center lg:mb-8">
+          <img src={profilePicture} alt="Profile picture" className="rounded-profile mb-4 w-full lg:w-1/5 lg:h:1/5" />
 
           <div>
             <div>
@@ -52,18 +53,18 @@ const Home = ({ data }) => {
             <div className="contact">
               <strong>Find me!</strong>
               <div>
-                <a target="_blank" href="https://github.com/woojiahao"><AiFillGithub /><span>woojiahao</span></a>
-                <a target="_blank" href="https://discord.gg/sgexams"><SiDiscord /><span>@Chill#4048</span></a>
-                <a target="_blank" href="https://www.linkedin.com/in/jia-hao-woo-089346155/"><AiFillLinkedin /><span>Woo Jia Hao</span></a>
-                <a target="_blank" href="https://twitter.com/woojiahao_"><AiFillTwitterSquare /><span>@woojiahao_</span></a>
-                <a target="_blank" href="mailto: woojiahao1234@gmail.com"><MdEmail /><span>woojiahao1234@gmail.com</span></a>
-                <Link to="/rss.xml"><FaRssSquare /><span>Blog RSS feed</span></Link>
+                <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub />}>woojiahao</ContactLink>
+                <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord />}>@Chill#4048</ContactLink>
+                <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin />}>Woo Jia Hao</ContactLink>
+                <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare />}>@woojiahao_</ContactLink>
+                <ContactLink link="mailto: woojiahao1234@gmail.com" icon={<MdEmail />}>woojiahao1234@gmail.com</ContactLink>
+                <ContactLink link="/rss.xml" icon={<FaRssSquare />}>Blog RSS Feed</ContactLink>
               </div>
             </div>
           </div>
         </aside>
 
-        <main className="basis-right w-72p">
+        <main className="basis-right w-72p lg:w-full">
           <div>
             <h1 className="mt-0">Hi!<span role="img" aria-label="wave"> 👋 </span>I am Jia Hao!</h1>
             <p>

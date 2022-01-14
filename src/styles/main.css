@@ -87,6 +87,10 @@
   hr {
     @apply my-8 border-none border-t-4 border-dotted border-gray w-15p;
   }
+
+  svg {
+    @apply w-6 h-6;
+  }
 }
 
 
