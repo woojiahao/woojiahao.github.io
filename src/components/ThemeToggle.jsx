@@ -1,26 +1,25 @@
 import React, { useState } from "react"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import { BsMoon, BsSun } from "react-icons/all"
-import * as style from "./ThemeToggle.module.css"
 
-const ThemeToggle = ({ style: styles }) => {
-  const [t, setT] = useState(false)
+const ThemeToggle = () => {
+  const [theme, setTheme] = useState(false)
 
   return (<ThemeToggler>
     {({ theme, toggleTheme }) => {
-      setT(theme === "dark")
+      setTheme(theme === "dark")
       return (
-        <label style={styles}>
+        <label className="fixed right-0 top-0 m-4">
           <input
             type="checkbox"
             onChange={e => {
               toggleTheme(e.target.checked ? 'dark' : 'light')
-              setT(e.target.checked)
+              setTheme(e.target.checked)
             }}
             checked={theme === 'dark'}
             hidden
           />{' '}
-          {t ? <BsSun size="1.25em" className={style.themeToggle} /> : <BsMoon size="1.25em" className={style.themeToggle} />}
+          {theme ? <BsSun size="1.25em" className="hover:cursor-pointer" /> : <BsMoon size="1.25em" className="hover:cursor-pointer" />}
         </label>
       )
     }}

@@ -6,7 +6,7 @@ import { SiDiscord } from "react-icons/si"
 import ContactLink from "../components/ContactLink"
 import RecentBox from "../components/RecentBox"
 import SEO from "../components/SEO"
-import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
+import ThemeToggle from "../components/ThemeToggle"
 import profilePicture from "./assets/profile_picture.png"
 
 const Home = ({ data }) => {
@@ -34,7 +34,7 @@ const Home = ({ data }) => {
 
   return (
     <div className={homeContainerClasses}>
-      <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
+      <ThemeToggle />
       <SEO title="Home" />
 
       <div className="flex justify-between lg:flex-col sm:flex-col">
@@ -93,7 +93,6 @@ const Home = ({ data }) => {
             </p>
           </div>
 
-          {/* TODO: Create component for this? */}
           <div>
             <h1 className="text-text font-normal m-0 mb-2">I love...</h1>
 

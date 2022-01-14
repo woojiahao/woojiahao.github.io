@@ -1,17 +1,17 @@
-import React from "react"
-import * as style from "./Layout.module.css"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import SEO from "../SEO"
 import * as PropTypes from "prop-types"
+import React from "react"
 import BackToTop from "../BackToTop/BackToTop"
-import ThemeToggle from "../ThemeToggle/ThemeToggle"
+import SEO from "../SEO"
+import ThemeToggle from "../ThemeToggle"
 import Footer from "./Footer"
+import * as style from "./Layout.module.css"
 
 const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
-        siteMetadata { 
+        siteMetadata {
           title
           repositoryUrl
         }
@@ -27,7 +27,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
   return (
     <div>
       <div className={style.layout}>
-        <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
+        <ThemeToggle />
         <SEO title={tabTitle} description={description} tags={tags} />
 
         <header>
@@ -58,7 +58,7 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
         <Footer repositoryUrl={repositoryUrl} />
       </div>
 
-      { backToTop && <BackToTop />}
+      {backToTop && <BackToTop />}
     </div >
   )
 }

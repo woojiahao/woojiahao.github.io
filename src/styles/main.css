@@ -81,7 +81,7 @@
   }
 
   :not(pre) > code[class*="language-"] {
-    @apply bg-none text-text;
+    @apply bg-none text-gray;
   }
 
   hr {
