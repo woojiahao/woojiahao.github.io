@@ -3,7 +3,6 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import PostListPagination from "../components/PostListPagination"
 import { getTitle } from "../utils/general"
-import * as style from "./ProjectList.module.css"
 
 export default ({ data, pageContext }) => {
   const posts = data.allProjectsJson.edges
@@ -17,13 +16,13 @@ export default ({ data, pageContext }) => {
         let statusColor = "#ffaaa5"
         switch (post.status) {
           case "Completed":
-            statusColor = "a8e6cf"
+            statusColor = "#a8e6cf"
             break
           case "In Progress":
-            statusColor = "ffd3b6"
+            statusColor = "#ffd3b6"
             break
           case "Archived":
-            statusColor = "dcedc1"
+            statusColor = "#dcedc1"
             break
           default:
             throw new Error("Invalid status")

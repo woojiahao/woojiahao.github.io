@@ -56,6 +56,14 @@
     }
   }
 
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
   p a, li a {
     @apply bg-link-gradient bg-link-minimized-size transition-all duration-300;
   }
@@ -86,7 +94,7 @@
   }
 
   hr {
-    @apply my-8 border-none border-t-4 border-dotted border-gray w-15p;
+    @apply my-8 mx-auto border-t-4 border-dotted border-gray w-15p text-center;
   }
 
   svg {

@@ -7,7 +7,7 @@ const PostNavigation = ({ nextPost, prevPost, home }) => {
   const linkClasses = "flex items-center text-text bg-none"
 
   return (
-    <div className={style.navigation}>
+    <div>
       <hr />
       <div className="flex justify-between md:flex-col">
         {nextPost.published ?

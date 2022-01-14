@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
-import * as style from "./BlogList.module.css"
 import { getTitle } from "../utils/general"
 import PostListPagination from "../components/PostListPagination"
 
@@ -17,7 +16,7 @@ const BlogList = ({ data, pageContext }) => {
         const timeToReadText = post.timeToRead <= 1 ? `${ttr} minute` : `${ttr} minutes`
 
         return (
-          <div className={style.blogCard}>
+          <div>
             <Link to={post.fields.slug} className="no-underline">
               <h2 className="m-0 p-0">{title}</h2>
             </Link>

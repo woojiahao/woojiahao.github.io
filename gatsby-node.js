@@ -157,7 +157,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${listTemplate}/${listTemplate}.jsx`),
+      component: path.resolve(`./src/templates/${listTemplate}.jsx`),
       context: {
         currentPage: pageNumber,
         numPages,
