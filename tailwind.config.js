@@ -89,7 +89,8 @@ module.exports = {
       },
       flexBasis: {
         left: '1',
-        right: '2'
+        right: '2',
+        '30p': '30%'
       }
     },
   },
