@@ -1,17 +1,16 @@
-import React from "react"
-import * as style from "./Layout.module.css"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import SEO from "../SEO"
 import * as PropTypes from "prop-types"
-import BackToTop from "../BackToTop/BackToTop"
-import ThemeToggle from "../ThemeToggle/ThemeToggle"
+import React from "react"
+import BackToTop from "../BackToTop.jsx"
+import SEO from "../SEO"
+import ThemeToggle from "../ThemeToggle"
 import Footer from "./Footer"
 
 const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
-        siteMetadata { 
+        siteMetadata {
           title
           repositoryUrl
         }
@@ -26,15 +25,15 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
 
   return (
     <div>
-      <div className={style.layout}>
-        <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
+      <div className="my-12 mx-auto max-w-layout-max xl:max-w-layout-xl md:max-w-layout-md sm:max-w-layout-sm xs:max-w-layout-xs xxs:max-w-layout-xxs">
+        <ThemeToggle />
         <SEO title={tabTitle} description={description} tags={tags} />
 
-        <header>
+        <header className="flex items-center justify-items-center justify-between md:flex-col md:items-center md:justify-center">
           <Link to="/">
-            <h3>{siteTitle}</h3>
+            <h3 className="m-0 p-0 text-text">{siteTitle}</h3>
           </Link>
-          <nav>
+          <nav className="self-end justify-self-end md:self-center md:justify-self-center">
             <Link to="/blog">Blog</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/about">About Me</Link>
@@ -42,23 +41,23 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
           </nav>
         </header>
 
-        <div className={style.title}>
+        <div className="flex justify-between items-center">
           <h1>{pageTitle}</h1>
           {pagination &&
-            <p style={{ marginTop: `2em` }}>
+            <p className="mt-8">
               Page {pagination.currentPage}/{pagination.numPages}
             </p>
           }
         </div>
 
-        <div style={{ marginBottom: `2em` }}>
+        <div className="mb-8">
           {children}
         </div>
 
         <Footer repositoryUrl={repositoryUrl} />
       </div>
 
-      { backToTop && <BackToTop />}
+      {backToTop && <BackToTop />}
     </div >
   )
 }

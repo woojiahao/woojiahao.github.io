@@ -1,11 +1,10 @@
 import React from "react"
-import Layout from "../../components/Layout/Layout"
+import Layout from "../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
-import * as style from "./BlogList.module.css"
-import { getTitle } from "../../utils/general"
-import PostListPagination from "../../components/PostListPagination/PostListPagination"
+import { getTitle } from "../utils/general"
+import PostListPagination from "../components/PostListPagination"
 
-export default ({ data, pageContext }) => {
+const BlogList = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
   const { currentPage, numPages } = pageContext
   return (
@@ -17,15 +16,15 @@ export default ({ data, pageContext }) => {
         const timeToReadText = post.timeToRead <= 1 ? `${ttr} minute` : `${ttr} minutes`
 
         return (
-          <div className={style.blogCard}>
-            <Link to={post.fields.slug}>
-              <h2 className={style.blogTitle}>{title}</h2>
+          <div>
+            <Link to={post.fields.slug} className="no-underline">
+              <h2 className="m-0 p-0">{title}</h2>
             </Link>
-            <div className={style.subtitle}>
-              <h3>{post.frontmatter.date}</h3>
-              <h3 className={style.timeToRead}>{timeToReadText}</h3>
+            <div className="flex justify-between">
+              <h3 className="my-4 mx-0 text-gray p-0">{post.frontmatter.date}</h3>
+              <h3 className="my-4 mx-0 text-gray p-0">{timeToReadText}</h3>
             </div>
-            <p className={style.excerpt}>{post.excerpt}</p>
+            <p>{post.excerpt}</p>
           </div>
         )
       })}
@@ -56,3 +55,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogList

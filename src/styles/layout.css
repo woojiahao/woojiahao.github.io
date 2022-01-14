@@ -1,0 +1,11 @@
+header nav a:not(:last-child) {
+  @apply mr-4;
+}
+
+.social-media a, .page-navigation a {
+  @apply block mb-2 font-normal;
+}
+
+.social-media a {
+  @apply flex items-center;
+}

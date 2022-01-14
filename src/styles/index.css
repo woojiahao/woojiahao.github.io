@@ -1,0 +1,19 @@
+.links {
+  a {
+    @apply block font-normal;
+  }
+
+  a:not(:last-child) {
+    @apply mb-1;
+  }
+}
+
+@media screen(lg) {
+  .links a {
+    display: inline-block;
+  }
+
+  .links a:not(:last-child) {
+    margin-right: 1em;
+  }
+}

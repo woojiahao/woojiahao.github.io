@@ -1,9 +1,8 @@
-import React from "react"
-import Layout from "../../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
-import * as style from "./ProjectList.module.css"
-import { getTitle } from "../../utils/general"
-import PostListPagination from "../../components/PostListPagination/PostListPagination"
+import React from "react"
+import Layout from "../components/Layout/Layout"
+import PostListPagination from "../components/PostListPagination"
+import { getTitle } from "../utils/general"
 
 export default ({ data, pageContext }) => {
   const posts = data.allProjectsJson.edges
@@ -17,13 +16,13 @@ export default ({ data, pageContext }) => {
         let statusColor = "#ffaaa5"
         switch (post.status) {
           case "Completed":
-            statusColor = "a8e6cf"
+            statusColor = "#a8e6cf"
             break
           case "In Progress":
-            statusColor = "ffd3b6"
+            statusColor = "#ffd3b6"
             break
           case "Archived":
-            statusColor = "dcedc1"
+            statusColor = "#dcedc1"
             break
           default:
             throw new Error("Invalid status")
@@ -31,18 +30,17 @@ export default ({ data, pageContext }) => {
 
         return (
           <div>
-            <div className={style.projectTitle}>
+            <div className="flex justify-between items-center mb-4 xs:flex-col xs:items-start">
               <Link to={post.fields.slug}>
-                <h2>{title}</h2>
+                <h2 className="m-0 xs:mb-4">{title}</h2>
               </Link>
               <div>
-                {post.technologies.languages.map(l => <span className={style.language}>{l}</span>)}
-                <span style={{ backgroundColor: `#${statusColor}`, color: `rgba(0, 0, 0, 0.8)` }}
-                  className={style.status}>{post.status}</span>
+                {post.technologies.languages.map(l => <span className="rounded-sm p-1 bg-language mr-4">{l}</span>)}
+                <span className={`bg-[${statusColor}] text-status-text rounded-sm p-1`}>{post.status}</span>
               </div>
             </div>
 
-            <p className={style.description}>{post.description}</p>
+            <p className="mb-4">{post.description}</p>
           </div>
         )
       })}
