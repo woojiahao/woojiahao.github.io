@@ -12,8 +12,20 @@ const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
   const latestProject = data.allProjectsJson.edges[0].node
 
+  const homeContainerClasses = [
+    'h-full',
+    'my-12',
+    'mx-auto',
+    'xs:max-w-container-xs',
+    'sm:max-w-container-sm',
+    'md:max-w-container-md',
+    'lg:max-w-container-lg',
+    'xl:max-w-container-xl',
+    'max-w-container-max',
+  ].join(' ')
+
   return (
-    <div className="h-full my-12 mx-auto max-w-screen-lg">
+    <div className={homeContainerClasses}>
       <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
