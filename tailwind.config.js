@@ -64,7 +64,8 @@ module.exports = {
         'layout-md': '500px',
         'layout-sm': '420px',
         'layout-xs': '380px',
-        'layout-xxs': '300px'
+        'layout-xxs': '300px',
+        'post-navigation-button': '450px'
       },
       minWidth: {
         '30p': '30%',
