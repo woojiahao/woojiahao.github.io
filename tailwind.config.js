@@ -68,7 +68,8 @@ module.exports = {
       },
       minWidth: {
         '30p': '30%',
-        '50p': '50%'
+        '50p': '50%',
+        'big-button': '150px'
       },
       fontSize: {
         base: 'var(--base-unit)',

@@ -69,9 +69,9 @@ export default ({ data, pageContext }) => {
             }
 
             <div className={style.links}>
-              {repository && <BigButton to={repository} bg="#6c567b" fg="white">Repository</BigButton>}
-              {documentation && <BigButton to={documentation} bg="#00bcd4" fg="white">Documentation</BigButton>}
-              {site && <BigButton to={site} bg="#f67280" fg="white">Site</BigButton>}
+              {repository && <BigButton to={repository} bg="#6c567b" fg="#ffffff">Repository</BigButton>}
+              {documentation && <BigButton to={documentation} bg="#00bcd4" fg="#ffffff">Documentation</BigButton>}
+              {site && <BigButton to={site} bg="#f67280" fg="#ffffff">Site</BigButton>}
             </div>
 
           </div>
