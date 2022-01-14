@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./gatsby-browser.js', './src/**/*.{js,jsx}'],
+  content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
   theme: {
     colors: {
@@ -36,6 +36,9 @@ module.exports = {
       'xs': {
         'max': '420px'
       },
+      'xxs': {
+        'max': '380px'
+      }
     },
     extend: {
       margin: {
@@ -55,7 +58,17 @@ module.exports = {
         'container-lg': '768px',
         'container-md': '500px',
         'container-sm': '400px',
-        'container-xs': '300px'
+        'container-xs': '300px',
+        'layout-max': '900px',
+        'layout-xl': '700px',
+        'layout-md': '500px',
+        'layout-sm': '420px',
+        'layout-xs': '380px',
+        'layout-xxs': '300px'
+      },
+      minWidth: {
+        '30p': '30%',
+        '50p': '50%'
       },
       fontSize: {
         base: 'var(--base-unit)',
