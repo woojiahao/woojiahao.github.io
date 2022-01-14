@@ -1,13 +1,11 @@
+import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../../components/Layout/Layout"
-import { graphql } from "gatsby"
-import { getTitle } from "../../utils/general"
-import * as style from "./BlogPost.module.css"
-import PostNavigation from "../../components/PostNavigation"
-import Post from "../../classes/post"
-import { Link } from "gatsby"
+import Post from "../classes/post"
+import Layout from "../components/Layout/Layout"
+import PostNavigation from "../components/PostNavigation"
+import { getTitle } from "../utils/general"
 
-export default ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const title = getTitle(post.fields.slug, post.frontmatter.title)
   const edges = data.allMarkdownRemark.edges
@@ -24,7 +22,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout pageTitle={title} tabTitle={title} description={descriptionFormat} tags={tags} backToTop>
       <div>
-        <h4 className={style.subtitle}>Published on: {post.frontmatter.date}</h4>
+        <h4 className="mt-0 text-gray">Published on: {post.frontmatter.date}</h4>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <p>
@@ -69,3 +67,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPost
