@@ -35,6 +35,7 @@ module.exports = {
       screens: {
         'xsm': '420px',
         'sm': '512px',
+        'home-950': '950px'
       },
       fontSize: {
         base: 'var(--base-unit)',
@@ -52,9 +53,6 @@ module.exports = {
       flexBasis: {
         left: '1',
         right: '2'
-      },
-      lineHeight: {
-        sm: '18px'
       }
     },
   },

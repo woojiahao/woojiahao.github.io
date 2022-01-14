@@ -12,7 +12,6 @@ const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
   const latestProject = data.allProjectsJson.edges[0].node
 
-  // TODO: Get media breakpoints working -- migrate to mobile first design to accomodate for this
   return (
     <div className="h-full my-12 mx-auto max-w-screen-lg">
       <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
