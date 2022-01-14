@@ -4,7 +4,7 @@ import { AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, FaRssSquare } from "
 import { MdEmail } from "react-icons/md"
 import { SiDiscord } from "react-icons/si"
 import ContactLink from "../components/ContactLink"
-import QuickLink from "../components/QuickLink/QuickLink"
+import RecentBox from "../components/RecentBox"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle"
 import profilePicture from "./assets/profile_picture.png"
@@ -17,12 +17,19 @@ const Home = ({ data }) => {
     'h-full',
     'my-12',
     'mx-auto',
+    'max-w-container-max',
     'xs:max-w-container-xs',
     'sm:max-w-container-sm',
     'md:max-w-container-md',
     'lg:max-w-container-lg',
     'xl:max-w-container-xl',
-    'max-w-container-max',
+  ].join(' ')
+
+  const contactIconClasses = [
+    'lg:w-12',
+    'lg:h-12',
+    'lg:m-0',
+    'lg:mr-2'
   ].join(' ')
 
   return (
@@ -30,9 +37,9 @@ const Home = ({ data }) => {
       <ThemeToggle style={{ position: `fixed`, right: 0, top: 0, margin: `15px` }} />
       <SEO title="Home" />
 
-      <div className="flex justify-between lg:flex-col">
+      <div className="flex justify-between lg:flex-col sm:flex-col">
         <aside className="basis-left w-24p text-right lg:w-full lg:text-center lg:mb-8">
-          <img src={profilePicture} alt="Profile picture" className="rounded-profile mb-4 w-full lg:w-1/5 lg:h:1/5" />
+          <img src={profilePicture} alt="Profile picture" className="rounded-profile mb-4 w-full lg:w-1/5 lg:h-1/5 lg:inline-block" />
 
           <div>
             <div>
@@ -40,8 +47,8 @@ const Home = ({ data }) => {
               <h2 className="text-gray m-0 p-0 text-fixed">Singapore</h2>
             </div>
 
-            <div className="links my-4">
-              <strong>Get around!</strong>
+            <div className="links my-4 sm:mb-4">
+              <strong className="block mb-4">Get around!</strong>
               <div>
                 <Link to="/blog">Blog</Link>
                 <Link to="/projects">Projects</Link>
@@ -50,15 +57,16 @@ const Home = ({ data }) => {
               </div>
             </div>
 
-            <div className="contact">
-              <strong>Find me!</strong>
+            <div className="contact sm:flex-col">
+              <strong className="block mb-4">Find me!</strong>
               <div>
-                <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub />}>woojiahao</ContactLink>
-                <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord />}>@Chill#4048</ContactLink>
-                <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin />}>Woo Jia Hao</ContactLink>
-                <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare />}>@woojiahao_</ContactLink>
-                <ContactLink link="mailto: woojiahao1234@gmail.com" icon={<MdEmail />}>woojiahao1234@gmail.com</ContactLink>
-                <ContactLink link="/rss.xml" icon={<FaRssSquare />}>Blog RSS Feed</ContactLink>
+                {/* TODO: Figure out way to abstract icon styles into ContactLink directly */}
+                <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
+                <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
+                <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
+                <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
+                <ContactLink link="mailto: woojiahao1234@gmail.com" icon={<MdEmail className={contactIconClasses} />}>woojiahao1234@gmail.com</ContactLink>
+                <ContactLink link="/rss.xml" icon={<FaRssSquare className={contactIconClasses} />}>Blog RSS Feed</ContactLink>
               </div>
             </div>
           </div>
@@ -89,37 +97,45 @@ const Home = ({ data }) => {
           <div>
             <h1 className="text-text font-normal m-0 mb-2">I love...</h1>
 
-            <div className="recent-box">
-              {/* TODO: Increase bottom margin of h2 */}
-              <h2>Sharing about programming:</h2>
-              <QuickLink
-                title={latestBlogPost.frontmatter.title}
-                description={latestBlogPost.frontmatter.date}
-                link={latestBlogPost.fields.slug} />
-              <Link to="/blog" className="view-all">View other posts</Link>
-            </div>
+            <RecentBox
+              heading="Sharing about programming:"
+              links={[
+                {
+                  title: latestBlogPost.frontmatter.title,
+                  description: latestBlogPost.frontmatter.date,
+                  link: latestBlogPost.fields.slug
+                }
+              ]}
+              others={{ to: '/blog', heading: 'View other posts' }}
+            />
 
-            <div className="recent-box">
-              <h2>Building projects:</h2>
-              <QuickLink
-                title={latestProject.title}
-                description={latestProject.description}
-                link={latestProject.fields.slug} />
-              <Link to="/projects" className="view-all">View other projects</Link>
-            </div>
+            <RecentBox
+              heading="Building projects:"
+              links={[
+                {
+                  title: latestProject.title,
+                  description: latestProject.description,
+                  link: latestProject.fields.slug
+                }
+              ]}
+              others={{ to: '/projects', heading: 'View other projects' }}
+            />
 
-            <div className="recent-box">
-              <h2>Teaching:</h2>
-              <QuickLink
-                title="Git Guide"
-                description="A practical introduction to the Git version control system. Written for SP DIT SEP module."
-                link="https://woojiahao.github.io/git-guide" />
-              <QuickLink
-                title="Introduction to Android Development with Kotlin"
-                description="Learn the basics of Android development using Kotlin by building a basic to-do application."
-                link="https://woojiahao.github.io/KotlinToDo" />
-            </div>
-
+            <RecentBox
+              heading="Teaching:"
+              links={[
+                {
+                  title: "Git Guide",
+                  description: "A practical introduction to the Git version control system. Written for SP DIT SEP module.",
+                  link: "https://woojiahao.github.io/git-guide"
+                },
+                {
+                  title: "Introduction to Android Development with Kotlin",
+                  description: "Learn the basics of Android development using Kotlin by building a basic to-do application.",
+                  link: "https://woojiahao.github.io/KotlinToDo"
+                }
+              ]}
+            />
           </div>
         </main>
       </div >
