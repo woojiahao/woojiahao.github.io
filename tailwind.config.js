@@ -20,6 +20,23 @@ module.exports = {
       'link-minimized-size': '4px 2px',
       'link-maximized-size': '4px 50px'
     },
+    screens: {
+      'xl': {
+        'max': '1024px',
+      },
+      'lg': {
+        'max': '950px',
+      },
+      'md': {
+        'max': '768px',
+      },
+      'sm': {
+        'max': '512px',
+      },
+      'xs': {
+        'max': '420px'
+      },
+    },
     extend: {
       margin: {
         '5p': '5%'
@@ -38,28 +55,7 @@ module.exports = {
         'container-lg': '768px',
         'container-md': '500px',
         'container-sm': '400px',
-        'container-xs': '420px'
-      },
-      screens: {
-        'xs': {
-          'max': '420px'
-        },
-        'sm': {
-          'max': '512px',
-          'min': '419px'
-        },
-        'md': {
-          'max': '768px',
-          'min': '511px'
-        },
-        'lg': {
-          'max': '950px',
-          'min': '767px'
-        },
-        'xl': {
-          'max': '1024px',
-          'min': '949px'
-        }
+        'container-xs': '300px'
       },
       fontSize: {
         base: 'var(--base-unit)',
