@@ -30,23 +30,35 @@ module.exports = {
       width: {
         '15p': '15%',
         '24p': '24%',
-        '72p': '72%'
+        '72p': '72%',
+      },
+      maxWidth: {
+        'container-max': '1024px',
+        'container-xl': '950px',
+        'container-lg': '768px',
+        'container-md': '500px',
+        'container-sm': '400px',
+        'container-xs': '420px'
       },
       screens: {
         'xs': {
           'max': '420px'
         },
         'sm': {
-          'max': '512px'
+          'max': '512px',
+          'min': '419px'
         },
         'md': {
-          'max': '768px'
+          'max': '768px',
+          'min': '511px'
         },
         'lg': {
-          'max': '950px'
+          'max': '950px',
+          'min': '767px'
         },
         'xl': {
-          'max': '1024px'
+          'max': '1024px',
+          'min': '949px'
         }
       },
       fontSize: {
