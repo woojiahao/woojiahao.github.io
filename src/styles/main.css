@@ -122,48 +122,13 @@ body.dark {
   --blur: 0px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen(xl) {
   body {
     --base-unit: 15px;
   }
 
   p {
     line-height: 22px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    --base-unit: 14px;
-  }
-
-  p {
-    line-height: 20px;
-  }
-
-  blockquote {
-    width: 90%;
-    margin: 0 auto 2em;
-  }
-}
-
-@media screen and (max-width: 512px) {
-  body {
-    --base-unit: 13px;
-  }
-
-  p {
-    line-height: 18px;
-  }
-}
-
-/* @media screen(sm) {
-  body {
-    --base-unit: 13px;
-  }
-
-  p {
-    line-height: 18px;
   }
 }
 
@@ -182,18 +147,12 @@ body.dark {
   }
 }
 
-@media screen(lg) {
+@media screen(sm) {
   body {
-    --base-unit: 15px;
+    --base-unit: 13px;
   }
 
   p {
-    line-height: 22px;
+    line-height: 18px;
   }
 }
-
-@media screen(xl) {
-  body {
-    --base-unit: 16px;
-  }
-} */

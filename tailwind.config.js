@@ -33,9 +33,21 @@ module.exports = {
         '72p': '72%'
       },
       screens: {
-        'xsm': '420px',
-        'sm': '512px',
-        'home-950': '950px'
+        'xs': {
+          'max': '420px'
+        },
+        'sm': {
+          'max': '512px'
+        },
+        'md': {
+          'max': '768px'
+        },
+        'lg': {
+          'max': '950px'
+        },
+        'xl': {
+          'max': '1024px'
+        }
       },
       fontSize: {
         base: 'var(--base-unit)',
