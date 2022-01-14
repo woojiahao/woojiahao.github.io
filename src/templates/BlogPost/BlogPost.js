@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { getTitle } from "../../utils/general"
 import * as style from "./BlogPost.module.css"
-import PostNavigation from "../../components/PostNavigation/PostNavigation"
+import PostNavigation from "../../components/PostNavigation"
 import Post from "../../classes/post"
 import { Link } from "gatsby"
 
@@ -39,7 +39,7 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query (
     $slug: String!,
-    $prev: String, 
+    $prev: String,
     $next: String
    ) {
     markdownRemark(

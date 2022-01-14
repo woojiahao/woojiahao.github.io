@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout"
 import { graphql, Link } from "gatsby"
 import * as style from "./BlogList.module.css"
 import { getTitle } from "../../utils/general"
-import PostListPagination from "../../components/PostListPagination/PostListPagination"
+import PostListPagination from "../../components/PostListPagination"
 
 export default ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges

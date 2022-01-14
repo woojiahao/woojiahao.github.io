@@ -5,7 +5,7 @@ import Post from "../../classes/post"
 import * as style from "./ProjectListing.module.css"
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel"
 import BigButton from "../../components/BigButton"
-import PostNavigation from "../../components/PostNavigation/PostNavigation"
+import PostNavigation from "../../components/PostNavigation"
 import { graphql } from "gatsby"
 
 export default ({ data, pageContext }) => {
