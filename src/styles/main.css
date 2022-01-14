@@ -45,7 +45,7 @@
   }
 
   a {
-    @apply text-link font-bold no-underline;
+    @apply text-link font-bold;
   }
 
   ul, ol {
@@ -65,11 +65,31 @@
   }
 
   p a, li a {
-    @apply bg-link-gradient bg-link-minimized-size transition-all duration-300;
+    position: relative;
+  }
+
+  p a::before, li a::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--link-color);
+    z-index: -1;
+    transition: height 0.3s;
+  }
+
+  p a:hover::before, li a:hover::before {
+    top: 0;
+    bottom: -2px;
+    height: 100%;
+    z-index: -1;
   }
 
   p a:hover, li a:hover {
-    @apply bg-link-maximized-size text-text;
+    color: var(--fg-color);
+    z-index: 9999;
   }
 
   blockquote {
