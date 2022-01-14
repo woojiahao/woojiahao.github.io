@@ -11,6 +11,8 @@ module.exports = {
       'gray': '#90A4AE',
       'pagination-background': 'var(--pagination-background)',
       'pagination-active-background': 'var(--pagination-active-background)',
+      'language': 'rgba(181, 144, 202, 0.4)',
+      'status-text': 'rgba(0, 0, 0, 0.8)'
     },
     fontFamily: {
       sans: ['Open Sans', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
