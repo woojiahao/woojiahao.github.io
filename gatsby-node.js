@@ -1,5 +1,7 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {
+  createFilePath
+} = require(`gatsby-source-filesystem`)
 const customRedirectFrom = require(`./src/utils/custom-redirect-from`)
 const stripTitle = require(`./src/utils/strip-title`)
 
@@ -13,11 +15,21 @@ const postsPerPage = 10
  * We have to generate and take the last segment of the default file path as we need to create custom slugs
  * for each post to be under the specified file folders.
  */
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({
+  node,
+  getNode,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions
   const nodeType = node.internal.type
   if ([`MarkdownRemark`, `ProjectsJson`].indexOf(nodeType) >= 0) {
-    const defaultFilePath = createFilePath({ node, getNode, basePath: `pages` })
+    const defaultFilePath = createFilePath({
+      node,
+      getNode,
+      basePath: `pages`
+    })
     const parts = defaultFilePath.split("/")
     const filename = parts[parts.length - 2]
 
@@ -54,15 +66,23 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 /**
  * Creates the pages from the respective slugs.
  */
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions
+exports.createPages = async ({
+  graphql,
+  actions
+}) => {
+  const {
+    createPage,
+    createRedirect
+  } = actions
   await generatePosts(createPage, createRedirect, graphql)
   await generateGeneralPosts(createPage, graphql)
 }
 
 // Generates pages like about
 const generateGeneralPosts = async (createPage, graphql) => {
-  const { data } = await graphql(`
+  const {
+    data
+  } = await graphql(`
     query {
       allMarkdownRemark(
         filter: {frontmatter: {type: {ne: null}}}
@@ -79,10 +99,12 @@ const generateGeneralPosts = async (createPage, graphql) => {
 
   const generalPosts = data.allMarkdownRemark.edges
 
-  const aboutPage = generalPosts.filter(({ node }) => node.frontmatter.type === `About`)[0].node
+  const aboutPage = generalPosts.filter(({
+    node
+  }) => node.frontmatter.type === `About`)[0].node
   createPage({
     path: aboutPage.fields.slug,
-    component: path.resolve(`./src/templates/GeneralPost.js`),
+    component: path.resolve(`./src/templates/GeneralPost.jsx`),
     context: {
       slug: aboutPage.fields.slug,
       title: `About Me`
@@ -92,7 +114,9 @@ const generateGeneralPosts = async (createPage, graphql) => {
 
 // Generates blog posts and project listings
 const generatePosts = async (createPage, createRedirect, graphql) => {
-  const { data } = await graphql(`
+  const {
+    data
+  } = await graphql(`
     query {
       allProjectsJson(
         sort: {fields: duration___start, order: ASC},
@@ -105,12 +129,12 @@ const generatePosts = async (createPage, createRedirect, graphql) => {
         }
       }
       allMarkdownRemark(
-        sort: {fields: [frontmatter___date, frontmatter___title], order: [ASC, ASC]}, 
+        sort: {fields: [frontmatter___date, frontmatter___title], order: [ASC, ASC]},
         filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
       ) {
         edges {
-          node { 
-            fields { slug } 
+          node {
+            fields { slug }
             frontmatter { redirect_from }
           }
           next { fields { slug } }
@@ -133,7 +157,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${listTemplate}/${listTemplate}.js`),
+      component: path.resolve(`./src/templates/${listTemplate}/${listTemplate}.jsx`),
       context: {
         currentPage: pageNumber,
         numPages,
@@ -143,11 +167,15 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     })
   }
 
-  edges.forEach(({ node, next, previous }) => {
+  edges.forEach(({
+    node,
+    next,
+    previous
+  }) => {
     const slug = node.fields.slug
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${postTemplate}/${postTemplate}.js`),
+      component: path.resolve(`./src/templates/${postTemplate}.jsx`),
       context: {
         slug,
         next: processNodeSlug(next),
