@@ -2,12 +2,18 @@ import { Link } from "gatsby"
 import React from "react"
 import { IoIosArrowForward } from "react-icons/all"
 
+interface RecentBoxProps {
+  heading: string,
+  links: { title: string, description: string, link: string }[],
+  others?: { to: string, heading: string }
+}
+
 /**
  * @param heading Title of the recent box
  * @param links List of objects with structure {title: string, description: string, link: string}
  * @param others Object that indicates if there is a link to other content, structure: {to: string, heading: string}
  */
-const RecentBox = ({ heading, links, others }) => {
+const RecentBox = ({ heading, links, others }: RecentBoxProps) => {
   return (
     <div className="mb-10 last:mb-0">
       <h2 className="text-gray m-0 mb-2 font-normal">{heading}</h2>
