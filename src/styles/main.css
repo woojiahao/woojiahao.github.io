@@ -64,20 +64,20 @@
     @apply list-decimal;
   }
 
-  p a, li a {
+  p a:not(.clean), li a:not(.clean) {
     @apply relative;
   }
 
-  p a::before, li a::before {
+  p a:not(.clean)::before, li a:not(.clean)::before {
     @apply absolute left-0 right-0 -bottom-0.5 h-0.5 bg-link -z-10 transition-all duration-300;
     content: '';
   }
 
-  p a:hover::before, li a:hover::before {
+  p a:not(.clean):hover::before, li a:not(.clean):hover::before {
     @apply top-0 -bottom-0.5 h-full -z-10;
   }
 
-  p a:hover, li a:hover {
+  p a:not(.clean):hover, li a:not(.clean):hover {
     @apply text-text z-50;
   }
 
@@ -109,18 +109,14 @@
   svg {
     @apply w-6 h-6;
   }
-}
 
-
-@tailwind components;
-
-@layer components {
-  .anchor.before {
-    @apply fill-text;
+  img {
+    @apply text-center;
   }
 }
 
 
+@tailwind components;
 @tailwind utilities;
 
 body {
@@ -142,6 +138,10 @@ body.dark {
   --pagination-background: #212121;
   --pagination-active-background: #424242;
   --blur: 0px;
+}
+
+.anchor.before {
+  @apply fill-text;
 }
 
 @media screen(xl) {

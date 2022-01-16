@@ -11,7 +11,7 @@ interface PostNavigationProps {
 
 const PostNavigation = ({ nextPost, prevPost, home }: PostNavigationProps) => {
   const pClasses = "flex max-w-post-navigation-button rounded-md mb-0"
-  const linkClasses = "flex items-center text-text bg-none"
+  const linkClasses = "flex items-center text-text clean"
 
   const nextClasses = pClasses + 'md:mb-4 md:self-start'
   const prevClasses = pClasses + 'md:self-end'
