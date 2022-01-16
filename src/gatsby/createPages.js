@@ -1,9 +1,5 @@
-/**
- * Create pages from the respective slugs
- */
-
 const path = require('path')
-const createRedirectTo = require('./createRedirect')
+const createRedirectTo = require('./createRedirectTo')
 
 const templates = {
   'general': 'GeneralPost.tsx',
