@@ -4,7 +4,7 @@ import Layout from "../components/Layout/Layout"
 import PostListPagination from "../components/PostListPagination"
 import { getTitle } from "../utils/general"
 
-export default ({ data, pageContext }) => {
+const ProjectList = ({ data, pageContext }) => {
   const posts = data.allProjectsJson.edges
   const { currentPage, numPages } = pageContext
 
@@ -70,3 +70,5 @@ export const query = graphql`
     }
   }
 `
+
+export default ProjectList

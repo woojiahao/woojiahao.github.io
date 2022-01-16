@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { PropsWithChildren } from "react"
-import BackToTop from "../BackToTop.jsx"
+import BackToTop from "../BackToTop"
 import SEO from "../SEO"
 import ThemeToggle from "../ThemeToggle"
 import Footer from "./Footer"
