@@ -45,3 +45,5 @@ module.exports = ({ node, getNode, actions }) => {
     value: filePath
   })
 }
+
+const stripTitle = title => title.replace(/\W/g, " ").trim().replace(/\s+/g, "-").toLowerCase()
