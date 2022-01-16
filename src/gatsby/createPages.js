@@ -3,8 +3,7 @@
  */
 
 const path = require('path')
-const { generalPostsQuery, blogPostsQuery } = require('./queries')
-const createRedirect = require('./createRedirect')
+const createRedirectTo = require('./createRedirect')
 
 const templates = {
   'general': 'GeneralPost.tsx',
@@ -24,7 +23,18 @@ module.exports = async ({ graphql, actions }) => {
  * Only used to create About Me page
  */
 const generateGeneralPosts = async (createPage, graphql) => {
-  const { data } = await graphql(generalPostsQuery)
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark(filter: {frontmatter: {type: {ne: null}}}) {
+        edges {
+          node {
+            frontmatter { type }
+            fields { slug }
+          }
+        }
+      }
+    }
+  `)
 
   const about = data.allMarkdownRemark.edges.find(e => e.node.frontmatter.type === 'About').node
 
@@ -39,17 +49,33 @@ const generateGeneralPosts = async (createPage, graphql) => {
 }
 
 const generateBlog = async (createPage, createRedirect, graphql) => {
-  const { data } = await graphql(blogPostsQuery)
-  const posts = data.edges
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark(
+        sort: {fields: [frontmatter___date, frontmatter___title], order: [ASC, ASC]},
+        filter: {frontmatter: {published: {eq: true}, type: {eq: null}}}
+      ) {
+        edges {
+          node {
+            fields { slug }
+            frontmatter { redirect_from }
+          }
+          next { fields { slug } }
+          previous { fields { slug } }
+        }
+      }
+    }
+  `)
+  const posts = data.allMarkdownRemark.edges
   generateBlogList(posts, createPage)
   generateBlogPosts(posts, createPage, createRedirect)
 }
 
 const generateBlogList = (posts, createPage) => {
-  const numPages = Math.ceil(posts / postsPerPage)
+  const numPages = Math.ceil(posts.length / postsPerPage)
 
   for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
-    const slug = pageNumber === 1 ? '/blog' : path.join('blog', pageNumber)
+    const slug = pageNumber === 1 ? '/blog/' : path.join('/blog', pageNumber.toString(), '/')
     createPage({
       path: slug,
       component: generateTemplatePath('blogList'),
@@ -76,8 +102,8 @@ const generateBlogPosts = (posts, createPage, createRedirect) => {
       }
     })
 
-    createRedirect(node, createRedirect)
+    createRedirectTo(node, createRedirect)
   })
 }
 
-const generateTemplatePath = key => path.join('src', 'templates', templates[key])
+const generateTemplatePath = key => path.resolve(path.join('./src', 'templates', templates[key]))
