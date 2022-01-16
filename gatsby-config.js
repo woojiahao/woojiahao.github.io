@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 
 const googleAnalyticsTrackingID = process.env.GOOGLE_ANALYTICS
 
@@ -43,13 +44,20 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src/`
+        path: path.join(__dirname, '/src')
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: path.join(__dirname, '/posts')
       }
     },
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        path: './src/posts/projects/'
+        path: './posts/projects/'
       }
     },
     {
