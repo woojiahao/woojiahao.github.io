@@ -37,12 +37,10 @@ const Projects = ({ data }: ProjectsProps) => {
   return (
     <Layout pageTitle="My Projects" tabTitle="Projects">
       {projects.map(({ node: project }) => {
-        const title = getTitle(project.title)
-
         return (
           <div className="flex flex-col gap-2 mb-2 last:mb-0">
             <div className="flex justify-between items-center">
-              <h2 className="m-0 xs:mb-4">{title}</h2>
+              <h2 className="m-0 xs:mb-4">{project.title}</h2>
               <div className="flex gap-3">
                 {Object
                   .entries(project.links)
