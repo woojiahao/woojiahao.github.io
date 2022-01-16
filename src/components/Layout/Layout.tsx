@@ -1,12 +1,28 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import * as PropTypes from "prop-types"
-import React from "react"
-import BackToTop from "../BackToTop.jsx"
+import React, { PropsWithChildren } from "react"
+import BackToTop from "../BackToTop"
 import SEO from "../SEO"
 import ThemeToggle from "../ThemeToggle"
 import Footer from "./Footer"
 
-const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, description, backToTop }) => {
+interface LayoutProps {
+  tabTitle: string
+  pageTitle: string
+  pagination?: { currentPage: number, numPages: number }
+  tags?: string[]
+  description?: string
+  backToTop?: boolean
+}
+
+const Layout = ({
+  tabTitle,
+  pageTitle,
+  pagination,
+  tags = [],
+  children,
+  description,
+  backToTop
+}: PropsWithChildren<LayoutProps>) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -63,23 +79,3 @@ const Layout = ({ tabTitle, pageTitle, pagination, tags, home, children, descrip
 }
 
 export default Layout
-
-Layout.propTypes = {
-  tabTitle: PropTypes.string.isRequired,
-  pageTitle: PropTypes.string.isRequired,
-  pagination: PropTypes.object,
-  tags: PropTypes.array,
-  home: PropTypes.string,
-  description: PropTypes.string,
-  backToTop: PropTypes.bool,
-}
-
-Layout.defaultProps = {
-  tabTitle: null,
-  pageTitle: null,
-  pagination: null,
-  tags: [],
-  home: null,
-  description: null,
-  backToTop: false,
-}

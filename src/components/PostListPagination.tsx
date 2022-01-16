@@ -1,8 +1,13 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
-const PostListPagination = ({ numPages, currentPage, redirect }) => {
+interface PostListPaginationProps {
+  numPages: number
+  currentPage: number
+  redirect: string
+}
+
+const PostListPagination = ({ numPages = 1, currentPage = 1, redirect }: PostListPaginationProps) => {
   const pages = [...Array(numPages).keys()].map(i => i + 1)
   const links = pages.map(page => page === 1 ? `/${redirect}/` : `/${redirect}/${page}`)
   return (
@@ -31,14 +36,3 @@ const PostListPagination = ({ numPages, currentPage, redirect }) => {
 }
 
 export default PostListPagination
-
-PostListPagination.propTypes = {
-  numPages: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  redirect: PropTypes.string.isRequired
-}
-
-PostListPagination.defaultProps = {
-  numPages: 1,
-  currentPage: 1
-}

@@ -7,7 +7,7 @@ import BigButton from "../components/BigButton"
 import PostNavigation from "../components/PostNavigation"
 import { graphql } from "gatsby"
 
-export default ({ data, pageContext }) => {
+const ProjectListing = ({ data, pageContext }) => {
   const project = data.projectsJson
   const title = getTitle(project.fields.slug, project.title)
   const languages = project.technologies.languages
@@ -124,3 +124,5 @@ export const query = graphql`
     }
   }
 `
+
+export default ProjectListing

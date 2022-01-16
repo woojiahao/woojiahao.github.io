@@ -104,7 +104,7 @@ const generateGeneralPosts = async (createPage, graphql) => {
   }) => node.frontmatter.type === `About`)[0].node
   createPage({
     path: aboutPage.fields.slug,
-    component: path.resolve(`./src/templates/GeneralPost.jsx`),
+    component: path.resolve(`./src/templates/GeneralPost.tsx`),
     context: {
       slug: aboutPage.fields.slug,
       title: `About Me`
@@ -157,7 +157,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = pageNumber === 1 ? `/${category}/` : `/${category}/${pageNumber}`
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${listTemplate}.jsx`),
+      component: path.resolve(`./src/templates/${listTemplate}.tsx`),
       context: {
         currentPage: pageNumber,
         numPages,
@@ -175,7 +175,7 @@ const generatePages = (edges, listTemplate, postTemplate, category, createPage, 
     const slug = node.fields.slug
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${postTemplate}.jsx`),
+      component: path.resolve(`./src/templates/${postTemplate}.tsx`),
       context: {
         slug,
         next: processNodeSlug(next),

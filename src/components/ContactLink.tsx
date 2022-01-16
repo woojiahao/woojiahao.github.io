@@ -1,7 +1,13 @@
-import React from "react"
+import React, { PropsWithChildren, ReactElement } from "react"
+
+interface ContactLinkProps {
+  link: string,
+  icon: ReactElement,
+  align?: 'left' | 'right'
+}
 
 // TODO: Use Typescript to enforce align as left | right only
-const ContactLink = ({ link, icon, children, align }) => {
+const ContactLink = ({ link, icon, align = 'right', children }: PropsWithChildren<ContactLinkProps>) => {
   const linkClasses = [
     'flex',
     'items-end',

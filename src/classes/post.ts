@@ -1,8 +1,12 @@
-import {getTitle} from "../utils/general"
+import { getTitle } from "../utils/general"
 
 export default class Post {
-  constructor(edges, target, type) {
-    const matching = edges.filter(({node}) => node.fields.slug === target)
+  title: string
+  published: boolean
+  slug: string
+
+  constructor(edges: any, target: string, type: string) {
+    const matching = edges.filter(({ node }) => node.fields.slug === target)
     const node = matching.length !== 0 ? matching[0].node : undefined
 
     if (!node) {
