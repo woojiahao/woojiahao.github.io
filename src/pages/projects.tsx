@@ -23,9 +23,6 @@ interface ProjectsProps {
           duration: {
             start: string
           }
-          fields: {
-            slug: string
-          }
         }
       }[]
     }
@@ -40,7 +37,7 @@ const Projects = ({ data }: ProjectsProps) => {
   return (
     <Layout pageTitle="My Projects" tabTitle="Projects">
       {projects.map(({ node: project }) => {
-        const title = getTitle(project.fields.slug, project.title)
+        const title = getTitle(project.title)
 
         return (
           <div className="flex flex-col gap-2 mb-2 last:mb-0">
@@ -96,9 +93,6 @@ export const query = graphql`
           }
           duration {
             start
-          }
-          fields {
-            slug
           }
         }
       }

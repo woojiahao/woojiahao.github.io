@@ -18,7 +18,7 @@ const createRedirectTo = (post, createRedirect) => {
     .forEach(({ from, to }) => {
       createRedirect({
         fromPath: from,
-        toPath: `/${to}/`,
+        toPath: to,
         isPermanent: true,
         redirectInBrowser: true
       })

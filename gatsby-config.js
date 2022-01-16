@@ -44,14 +44,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: path.join(__dirname, '/src')
+        path: path.resolve(path.join(__dirname, '/src'))
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: path.join(__dirname, '/posts')
+        path: path.resolve(path.join(__dirname, '/posts'))
       }
     },
     {

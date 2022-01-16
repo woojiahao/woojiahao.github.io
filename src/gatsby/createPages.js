@@ -71,7 +71,7 @@ const generateBlogList = (posts, createPage) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
-    const slug = pageNumber === 1 ? '/blog/' : path.join('/blog', pageNumber.toString(), '/')
+    const slug = pageNumber === 1 ? '/blog' : `/blog/${pageNumber.toString()}`
     createPage({
       path: slug,
       component: generateTemplatePath('blogList'),

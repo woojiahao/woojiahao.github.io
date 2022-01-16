@@ -18,7 +18,10 @@ module.exports = ({ node, getNode, actions }) => {
 
   if (title.startsWith('_')) return
 
-  const filePath = title === 'about' ? '/about' : path.join('/blog', 'posts', title)
+  console.log(title)
+
+  const filePath = title === 'about' ? '/about' : `/blog/posts/${title}`
+  console.log(filePath)
 
   createNodeField({
     node,

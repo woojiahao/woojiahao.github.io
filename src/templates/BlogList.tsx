@@ -10,6 +10,7 @@ const BlogList = ({ data, pageContext }) => {
   return (
     <Layout pagination={{ currentPage, numPages }} pageTitle="My Blog" tabTitle="Blog">
       {posts.map(({ node: post }) => {
+        console.log(post.fields.slug)
         const title = getTitle(post.fields.slug, post.frontmatter.title)
 
         const ttr = post.timeToRead

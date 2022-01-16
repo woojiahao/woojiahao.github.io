@@ -114,7 +114,7 @@ const Home = ({ data }) => {
                 {
                   title: latestProject.title,
                   description: latestProject.description,
-                  link: latestProject.fields.slug
+                  link: latestProject.links.repository
                 }
               ]}
               others={{ to: '/projects', heading: 'View other projects' }}
@@ -169,8 +169,8 @@ export const query = graphql`
         node {
           title
           description
-          fields {
-            slug
+          links {
+            repository
           }
         }
       }
