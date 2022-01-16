@@ -109,3 +109,6 @@ public
 
 # Posts
 src/posts/blog/_*.md
+
+# build.css for testing Tailwind
+build.css

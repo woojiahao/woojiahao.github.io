@@ -4,11 +4,11 @@ Personal site built using Gatsby.js
 
 ## Installation
 
-Install `gatsby-cli` and all other npm dependencies.
-
 ```bash
-$ npm i -g gatsby-cli
-$ npm i
+$ git clone https://github.com/woojiahao/woojiahao.github.io.git
+$ cd woojiahao.github.io/
+$ yarn global add gatsby-cli
+$ yarn install
 ```
 
 Serve the site locally at `localhost:8000`.
@@ -18,17 +18,6 @@ $ gatsby develop
 ```
 
 ## Media breakpoints
-
-Due to the use of CSS Modules, the media breakpoints have to be distributed across three different files:
-
-- `index.module.css` - Layout of the homepage
-- `global.css` - All content font sizes
-- `layout.module.css` - Layout of every other page within the website
-- `project-list.module.css` - Layout of the projects list
-- `ImageCarousel.module.css` - Image carousel 
-- `post-navigation.module.css` - Post navigation
-
-Breakpoints go from:
 
 ```
 420px -> 512px -> 768px -> 1024px
@@ -41,3 +30,12 @@ Breakpoints go from:
 - [X] Hash URLs to minimise footprint or do something about the long URLs
 - [ ] Render GitHub gists
 - [ ] Blog post thumbnails using Japanese art
+- [ ] Side bar within layout
+
+## Technologies
+
+### Tailwind
+
+Uses PostCSS as a CSS parser to parse `main.css` with the custom styles from Tailwind to create the styles.
+
+`extends` will not completely replace all classes in Tailwind while defining the values under `theme` directly will remove all existing classes.
