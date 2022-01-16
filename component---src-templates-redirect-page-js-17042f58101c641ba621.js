@@ -1,2 +1,0 @@
-(self.webpackChunkwoojiahao_github_io=self.webpackChunkwoojiahao_github_io||[]).push([[39],{6889:function(e,t,n){"use strict";n.r(t);var o=n(7294),i=n(5414);t.default=function(e){var t="undefined"!=typeof window?window.location.origin:"";return o.createElement(i.Z,null,o.createElement("meta",{"http-equiv":"refresh",content:"0;url="+t+e.pageContext.redirect}))}}}]);
-//# sourceMappingURL=component---src-templates-redirect-page-js-17042f58101c641ba621.js.map
