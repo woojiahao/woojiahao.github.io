@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-tsx",
     "path": "/",
-    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"fields":{"slug":"/blog/posts/web-development-is-frustrating"},"frontmatter":{"title":"Web Development is Frustrating","date":"21 December 2021"}}}]},"allProjectsJson":{"edges":[{"node":{"title":"life","description":"Conway's Game of Life visualizer tool built with Elixir and Scenic","links":{"repository":"https://github.com/woojiahao/life"}}}]}},"pageContext":{}},
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"fields":{"slug":"/blog/posts/installing-uxplay-on-arch-linux"},"frontmatter":{"title":"Installing UxPlay on Arch Linux","date":"01 February 2022"}}}]},"allProjectsJson":{"edges":[{"node":{"title":"life","description":"Conway's Game of Life visualizer tool built with Elixir and Scenic","links":{"repository":"https://github.com/woojiahao/life"}}}]}},"pageContext":{}},
     "staticQueryHashes": ["2207116114"]}
