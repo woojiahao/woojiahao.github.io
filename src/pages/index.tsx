@@ -65,7 +65,7 @@ const Home = ({ data }) => {
                 <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
                 <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
                 <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
-                <ContactLink link="mailto: woojiahao1234@gmail.com" icon={<MdEmail className={contactIconClasses} />}>woojiahao1234@gmail.com</ContactLink>
+                <ContactLink link="mailto: me@woojiahao.com" icon={<MdEmail className={contactIconClasses} />}>me@woojiahao.com</ContactLink>
                 <ContactLink link="/rss.xml" icon={<FaRssSquare className={contactIconClasses} />}>Blog RSS Feed</ContactLink>
               </div>
             </div>
