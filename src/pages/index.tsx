@@ -76,8 +76,9 @@ const Home = ({ data }) => {
           <div>
             <h1 className="mt-0">Hi!<span role="img" aria-label="wave"> 👋 </span>I am Jia Hao!</h1>
             <p>
-              I am a software developer from the tiny red dot - Singapore! I go by the moniker of Chill online.
-              I graduated from Singapore Polytechnic with a Diploma in Information Technology!
+              I am a software developer from the tiny red dot — Singapore! I go by the moniker of Chill online.
+              I am an incoming National University of Singapore (NUS) freshman studying Computer Science!
+              I graduated from Singapore Polytechnic with a Diploma in Information Technology.
             </p>
 
             <p>
@@ -86,8 +87,8 @@ const Home = ({ data }) => {
             </p>
 
             <p>
-              I enjoy acquiring knowledge about domains outside of computer science. I am currently brushing up on my
-              chemistry, learning history and sociology, and studying psychology!
+              I enjoy acquiring knowledge about domains outside of computer science. I am currently studying
+              calculus and reading about psychology!
               Find out what I am learning <Link to="/about#currently-im-learning-">here!</Link> Outside of all of that,
               I like exercising and hanging out with my friends!
             </p>
