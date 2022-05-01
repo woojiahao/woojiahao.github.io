@@ -7,7 +7,7 @@ import ContactLink from "../components/ContactLink"
 import RecentBox from "../components/RecentBox"
 import SEO from "../components/SEO"
 import ThemeToggle from "../components/ThemeToggle"
-import profilePicture from "./assets/profile_picture.png"
+import profilePicture from "./assets/profile_picture.jpg"
 
 const Home = ({ data }) => {
   const latestBlogPost = data.allMarkdownRemark.edges[0].node
