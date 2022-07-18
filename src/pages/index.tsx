@@ -125,7 +125,7 @@ const Home = ({ data }) => {
               heading="Teaching:"
               links={[
                 {
-                  title: "An Introduction to Metaprogramming in Elixir",
+                  title: "Meta-programming in Elixir",
                   description: "Introducing the intricacies of metaprogramming and the Elixir compiler in this four-part series",
                   link: "https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html"
                 },
