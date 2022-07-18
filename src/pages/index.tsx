@@ -97,6 +97,23 @@ const Home = ({ data }) => {
           <div>
             <h1 className="text-text font-normal m-0 mb-2">I love...</h1>
 
+
+            <RecentBox
+              heading="Analyzing open-source projects:"
+              links={[
+                {
+                  title: "Open-source Deep Dive: Broadway",
+                  description: "Deep diving into Broadway, a library to build concurrent and multi-stage data processing pipelines in Elixir",
+                  link: "/blog/posts/open-source-deep-dive-broadway-part-1"
+                },
+                {
+                  title: "Open-source Deep Dive: Hound",
+                  description: "Deep diving into Hound, a browser automation and integration testing library in Elixir",
+                  link: "/blog/posts/open-source-deep-dive-hound"
+                }
+              ]} />
+
+
             <RecentBox
               heading="Sharing about programming:"
               links={[
