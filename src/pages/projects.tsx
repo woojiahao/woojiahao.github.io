@@ -52,7 +52,7 @@ const Projects = ({ data }: ProjectsProps) => {
                   })}
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {project.technologies.languages.map(l =>
                 <span className="rounded-sm py-1 px-2 bg-language">{l}</span>
               )}
