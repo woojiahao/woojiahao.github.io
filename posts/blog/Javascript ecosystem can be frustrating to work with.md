@@ -1,7 +1,7 @@
 ---
 published: true
 date: "2021-12-21"
-title: "Web Development is Frustrating"
+title: "The Javascript Ecosystem Can Be Frustrating to Work With"
 tags:
 - electron
 - webpack
@@ -13,18 +13,18 @@ tags:
 - rant
 
 description: "Working on Apollo has made me realize that web development and the general Javascript ecosystem is
-frustrating to work with. This is a rant on trying to understand the multitude of configurations and setup required to
+frustrating to work with. This is a rant about trying to understand the multitude of configurations and setup required to
 create a web development project in 2021."
 ---
 
-I have been working with Electron for the past two months or so -- buildilng
+I have been working with Electron for the past two months or so — building
 [Apollo](https://github.com/woojiahao/apollo) (open-source RSS aggregator). And working with Electron meant I had to
 work with the Javascript ecosystem.
 
 And boy is the Javascript ecosystem a confusing beast. From trying to bundle Electron via Webpack, to installing React,
 to getting hot reloading to work, everything has been a hassle.
 
-To give even more context, lately, I had finalized the majority of the core functionality of Apollo -- which included
+To give even more context, lately, I had finalized the majority of the core functionality of Apollo — which included
 things like adding a new feed, and bookmarking feeds. I wanted to polish the application and so I started to modifying
 the styles of the React components. However, as I hadn't setup Electron to allow for hot reloading of the
 [renderer](https://www.electronjs.org/docs/latest/tutorial/process-model), it was taking minutes to build and render
@@ -37,7 +37,7 @@ So, I did what any sensible developer would do and look for ways to hot reload a
 So, I tried the next best thing, using a pre-packed Webpack plugin for `electron-reloader`. Again, no dice. The changes
 simply were not rendering.
 
-Exasperated, I decided re-writing my Webpack to use `electron-webpack` as it had promised hot reloading out-of-the-box.
+Exasperated, I decided to re-write my Webpack to use `electron-webpack` as it had promised hot reloading out-of-the-box.
 But this time, I could not get my existing Webpack configurations to work. `electron-webpack` was simply too abstract
 for my liking.
 
@@ -67,17 +67,29 @@ I think this experience really speaks to the almost tragic state of Javascript. 
 three-month old articles can go obsolete. Tools are so abstracted that it's almost impossible to make flexible decisions
 without needing to pull everything apart. There are so many tools that perform the same operation but differ ever so
 slightly that using one over the other would cause red errors to fill your screen. And yet, we are recommending web
-development as a "beginner" domain. Sure, having opinionated tooling can make it easy to start out with -- but staying
+development as a "beginner" domain. Sure, having opinionated tooling can make it easy to start out with — but staying
 within the confines and diction of each opinion can become stifling and frustrating.
 
 Sure this whole process has been eye-opening and has taught me a lot about Webpack and Babel. But maybe it's just me, but
-I think that development should be less about confusing setup about standards and more on actually developing a product
-that matters. I just feel that time could have been better invested elsewhere if the ecosystem and tooling was a lot more
-cohesive and complete.
+I think that development should be less about confusing setup and debating standards and more about actually developing a
+product that matters. I just feel that time can be better invested elsewhere if the ecosystem and tooling is a
+lot more cohesive and complete.
 
 I know my new "minimal" Electron setup is contributing to the problem, but for me, working with the tools at the most
-fundamental level -- away from the abstracted nonsense -- is the easiest way for me to get something working.
+fundamental level — away from the abstracted nonsense — is the easiest way for me to get something working.
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
+
+Of course, Electron development is not exactly the traditional starting point for web development and my past experiences
+with these libraries have always been less problematic. I think I am just frustrated at the fact that just by adding a
+new framework or feature to the mix, all of these tools suddenly stop working properly and the debugging process is
+doubly difficult because of the lack of proper documentation.
+
+So what can we do about this? Well, I believe that this problem stems from a lack of proper documentation. Rather than
+adopting the traditional mindset of "This works with a single click", we should be striving to document how a layer of
+abstraction works behind the scenes. What dependencies does it rely on? How do we properly add new dependencies that don't
+strictly play into the tight integration? How do we use this library, add new features, and maintain it as our project
+grows? By taking this first step to making libraries easily understandable and modifiable, we minimize the need to double
+down on previous standards and can instead, just stick to a single modular library *that just works.*
 
 In case you are interested, my "minimal" Electron setup can be found [here.](https://github.com/woojiahao/minimal-electron)

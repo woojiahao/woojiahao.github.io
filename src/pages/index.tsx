@@ -63,7 +63,7 @@ const Home = ({ data }) => {
                 {/* TODO: Figure out way to abstract icon styles into ContactLink directly */}
                 <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
                 <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
-                <ContactLink link="https://www.linkedin.com/in/jia-hao-woo-089346155/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
+                <ContactLink link="https://www.linkedin.com/in/woojiahao/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
                 <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
                 <ContactLink link="mailto: me@woojiahao.com" icon={<MdEmail className={contactIconClasses} />}>me@woojiahao.com</ContactLink>
                 <ContactLink link="/rss.xml" icon={<FaRssSquare className={contactIconClasses} />}>Blog RSS Feed</ContactLink>
@@ -97,6 +97,23 @@ const Home = ({ data }) => {
           <div>
             <h1 className="text-text font-normal m-0 mb-2">I love...</h1>
 
+
+            <RecentBox
+              heading="Analyzing open-source projects:"
+              links={[
+                {
+                  title: "Open-source Deep Dive: Broadway",
+                  description: "Deep diving into Broadway, a library to build concurrent and multi-stage data processing pipelines in Elixir",
+                  link: "/blog/posts/open-source-deep-dive-broadway-part-1"
+                },
+                {
+                  title: "Open-source Deep Dive: Hound",
+                  description: "Deep diving into Hound, a browser automation and integration testing library in Elixir",
+                  link: "/blog/posts/open-source-deep-dive-hound"
+                }
+              ]} />
+
+
             <RecentBox
               heading="Sharing about programming:"
               links={[
@@ -124,6 +141,11 @@ const Home = ({ data }) => {
             <RecentBox
               heading="Teaching:"
               links={[
+                {
+                  title: "Meta-programming in Elixir",
+                  description: "Introducing the intricacies of metaprogramming and the Elixir compiler in this four-part series",
+                  link: "https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html"
+                },
                 {
                   title: "Git Guide",
                   description: "A practical introduction to the Git version control system. Written for SP DIT SEP module.",
