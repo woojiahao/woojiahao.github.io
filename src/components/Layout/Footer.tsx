@@ -51,7 +51,6 @@ const Footer = ({ repositoryUrl }: FooterProps) => {
           <div className="basis-1 min-w-50p md:mb-5">
             <p className="social-media font-bold m-0 p-0 mb-4">Connect with me!</p>
             <ContactLink align="left" link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
-            <ContactLink align="left" link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
             <ContactLink align="left" link="https://www.linkedin.com/in/woojiahao/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
             <ContactLink align="left" link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
             <ContactLink align="left" link="mailto: me@woojiahao.com" icon={<MdEmail className={contactIconClasses} />}>me@woojiahao.com</ContactLink>
