@@ -3,7 +3,9 @@ type: "About"
 published: true
 ---
 
-Hi! I am Jia Hao and I am a software developer from Singapore. I am an incoming National University of Singapore (NUS) freshman studying Computer Science. I graduated from Singapore Polytechnic with a Diploma in Information Technology.
+I am Jia Hao, a software developer from tiny red dot — Singapore! I am studying Computer Science at the National
+University of Singapore! I use various technologies but my primary focus is in backend systems — managing databases and
+building APIs.
 
 I am avid learner who loves solving complex and interesting problems. I seize every opportunity to hone my knowledge
 and seek to be a better version of myself everyday. My love for learning has been the primary motivating factor for me
@@ -11,7 +13,7 @@ to learn programming as it is such a vast field. It has also cultivated my passi
 programming.
 
 I started A Programmer's Perspective as a way for me to share about my journey into the belly of the beast
-(programming). A blog allowed me to combine my love for story-telling with my love for teaching and programming -
+(programming). A blog allowed me to combine my love for story-telling with my love for teaching and programming —
 killing three birds with one site!
 
 ## Experience
@@ -22,13 +24,20 @@ killing three birds with one site!
 - **UAT team coordinator/Intern** — SOI Re-platform @ [DBS Singapore](https://www.dbs.com.sg/index/default.page) — Apr 2019 to Aug 2019
 - **Lead Android developer** — SenseView Framework @ [MightyAim](https://www.mightyaim.co/) — Feb 2018 to May 2018
 
+### Others
+
+- **Software Engineer** — Project Sight Words @ GDSC NUS - Sep 2022 to Present
+- **Independent Technical Writer & Guest Author** — Jan 2018 to Present
+
 ### Tools
 
-- **Programming languages** — Elixir, Go, Kotlin, Javascript, SQL (Postgres), C#, Java, Python
-- **Technologies** — Linux, Heroku, Docker, Git, Gatsby.js, Vue, Spring Boot, Electron, React.js
+- **Programming languages** — Go, Elixir, Python, Kotlin, Java, SQL (PostgreSQL), JavaScript, Typescript, HTML/CSS
+- **Frameworks** - Node.js, Vue.js, React, Tailwind, Android, Java Spring Boot
+- **Technologies** — Git, Docker, Linux, Heroku
 
 ## Projects
 
+- [**chris**](https://github.com/woojiahao/chris) — Pratt parser implementation for mathematical equations
 - [**life**](https://github.com/woojiahao/life) — Conway's Game of Life visualizer
 - [**apollo**](https://github.com/woojiahao/apollo) — RSS feed aggregator
 - [**kobold**](https://github.com/woojiahao/kobold) — URL shortening service
@@ -47,13 +56,11 @@ A comprehensive list of all my projects can be found [here.](/projects)
 These are a list of the various topics that I'm learning at the moment. Check out my recommendations for books and
 videos [here!](https://www.notion.so/woojiahao/48b21a97d71c4cd2bc9a9051bd7423a3?v=e2c493015ceb47cfa275a03f20895cb1)
 
-1. **Psychology**
+1. **Calculus**
 
-    I had thoroughly enjoyed learning about psychology through the "Introduction to Psychology" course on Coursera. So,
-    I want to explore the field even more and to see if I would like to study it in depth in university as well! As
-    such, I have decided to pick up a textbook on psychology, namely, the one available on OpenStax!
+    I am brushing up on my calculus using Thomas Calculus! I enjoy the depth that the textbook brings. Beyond just understanding formulas, I emphasize on understanding the proofs and theory behind each formula to lay a solid foundation!
 
-    The textbook can be found [here.](https://openstax.org/details/books/psychology)
+    The book can be found [here.](https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981)
 
 2. **Elixir & Functional programming**
 
@@ -76,16 +83,7 @@ videos [here!](https://www.notion.so/woojiahao/48b21a97d71c4cd2bc9a9051bd7423a3?
 
    The book can be found [here.](https://web.mit.edu/alexmv/6.037/sicp.pdf)
 
-4. **Calculus**
-
-    I am brushing up on my calculus using Thomas Calculus! I enjoy the depth that the textbook brings. Beyond just understanding formulas, I emphasize on understanding the proofs and theory behind each formula to lay a solid foundation!
-
-    The book can be found [here.](https://www.amazon.com/Thomas-Calculus-14th-Joel-Hass/dp/0134438981)
-
 ## Hobbies
 
 When I'm not programming, I enjoy running or hanging out with friends. I love reading and have been using my phone as an
-e-book reader to consume various technical books on subjects spanning from CS to Math to Physics. I also spend my time
-on Discord as a moderator for the largest programming server on the platform where I socialize with my friends there (we
-generally goof off and have fun), discuss my project ideas with others, help beginners with programming problems, and
-handle any situations that may crop up among members.
+e-book reader to consume various technical books on subjects spanning from CS to Math to Physics.

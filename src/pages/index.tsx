@@ -2,7 +2,6 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import { AiFillGithub, AiFillLinkedin, AiFillTwitterSquare, FaRssSquare } from "react-icons/all"
 import { MdEmail } from "react-icons/md"
-import { SiDiscord } from "react-icons/si"
 import ContactLink from "../components/ContactLink"
 import RecentBox from "../components/RecentBox"
 import SEO from "../components/SEO"
@@ -62,7 +61,6 @@ const Home = ({ data }) => {
               <div>
                 {/* TODO: Figure out way to abstract icon styles into ContactLink directly */}
                 <ContactLink link="https://github.com/woojiahao" icon={<AiFillGithub className={contactIconClasses} />}>woojiahao</ContactLink>
-                <ContactLink link="https://discord.gg/sgexams" icon={<SiDiscord className={contactIconClasses} />}>@Chill#4048</ContactLink>
                 <ContactLink link="https://www.linkedin.com/in/woojiahao/" icon={<AiFillLinkedin className={contactIconClasses} />}>Woo Jia Hao</ContactLink>
                 <ContactLink link="https://twitter.com/woojiahao_" icon={<AiFillTwitterSquare className={contactIconClasses} />}>@woojiahao_</ContactLink>
                 <ContactLink link="mailto: me@woojiahao.com" icon={<MdEmail className={contactIconClasses} />}>me@woojiahao.com</ContactLink>
@@ -76,20 +74,26 @@ const Home = ({ data }) => {
           <div>
             <h1 className="mt-0">Hi!<span role="img" aria-label="wave"> 👋 </span>I am Jia Hao!</h1>
             <p>
-              I am a software developer from the tiny red dot — Singapore! I go by the moniker of Chill online.
-              I am an incoming National University of Singapore (NUS) freshman studying Computer Science!
-              I graduated from Singapore Polytechnic with a Diploma in Information Technology.
+              I am Jia Hao, a software developer from tiny red dot — Singapore! I am studying Computer Science at the
+              National University of Singapore! I use various technologies but my primary focus is in backend systems —
+              managing databases and building APIs.
             </p>
 
             <p>
-              I have performed natural language processing research <Link to="/about"> @ DSO National Laboratories,</Link> managed
-              UAT across 90+ teams <Link to="/about"> @ DBS Bank,</Link> and pioneered a usability framework <Link to="/about">@ MightyAim!</Link>
+              I have performed natural language processing research <Link to="/about"> @ DSO National Laboratories</Link>, managed
+              UAT across 90+ teams <Link to="/about"> @ DBS Bank</Link>, and pioneered a usability framework <Link to="/about">@ MightyAim!</Link>
+            </p>
+
+            <p>
+              Presently, I am a part of the Google Developer Student Club @ NUS, building software for social good! I
+              also write for <a href="https://betterstack.com/community/">BetterStack Community</a> as a guest author,
+              developing approachable learning material for various topics!
             </p>
 
             <p>
               I enjoy acquiring knowledge about domains outside of computer science. I am currently studying
-              calculus and reading about psychology!
-              Find out what I am learning <Link to="/about#currently-im-learning-">here!</Link> Outside of all of that,
+              calculus and linear algebra!
+              Find out what I am learning <Link to="/about#currently-im-learning-">here</Link>! Outside of all of that,
               I like exercising and hanging out with my friends!
             </p>
           </div>
@@ -141,6 +145,11 @@ const Home = ({ data }) => {
             <RecentBox
               heading="Teaching:"
               links={[
+                {
+                  title: "How to Get Started with Logging in Python",
+                  description: "Introducing the fundamentals of logging in Python",
+                  link: "https://betterstack.com/community/guides/logging/how-to-start-logging-with-python/"
+                },
                 {
                   title: "Meta-programming in Elixir",
                   description: "Introducing the intricacies of metaprogramming and the Elixir compiler in this four-part series",
