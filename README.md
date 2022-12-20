@@ -1,41 +1,24 @@
-# woojiahao.github.io
+# Personal Website
 
-Personal site built using Gatsby.js
+> Jia Hao's the name. Simplicity's the game.
 
-## Installation
+## Why the redesign?
 
-```bash
-$ git clone https://github.com/woojiahao/woojiahao.github.io.git
-$ cd woojiahao.github.io/
-$ yarn global add gatsby-cli
-$ yarn install
-```
+I have decided that maintaining and adding new features to the previous Gatsby.js website
+was too time consuming and took away from my ability to work on my other projects and 
+write better and more detailed articles.
 
-Serve the site locally at `localhost:8000`.
+## What has changed?
 
-```bash
-$ gatsby develop
-```
+I have redesigned my primary site (woojiahao.com) to be a simple HTML + CSS page that
+contains my portfolio.
 
-## Media breakpoints
+I have moved my blog to a [separate repository](https://github.com/woojiahao/blog) and 
+used Hugo instead. This way, I don't need to spend time deliberating over designs and 
+implmenting complex features on my own.
 
-```
-420px -> 512px -> 768px -> 1024px
-```
+## Where is the old site?
 
-## TODO
+I have kept it as the original branch `develop`. The new branch you are on, `latest`,
+houses the most recent set of changes.
 
-- [ ] Add hot air balloon that ascends as page is scrolled
-- [ ] Wikipedia definition reference balloon on-hover (when a referenced text links to Wikipedia, use the API to get the definition, and display that on the site directly) - retrieve this data before the site is built and store them in the GraphQL
-- [X] Hash URLs to minimise footprint or do something about the long URLs
-- [ ] Render GitHub gists
-- [ ] Blog post thumbnails using Japanese art
-- [ ] Side bar within layout
-
-## Technologies
-
-### Tailwind
-
-Uses PostCSS as a CSS parser to parse `main.css` with the custom styles from Tailwind to create the styles.
-
-`extends` will not completely replace all classes in Tailwind while defining the values under `theme` directly will remove all existing classes.
