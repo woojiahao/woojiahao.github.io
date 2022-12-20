@@ -144,6 +144,7 @@ i[class^="fa"] {
 .experience .heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .experience .heading p {
@@ -184,7 +185,7 @@ i[class^="fa"] {
   color: var(--gray);
 }
 
-#writings p {
+#featured p {
   margin-bottom: 1rem;
 }
 
@@ -207,4 +208,84 @@ footer {
   justify-content: space-between;
   align-items: center;
   margin-top: 4rem;
+}
+
+@media only screen and (max-width: 1450px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1030px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #projects .content .project {
+    flex-grow: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    row-gap: 0.7rem;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.5rem;
+  }
+
+  #profile {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  #profile img {
+    width: 150px;
+    border-radius: 9999px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #projects {
+    width: 100%;
+  }
+
+  #projects .content {
+    flex-direction: column;
+    width: 100%;
+    column-gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  .project {
+    width:auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .experience .heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
