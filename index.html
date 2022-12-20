@@ -10,18 +10,52 @@
   <title>jiahao.</title>
 </head>
 
-<body>
+<body onload="setTheme()">
+  <script>
+    function setTheme() {
+      const theme = localStorage.getItem('theme')
+      if (!theme) localStorage.setItem('theme', 'light')
+      themeToggle(theme)
+    }
+
+    function themeToggle(theme) {
+      const body = document.querySelector('body')
+      const themeToggleIcon = document.getElementById('theme-toggle')
+      if (theme === 'dark') {
+        body.classList.add('dark')
+        themeToggleIcon.classList.remove('fa-moon')
+        themeToggleIcon.classList.add('fa-sun')
+      } else {
+        body.classList.remove('dark')
+        themeToggleIcon.classList.remove('fa-sun')
+        themeToggleIcon.classList.add('fa-moon')
+      }
+    }
+
+    function changeTheme() {
+      let theme = localStorage.getItem('theme')
+      if (theme === 'light') theme = 'dark'
+      else theme = 'light'
+      localStorage.setItem('theme', theme)
+      themeToggle(theme)
+    }
+  </script>
+
   <div class="container">
     <header>
       <p class="title"><a href="#">jiahao.</a></p>
-      <nav>
-        <a class="animated-link" href="#about">about</a>
-        <a class="animated-link" href="#experiences">experiences</a>
-        <a class="animated-link" href="#projects">projects</a>
-        <a class="animated-link" href="#featured">featured</a>
-        <a class="animated-link" href="https://woojiahao.com/blog">blog</a>
-        <a class="animated-link" href="#contact">contact</a>
-      </nav>
+      <div>
+        <nav>
+          <a class="animated-link" href="#about">about</a>
+          <a class="animated-link" href="#experiences">experiences</a>
+          <a class="animated-link" href="#projects">projects</a>
+          <a class="animated-link" href="#featured">featured</a>
+          <a class="animated-link" href="https://woojiahao.com/blog">blog</a>
+          <a class="animated-link" href="#contact">contact</a>
+        </nav>
+        <div class="divider"></div>
+        <i class="fa-regular fa-moon fa-lg" id="theme-toggle" onclick="changeTheme()"></i>
+      </div>
     </header>
     <main>
       <div id="profile">
