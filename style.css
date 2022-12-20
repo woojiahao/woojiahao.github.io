@@ -26,6 +26,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   transition: color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
 }
 
 body.dark {

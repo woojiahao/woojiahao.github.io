@@ -18,3 +18,9 @@ don't need to spend time deliberating over designs and implementing complex feat
 
 I have kept it as the original branch `develop`. The new branch you are on, `latest`, houses the most recent set of
 changes.
+
+## TODO
+
+- [ ] Setup SEO
+- [ ] Add description to webpage
+- [ ] Change website logo
