@@ -25,6 +25,7 @@ body {
 
   background-color: var(--bg);
   color: var(--text);
+  transition: color 0.4s ease-in-out;
 }
 
 body.dark {
@@ -75,21 +76,15 @@ header div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 1rem;
+  column-gap: 2rem;
   height: 100%;
 }
 
-header div .divider {
-  width: 3px;
-  height: 30px;
-  background-color: var(--primary);
-}
-
-header div #theme-toggle {
+header #theme-toggle {
   color: var(--primary);
 }
 
-header div #theme-toggle:hover {
+header #theme-toggle:hover {
   cursor: pointer;
 }
 
@@ -155,7 +150,6 @@ main div[id]:not(:last-child) {
   display: flex;
   flex-direction: row;
   column-gap: 0.8rem;
-  margin-top: 0.8rem;
 }
 
 #about {
@@ -291,11 +285,17 @@ footer {
 
   footer {
     flex-direction: column;
+    row-gap: 0.5rem;
     align-items: center;
+    text-align: center;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  .container {
+    width: 80%;
+  }
+
   #projects {
     width: 100%;
   }
