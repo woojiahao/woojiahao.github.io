@@ -311,9 +311,7 @@ footer {
   .project {
     width:auto;
   }
-}
 
-@media only screen and (max-width: 400px) {
   .experience .heading {
     flex-direction: column;
     align-items: flex-start;
