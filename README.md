@@ -21,6 +21,4 @@ changes.
 
 ## TODO
 
-- [ ] Setup SEO
-- [ ] Add description to webpage
 - [ ] Change website logo
