@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
 * {
   margin: 0;
@@ -8,6 +8,17 @@
 a {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  background-color: #BCECFC;
+  font-weight: 500;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.3s;
+}
+
+a:hover {
+  background-color: #3194b5;
+  color: #FDFFFC;
 }
 
 i[class^="fa"] {
@@ -16,304 +27,111 @@ i[class^="fa"] {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  --bg: #FFFCE8;
-  --text: #000;
-  --primary: #16697A;
-  --secondary: #7796CB;
-  --gray: #828A95;
-
-  background-color: var(--bg);
-  color: var(--text);
-  transition: color 0.4s ease-in-out;
-  transition: background-color 0.4s ease-in-out;
-}
-
-body.dark {
-  --bg: #344966;
-  --text: #F0F4EF;
-  --primary: #FED99B;
-  --secondary: #FF9FB2;
-  --gray: #93A8AC;
+  font-size: 18px;
+  background-color: #FDFFFC;
+  color: #141414;
+  font-weight: 300;
+  max-height: 100vh;
 }
 
 h1 {
-  color: var(--primary);
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 4em;
 }
 
 h2 {
-  color: var(--secondary);
-}
-
-h3 {
-  color: var(--gray);
-  font-weight: normal;
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
 }
 
 .container {
-  width: 60%;
-  margin: 3rem auto;
+  width: 70%;
+  margin: 7em auto;
+  max-height: 80%;
+  overflow: hidden;
 }
 
-header {
+.contents {
+  width: 45%;
+}
+
+.contents p:not(:last-child) {
+  margin-bottom: 1.2em;
+}
+
+.social-media {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  height: 100%;
+  flex-direction: row;
+  column-gap: 10px;
+  margin-top: 2em;
 }
 
-header .title {
-  font-size: 2rem;
-  font-weight: bold;
+.social-media img {
+  width: 24px;
+  height: 24px;
 }
 
-header .title a {
-  color: var(--primary);
-}
-
-header div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 2rem;
-  height: 100%;
-}
-
-header #theme-toggle {
-  color: var(--primary);
-}
-
-header #theme-toggle:hover {
+.social-media img:hover {
   cursor: pointer;
 }
 
-header nav {
-  display: flex;
-  column-gap: 1.5rem;
-  color: var(--primary);
+@media only screen and (max-width: 1100px) {
+  .contents {
+    width: 60%;
+  }
 }
 
-.animated-link {
-  box-sizing: border-box;
-  position: relative;
-  z-index: 9999;
-}
-
-.animated-link::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  background-color: var(--primary);
-  transition: all 0.5s ease-in-out;
-}
-
-.animated-link:hover {
-  color: var(--bg);
-}
-
-.animated-link:hover::before {
-  height: 100%;
-}
-
-main div[id]:not(:last-child) {
-  margin-bottom: 3rem;
-}
-
-#profile {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 2rem;
-}
-
-#profile img {
-  width: 250px;
-  border-radius: 8px;
-}
-
-#profile .content {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.8rem;
-}
-
-#profile .content h1 {
-  color: var(--secondary);
-}
-
-.socials {
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.8rem;
-}
-
-#about {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.8rem;
-}
-
-#experiences {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.8rem;
-}
-
-.experience .heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.experience .heading p {
-  color: var(--gray);
-}
-
-#projects .content {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  row-gap: 0.8rem;
-  column-gap: 0.8rem;
-  justify-content: space-between;
-}
-
-.project {
-  width: 25%;
-  border: 5px solid var(--primary);
-  padding: 10px 25px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-}
-
-.project a {
-  color: var(--secondary);
-  text-decoration: underline;
-}
-
-.project .description {
-  flex-grow: 1;
-  margin-top: 0.3rem;
-}
-
-.project .language {
-  align-self: flex-end;
-  font-weight: bold;
-  color: var(--gray);
-}
-
-#featured p {
-  margin-bottom: 1rem;
-}
-
-.writing a {
-  text-decoration: underline;
-}
-
-#contact .content {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-}
-
-#contact a {
-  text-decoration: underline;
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4rem;
-}
-
-@media only screen and (max-width: 1450px) {
-  .container {
+@media only screen and (max-width: 900px) {
+  .contents {
     width: 70%;
   }
 }
 
-@media only screen and (max-width: 1150px) {
-  .container {
-    width: 80%;
-  }
+.wave {
+  animation-name: wave-animation;
+  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;
+  /* Change to speed up or slow down */
+  animation-iteration-count: infinite;
+  /* Never stop waving :) */
+  transform-origin: 70% 70%;
+  /* Pivot around the bottom-left palm */
+  display: inline-block;
 }
 
-@media only screen and (max-width: 1030px) {
-  body {
-    font-size: 14px;
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0.0deg);
   }
 
-  .container {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-width: 950px) {
-  #projects .content .project {
-    flex-grow: 1;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    row-gap: 0.7rem;
+  10% {
+    transform: rotate(14.0deg);
   }
 
-  header nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 0.5rem;
+  /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8.0deg);
   }
 
-  #profile {
-    flex-direction: column;
-    row-gap: 2rem;
+  30% {
+    transform: rotate(14.0deg);
   }
 
-  #profile img {
-    width: 150px;
-    border-radius: 9999px;
+  40% {
+    transform: rotate(-4.0deg);
   }
 
-  footer {
-    flex-direction: column;
-    row-gap: 0.5rem;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .container {
-    width: 80%;
+  50% {
+    transform: rotate(10.0deg);
   }
 
-  #projects {
-    width: 100%;
+  60% {
+    transform: rotate(0.0deg);
   }
 
-  #projects .content {
-    flex-direction: column;
-    width: 100%;
-    column-gap: 0;
-    flex-wrap: nowrap;
-  }
-
-  .project {
-    width:auto;
-  }
-
-  .experience .heading {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0.0deg);
   }
 }

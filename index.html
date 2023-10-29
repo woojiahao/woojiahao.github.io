@@ -29,239 +29,37 @@
 
 </head>
 
-<body onload="setTheme()">
-  <script>
-    function setTheme() {
-      const theme = localStorage.getItem('theme')
-      if (!theme) localStorage.setItem('theme', 'light')
-      themeToggle(theme)
-    }
-
-    function themeToggle(theme) {
-      const body = document.querySelector('body')
-      const themeToggleIcon = document.getElementById('theme-toggle')
-      if (theme === 'dark') {
-        body.classList.add('dark')
-        themeToggleIcon.classList.remove('fa-moon')
-        themeToggleIcon.classList.add('fa-sun')
-      } else {
-        body.classList.remove('dark')
-        themeToggleIcon.classList.remove('fa-sun')
-        themeToggleIcon.classList.add('fa-moon')
-      }
-    }
-
-    function changeTheme() {
-      let theme = localStorage.getItem('theme')
-      if (theme === 'light') theme = 'dark'
-      else theme = 'light'
-      localStorage.setItem('theme', theme)
-      themeToggle(theme)
-    }
-  </script>
-
+<body>
   <div class="container">
-    <header>
-      <div>
-        <p class="title"><a href="#">jiahao.</a></p>
-        <i class="fa-regular fa-moon fa-xl" id="theme-toggle" onclick="changeTheme()"></i>
-      </div>
-      <nav>
-        <a class="animated-link" href="#about">about</a>
-        <a class="animated-link" href="#experiences">experiences</a>
-        <a class="animated-link" href="#projects">projects</a>
-        <a class="animated-link" href="#featured">featured</a>
-        <a class="animated-link" href="https://blog.woojiahao.com">blog</a>
-        <a class="animated-link" href="#contact">contact</a>
-      </nav>
-    </header>
-    <main>
-      <div id="profile">
-        <img src="./profile.jpeg" alt="Profile Picture">
-        <div class="content">
-          <h1>Hello! I am Jia Hao 👋🏻</h1>
-          <p>I am a <strong>software engineer</strong> from Singapore. I am also an <strong>undergraduate</strong>
-            studying <strong>Computer Science</strong> at the National University of Singapore (NUS).</p>
-          <p>Currently, I am learning <strong>Swift (and SwiftUI)</strong> for MacOS development, working as a software
-            engineer for <strong>NUS Google Developer Student Club</strong>, and <strong>writing technical
-              articles</strong> for BetterStack Community!</p>
-          <div class="socials">
-            <a href="https://github.com/woojiahao"><i class="fa-brands fa-github fa-xl"></i></a>
-            <a href="https://www.linkedin.com/in/woojiahao/"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-            <a href="https://twitter.com/woojiahao_"><i class="fa-brands fa-twitter fa-xl"></i></a>
-            <a href="https://blog.woojiahao.com/index.xml"><i class="fa-solid fa-rss fa-xl"></i></a>
-            <a href="mailto:me@woojiahao.com"><i class="fa-solid fa-at fa-xl"></i></a>
-          </div>
-        </div>
-      </div>
+    <div class="contents">
+      <h1>Hello!</h1>
+      <h2>I am Jia Hao <div class="wave">👋</div>
+      </h2>
+      <p>
+        I am a software engineer, computer science undergraduate, technical author, and all around tech nerd! I am a
+        big Elixir enthusiast and have worked on <a
+          href="https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html">articles about
+          Elixir.</a>
+      </p>
 
-      <div id="about">
-        <h1>about.</h1>
-        <p>I believe in making technology accessible to others and creating software that improves the lives of others.
-          I primarily work along two fronts - technical writing and software engineering. As a writer, I aspire to make
-          learning about new technologies and concepts easy. As a software engineer, I aim to build software
-          that benefits others.</p>
-        <p>Outside of software engineering, I enjoy cooking and reading!</p>
-      </div>
+      <p>
+        I try my best to open-source all of my projects on <a href="https://github.com/woojiaho">GitHub</a> and my
+        knowledge through my <a href="https://blog.woojiahao.com">blog</a> or notes collection
+        on <a
+          href="https://woojiahao.notion.site/c0b3d91cc8714d78ae881b95a9d46f24?v=9f7ee175f4b74817a2e91aef07680cf9&pvs=4">Notion.</a>
+        Lately, I have been working on an open-source centralized notification tool called <a
+          href="https://github.com/woojiahao/notify.me">notify.me.</a>
+      </p>
 
-      <div id="experiences">
-        <h1>experiences.</h1>
-        <div class="experience">
-          <div class="heading">
-            <h2>Software Engineer</h2>
-            <p>Aug 2022 - Present</p>
-          </div>
-          <h3>Project Sight Words @ NUS Google Developer Student Club</h3>
-          <p class="description">Working with Dyslexic Association of Singapore to build a web application backend to
-            help dyslexic students understand and learn the material they are taught in school better</p>
-        </div>
+      <p>
+        I also like to cook, boulder, and speedrun Hades.
+      </p>
 
-        <div class="experience">
-          <div class="heading">
-            <h2>Technical Writer</h2>
-            <p>Aug 2022 - Present</p>
-          </div>
-          <h3>BetterStack Community</h3>
-          <p class="description">Writing technical articles about Python and Go on topics like logging and databases</p>
-        </div>
-
-        <div class="experience">
-          <div class="heading">
-            <h2>Research Intern</h2>
-            <p>Jul 2020 - Sep 2020</p>
-          </div>
-          <h3>DSO National Laboratories</h3>
-          <p class="description">Researched new techniques to perform stance detection by extending models like BERT</p>
-        </div>
-
-        <div class="experience">
-          <div class="heading">
-            <h2>Intern</h2>
-            <p>Apr 2019 - Aug 2019</p>
-          </div>
-          <h3>DBS Bank</h3>
-          <p class="description">Worked as UAT team coordinator for over 90 teams across the bank and used Python to
-            build automation scripts for the team</p>
-        </div>
-
-        <div class="experience">
-          <div class="heading">
-            <h2>Android Developer</h2>
-            <p>Feb 2018 - Apr 2018</p>
-          </div>
-          <h3>MightyAim</h3>
-          <p class="description">Developed a gestures-based library for making existing applications highly accessible
-            to the visually impaired</p>
-        </div>
-      </div>
-
-      <div id="projects">
-        <h1>projects.</h1>
-
-        <div class="content">
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/hermes">hermes</a></h2>
-            <p class="description">Modern web forum built with React and Gin</p>
-            <div class="language">.go/.ts</div>
-          </div>
-
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/chris">chris</a></h2>
-            <p class="description">Pratt parser implementation with text tokenization</p>
-            <div class="language">.go</div>
-          </div>
-
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/apollo">apollo</a></h2>
-            <p class="description">Open-source RSS feed reader built with Electron</p>
-            <div class="language">.ts</div>
-          </div>
-
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/kobold">kobold</a></h2>
-            <p class="description">URL shortening backend built on top of Redis and PostgreSQL</p>
-            <div class="language">.ex</div>
-          </div>
-
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/life">life</a></h2>
-            <p class="description">Conway Game of Life simulator built with Scenic UI</p>
-            <div class="language">.ex</div>
-          </div>
-
-          <div class="project">
-            <h2><a href="https://github.com/woojiahao/torrent.go">torrent.go</a></h2>
-            <p class="description">BitTorrent protocol implementation</p>
-            <div class="language">.go</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="featured">
-        <h1>featured.</h1>
-        <p>I mostly write about software engineering and open-source software. The following are some of my notable
-          writings. For more, please visit my <a class="animated-link" href="https://blog.woojiahao.com">blog</a></p>
-
-        <div class="writing">
-          <h2><a href="https://betterstack.com/community/guides/logging/how-to-start-logging-with-django/">Logging in
-              Action: Django</a></h2>
-          <h3>BetterStack Community</h3>
-          <p class="description">Introducing logging in Python in an applied manner by getting readers to follow along
-            and implement logging in a Django web application</p>
-        </div>
-
-        <div class="writing">
-          <h2><a href="https://betterstack.com/community/guides/logging/how-to-start-logging-with-python/">Logging
-              Fundamentals: Python</a></h2>
-          <h3>BetterStack Community</h3>
-          <p class="description">Introducing the core theory and concepts behind logging in Python</p>
-        </div>
-
-        <div class="writing">
-          <h2><a href="https://blog.appsignal.com/series/under-the-hood-of-metaprogramming">Metaprogramming in
-              Elixir</a></h2>
-          <h3>AppSignal</h3>
-          <p class="description">Deep dive into how the metaprogramming system works in Elixir and how macros are
-            evaluated by the compiler</p>
-        </div>
-
-        <div class="writing">
-          <h2><a href="https://blog.woojiahao.com/post/odd-broadway-1/">Open-source Deep Dive: Broadway</a></h2>
-          <h3>Personal</h3>
-          <p class="description">Analyzed and discussed the mechanisms behind Elixir's data processing pipeline library,
-            Broadway</p>
-        </div>
-
-        <div class="writing">
-          <h2><a href="https://blog.woojiahao.com/post/odd-hound/">Open-source Deep Dive: Hound</a></h2>
-          <h3>Personal</h3>
-          <p class="description">Analyzed and discussed the mechanisms behind Elixir's integration testing and browser
-            automation library, Hound</p>
-        </div>
-      </div>
-
-      <div id="contact">
-        <h1>contact.</h1>
-        <div class="content">
-          <div>
-            <p>I am always down to work on new projects and develop ideas.</p>
-            <p>Email me and we can start from there!</p>
-          </div>
-          <h2><a href="mailto:me@woojiahao.com">me [at] woojiahao [dot] com</a></h2>
-          <p>You can also follow me on my other social media platforms:</p>
-          <div class="socials">
-            <a href="https://github.com/woojiahao"><i class="fa-brands fa-github fa-xl"></i></a>
-            <a href="https://www.linkedin.com/in/woojiahao/"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-            <a href="https://twitter.com/woojiahao_"><i class="fa-brands fa-twitter fa-xl"></i></a>
-            <a href="https://blog.woojiahao.com/index.xml"><i class="fa-solid fa-rss fa-xl"></i></a>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <p>Copyright &copy; 2022 (Woo Jia Hao)</p>
-      <p>Made with ❤️ with <strong>HTML, CSS, JS, and FontAwesome</strong></p>
-    </footer>
+      <p>
+        You can contact me at <a href="mailto:woojiahao1234@gmail.com">woojiahao1234@gmail.com</a> or on <a
+          href="https://linkedin.com/in/woojiahao">Linkedin.</a>
+      </p>
+    </div>
   </div>
 </body>
 
