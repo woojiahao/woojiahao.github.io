@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  background-color: #FDFFFC;
+  color: #141414;
+  font-weight: 300;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -23,15 +31,6 @@ a:hover {
 
 i[class^="fa"] {
   color: var(--gray);
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  background-color: #FDFFFC;
-  color: #141414;
-  font-weight: 300;
-  max-height: 100vh;
 }
 
 h1 {
@@ -53,7 +52,7 @@ h2 {
 }
 
 .contents {
-  width: 45%;
+  width: 60%;
 }
 
 .contents p:not(:last-child) {
@@ -76,15 +75,15 @@ h2 {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1380px) {
   .contents {
-    width: 60%;
+    width: 70%;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .contents {
-    width: 70%;
+    width: 100%;
   }
 }
 
