@@ -46,7 +46,7 @@ h2 {
 
 .container {
   width: 70%;
-  margin: 7em auto;
+  margin: 5em auto;
   max-height: 80%;
   overflow: hidden;
 }
@@ -56,7 +56,7 @@ h2 {
 }
 
 .contents p:not(:last-child) {
-  margin-bottom: 1.2em;
+  margin-bottom: 1em;
 }
 
 .social-media {
@@ -73,6 +73,15 @@ h2 {
 
 .social-media img:hover {
   cursor: pointer;
+}
+
+ul {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+li {
+  list-style-type: disc;
 }
 
 @media only screen and (max-width: 1380px) {
