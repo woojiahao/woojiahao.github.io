@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   background-color: #FDFFFC;
   color: #141414;
@@ -14,19 +14,26 @@ body {
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: underline;
+  color: #41849a;
   display: inline-block;
-  background-color: #BCECFC;
+  /* background-color: #BCECFC; */
   font-weight: 500;
-  padding-left: 5px;
-  padding-right: 5px;
-  transition: all 0.3s;
+  /* padding-left: 5px;
+  padding-right: 5px; */
+  /* transition: all 0.3s; */
 }
 
-a:hover {
+/* a:hover {
   background-color: #3194b5;
   color: #FDFFFC;
+} */
+
+.highlight {
+  border: 3px solid #41849a;
+  padding: 0.4em 0.6em;
+  /* border-radius: 15px; */
+  background-color: #e8f1f4;
 }
 
 i[class^="fa"] {
