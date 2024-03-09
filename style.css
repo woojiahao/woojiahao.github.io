@@ -62,7 +62,7 @@ h2 {
   width: 60%;
 }
 
-.contents p:not(:last-child) {
+.contents p:not(:last-child):not(.group p) {
   margin-bottom: 1em;
 }
 
@@ -89,6 +89,10 @@ ul {
 
 li {
   list-style-type: disc;
+}
+
+.group p {
+  margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 1380px) {
