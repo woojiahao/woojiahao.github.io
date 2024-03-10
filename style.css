@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -18,7 +18,7 @@ a {
   color: #41849a;
   display: inline-block;
   /* background-color: #BCECFC; */
-  font-weight: 500;
+  font-weight: 400;
   /* padding-left: 5px;
   padding-right: 5px; */
   /* transition: all 0.3s; */
