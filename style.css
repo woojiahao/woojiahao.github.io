@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500;700&display=swap');
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   font-size: 18px;
   background-color: #FDFFFC;
   color: #141414;
@@ -28,6 +28,10 @@ a {
   background-color: #3194b5;
   color: #FDFFFC;
 } */
+
+strong {
+  font-weight: 700;
+}
 
 .highlight {
   border: 3px solid #41849a;
@@ -53,7 +57,7 @@ h2 {
 
 .container {
   width: 70%;
-  margin: 5em auto;
+  margin: 3em auto;
   max-height: 80%;
   overflow: hidden;
 }
