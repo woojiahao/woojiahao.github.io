@@ -11,11 +11,22 @@ body {
   background-color: #FDFFFC;
   color: #141414;
   font-weight: 300;
+  --link-color: #41849a;
+  --highlight-bg-color: #e8f1f4;
+
+  transition: all 0.4s;
+}
+
+body.dark {
+  background-color: #2E2C2F;
+  color: #FDFFFC;
+  --link-color: #9CF6F6;
+  --highlight-bg-color: #222E50;
 }
 
 a {
   text-decoration: underline;
-  color: #41849a;
+  color: var(--link-color);
   display: inline-block;
   /* background-color: #BCECFC; */
   font-weight: 400;
@@ -37,7 +48,7 @@ strong {
   border: 3px solid #41849a;
   padding: 0.4em 0.6em;
   /* border-radius: 15px; */
-  background-color: #e8f1f4;
+  background-color: var(--highlight-bg-color);
 }
 
 i[class^="fa"] {
@@ -97,6 +108,10 @@ li {
 
 .group p {
   margin-bottom: 5px;
+}
+
+#dark-mode-toggle:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1380px) {

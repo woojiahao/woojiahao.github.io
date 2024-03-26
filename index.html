@@ -31,6 +31,34 @@
 </head>
 
 <body>
+  <script>
+    function setTheme() {
+      const theme = localStorage.getItem('theme')
+      if (!theme) localStorage.setItem('theme', 'light')
+      themeToggle(theme)
+    }
+
+    function themeToggle(theme) {
+      const body = document.querySelector('body')
+      const themeToggleIcon = document.getElementById('dark-mode-toggle')
+      if (theme === 'dark') {
+        body.classList.add('dark')
+        themeToggleIcon.innerText = '🌅'
+      } else {
+        body.classList.remove('dark')
+        themeToggleIcon.innerText = '🌃'
+      }
+    }
+
+    function toggleDarkMode() {
+      let theme = localStorage.getItem('theme')
+      if (theme === 'light') theme = 'dark'
+      else theme = 'light'
+      localStorage.setItem('theme', theme)
+      themeToggle(theme)
+    }
+  </script>
+
   <div class="container">
     <div class="contents">
       <h1>Hello!</h1>
@@ -43,7 +71,9 @@
       </p>
 
       <p>
-        I also like to cook 🍳, boulder 🧗‍♂️, and speedrun Hades 🕹️.
+        I also like to cook 🍳, boulder 🧗‍♂️, run at night <span id="dark-mode-toggle"
+          onclick="toggleDarkMode()">🌃</span>,
+        and speedrun Hades 🕹️.
       </p>
 
       <p class="highlight">
@@ -57,12 +87,12 @@
       <div class="group">
         <p><strong>Knowledge Sharing</strong></p>
         <ul>
-          <li><a href="https://interviews.woojiahao.com">Technical interview study guide</a></li>
-          <li><a href="https://nus.woojiahao.com">NUS cheatsheets</a></li>
-          <li><a href="https://github.com/woojiahao/reading-list">Reading list</a></li>
+          <li><a href="https://interviews.woojiahao.com">Technical interview study guide</a> ⭐</li>
+          <li><a href="https://nus.woojiahao.com">NUS cheatsheets</a> ⭐</li>
+          <li><a href="https://github.com/woojiahao/reading-list">Reading list</a> ⭐</li>
           <li><a href="https://github.com/woojiahao/chris">Building a Pratt parser in Go</a></li>
           <li><a href="https://practical-elixir.woojiahao.com">Practical functional programming with Elixir and
-              Phoenix</a></li>
+              Phoenix</a> ⭐</li>
           <li><a href="https://git-guide.woojiahao.com">Git guide</a></li>
           <li><a href="https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html">Elixir
               metaprogramming</a></li>
@@ -98,7 +128,7 @@
       <div class="group">
         <p><strong>Current Projects</strong></p>
         <ul>
-          <li><a href="https://github.com/woojiahao/omashu">Omashu</a></li>
+          <li><a href="https://github.com/woojiahao/omashu">Omashu</a> ⭐</li>
           <li>Improving the Hack&amp;Roll dashboard</li>
           <li><a href="https://remy.woojiahao.com">Personal food blog</a></li>
           <li>Adding content to my <a href="https://interviews.woojiahao.com">interview guide</a></li>
