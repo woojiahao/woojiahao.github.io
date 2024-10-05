@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: 'Inter', 'Roboto Slab', sans-serif;
+  font-family: 'Work Sans', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   background-color: #FDFFFC;
   color: #141414;
@@ -29,7 +30,7 @@ body.dark {
 a {
   text-decoration: none;
   color: var(--link-color);
-  display: inline-block;
+  /* display: inline-block; */
   /* background-color: #BCECFC; */
   font-weight: 400;
   /* padding-left: 5px;
@@ -123,6 +124,10 @@ li {
 }
 
 @media only screen and (max-width: 900px) {
+  .container {
+    width: 80%;
+  }
+
   .contents {
     width: 100%;
   }

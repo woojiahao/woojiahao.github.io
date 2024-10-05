@@ -51,21 +51,44 @@
     }
 
     function toggleDarkMode() {
-      let theme = localStorage.getItem('theme')
-      if (theme === 'light') theme = 'dark'
-      else theme = 'light'
+      const theme = localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
       localStorage.setItem('theme', theme)
       themeToggle(theme)
     }
 
+    function startGreetingAnimation() {
+      const greetings = [
+        'Hello!',
+        'Aloha!',
+        'nǐ hǎo!',
+        'konnichiwa!',
+        'Salut!'
+      ]
+      function changeGreeting(i) {
+        const greeting = greetings[i]
+        const greetingContainer = document.querySelector('.greeting-container .greeting');
+        greetingContainer.textContent = greeting
+      }
+      function scheduleTimeout(i) {
+        setTimeout(() => {
+          changeGreeting(i)
+          scheduleTimeout((i + 1) % greetings.length)
+        }, 1500)
+      }
+      scheduleTimeout(1)
+    }
+
     window.onload = () => {
       setTheme()
+      startGreetingAnimation();
     }
   </script>
 
   <div class="container">
     <div class="contents">
-      <h1>Hello!</h1>
+      <div class="greeting-container">
+        <h1 class="greeting">Hello!</h1>
+      </div>
       <h2>I am Jia Hao (jiāháo) <div class="wave">👋</div>
       </h2>
       <p>
@@ -78,9 +101,9 @@
       <p>
         I am currently a Fullstack Engineer Intern at Palantir where I have a ton of fun and build great systems!
       </p>
-      
+
       <p>
-        I am in my third year studying Computer Science at the National University of Singapore and will be
+        I am in my third year of studying Computer Science at the National University of Singapore and will be
         returning to university after my current internship to complete a dissertation.
       </p>
 
@@ -105,7 +128,7 @@
           <li><a href="https://practical-elixir.woojiahao.com">Practical Functional Programming with Elixir and
               Phoenix</a> ⭐</li>
           <li><a href="https://github.com/woojiahao/chris">Building a Pratt parser in Go</a></li>
-          <li><a href="https://git-guide.woojiahao.com">Git Guide</a></li>
+          <li><a href="https://wiki.nushackers.org/orbital/git">Git Guide</a></li>
           <li><a href="https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html">Elixir
               Metaprogramming</a></li>
           <li><a href="https://github.com/woojiahao/KotlinToDo">Introduction to Android Development with Kotlin</a></li>
@@ -117,7 +140,8 @@
         <ul>
           <li><a href="https://www.youtube.com/watch?v=-VHBMXxCee0&t=1872s">Practical Functional Programming</a> [at]
             Hackerschool</li>
-          <li>Introduction to Git [at] { Hackers Toolbox, Orbital }</li>
+          <li><a href="https://github.com/nushackers/hackertools_materials/blob/main/git/slides.pdf">Introduction to
+              Git</a> [at] { Hackers Toolbox, Orbital }</li>
           <li>Introduction to Databases [at] Orbital</li>
           <li>Introduction to Android Development with Kotlin [at] SP</li>
         </ul>
@@ -131,13 +155,13 @@
           <li>Site Reliability Engineer (SRE) Intern [at] Citadel</li>
           <li>Teaching Assistant [at] NUS CS2103/T (Software Engineering)</li>
           <li>Fullstack Engineer Intern [at] Betafi</li>
-          <li>Backend Engineer [at] NUS Google Developer Student Club Project Sight Words</li>
+          <li>Backend Engineer [at] NUS GDSC Project Sight Words</li>
           <li>Research Intern [at] DSO National Laboratories</li>
           <li>Android Developer [at] MightyAim</li>
         </ul>
       </div>
 
-<!--       <div class="group">
+      <!--       <div class="group">
         <p><strong>Current Projects</strong></p>
         <ul>
           <li><a href="https://github.com/woojiahao/omashu">Omashu</a> ⭐</li>
@@ -146,7 +170,7 @@
           <li>Adding content to my <a href="https://interviews.woojiahao.com">interview guide</a></li>
         </ul>
       </div> -->
-<!-- 
+      <!--
       <div class="group">
         <p><strong>Currently Learning</strong></p>
         <ul>
@@ -156,7 +180,7 @@
         </ul>
       </div> -->
 
-<!--       <div class="group">
+      <!--       <div class="group">
         <p><strong>Activities</strong></p>
         <ul>
           <li>Coreteam Member [at] NUS Hackers</li>
@@ -164,7 +188,7 @@
         </ul>
       </div> -->
 
-<!--       <div class="group">
+      <!--       <div class="group">
         <p><strong>Past Projects</strong></p>
         <ul>
           <li><a href="https://github.com/woojiahao/chris">chris</a></li>
