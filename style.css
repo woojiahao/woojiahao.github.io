@@ -78,6 +78,7 @@ li {
 
 @media only screen and (max-width: 1380px) {
   .container {
+    margin: 2em auto;
     width: 80%;
   }
 
@@ -88,6 +89,7 @@ li {
 
 @media only screen and (max-width: 900px) {
   .container {
+    margin: 1em auto;
     width: 90%;
   }
 
