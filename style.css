@@ -1,7 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ledger&display=swap');
 
 * {
   margin: 0;
@@ -9,58 +6,35 @@
 }
 
 body {
-  font-family: 'Work Sans', 'Inter', 'Roboto Slab', sans-serif;
-  font-size: 18px;
+  font-family: 'Ledger', 'Inter', 'Roboto Slab', sans-serif;
+  font-size: 22px;
   background-color: #FDFFFC;
   color: #141414;
   font-weight: 300;
-  --link-color: #41849a;
+  --link-color: #ff4f19;
   --highlight-bg-color: #e8f1f4;
 
-  transition: all 0.4s;
+  transition: background-color 0.4s;
 }
 
 body.dark {
   background-color: #2E2C2F;
   color: #FDFFFC;
-  --link-color: #9CF6F6;
+  /* --link-color: #9CF6F6; */
   --highlight-bg-color: #222E50;
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #2E2C2F 10px), repeating-linear-gradient(#22222255, #222222);
 }
 
 a {
   text-decoration: none;
   color: var(--link-color);
+  text-decoration: underline;
   font-weight: 400;
-  position: relative;
-  z-index: 9999;
-}
-
-a::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  bottom: 0;
-  height: 0;
-  width: 0;
-  background-color: var(--link-color);
-  transition: 0.6s;
-}
-
-a:hover::before {
-  height: 8%;
-  bottom: 0;
-  width: 100%;
 }
 
 strong {
   font-weight: 700;
-}
-
-.highlight {
-  border: 3px solid #41849a;
-  padding: 0.4em 0.6em;
-  /* border-radius: 15px; */
-  background-color: var(--highlight-bg-color);
 }
 
 i[class^="fa"] {
@@ -93,22 +67,6 @@ h2 {
   margin-bottom: 1em;
 }
 
-.social-media {
-  display: flex;
-  flex-direction: row;
-  column-gap: 10px;
-  margin-top: 2em;
-}
-
-.social-media img {
-  width: 24px;
-  height: 24px;
-}
-
-.social-media img:hover {
-  cursor: pointer;
-}
-
 ul {
   padding-left: 1em;
   padding-bottom: 1em;
@@ -118,25 +76,17 @@ li {
   list-style-type: disc;
 }
 
-.group p {
-  margin-bottom: 5px;
-}
-
-#dark-mode-toggle:hover {
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 1380px) {
+  .container {
+    width: 80%;
+  }
+
   .contents {
-    width: 70%;
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  body {
-    font-size: 16px;
-  }
-
   .container {
     width: 90%;
   }
