@@ -31,180 +31,37 @@
 </head>
 
 <body>
-  <script>
-    function setTheme() {
-      const theme = localStorage.getItem('theme')
-      if (!theme) localStorage.setItem('theme', 'light')
-      themeToggle(theme)
-    }
-
-    function themeToggle(theme) {
-      const body = document.querySelector('body')
-      const themeToggleIcon = document.getElementById('dark-mode-toggle')
-      if (theme === 'dark') {
-        body.classList.add('dark')
-        themeToggleIcon.innerText = '🌅'
-      } else {
-        body.classList.remove('dark')
-        themeToggleIcon.innerText = '🌃'
-      }
-    }
-
-    function toggleDarkMode() {
-      const theme = localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
-      localStorage.setItem('theme', theme)
-      themeToggle(theme)
-    }
-
-    function startGreetingAnimation() {
-      const greetings = [
-        'Hello!',
-        'Aloha!',
-        'nǐ hǎo!',
-        'konnichiwa!',
-        'Salut!'
-      ]
-      function changeGreeting(i) {
-        const greeting = greetings[i]
-        const greetingContainer = document.querySelector('.greeting-container .greeting');
-        greetingContainer.textContent = greeting
-      }
-      function scheduleTimeout(i) {
-        setTimeout(() => {
-          changeGreeting(i)
-          scheduleTimeout((i + 1) % greetings.length)
-        }, 1500)
-      }
-      scheduleTimeout(1)
-    }
-
-    window.onload = () => {
-      setTheme()
-      startGreetingAnimation();
-    }
-  </script>
-
   <div class="container">
     <div class="contents">
       <div class="greeting-container">
         <h1 class="greeting">Hello!</h1>
       </div>
-      <h2>I am Jia Hao (jiāháo, chia how) <div class="wave">👋</div>
+      <h2>I am Jiahao <div class="wave">👋</div>
       </h2>
-      <p>
-        I am a software engineer, Elixir enthusiast, technical author, and all around tech nerd! I
-        love building projects, writing about building projects, and talking about building projects.
-        I open-source most of my projects on <a href="https://github.com/woojiahao">GitHub</a> and my
-        knowledge through my <a href="https://blog.woojiahao.com">blog</a>.
-      </p>
 
       <p>
-        I am currently studying Computer Science at the National University of Singapore!
-      </p>
+        I am a computer science student, software engineer, Elixir enthusiast, technical author, and all-around tech
+        nerd! I open-source my projects on <a href="https://github.com/woojiahao">GitHub</a> and my
+        knowledge on my <a href="https://blog.woojiahao.com">blog</a>. </p>
       <p>
-        I also like to cook 🍳, boulder 🧗‍♂️, run at night <span id="dark-mode-toggle"
-          onclick="toggleDarkMode()">🌃</span>, speedrun Hades 🕹️, and play Dungeons &amp; Dragons 🏰.
+        I have built cool software at places like Stripe, Citadel, and Palantir. I am currently building <a
+          href="https://git-mastery.github.io">@git-mastery</a>.
       </p>
 
-      <p class="highlight">
-        I am always looking for new opportunities to <u>learn, build, teach, speak, and work</u>.
-        I am also interested in contributing to open-source projects.
-        <br><br>
-        Reach out to me at <a href="mailto:woojiahao1234@gmail.com">woojiahao1234 [at] gmail [dot] com</a>
+      <p>
+        I also like to cook 🍳, boulder 🧗‍♂️, run 🏃‍♂️, play Hades and the Legend of Zelda 🕹️, and Dungeons &amp;
+        Dragons 🏰.
       </p>
 
-      <div class="group">
-        <p><strong>Knowledge Sharing</strong></p>
-        <ul>
-          <li><a href="https://interviews.woojiahao.com">Technical Interview Study Guide</a> ⭐</li>
-          <li><a href="https://nus.woojiahao.com">NUS Cheatsheets</a> ⭐</li>
-          <li><a href="https://github.com/woojiahao/reading-list">Reading List</a> ⭐</li>
-          <li><a href="https://practical-elixir.woojiahao.com">Practical Functional Programming with Elixir and
-              Phoenix</a> ⭐</li>
-          <li><a href="https://wiki.nushackers.org/hackerschool/ci-cd-with-github-actions">CI/CD with Github Actions</a> ⭐</li>
-          <li><a href="https://github.com/woojiahao/chris">Building a Pratt parser in Go</a></li>
-          <li><a href="https://wiki.nushackers.org/orbital/git">Git Guide</a></li>
-          <li><a href="https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html">Elixir
-              Metaprogramming</a></li>
-          <li><a href="https://github.com/woojiahao/KotlinToDo">Introduction to Android Development with Kotlin</a></li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <p><strong>Talks</strong></p>
-        <ul>
-          <li><a href="https://www.youtube.com/watch?v=-VHBMXxCee0&t=1872s">Practical Functional Programming</a> [at]
-            Hackerschool</li>
-          <li><a href="https://github.com/nushackers/hackertools_materials/blob/main/git/slides.pdf">Introduction to
-              Git</a> [at] { Hackers Toolbox, Orbital }</li>
-          <li>Introduction to Databases [at] Orbital</li>
-          <li>Introduction to Android Development with Kotlin [at] SP</li>
-        </ul>
-      </div>
-
-      <div class="group">
-        <p><strong>Experiences</strong></p>
-        <ul>
-          <li>[NOW] Returning Teaching Assistant [at] NUS CS2103/T (Software Engineering)</li>
-          <li>[NOW] Coreteam [at] NUS Hackers</li>
-          <li>Fullstack Engineer Intern [at] Palantir London</li>
-          <li>Site Reliability Engineer (SRE) Intern [at] Citadel</li>
-          <li>Teaching Assistant [at] NUS CS2103/T (Software Engineering)</li>
-          <li>Fullstack Engineer Intern [at] Betafi</li>
-          <li>Backend Engineer [at] NUS GDSC Project Sight Words</li>
-          <li>Research Intern [at] DSO National Laboratories</li>
-          <li>Android Developer [at] MightyAim</li>
-        </ul>
-      </div>
-
-      <!--       <div class="group">
-        <p><strong>Current Projects</strong></p>
-        <ul>
-          <li><a href="https://github.com/woojiahao/omashu">Omashu</a> ⭐</li>
-          <li>Improving the Hack&amp;Roll dashboard</li>
-          <li><a href="https://remy.woojiahao.com">Personal food blog</a></li>
-          <li>Adding content to my <a href="https://interviews.woojiahao.com">interview guide</a></li>
-        </ul>
-      </div> -->
-      <!--
-      <div class="group">
-        <p><strong>Currently Learning</strong></p>
-        <ul>
-          <li>Computer networking</li>
-          <li>Database system architecture</li>
-          <li><code>.mjml</code> &amp; WYSIWYG editors</li>
-        </ul>
-      </div> -->
-
-      <!--       <div class="group">
-        <p><strong>Activities</strong></p>
-        <ul>
-          <li>Coreteam Member [at] NUS Hackers</li>
-          <li>Software Engineer [at] NUS GDSC Project Sight Words</li>
-        </ul>
-      </div> -->
-
-      <!--       <div class="group">
-        <p><strong>Past Projects</strong></p>
-        <ul>
-          <li><a href="https://github.com/woojiahao/chris">chris</a></li>
-          <li><a href="https://github.com/woojiahao/life">life</a></li>
-          <li><a href="https://github.com/woojiahao/torrent.go">torrent.go</a></li>
-          <li><a href="https://github.com/woojiahao/hermes">hermes</a></li>
-          <li><a href="https://github.com/woojiahao/ldb">ldb</a></li>
-          <li><a href="https://github.com/woojiahao/apollo">apollo</a></li>
-          <li><a href="https://github.com/woojiahao/kobold">kobold</a></li>
-          <li><a href="https://github.com/woojiahao/baleen">baleen</a></li>
-          <li><a href="https://github.com/woojiahao/meetup">meetup</a></li>
-          <li><a href="https://github.com/woojiahao/kMD2PDF">kMD2PDF</a></li>
-          <li><a href="https://github.com/woojiahao/Taiga">Taiga</a></li>
-          <li><a href="https://github.com/woojiahao/java-spotify-wrapper">Java Spotify Wrapper</a></li>
-        </ul>
-      </div> -->
-
-      <!--       <p>
-        You can find all my links at <a href="https://linktr.ee/woojiahao">Linktree</a>.
-      </p> -->
+      <p style="margin-bottom: 0;">Find me at:</p>
+      <ul>
+        <li><a href="https://blog.woojiahao.com">Blog</a></li>
+        <li><a href="https://blog.woojiahao.com/rss.xml">RSS feed</a></li>
+        <li><a href="https://github.com/woojiahao">Github</a></li>
+        <li><a href="https://x.com/woojiahao_">Twitter</a></li>
+        <li><a href="https://linkedin.com/in/woojiahao">Linkedin</a></li>
+        <li><a href="mailto:woojiahao1234@gmail.com">Email</a></li>
+      </ul>
     </div>
   </div>
 </body>
