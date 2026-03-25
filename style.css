@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Ledger', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: 'Special Gothic', 'Ledger', 'Inter', 'Montserrat', 'Roboto Slab', sans-serif;
   font-size: 22px;
   background-color: #FDFFFC;
   color: #141414;
@@ -53,8 +53,8 @@ h2 {
 }
 
 .container {
-  width: 70%;
-  margin: 3em auto;
+  width: 75%;
+  margin: 5em auto;
   max-height: 80%;
   overflow: hidden;
 }
@@ -76,7 +76,7 @@ li {
   list-style-type: disc;
 }
 
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 1280px) {
   .container {
     margin: 2em auto;
     width: 80%;
@@ -87,10 +87,10 @@ li {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 720px) {
   .container {
     margin: 1em auto;
-    width: 90%;
+    width: 85%;
   }
 
   .contents {
