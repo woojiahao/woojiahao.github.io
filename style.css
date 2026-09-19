@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ledger&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ledger&family=Figtree:wght@300..700&display=swap');
 
 * {
   margin: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-  font-family: 'Special Gothic', 'Ledger', 'Inter', 'Montserrat', 'Roboto Slab', sans-serif;
+  font-family: 'Figtree', 'Special Gothic', 'Ledger', 'Inter', 'Montserrat', 'Roboto Slab', sans-serif;
   font-size: 22px;
   background-color: #FDFFFC;
   color: #141414;
@@ -27,10 +28,32 @@ body.dark {
 }
 
 a {
+  position: relative;
   text-decoration: none;
-  color: var(--link-color);
-  text-decoration: underline;
+  color: inherit;
+  /* text-decoration: underline; */
   font-weight: 400;
+  display: inline-block;
+  cursor: pointer;
+}
+
+a::before {
+  position: absolute;
+  content: '';
+  background-color: var(--link-color);
+  opacity: 40%;
+  bottom: 0;
+  height: 10px;
+  border-radius: 5px;
+  left: -2px;
+  right: -2px;
+  transition: 175ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+a:hover::before {
+  height: 100%;
+  top: 0;
+  bottom: 0;
 }
 
 strong {
@@ -44,12 +67,14 @@ i[class^="fa"] {
 h1 {
   font-weight: 700;
   font-size: 4em;
+  /* font-family: 'Special Gothic', 'Ledger', 'Inter', 'Montserrat', 'Roboto Slab', sans-serif; */
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 500;
   margin-bottom: 0.5em;
+  /* font-family: 'Special Gothic', 'Ledger', 'Inter', 'Montserrat', 'Roboto Slab', sans-serif; */
 }
 
 .container {
